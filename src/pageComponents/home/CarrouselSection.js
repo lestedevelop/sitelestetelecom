@@ -5,6 +5,7 @@ import teste from '@/assets/teste.jpg'
 import teste2 from '@/assets/teste2.webp'
 import teste3 from '@/assets/teste3.jpg'
 import teste4 from '@/assets/teste4.jpg'
+import lesteUltraImage from '@/assets/lesteUltraimg.png'
 
 import Image from 'next/image';
 
@@ -29,7 +30,7 @@ const responsive = {
 
 export default function CarrouselSection(){
     return (
-        <section className="max-w-full h-full">
+        <section className="max-w-full h-full pt-14">
             <Carousel
                 swipeable={false}
                 draggable={false}
@@ -49,7 +50,7 @@ export default function CarrouselSection(){
             >
                 <div style={{height: 600}} className='bg-amber-600'>
                     <Image
-                        src={teste} // import via Webpack
+                        src={lesteUltraImage} // import via Webpack
                         alt="Logo"
                         style={{
                             objectFit: 'cover',
