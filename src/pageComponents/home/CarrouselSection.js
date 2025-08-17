@@ -30,7 +30,7 @@ const responsive = {
 
 export default function CarrouselSection(){
     return (
-        <section className="max-w-full h-full pt-14">
+        <section className="max-w-full h-full">
             <Carousel
                 swipeable={false}
                 draggable={false}

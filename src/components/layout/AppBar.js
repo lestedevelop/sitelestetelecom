@@ -32,7 +32,7 @@ export default function AppBar() {
 
     return (
         <nav
-            className={`bg-[#e6e6e6] px-4 py-4 w-full transition-transform duration-1000 ease-out ${isFixed
+            className={`bg-[#e6e6e6] px-4 py-4 w-full transition-transform duration-500 ease-out ${isFixed
                     ? `fixed top-0 left-0 right-0 z-50 shadow-md ${animate ? "-translate-y-25 opacity-0" : "translate-y-0 opacity-100"
                     }`
                     : "relative"
@@ -53,12 +53,12 @@ export default function AppBar() {
                                 />
                             </Link>
                         </div>
-                        <div className="hidden md:flex mr-25 flex flex-col gap-8">
+                        <div className="hidden md:flex mr-25 flex-col gap-8">
                             <div className="flex w-full justify-end mr-5 space-x-4">
-                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[${colors.greenLeste}] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold`} href="/ultra">
+                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold`} href="/ultra">
                                     Ultra
                                 </LinkLeste>
-                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[${colors.greenLeste}] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
+                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
                                     Movel
                                 </LinkLeste>
                             </div>
