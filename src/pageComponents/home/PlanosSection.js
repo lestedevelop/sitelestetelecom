@@ -7,7 +7,7 @@ export default function PlanosSection(){
     return (
         <Section>
             <TitleAndSubtitleSection title={'Conheça nossos planos!'} text={'Internet Fibra Ótica de verdade, dentro da sua casa'} />
-            <div className=" flex gap-6 place-items-center">
+            <div className=" flex flex-col md:flex-row gap-6 place-items-center">
                 <PlanCard />
                 <PlanCard />
                 <PlanCard />

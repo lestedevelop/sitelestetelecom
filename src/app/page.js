@@ -8,6 +8,7 @@ import JaeClienteSection from "@/pageComponents/home/JaeClienteSection";
 import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
 import CanaisAtendimentosSection from "@/pageComponents/home/CanaisAtendimentosSection";
 import Footer from "@/components/layout/Footer";
+import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <CarrouselSection/>
 
         <PlanosSection/>
+        <BannerUltraSection/>
         <JaeClienteSection/>
         <AreaCoberturaSection/>
         <BeneficiosSection/>

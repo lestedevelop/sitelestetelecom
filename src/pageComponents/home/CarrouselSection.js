@@ -5,7 +5,7 @@ import teste from '@/assets/teste.jpg'
 import teste2 from '@/assets/teste2.webp'
 import teste3 from '@/assets/teste3.jpg'
 import teste4 from '@/assets/teste4.jpg'
-import lesteUltraImage from '@/assets/lesteUltraimg.png'
+import lesteUltraImag from '@/assets/lesteUltraimg.png'
 
 import Image from 'next/image';
 
@@ -50,10 +50,11 @@ export default function CarrouselSection(){
             >
                 <div style={{height: 600}} className='bg-amber-600'>
                     <Image
-                        src={lesteUltraImage} // import via Webpack
+                        src={lesteUltraImag} // import via Webpack
                         alt="Logo"
+                         objectFit={'contain'}
                         style={{
-                            objectFit: 'cover',
+                            objectFit: 'contain',
                             width: '100%',
                             height: '100%',
                         }}

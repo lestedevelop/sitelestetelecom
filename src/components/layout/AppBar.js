@@ -56,10 +56,10 @@ export default function AppBar() {
                         <div className="hidden md:flex mr-25 flex-col gap-8">
                             <div className="flex w-full justify-end mr-5 space-x-4">
                                 <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold`} href="/ultra">
-                                    Ultra
+                                    Para sua casa
                                 </LinkLeste>
                                 <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
-                                    Movel
+                                    Para sua empresa
                                 </LinkLeste>
                             </div>
                             <div className="ml-10 flex items-baseline space-x-4">
