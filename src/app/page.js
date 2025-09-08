@@ -12,7 +12,7 @@ import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
 
 export default function Home() {
   return (
-      <div className="min-h-full bg-[#e6e6e6]">
+      <div className="min-h-full bg-[#f2f2f2]">
 
         <AppBar/>
 

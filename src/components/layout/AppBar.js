@@ -32,7 +32,7 @@ export default function AppBar() {
 
     return (
         <nav
-            className={`bg-[#e6e6e6] px-4 py-4 w-full transition-transform duration-500 ease-out ${isFixed
+            className={`bg-[#f2f2f2] px-4 py-4 w-full transition-transform duration-500 ease-out ${isFixed
                     ? `fixed top-0 left-0 right-0 z-50 shadow-md ${animate ? "-translate-y-25 opacity-0" : "translate-y-0 opacity-100"
                     }`
                     : "relative"
