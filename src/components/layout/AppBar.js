@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { useEffect, useState } from "react";
 import LinkLeste from "../links/LinkLeste";
 import { colors } from "@/styles/colors";
-
+import IconeTelefone from "../icons/TelephoneIcon";
+import IconeWhatsApp from "../icons/WhatsappIcon";
 export default function AppBar() {
 
     const [isFixed, setIsFixed] = useState(false);
@@ -32,18 +33,33 @@ export default function AppBar() {
 
     return (
         <nav
-            className={`bg-[#f2f2f2] px-4 py-4 w-full transition-transform duration-500 ease-out ${isFixed
-                    ? `fixed top-0 left-0 right-0 z-50 shadow-md ${animate ? "-translate-y-25 opacity-0" : "translate-y-0 opacity-100"
-                    }`
-                    : "relative"
+            style={{ boxShadow: "0px 0px 21px 0px #00000066" }}
+            className={`bg-[#FFFFFF]    w-full transition-transform duration-500 ease-out ${isFixed
+                ? `fixed top-0 left-0 right-0 z-50 shadow-md ${animate ? "-translate-y-25 opacity-0" : "translate-y-0 opacity-100"
+                }`
+                : "relative"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 sm:py-10 lg:px-8">
+                <div className="flex ml-30 gap-3 justify-start mr-5 space-x-4">
+                    <LinkLeste className={` font-medium after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold`} href="/ultra">
+                        Para sua casa
+                    </LinkLeste>
+                    <LinkLeste className={` text-[#979797] font-medium after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[##979797] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
+                        Para sua empresa
+                    </LinkLeste>
+                    <LinkLeste icon={<IconeWhatsApp/>} className={`font-bold after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[##979797] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
+                        <p className="text-[12px]">21</p> 2020-1300
+                    </LinkLeste>
+                    <LinkLeste icon={<IconeTelefone/>} className={` font-bold after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[##979797] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
+                       <p className="text-[12px]">21</p> 0800 053 1300
+                    </LinkLeste>
+                </div>
 
                 <div className="flex h-16 items-center justify-between">
 
-                    <div className="flex items-center w-full justify-between">
-                        <div className="shrink-0 ml-30 mt-10">
+                    <div className="flex items-center mt-10 w-full">
+                        <div className="shrink-0 ml-30 ">
                             <Link href="/" >
                                 <Image
                                     src={logo} // import via Webpack
@@ -54,36 +70,21 @@ export default function AppBar() {
                             </Link>
                         </div>
                         <div className="hidden md:flex mr-25 flex-col gap-8">
-                            <div className="flex w-full justify-end mr-5 space-x-4">
-                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold`} href="/ultra">
-                                    Para sua casa
-                                </LinkLeste>
-                                <LinkLeste className={`after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#00997b] after:transition-all after:duration-300 hover:after:w-full hover:font-semibold transition-all `} href="/movel">
-                                    Para sua empresa
-                                </LinkLeste>
-                            </div>
+
                             <div className="ml-10 flex items-baseline space-x-4">
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/ultra">
-                                    Ultra
+
+                                <LinkLeste className={" text-[#979797] font-semibold hover:text-black"} href="/movel">
+                                    Ajuda
                                 </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
-                                    Movel
-                                </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
-                                    App
-                                </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
-                                    Indique e Ganhe
-                                </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
+                                <LinkLeste className={" text-[#979797] font-semibold hover:text-black"} href="/movel">
                                     Central do Assinante
                                 </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
-                                    FAQ
+                                <LinkLeste className={" text-[#979797] font-semibold hover:text-black"} href="/movel">
+                                    Indique e Ganhe
                                 </LinkLeste>
-                                <LinkLeste className={"font-semibold hover:text-black"} href="/movel">
-                                    Link Corporativo
-                                </LinkLeste>
+
+
+
                             </div>
                         </div>
                     </div>
