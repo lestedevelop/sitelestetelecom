@@ -8,7 +8,7 @@ export default function ActionCard({ icon, text,textStyle }) {
         {icon}
       </div>
 
-      <p style={textStyle} className="text-green-800  font-semibold text-xl">
+      <p style={textStyle} className="text-[#009373]  font-semibold text-md">
         {text}
       </p>
     </div>
