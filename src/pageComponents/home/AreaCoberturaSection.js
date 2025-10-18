@@ -11,8 +11,7 @@ export default function AreaCoberturaSection(){
       backgroundRepeat: 'no-repeat',    
       width: '100%',                    
       height: '400px',
-
-                  
+      boxSizing: 'border-box'        
     }}>
      <div className="p-6 rounded-lg text-white mt-10 flex justify-center flex-col ">
       <h2 className="text-4xl font-bold mb-4">
