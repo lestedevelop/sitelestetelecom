@@ -14,18 +14,31 @@ import Image from "next/image";
 
 export default function JaeClienteSection() {
     return (
-        <Section>
-            <TitleAndSubtitleSection title={'Já é cliente Leste?'} text={'Como podemos ajudar?'} styleText={{color:'#045441'}}/>
-            <div className="flex justify-around gap-20 ">
+        <Section >
+            <div  className={'text-center md:text-start'}>
+                 <TitleAndSubtitleSection title={'Já é cliente Leste?'} text={'Como podemos ajudar?'} styleText={{color:'#045441'}}/>
+                
+            
+            <div className="flex flex-col items-center md:justify-around md:flex md:flex-row gap-3 md:gap-20 ">
                 <a href="#">
                     <ActionCard textStyle={{color:"#045441"}} text={'Segunda via'} icon={<Image alt="icone de boleto" src={logoBoleto} />}/>
 
                 </a>
-                <ActionCard textStyle={{color:"#045441"}} text={'Problemas de conexão'} icon={<Image alt="icone de conexao" src={conexao} />}/>
-                <ActionCard textStyle={{color:"#045441"}} text={'Teste sua velocidade!'} icon={<Image alt="icone de velocidade" width={50} src={velocidade}  />}/>
-                <ActionCard textStyle={{color:"#045441"}} text={'Upgrade de plano'} icon={<Image alt="icone de conexao" width={50} src={antena}  />}/>
-                <ActionCard textStyle={{color:"#045441"}} text={'Canal do WhatsApp'} icon={<Megaphone size={48}/>}/>
+                <a>
+                     <ActionCard textStyle={{color:"#045441"}} text={'Problemas de conexão'} icon={<Image alt="icone de conexao" src={conexao} />}/>
+                </a>
+               
+                <a>
+                    <ActionCard textStyle={{color:"#045441"}} text={'Teste sua velocidade!'} icon={<Image alt="icone de velocidade" width={50} src={velocidade}  />}/>
+                </a>
+               <a>
+                 <ActionCard textStyle={{color:"#045441"}} text={'Upgrade de plano'} icon={<Image alt="icone de conexao" width={50} src={antena}  />}/>
+               </a>
+               <a>
+                 <ActionCard textStyle={{color:"#045441"}} text={'Canal do WhatsApp'} icon={<Megaphone size={48}/>}/>
+               </a>
 
+            </div>
             </div>
 
         </Section>

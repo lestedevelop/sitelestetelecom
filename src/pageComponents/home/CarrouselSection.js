@@ -6,6 +6,7 @@ import teste2 from '@/assets/teste2.webp'
 import teste3 from '@/assets/teste3.jpg'
 import teste4 from '@/assets/teste4.jpg'
 import lesteUltraImag from '@/assets/lesteUltraimg.png'
+import lesteClube from '@/assets/lesteclube.png'
 
 import Image from 'next/image';
 
@@ -50,50 +51,29 @@ export default function CarrouselSection(){
             >
                 <div style={{height: 600}} className='bg-amber-600'>
                     <Image
+                        src={lesteClube} // import via Webpack
+                        alt="Logo"
+                         objectFit={'contain'}
+                        style={{
+                            objectFit: 'cover',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                </div>
+                <div style={{height: 600}} className='bg-amber-600'>
+                    <Image
                         src={lesteUltraImag} // import via Webpack
                         alt="Logo"
                          objectFit={'contain'}
                         style={{
-                            objectFit: 'contain',
-                            width: '100%',
-                            height: '100%',
-                        }}
-                    />
-                </div>
-                <div style={{height: 600}} className='bg-blue-500'>
-                    <Image
-                        objectFit={'contain'}
-                        src={teste2} // import via Webpack
-                        alt="Logo2"
-                        style={{
                             objectFit: 'cover',
                             width: '100%',
                             height: '100%',
                         }}
                     />
                 </div>
-                <div style={{height: 600}} className='bg-green-700'>
-                    <Image
-                        src={teste3} // import via Webpack
-                        alt="Logo3"
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: '100%',
-                        }}
-                    />
-                </div>
-                <div style={{height: 600}} className='bg-red-700'>
-                    <Image
-                        src={teste4} // import via Webpack
-                        alt="Logo4"
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: '100%',
-                        }}
-                    />
-                </div>
+                
             </Carousel>
         </section>
     )

@@ -9,34 +9,52 @@ import { colors } from "@/styles/colors";
 
 export default function AppBar() {
 
-    const [isFixed, setIsFixed] = useState(false);
-    const [animate, setAnimate] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+const [isFixed, setIsFixed] = useState(false);
+const [lastScrollY, setLastScrollY] = useState(0);
 
+useEffect(() => {
+    const handleScroll = () => {
+        const currentScroll = window.scrollY;
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 400) {
-                if (!isFixed) {
-                    setIsFixed(true);
-                    setAnimate(true); // ativa a animação
-                    setTimeout(() => setAnimate(false), 500); // desativa após a duração
-                }
-            } else {
-                setIsFixed(false);
-            }
-        };
+     
+        if (currentScroll === 0) {
+            setIsFixed(false);     
+            setIsVisible(true);    
+            setLastScrollY(0);
+            return;
+        }
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [isFixed]);
+        
+        if (!isFixed && currentScroll > 100) {
+            setIsFixed(true);
+        }
+
+       
+        if (currentScroll > lastScrollY) {
+            setIsVisible(false);
+        } else {
+           
+            setIsVisible(true);
+        }
+
+        setLastScrollY(currentScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY, isFixed]);
 
     return (
         <nav
-            className={`bg-[#f2f2f2] px-4 py-4 w-full transition-transform duration-500 ease-out ${isFixed
-                    ? `fixed top-0 left-0 right-0 z-50 shadow-md ${animate ? "-translate-y-25 opacity-0" : "translate-y-0 opacity-100"
-                    }`
-                    : "relative"
-                }`}
+            className={`
+        bg-[#f2f2f2] px-4 py-4 w-full transition-all duration-500 ease-out
+        ${isFixed
+            ? `sticky top-0 left-0 right-0 z-50 shadow-md 
+               ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`
+            : "relative shadow-none translate-y-0 opacity-100"
+        }
+    `}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 sm:py-10 lg:px-8">
 
