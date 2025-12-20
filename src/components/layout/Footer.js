@@ -19,7 +19,7 @@ export default function Footer() {
         <footer className="w-full bg-[#00322d]">
             <div className="md:hidden mx-auto max-w-5xl px-6 py-6 sm:px-6 lg:px-8 text-amber-50">
                 <div className="flex flex-col justify-center items-center">
-                    <Image width={150} src={logoLeste} />
+                    <Image width={150} src={logoLeste} alt="logo"/>
 
                     <div className="flex gap-5 md:justify-around">
 

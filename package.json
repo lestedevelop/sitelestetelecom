@@ -9,20 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.0.0",
-    "lucide-react": "^0.542.0",
-    "next": "15.4.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-multi-carousel": "^2.8.6",
-    "react-scroll-parallax": "^3.4.5",
-    "tailwind-merge": "^3.3.1"
+    "react-scroll-parallax": "^3.5.0",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.6",
-    "tailwindcss": "^4"
+    "@tailwindcss/postcss": "^4.1.18",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
   }
 }

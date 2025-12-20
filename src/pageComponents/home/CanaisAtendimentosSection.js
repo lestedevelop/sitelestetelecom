@@ -20,11 +20,7 @@ export default function CanaisAtendimentosSection() {
                 <div className="flex flex-col justify-between flex-1">
                     <TitleAndSubtitleSection
                         title="Canais de atendimento"
-                        text={
-                            <p>
-                                Diversos canais de atendimento para <br /> melhor te atender!
-                            </p>
-                        }
+                        text={<>Diversos canais de atendimento para <br /> melhor te atender!</>}
                     />
 
                     <div className=" flex-col mt-3">
