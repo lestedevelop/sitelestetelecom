@@ -85,8 +85,8 @@ export default function SelectCity() {
 
   return (
     <div className="fixed inset-0 z-1001 bg-primary p-8">
-      <div className="mx-auto grid h-full w-full max-w-4xl mt-[-128px] grid-cols-1 items-center md:grid-cols-2">
-        <div>
+      <div className="mx-auto grid gap-x-4 h-full w-full max-w-4xl md:-mt-32 grid-cols-1 items-center md:grid-cols-2">
+        <div className="mx-auto max-w-full">
           <h2 className="text-6xl font-bold tracking-[-0.05em] text-light md:text-[80px]/[1.05]">
             Selecione<br />a&nbsp;sua&nbsp;cidade!
           </h2>
@@ -157,7 +157,7 @@ export default function SelectCity() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-96">
+        <div className="mx-auto w-full max-w-96 md:mt-0">
           <Image src={charLeste} alt="Personagem Leste" className="h-auto w-full" priority />
         </div>
       </div>
