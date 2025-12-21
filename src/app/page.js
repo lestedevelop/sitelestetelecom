@@ -9,14 +9,16 @@ import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
 import CanaisAtendimentosSection from "@/pageComponents/home/CanaisAtendimentosSection";
 import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
+import HeroSlider from "@/pageComponents/home/HeroSlide";
 
 export default function Home() {
   return (
       <div className="min-h-full bg-[#f2f2f2]">
 
         <AppBar/>
-        {/* <CarrouselSection/>
-        <PlanosSection/>
+        {/* <CarrouselSection/> */}
+        <HeroSlider />
+        {/* <PlanosSection/>
         <BannerUltraSection/>
         <JaeClienteSection/>
         <AreaCoberturaSection/>
