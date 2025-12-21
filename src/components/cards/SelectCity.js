@@ -18,21 +18,21 @@ const STORAGE_KEY = "leste_city";
 export default function SelectCity() {
   const [selectedCity, setSelectedCity] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const containerRef = useRef(null);
 
 
-  useEffect(() => {
-    const storedCity = localStorage.getItem(STORAGE_KEY);
+  // useEffect(() => {
+  //   const storedCity = localStorage.getItem(STORAGE_KEY);
 
-    if (storedCity) {
-      setSelectedCity(storedCity);
-      setVisible(false);
-    } else {
-      setVisible(true);
-    }
-  }, []);
+  //   if (storedCity) {
+  //     setSelectedCity(storedCity);
+  //     setVisible(false);
+  //   } else {
+  //     setVisible(true);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (!visible) return;
@@ -67,22 +67,16 @@ export default function SelectCity() {
       if (!containerRef.current.contains(e.target)) setIsDropdownOpen(false);
     };
 
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") setIsDropdownOpen(false);
-    };
-
     document.addEventListener("mousedown", onClickOutside);
-    document.addEventListener("keydown", onKeyDown);
 
     return () => {
       document.removeEventListener("mousedown", onClickOutside);
-      document.removeEventListener("keydown", onKeyDown);
     };
   }, [visible]);
 
   const chooseCity = (value) => {
     setSelectedCity(value);
-    localStorage.setItem(STORAGE_KEY, value);
+    // localStorage.setItem(STORAGE_KEY, value);
     setIsDropdownOpen(false);
     setVisible(false);
   };
@@ -90,8 +84,8 @@ export default function SelectCity() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[1001] bg-primary p-8">
-      <div className="mx-auto grid h-full w-full max-w-4xl grid-cols-1 items-center md:grid-cols-2">
+    <div className="fixed inset-0 z-1001 bg-primary p-8">
+      <div className="mx-auto grid h-full w-full max-w-4xl mt-[-128px] grid-cols-1 items-center md:grid-cols-2">
         <div>
           <h2 className="text-6xl font-bold tracking-[-0.05em] text-light md:text-[80px]/[1.05]">
             Selecione<br />a&nbsp;sua&nbsp;cidade!
