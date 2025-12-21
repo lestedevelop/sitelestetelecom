@@ -15,13 +15,13 @@ export default function Home() {
       <div className="min-h-full bg-[#f2f2f2]">
 
         <AppBar/>
-        <CarrouselSection/>
+        {/* <CarrouselSection/>
         <PlanosSection/>
         <BannerUltraSection/>
         <JaeClienteSection/>
         <AreaCoberturaSection/>
         <BeneficiosSection/>
-        <CanaisAtendimentosSection/>
+        <CanaisAtendimentosSection/> */}
         <Footer/>
 
       </div>

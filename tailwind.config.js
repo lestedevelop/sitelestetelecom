@@ -8,8 +8,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#009373", //#00997b
-        light: "#F2F2F2"
+        primary: "#00997b",
+        light: "#F2F2F2",
+        dark:"#2E2E2E"
+      },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        xl:'0'
+      },
+      screens: {
+       xl: "980px",
       },
     },
   },
