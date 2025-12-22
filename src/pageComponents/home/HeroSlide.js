@@ -7,8 +7,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import banner from "@/assets/lesteUltraimg.png";
-import banner2 from "@/assets/lesteclube.png";
+import banner from "@/assets/bannernatal.png";
+import banner2 from "@/assets/bannerclube.png";
 export default function HeroSlider() {
   return (
     <section className="w-full">
@@ -21,13 +21,13 @@ export default function HeroSlider() {
         className="w-full"
       >
         <SwiperSlide>
-          <div className="relative h-60 sm:h-90 md:h-120 lg:h-140">
+          <div className="relative h-60 sm:h-90 md:h-120 lg:h-135">
             <Image src={banner} alt="Banner 1" fill priority className="object-cover" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-60 sm:h-90 md:h-120 lg:h-140">
+          <div className="relative h-60 sm:h-90 md:h-120 lg:h-135">
             <Image src={banner2} alt="Banner 2" fill className="object-cover" />
           </div>
         </SwiperSlide>
