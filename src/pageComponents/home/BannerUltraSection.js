@@ -9,9 +9,9 @@ import BotaoSaibaMais from "@/components/Buttons/ButtonGoTo";
 
 export default function BannerUltraSection() {
     return (
-        <Section>
-           <div style={{backgroundImage:`url(${bannerLeste.src})`}} className="w-full h-100 bg-center rounded-3xl">
-            <div className="flex justify-items-start flex-col pl-15 p-8 gap-5">
+        <Section className={"pb-10"}>
+           <div style={{backgroundImage:`url(${bannerLeste.src})`}} className="w-full h-[355px] bg-center rounded-3xl">
+            <div className="flex justify-center items-center md:items-start md:justify-items-start flex-col md:pl-16 gap-5">
                 <div className="flex">
                     <Image alt='Logo leste' className="w-35 mt-10" src={LogoLesteBranco}  />  
                 </div>
@@ -22,9 +22,6 @@ export default function BannerUltraSection() {
             </div>
            
             </div>
-
-
-
         </Section>
     )
 }
