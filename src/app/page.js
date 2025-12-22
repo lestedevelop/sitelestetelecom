@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AppBar from "@/components/layout/AppBar";
 import Section from "@/components/layout/Section";
-import CarrouselSection from "@/pageComponents/home/CarrouselSection";
 import PlanosSection from "@/pageComponents/home/PlanosSection";
 import AreaCoberturaSection from "@/pageComponents/home/AreaCoberturaSection";
 import JaeClienteSection from "@/pageComponents/home/JaeClienteSection";
@@ -16,11 +15,10 @@ export default function Home() {
       <div className="min-h-full bg-[#f2f2f2]">
 
         <AppBar/>
-        {/* <CarrouselSection/> */}
         <HeroSlider />
-        {/* <PlanosSection/>
+        <PlanosSection/>
         <BannerUltraSection/>
-        <JaeClienteSection/>
+        {/* <JaeClienteSection/>
         <AreaCoberturaSection/>
         <BeneficiosSection/>
         <CanaisAtendimentosSection/> */}
