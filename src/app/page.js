@@ -18,10 +18,10 @@ export default function Home() {
         <HeroSlider />
         <PlanosSection/>
         <BannerUltraSection/>
-        {/* <JaeClienteSection/>
-        <AreaCoberturaSection/>
-        <BeneficiosSection/>
-        <CanaisAtendimentosSection/> */}
+        <JaeClienteSection/>
+        {/* <AreaCoberturaSection/> */}
+        {/* <BeneficiosSection/> */}
+        {/* <CanaisAtendimentosSection/> */}
         <Footer/>
 
       </div>

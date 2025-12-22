@@ -4,12 +4,11 @@ import { twMerge } from "tailwind-merge";
 
 export default function ActionCard({ icon, text,textStyle,className}) {
   return (
-    <div  className={twMerge(
-       
-        "flex md:flex-col p-6 rounded-xl transition cursor-pointer md:w-40 w-full items-center gap-4",
+    <div className={twMerge(
+        "flex md:flex-col p-6 rounded-xl transition cursor-pointer md:w-40 w-full items-start gap-4",
         className
       )}>
-      <div className="text-green-700 text-5xl mb-3">
+      <div className="text-darkgreen text-5xl mb-3">
         {icon}
       </div>
 
