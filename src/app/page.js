@@ -19,7 +19,7 @@ export default function Home() {
         <PlanosSection/>
         <BannerUltraSection/>
         <JaeClienteSection/>
-        {/* <AreaCoberturaSection/> */}
+        <AreaCoberturaSection/>
         {/* <BeneficiosSection/> */}
         {/* <CanaisAtendimentosSection/> */}
         <Footer/>
