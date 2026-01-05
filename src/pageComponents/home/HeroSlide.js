@@ -11,7 +11,7 @@ import banner from "@/assets/bannernatal.png";
 import banner2 from "@/assets/bannerclube.png";
 export default function HeroSlider() {
   return (
-    <section className="w-full">
+    <section className="w-full md:mt-[160px] mt-[90px]">
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
