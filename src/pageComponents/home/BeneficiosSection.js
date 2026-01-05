@@ -1,21 +1,15 @@
-import { Title } from "@/components/typoraphy";
+import Image from "next/image";
 import Section from "@/components/layout/Section";
 import TitleAndSubtitleSection from "@/components/listItems/TitleAndSubtitleSection";
-import ActionCard from "@/components/listItems/ActionCard";
-import logoBoleto from "@/assets/segundaVia.svg"
 import controle from "@/assets/Controle.svg"
-import antena from "@/assets/antena.svg"
-import conexao from "@/assets/conexao.svg"
 import boleto from "@/assets/Boleto.svg"
-import Image from "next/image";
 import velocidade from "@/assets/Velocidade.svg"
 import beneficiosAtendimento from "@/assets/beneficiosLesteAtendimento.png"
 import atendimentoIcon from "@/assets/AtendimentoHeadphone.svg"
 import beneficiosGamer from "@/assets/beneficiosGamer.png"
-import lestemovel from "@/assets/leste_movel.jpg"
-import empresaImg from "@/assets/para_sua_empresa.jpg"
+import lestemovel from "@/assets/lestemovel.jpg"
+import empresaImg from "@/assets/parasuaempresa.jpg"
 import lesteClube from "@/assets/leste_clube.jpg"
-import ActionCardWrapper from "@/components/listItems/ActionCardWrapper";
 import CardProduto from "@/components/cards/CardImageWrapper";
 
 
@@ -118,7 +112,7 @@ export default function BeneficiosSection() {
 
             <div className="mt-25 flex flex-col md:flex-row justify-between gap-10">
                 {mock.map(item => (
-                    <CardProduto key={item.title} title={item.title} description={item.primaryText} size="lg" imageSrc={item.icon} />
+                    <CardProduto key={item.title} title={item.title} description={item.primaryText} imageSrc={item.icon} />
                 ))}
 
             </div>
