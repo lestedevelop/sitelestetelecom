@@ -11,22 +11,22 @@ import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
 import HeroSlider from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.png";
+import SelectCity from "@/components/cards/SelectCity";
 
 export default function Home() {
   return (
       <div className="min-h-full bg-light">
-
         <AppBar/>
         <HeroSlider />
         <PlanosSection/>
         <BannerUltraSection/>
         <JaeClienteSection/>
         <AreaCoberturaSection/>
-         <BeneficiosSection/>
-         <CanaisAtendimentosSection/>
+        <BeneficiosSection/>
+        <CanaisAtendimentosSection/>
         <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} />
         <Footer/>
-
+        <SelectCity></SelectCity>
       </div>
   );
 }
