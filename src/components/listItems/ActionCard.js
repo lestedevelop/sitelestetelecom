@@ -14,7 +14,7 @@ export default function ActionCard({ icon, text,textStyle,className}) {
 
       <p
         style={textStyle}
-        className="text-[#045441] font-semibold text-md w-42 md:w-auto md:whitespace-normal"
+        className="text-[#045441] font-semibold text-base w-42 md:w-auto md:whitespace-normal"
       >
         {text}
       </p>

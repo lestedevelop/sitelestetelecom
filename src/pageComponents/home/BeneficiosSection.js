@@ -44,81 +44,76 @@ export default function BeneficiosSection() {
 
 
     return (
-        <Section>
+        <Section className={"container"}>
             <TitleAndSubtitleSection
                 title={'Benefícios de ser Leste!'}
                 text={'Confira os nossos principais benefícios'}
                 styleText={{ color: 'rgb(0 32 25 / 98%)' }} />
 
-            <div className="flex items-center ">
-                <div className="flex flex-col">
-                    <ActionCard className={'w-60'} textStyle={{ fontSize: 20 }} text={'Internet mais rápida'}
-                        icon={<Image alt="icone de conexao" width={50} src={velocidade} />} />
-                    <div className=" w-[290px] px-[24px]">
-                        <p className="text-[#045442] font-medium text-md">
-                            Nas cidades de Niterói, <br />Maricá, Itaboraí e Rio Bonito*
-                        </p>
+            <div className="flex flex-col md:flex-row items-center">
+              <div className={"flex flex-col md:flex-row-reverse w-full items-center justify-center gap-8 md:gap-12"}>
+                  <div className="md:max-w-1/2 rounded-xl">
+                      <Image
+                          src={beneficiosAtendimento}
+                          alt="Atendimento"
+                          className="lg:max-w-120 rounded-xl"
+                      />
+                  </div>
+                  <div className="flex flex-col md:w-1/2 w-full">
+                      <Image src={atendimentoIcon} width={40} className={"-mt-4"} alt={"icon"} />
+                      <h3 className={"text-darkgreen text-lg font-semibold py-2"}>Suporte técnico 24h</h3>
+                      <div className="">
+                          <p className="text-darkgreen text-base font-medium text-md">
+                              Via telefone, WhatsApp, Instagram, Messenger, Twitter e Telegram.
+                          </p>
+                      </div>
+                  </div>
+                  <div className="flex flex-col md:w-1/2 w-full">
+                      <Image src={velocidade} width={45} alt={"icon"} className={"mt-5"} />
+                            <h3 className={"text-darkgreen text-lg font-semibold py-2"}>Internet mais rápida</h3>
+                          <div className="">
+                              <p className="text-darkgreen text-base font-medium text-md">
+                                  Nas cidades de Niterói, <br />Maricá, Itaboraí e&nbsp;Rio&nbsp;Bonito*
+                              </p>
 
-                        <p className="text-[#045442] mt-3 font-light text-[12px]">
-                            Segundo o Prêmio MelhorPlano.net de 2024
-                        </p>
+                              <p className="text-darkgreen mt-3 font-light text-[10px]">
+                                  Segundo o Prêmio MelhorPlano.net de 2024
+                              </p>
 
-                    </div>
-                </div>
-
-                <ActionCardWrapper
-                    className={'mb-3'}
-                    title={'Suporte técnico 24h'}
-                    icon={atendimentoIcon}
-                    primaryText={`Via telefone, WhatsApp, Instagram, Messenger Twitter e Telegram.`}
-                />
-                <div className="w-[600px] max-w-[600px]">
-                    <Image
-                        src={beneficiosAtendimento}
-                        alt="Atendimento"
-                        width={600}
-
-                        className="max-w-[500px] rounded-lg"
-                    />
-                </div>
-
+                          </div>
+                  </div>
+              </div>
             </div>
-            <div className="flex items-center  mt-10">
+            <div className="flex flex-col md:flex-row items-center pt-16">
+                <div className={"flex flex-col md:flex-row w-full items-center justify-center gap-12"}>
+                    <div className="md:max-w-1/2 rounded-xl">
+                        <Image
+                            src={beneficiosGamer}
+                            alt="Atendimento"
+                            className="lg:max-w-120 rounded-xl"
+                        />
+                    </div>
+                    <div className="flex flex-col md:w-1/2 w-full">
+                        <Image src={controle} width={45} alt={"icon"} />
+                        <h3 className={"text-darkgreen text-lg font-semibold py-2"}>Melhor ping</h3>
+                        <div className="">
+                            <p className="text-darkgreen text-base font-medium text-md">
+                                Na Leste você tem mais
+                                estabilidade em jogos online.
+                            </p>
+                        </div>
+                    </div>
 
-
-                <div className="w-[600px] max-w-[600px] mr-10">
-                    <Image
-                        src={beneficiosGamer}
-                        alt="Atendimento"
-                        width={600}
-
-                        className="max-w-[500px] rounded-lg"
-                    />
-                </div>
-
-                <div className="flex flex-col">
-                    <ActionCard className={'w-60'} textStyle={{ fontSize: 20 }} text={'Melhor ping'}
-                        icon={<Image alt="icone de controle" width={50} src={controle} />} />
-                    <div className=" w-[290px] px-[24px]">
-                        <p className="text-[#045442] font-light text-md">
-                            Na Leste você tem mais<br />
-                            estabilidade em jogos<br /> online.
-                        </p>
-
-
-
+                    <div className="flex flex-col md:w-1/2 w-full">
+                        <Image src={boleto} width={30} className={"-mt-4"} alt={"icon"} />
+                        <h3 className={"text-darkgreen text-lg font-semibold py-2"}>Sem pegadinhas</h3>
+                        <div className="">
+                            <p className="text-darkgreen text-base font-medium text-md">
+                                Na Leste a nossa única garantia é o bom serviço prestado!
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <ActionCardWrapper
-                    className={'mb-3'}
-                    width={40}
-                    title={'Suporte técnico 24h'}
-                    icon={boleto}
-                    primaryText={`Via telefone, WhatsApp, Instagram, Messenger Twitter e Telegram.`}
-                />
-
-
             </div>
 
             <div className="mt-25 flex flex-col md:flex-row justify-between gap-10">
