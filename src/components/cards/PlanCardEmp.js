@@ -1,13 +1,13 @@
 // PlanCard.jsx
 import React from "react";
 //
-export default function PlanCard({plan}) {
+export default function PlanCardEmp({plan,className}) {
 
     
     const [inteiro, centavos] = plan?.price?.toFixed(2).split(".");
 
     return (
-        <div className="w-65 rounded-3xl bg-white p-6 shadow-lg ring-1 ring-black/5 flex flex-col items-center">
+        <div className={`w-65 rounded-3xl bg-white p-6 shadow-lg ring-1 ring-black/5 flex flex-col items-center ${className}`}>
             {/* título */}
             <div className="text-8xl font-semibold leading-none text-primary">
                 {plan?.titleNumber}
@@ -24,14 +24,14 @@ export default function PlanCard({plan}) {
             </div>
 
             {/* Wi-Fi */}
-            <div className="mt-3 flex items-center gap-2 text-sm font-medium text-primary">
+            <div className="mt-3 flex items-center gap-2 text-4xl font-light text-darkgreen">
                 <svg
                     viewBox="0 0 24 24"
                     aria-hidden
-                    className="h-5 w-5"
+                    className="h-20 w-20"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.6"
+                    strokeWidth="2.6"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 >
@@ -52,6 +52,10 @@ export default function PlanCard({plan}) {
                         {perk}
                     </div>
                 ))}
+            </div>
+
+            <div className="mt-3 flex w-full items-center gap-3 text-primary">
+                <span className="h-px flex-1 bg-emerald-200" />
             </div>
 
             {/* preço */}
