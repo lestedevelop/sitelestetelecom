@@ -7,6 +7,10 @@
   --foreground: #171717;
 }
 
+a.underline {
+  text-decoration: underline;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

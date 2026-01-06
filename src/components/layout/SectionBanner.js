@@ -12,7 +12,7 @@ export default function SectionBanner({image, title, subtitle, className}) {
                     className="object-cover"
                 />
                 <div className="relative max-w-48 md:max-w-66 z-10 flex flex-col justify-center text-light">
-                    <h1 className="text-2xl md:text-[50px] font-bold mb-6">
+                    <h1 className={`text-2xl md:text-[50px] font-bold mb-6`}>
                         {title}
                     </h1>
                    <p className="text-[13px] md:text-[26px]">
