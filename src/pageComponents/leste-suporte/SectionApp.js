@@ -8,7 +8,7 @@ export default function SectionApp() {
     return (
         <div className={"w-full"}>
             <section className="bg-lighter">
-               <div className={"container w-full flex flex-col md:flex-row py-12 md:py-0 items-center justify-between min-h-screen md:h-150 "}>
+               <div className={"container w-full flex flex-col md:flex-row py-12 md:py-0 items-center justify-between min-h-screen md:min-h-150 "}>
                    <div className="text-primary">
                        <CardApp suporte/>
 
@@ -48,7 +48,7 @@ export default function SectionApp() {
                </div>
             </section>
             <section className="bg-primary">
-                <div className={"container  w-full flex flex-col md:flex-row py-12 items-center justify-between min-h-screen md:h-150"}>
+                <div className={"container  w-full flex flex-col md:flex-row py-12 items-center justify-between min-h-screen md:min-h-150"}>
                     <div className="text-light">
                         <CardApp central/>
 
