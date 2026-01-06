@@ -13,7 +13,8 @@ module.exports = {
         dark:"#2E2E2E",
         graylight:"#6a7282",
         graylighter:"#E8EBEA",
-        darkgreen: "#045441"
+        darkgreen: "#045441",
+        lightgreen: "#8fff85",
       },
     },
     container: {
