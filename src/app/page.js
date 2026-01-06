@@ -24,7 +24,7 @@ export default function Home() {
         <AreaCoberturaSection/>
         <BeneficiosSection/>
         <CanaisAtendimentosSection/>
-        <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} />
+        <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"https://vendas.lestetelecom.com.br/"} />
         <Footer/>
         <SelectCity></SelectCity>
       </div>

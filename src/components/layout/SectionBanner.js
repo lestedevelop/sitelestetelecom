@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 
-export default function SectionBanner({image, title, subtitle, className,imageClassName,titleClassName}) {
+export default function SectionBanner({image, title, subtitle, className,imageClassName,titleClassName,subtitleClassName}) {
     return (
         <div className={`${className}`}>
             <div className="relative container h-full overflow-hidden flex items-stretch" >
@@ -15,7 +15,7 @@ export default function SectionBanner({image, title, subtitle, className,imageCl
                     <h1 className={`text-2xl md:text-[50px] font-bold mb-6 ${titleClassName}`}>
                         {title}
                     </h1>
-                   <p className="text-[13px] md:text-[26px]">
+                   <p className={`text-[13px] md:text-[26px] ${subtitleClassName}`}>
                        {subtitle}
                    </p>
                 </div>

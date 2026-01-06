@@ -3,7 +3,7 @@ import ActionButton from "@/components/Buttons/ActionButton";
 import Image from "next/image";
 
 
-export default function CardBanner({image,title,buttonText,className}) {
+export default function CardBanner({image,title,buttonText,className,link}) {
     return (
         <div className={`${className}`}>
             <div className="relative container bg-primary h-70 md:rounded-3xl overflow-hidden flex items-stretch" >
@@ -17,7 +17,7 @@ export default function CardBanner({image,title,buttonText,className}) {
                     <h1 className="text-center md:text-left text-[32px] font-bold mb-6">
                         {title}
                     </h1>
-                    <ActionButton>
+                    <ActionButton link={link}>
                         {buttonText}
                     </ActionButton>
                 </div>
