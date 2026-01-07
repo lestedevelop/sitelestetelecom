@@ -17,7 +17,7 @@ const MAIN_LINKS = [
     { href: "/ultra", label: "Ultra" },
     { href: "/movel", label: "Móvel" },
     { href: "/leste-suporte", label: "App" },
-    { href: "/indique-e-ganhe", label: "Indique e Ganhe" },
+    { href: "/indique-e-ganhe-leste", label: "Indique e Ganhe" },
     { href: "https://portal.lestetelecom.com.br/login", label: "Central do Assinante" },
     { href: "/faq", label: "FAQ" },
     { href: "/link-corporativo", label: "Link Corporativo" },
