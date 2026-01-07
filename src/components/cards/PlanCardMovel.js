@@ -1,5 +1,6 @@
 // PlanCard.jsx
 import React from "react";
+import Link from "next/link";
 //
 export default function PlanCardMovel({plan, className}) {
 
@@ -41,12 +42,13 @@ export default function PlanCardMovel({plan, className}) {
             </div>
 
             {/* CTA */}
-            <button
+            <Link
+                href="/movel/chip"
                 type="button"
                 className="mt-4 w-full rounded-xl bg-primary px-4 py-3 text-center text-white font-semibold hover:bg-primartext-primary active:scale-[.99] transition"
             >
                 {plan?.cta}
-            </button>
+            </Link>
 
             {/* rodapé */}
             <div className="text-xs text-gray-500 text-center">{plan?.footnote}</div>
