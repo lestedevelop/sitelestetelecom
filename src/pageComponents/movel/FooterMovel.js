@@ -1,5 +1,5 @@
 import React from "react";
-import logoLeste from "@/assets/lestelogocapabranco.png";
+import logoLeste from "@/assets/logolestemovelbranca.svg";
 import telIcon from "@/assets/telIcon.svg";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import facebook from "@/assets/facebook.svg";
@@ -10,15 +10,19 @@ import twitter from "@/assets/twitter.svg";
 import portalLeste from "@/assets/portalLeste.svg";
 import appLeste from "@/assets/appLeste.svg";
 import reclameAqui from "@/assets/reclameAqui.png";
+import appstore from "@/assets/icons/apple.svg";
+import playstore from "@/assets/icons/playstore.svg";
+
 import Image from "next/image";
 import ListItemAppLink from "@/components/listItems/ListAppLinkFooter";
+import Link from "next/link";
 
 export default function FooterMovel() {
     return (
-        <footer className="w-full bg-[#00322d]">
+        <footer className="w-full bg-darkgreen">
             <div className="container py-12">
                 <div className="flex justify-center md:hidden pb-12">
-                    <Image width={150} src={logoLeste} alt="Leste" className="" />
+                    <Image width={260} src={logoLeste} alt="Leste" className="fill-white" />
                 </div>
                 <div className="text-light">
                     <div className="flex flex-col-reverse md:flex-row justify-between items-start text-light w-full">
@@ -27,33 +31,24 @@ export default function FooterMovel() {
                         <div className="flex flex-col gap-10">
 
                             {/* Logo */}
-                            <Image width={150} src={logoLeste} alt="Leste" className="hidden md:block" />
-
-                            {/* Redes sociais */}
-                            <div className="mt-10">
-                                <h2 className="text-lg font-semibold mb-3">Acompanhe a Leste nas redes</h2>
-                                <div className="flex items-center gap-4">
-                                    <Image src={facebook} width={40} alt="Facebook" />
-                                    <Image src={insta} width={40} alt="Instagram" />
-                                    <Image src={tiktok} width={40} alt="TikTok" />
-                                    <Image src={twitter} width={40} alt="Twitter" />
-                                    <Image src={linkedin} width={40} alt="LinkedIn" />
-                                </div>
-                            </div>
+                            <Image width={260} src={logoLeste} alt="Leste" className="hidden md:block" />
 
                             {/* Apps */}
-                            <div className="mt-10">
+                            <div className="mt-10 w-full">
                                 <h2 className="text-lg font-semibold mb-3">Baixe o app Leste Central</h2>
-                                <div className="flex gap-4">
-                                    <ListItemAppLink textApp="Baixar" iconApp={appLeste} nameApp="Leste&nbsp;Central" />
-                                    <ListItemAppLink textApp="Baixar" iconApp={portalLeste} nameApp="Leste&nbsp;Suporte" />
+                                <div className={"flex items-center h-24 md:w-96 justify-between"}>
+                                    <a target={"_blank"} href={"https://play.google.com/store/apps/details?id=app.mobile.leste"} className={"flex items-center gap-x-4 w-39 md:w-48"}>
+                                        <Image className={"w-[29px] h-[36px]"} src={playstore} alt={"playstore"}/>
+                                        <p className={"text-light"}>Baixar no<span className={"font-bold"}><br/> Play Store</span>
+                                        </p>
+                                    </a>
+                                    <a target={"_blank"} href={"https://apps.apple.com/br/app/leste-m%C3%B3vel/id6449548594"} className={"flex items-center gap-x-4 w-39 md:w-48"}>
+                                        <Image className={"w-[29px] h-[36px]"} src={appstore} alt={"appstore"}/>
+                                        <p className={"text-light"}>Baixar no <span
+                                            className={"font-bold"}><br/>App Store</span>
+                                        </p>
+                                    </a>
                                 </div>
-                            </div>
-
-                            {/* Reclame Aqui */}
-                            <div className="mt-5">
-                                <h2 className="text-xl font-semibold">Verificados pelo Reclame Aqui</h2>
-                                <Image src={reclameAqui} width={150} alt="Reclame Aqui" className="mt-3 rounded-xl" />
                             </div>
                         </div>
 
@@ -63,46 +58,16 @@ export default function FooterMovel() {
                                 <h1 className="font-bold text-3xl mb-5">Pra você</h1>
 
                                 <div className="flex flex-col gap-2 text-[15px]">
-                                    <a href="#" className="hover:underline">Central de atendimento</a>
-                                    <a href="#" className="hover:underline">Teste sua velocidade</a>
-                                    <a href="#" className="hover:underline">Área de cobertura</a>
-                                    <a href="#" className="hover:underline">2ª via da fatura</a>
-                                    <a href="#" className="hover:underline">FAQ</a>
-                                    <a href="#" className="hover:underline">Nossas lojas</a>
-                                    <a href="#" className="hover:underline">Conheça os aplicativos</a>
-                                    <a href="#" className="hover:underline">Trabalhe na Leste</a>
-                                    <a href="#" className="hover:underline">Contrato e regulamentos</a>
+                                    <Link href="/movel" className="hover:underline">Inicio</Link>
+                                    <a href="https://wa.me/5511933019327" target={"_blank"} className="hover:underline">Suporte</a>
+                                    <a href="https://tim.img.com.br/mapa-cobertura/" target={"_blank"} className="hover:underline">Mapa de Cobertura</a>
+                                    <Link href="/movel/chip" className="hover:underline">Como comprar na Leste</Link>
                                 </div>
                             </div>
 
-                            {/* SUPORTE */}
-                            <div className="flex flex-col ">
-
-                                <h2 className="font-bold text-3xl mb-5">Suporte 24h</h2>
-
-                                <div className="flex items-center gap-2 text-lg font-semibold">
-                                    <Image src={whatsIcon} width={22} alt="WhatsApp" />
-                                    <span>021 2020-1300</span>
-                                </div>
-
-                                <div className="flex items-center gap-2 text-lg font-semibold mt-3">
-                                    <Image src={telIcon} width={22} alt="Telefone" />
-                                    <span>021 3940-0130</span>
-                                </div>
-
-                                <div className="flex items-center gap-2 text-lg font-semibold mt-3">
-                                    <Image src={telIcon} width={22} alt="Telefone" />
-                                    <span>021 0800 053 1300</span>
-                                </div>
-
-                                <p className="text-sm mt-2 opacity-70">Apenas telefone fixo</p>
-
-                                <h2 className="font-bold text-2xl mt-8">Leste Vendas</h2>
-
-                                <div className="flex items-center gap-2 text-lg font-semibold mt-3">
-                                    <Image src={whatsIcon} width={22} alt="WhatsApp" />
-                                    <span>021 2020-1303</span>
-                                </div>
+                            <div className="flex flex-col justify-end gap-2 text-[15px]">
+                                <a href="https://privacidade.operadora.app.br/#/Leste" target={"_blank"} className="hover:underline">Política de Privacidade</a>
+                                <a href="https://privacidade.operadora.app.br/#/Leste" target={"_blank"} className="hover:underline">Termos e condições</a>
                             </div>
                         </div>
                     </div>
