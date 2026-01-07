@@ -27,33 +27,55 @@ export default function AppBar() {
     const [isSticky, setIsSticky] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [visible, setVisible] = useState(true);
-    const lastY = useRef(0);
+
+    const lastScrollY = useRef(0);
+    const lastToggleY = useRef(0);
+    const visibleRef = useRef(true);
     const ticking = useRef(false);
 
     useEffect(() => {
-        lastY.current = window.scrollY;
-        const onScroll = () => {
-            const currentY = window.scrollY;
-            if (!ticking.current) {
-                window.requestAnimationFrame(() => {
-                    const goingDown = currentY > lastY.current;
-                    const goingUp = currentY < lastY.current;
-                    if (currentY < 10) {
-                        setVisible(true);
-                    } else if (goingDown) {
-                        setVisible(false);
-                    } else if (goingUp) {
-                        setVisible(true);
-                    }
-                    lastY.current = currentY;
-                    ticking.current = false;
-                });
-                ticking.current = true;
+        lastScrollY.current = window.scrollY;
+        lastToggleY.current = window.scrollY;
+        visibleRef.current = true;
+        const THRESHOLD = 150;
+
+        const setVisibleSafe = (value) => {
+            if (visibleRef.current !== value) {
+                visibleRef.current = value;
+                setVisible(value);
             }
         };
+        const onScroll = () => {
+            const currentY = window.scrollY;
+            if (ticking.current) return;
+            ticking.current = true;
+            window.requestAnimationFrame(() => {
+                const directionDown = currentY > lastScrollY.current;
+                const directionUp = currentY < lastScrollY.current;
+                if (currentY < 10) {
+                    setVisibleSafe(true);
+                    lastToggleY.current = currentY;
+                } else {
+                    const distFromToggle = Math.abs(currentY - lastToggleY.current);
+                    if (distFromToggle >= THRESHOLD) {
+                        if (directionDown) {
+                            setVisibleSafe(false);
+                            lastToggleY.current = currentY;
+                        } else if (directionUp) {
+                            setVisibleSafe(true);
+                            lastToggleY.current = currentY;
+                        }
+                    }
+                }
+                lastScrollY.current = currentY;
+                ticking.current = false;
+            });
+        };
+
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
 
     const handleClickMenu = (e) => {
         setMenuOpen(!menuOpen)
