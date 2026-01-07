@@ -30,8 +30,8 @@ const ibmPlexSans = IBM_Plex_Sans({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-         className={`!bg-light ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
+    <body
+         className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
       >
         {children}
       </body>

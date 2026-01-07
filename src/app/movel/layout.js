@@ -4,7 +4,6 @@ import 'react-multi-carousel/lib/styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { IBM_Plex_Sans } from 'next/font/google'
 
-
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -21,19 +20,15 @@ export const metadata = {
 };
 const ibmPlexSans = IBM_Plex_Sans({
     subsets: ['latin'],
-    weight: ['400', '500', '600', '700'], // escolha os pesos que quer
+    weight: ['400', '500', '600', '700'],
     display: 'swap',
 })
 
 
-export default function RootLayout({ children }) {
+export default function MovelLayout({ children }) {
     return (
-        <html lang="en">
-        <body
-            className={`!bg-light ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
-        >
-        {children}
-        </body>
-        </html>
+        <div className="bg-light">
+            {children}
+        </div>
     );
 }

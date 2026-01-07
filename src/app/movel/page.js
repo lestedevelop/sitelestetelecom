@@ -9,10 +9,8 @@ import piechart from "@/assets/icons/piechart.svg";
 import dollar from "@/assets/icons/dollar.svg";
 import mais from "@/assets/icons/mais.svg";
 import shield from "@/assets/icons/shield.svg";
-
-
 import Image from "next/image";
-import Footer from "@/components/layout/Footer";
+import FooterMovel from "@/pageComponents/movel/FooterMovel";
 
 export default function Movel() {
 
@@ -95,7 +93,7 @@ export default function Movel() {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <FooterMovel/>
         </div>
     );
 }
