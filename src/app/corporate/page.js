@@ -18,7 +18,8 @@ export default function Coporate() {
             <SectionSolutionsCorporate/>
             <section id={"contato-corporate"}>
                 <div className="container py-16">
-                    <h3 className={"text-[23px] md:text-[40px] text-primary text-center font-bold pb-8"}>Que tal falar com um de nossos <br/> consultores?</h3>
+                    <h3 className={"text-[23px] md:text-[40px] text-primary text-center font-bold "}>Que tal falar
+                        com um de nossos <br/> consultores?</h3>
                     <FormCorporate/>
                     <p className="text-center text-sm text-graylight">
                         Prometemos não utilizar suas informações de contato para enviar qualquer tipo de SPAM.
