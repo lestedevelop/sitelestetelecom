@@ -1,9 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import 'react-multi-carousel/lib/styles.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import { IBM_Plex_Sans } from 'next/font/google'
-import SelectCity from "@/components/cards/SelectCity";
 
 
 const geistSans = Geist({
