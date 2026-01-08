@@ -3,17 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
-import logo from "@/assets/logolestemovel.png";
+import logo from "@/assets/logocorporate.png";
 import LinkLeste from "@/components/links/LinkLeste";
 
 const MAIN_LINKS = [
-    { href: "/movel", label: "Início" },
-    { href: "/movel/chip", label: "Comprar" },
-    { href: "https://wa.me/5511933019327", label: "Suporte" },
-    { href: "https://tim.img.com.br/mapa-cobertura/", label: "Mapa de Cobertura" },
+    { href: "/corporate", label: "CONHEÇA NOSSAS SOLUÇÕES\n" },
+    { href: "/corporate/cobertura", label: "Cobertura" },
+    { href: "/corporate#contato-corporate", label: "Contrate" },
+    { href: "/corporate/suporte", label: "Contato" },
+    { href: "/corporate/blog", label: "Blog" },
 ];
 
-export default function AppBarMovel() {
+export default function AppBarCorporate() {
     const [isSticky, setIsSticky] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [visible, setVisible] = useState(true);
@@ -74,12 +75,12 @@ export default function AppBarMovel() {
         <header>
             {menuOpen && (<div className="fixed inset-0 z-40 bg-black/50 md:hidden" onClick={handleClickMenu}/>)}
             <nav className={`fixed top-0 left-0 right-0 z-50
-            transition-transform duration-300 ease-out bg-white
+            transition-all duration-300 ease-out bg-corporate py-4
             ${visible ? "translate-y-0" : "-translate-y-full"}`}>
                 <div className={`container`}>
                     <div className="flex items-center justify-between py-4 sm:py-10">
-                        <Link href="/" className="shrink-0">
-                            <Image src={logo} alt="Leste" width={203} height={43} priority />
+                        <Link href="/corporate" className="shrink-0">
+                            <Image src={logo} alt="Leste"  className={"md:w-[327px] w-[180px] h-[26px] md:h-[47px]"} priority />
                         </Link>
                         <div className={`flex flex-col gap-y-8 z-50 md:relative fixed transition-all duration-450 ${menuOpen ? ' w-[75%] top-0 right-0 py-6 px-6 bg-light h-dvh shadow-2xl' : '-right-96 md:right-0'}`}>
                             {menuOpen && (
@@ -104,20 +105,23 @@ export default function AppBarMovel() {
                                     </svg>
                                 </button>
                             )}
-                            <div className="flex flex-col md:flex-row items-baseline gap-6">
-                                {MAIN_LINKS.map((item) => (
-                                    <LinkLeste key={item.href} href={item.href} className="md:font-semibold text-dark md:text-primary md:hover:text-black">
+                            <div className="flex flex-col md:flex-row items-baseline gap-6 px-4 md:px-0">
+                                <LinkLeste href={"/corporate"} className={`md:uppercase md:hidden text-[22px] md:text-sm font-light md:font-semibold text-dark md:text-white  hover:text-primary`}>
+                                    Leste Corporate
+                                </LinkLeste>
+                                {MAIN_LINKS.map((item,index) => (
+                                    <LinkLeste href={item.href} className={`md:uppercase text-[22px] md:text-sm font-light md:font-semibold text-primary md:text-white  hover:text-primary ${index === 0? 'hidden md:block' : '' }`} key={item.href}>
                                         {item.label}
                                     </LinkLeste>
                                 ))}
                             </div>
                         </div>
 
-                       <button
+                        <button
                             type="button"
                             className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-black/5"
                             onClick={handleClickMenu}>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#00997b" strokeWidth="1.5" className="h-10 w-10">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.5" className="h-10 w-10">
                                 <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>

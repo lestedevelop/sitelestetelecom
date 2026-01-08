@@ -20,7 +20,7 @@ const MAIN_LINKS = [
     { href: "/indique-e-ganhe-leste", label: "Indique e Ganhe" },
     { href: "https://portal.lestetelecom.com.br/login", label: "Central do Assinante" },
     { href: "/faq", label: "FAQ" },
-    { href: "/link-corporativo", label: "Link Corporativo" },
+    { href: "/corporate", label: "Link Corporativo" },
 ];
 
 export default function AppBar() {

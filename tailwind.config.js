@@ -15,7 +15,9 @@ module.exports = {
         graylighter:"#E8EBEA",
         darkgreen: "#045441",
         lightgreen: "#8fff85",
-      },
+        corporate: "#002019",
+        corporateDark: "#121212",
+},
     },
     container: {
       center: true,
