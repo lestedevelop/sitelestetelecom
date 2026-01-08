@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const onlyDigits = (v = "") => v.replace(/\D/g, "");
+import { onlyDigits } from "@/utils/masks";
 
 export const formCompletoSchema = yup.object({
     // Assinante
@@ -77,4 +77,29 @@ export const formIndicateSchema = yup.object({
         .nullable()
         .transform((v) => (v === "" ? null : v))
         .min(14, "Telefone incompleto"),
+});
+
+export const formCoporateSchema = yup.object({
+    nome: yup.string().required("Nome obrigatório").min(2, "Nome muito curto"),
+
+    email: yup.string().required("Email obrigatório").email("Email inválido"),
+
+    telefone: yup
+        .string()
+        .required("Telefone obrigatório")
+        .test("tel-len", "Telefone incompleto", (v) => onlyDigits(v || "").length >= 10),
+
+    empresa: yup.string().required("Empresa obrigatória").min(2, "Empresa muito curta"),
+
+    cep: yup
+        .string()
+        .required("CEP obrigatório")
+        .test("cep-len", "CEP incompleto", (v) => onlyDigits(v || "").length === 8),
+
+    numero: yup.string().required("Número obrigatório"),
+
+    cnpj: yup
+        .string()
+        .required("CNPJ obrigatório")
+        .test("cnpj-len", "CNPJ incompleto", (v) => onlyDigits(v || "").length === 14),
 });

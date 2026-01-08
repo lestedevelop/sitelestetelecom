@@ -7,17 +7,17 @@ export default function ActionButton({children, handle, className, link,router})
     return (
    <>
        {handle &&
-           <button onClick={handleClick} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition ${className}`}>
+           <button onClick={handleClick} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-darkgreen ${className}`}>
                {children}
            </button>
        }
        {link &&
-           <a href={link} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition ${className}`}>
+           <a href={link} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-darkgreen ${className}`}>
                {children}
            </a>
        }
        {router &&
-           <Link href={router} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition ${className}`}>
+           <Link href={router} className={`w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-darkgreen ${className}`}>
                {children}
            </Link>
        }
