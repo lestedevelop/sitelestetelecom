@@ -9,16 +9,16 @@ export default function SectionFaq({}) {
                 <ul className={""}>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/configurando-wifi-da-leste">Configurando Wi-Fi da Leste.</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/sem-internet">Estou sem internet. O que devo fazer?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/qual-%C3%A9-a-capacidade-da-onu%3F">Capacidade da ONU (Optical Network Unit)</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/prazo-de-visitas-t%C3%A9cnicas.">Prazo de visitas técnicas.</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/cobran%C3%A7a-de-visitas-t%C3%A9cnicas">Cobrança de visitas técnicas.</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/roteadores-wi-fi-fornecidos">Roteadores Wi-Fi fornecidos.</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/desligar-e-ligar-os-equipamentos-pode-resolver-o-problema-da-minha-conex%C3%A3o%3F">Desligar e ligar os equipamentos pode resolver o problema?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/led-vermelho-aceso">Há um LED vermelho piscando na ONU. O que devo fazer?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/como-criar-o-discador-de-conex%C3%A3o-de-banda-larga%3F">Como criar o discador de conexão de Banda Larga?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/configurando-roteador">Como configurar o roteador?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/teste-de-velocidade">Como testar a velocidade na minha conexão?</Link></li>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/procedimento-lentidao">Em caso de lentidão, o que fazer?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/qual-e-a-capacidade-da-onu">Capacidade da ONU (Optical Network Unit)</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/prazo-de-visitas-tecnicas">Prazo de visitas técnicas.</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/cobranca-de-visitas-tecnicas">Cobrança de visitas técnicas.</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/roteadores-wi-fi-fornecidos">Roteadores Wi-Fi fornecidos.</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/desligar-e-ligar-os-equipamentos-pode-resolver">Desligar e ligar os equipamentos pode resolver o problema?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/led-vermelho-aceso">Há um LED vermelho piscando na ONU. O que devo fazer?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/como-criar-o-discador-de-conexao-de-banda-larga">Como criar o discador de conexão de Banda Larga?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/configurando-roteador">Como configurar o roteador?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/teste-de-velocidade">Como testar a velocidade na minha conexão?</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/procedimento-lentidao">Em caso de lentidão, o que fazer?</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/a-leste-telecom-oferece-wi-fi-gr%C3%A1tis-aos-novos-assinantes%3F">A Leste Telecom oferece Wi-Fi grátis aos novos assinantes?</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/suporte-ao-roteador-wi-fi.">Suporte ao Roteador Wi-Fi.</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/a-leste-telecom-oferta-planos-profissionais-(s%C3%ADncronos)%3F">A Leste Telecom oferta planos profissionais (síncronos)?</Link></li>
