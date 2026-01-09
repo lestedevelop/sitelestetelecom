@@ -7,7 +7,7 @@ export default function SectionFaq({}) {
             <div className={"container text-primary py-6"}>
                 <h3 className={"text-4xl font-bold py-6"}>Suporte</h3>
                 <ul className={""}>
-                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/configurando-wifi-da-leste">Configurando Wi-Fi da Leste.</Link></li>
+                    <li className={"py-2"}><Link className={"text-md font-light underline"} href="/faq/configurando-wifi-da-leste">Configurando Wi-Fi da Leste.</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/sem-internet">Estou sem internet. O que devo fazer?</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/qual-%C3%A9-a-capacidade-da-onu%3F">Capacidade da ONU (Optical Network Unit)</Link></li>
                     <li className={"py-2"}><Link className={"text-md font-light underline"} href="https://www.lestetelecom.com.br/faq-suporte/prazo-de-visitas-t%C3%A9cnicas.">Prazo de visitas técnicas.</Link></li>
