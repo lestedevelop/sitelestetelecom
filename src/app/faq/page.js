@@ -16,11 +16,6 @@ export default function Faq() {
   return (
       <div className="min-h-full">
         <AppBar/>
-        <section className="md:mt-[160px] mt-[90px] w-full">
-            <SectionBanner className="bg-primary w-full h-[182px] md:h-[350px]" title={"FAQ"} subtitle={"Tire suas dúvidas aqui.\n"} image={bannerFaq}
-            />
-        </section>
-
         <SectionFaq />
         <section className="py-16 md:py-0 bg-primary">
           <div className="flex flex-col-reverse gap-y-12 md:flex-row container justify-between items-center w-full min-h-[547px]">
