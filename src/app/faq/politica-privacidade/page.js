@@ -2,6 +2,7 @@ import BackToIndexButton from "@/pageComponents/faq/BackToIndexButton";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
+import TitleFaq from "@/pageComponents/faq/TitleFaq";
 
 export const metadata = {
     title: "Política de privacidade - Uso de dados | Leste",
@@ -14,13 +15,7 @@ export default function PrivacyPolicyPage() {
             <AppBar />
 
             <div className="container px-6 py-12">
-                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <h1 className="text-[23px] font-bold text-dark md:text-[40px]">
-                        Política de privacidade - Uso de dados.
-                    </h1>
-
-                    <BackToIndexButton href="/faq" />
-                </div>
+                <TitleFaq title={<>Política de privacidade - Uso de dados.</>}/>
 
                 <ol className="mt-10 max-w-5xl list-decimal space-y-3 pl-6 text-[15px] leading-7 text-dark">
                     <li>
