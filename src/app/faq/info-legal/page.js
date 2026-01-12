@@ -9,8 +9,8 @@ export default function InfoLegal() {
     return (
         <div className="min-h-full">
             <AppBar/>
-            <section className="w-full mt-[90px] md:mt-[161px] bg-light">
-                <div className="container py-14 md:py-20">
+            <section className="w-full bg-light">
+                <div className="container py-10">
                     <h1 className="text-2xl md:text-[40px] font-extrabold tracking-tight text-dark md:text-5xl">
                         Informações legais.
                     </h1>
