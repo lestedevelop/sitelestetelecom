@@ -59,11 +59,11 @@ export default function MainClube() {
                 </div>
             </section>
             <section className={"py-6 md:py-12"}>
-                <div className={"container"}>
-                    <h4>Para utilizar os benefícios do Leste Clube, é fácil!</h4>
+                <div className={"container bg-[url('/waves.svg')] bg-start bg-no-repeat"}>
+                    <h4 className={"text-xl md:text-4xl/12 text-darkgreen font-bold py-12 md:py-36 w-48 md:w-96"}>Para utilizar os benefícios do Leste Clube, é fácil!</h4>
                     <div className={"flex items-center justify-between gap-x-4"}>
                         <div className={"w-[30%] md:w-1/2"}>
-                            <Image src={bannerClube} alt={""}  className={"rounded-3xl bg-darkgreen w-full max-h-[463px] hidden mb:block"} />
+                            <Image src={bannerClube} alt={""}  className={"rounded-3xl bg-darkgreen w-full max-h-[463px] hidden md:block"} />
                             <Image src={bannerClubeMobile} alt={""}  className={"rounded-xl bg-darkgreen w-full md:hidden"} />
                         </div>
                         <div className={"w-[70%] md:w-1/2 flex flex-col gap-2 md:gap-8"}>

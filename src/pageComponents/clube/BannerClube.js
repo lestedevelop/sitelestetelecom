@@ -8,7 +8,7 @@ export default function BannerClube() {
     return (
         <section className={"bg-darkgreen mt-[90px] md:mt-[160px]"}>
             <div className={"container mx-auto flex overflow-x-hidden flex-row justify-between items-center min-h-[270px] md:min-h-[600px]"}>
-                <div className={"gap-y-3 py-4 md:gap-y-8 flex flex-col w-1/2 md:w-[395]"}>
+                <div className={"gap-y-3 py-4 md:gap-y-8 flex flex-col w-1/2 md:min-w-[395px]"}>
                     <Image src={logoLesteClube} alt="logo" className={"w-[66px] md:w-[351px]"}/>
                     <h2 className={"text-xl md:text-4xl font-bold"}>Descontos e vantagens exclusivas para você, cliente Leste!</h2>
                     <p className={"text-base md:block hidden"}>
