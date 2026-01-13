@@ -11,7 +11,7 @@ import HeroSlider from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.png";
 import SelectCity from "@/components/cards/SelectCity";
-import {useHomeData} from "@/src/hooks/useHomeData";
+import {useHomeData} from "@/hooks/useHomeData";
 
 export default function Home() {
     const { city, data, loading } = useHomeData();

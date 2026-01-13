@@ -1,0 +1,22 @@
+export const fieldsByStep = {
+    cadastro: [
+        "nome",
+        "cpf",
+        "nascimento",
+        "rg",
+        "emissorRg",
+        "email",
+        "emailConfirmacao",
+        "celular",
+        "cep",
+        "numero",
+        "rua",
+        "bairro",
+        "cidade",
+        "tipoMoradia",
+        "aceitouPrivacidade",
+    ],
+    plano: ["planoId"],
+    agendamento: ["dataInstalacao", "periodoInstalacao", "vencimentoDia", "formaPagamento"],
+    revisao: [],
+};
