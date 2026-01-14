@@ -10,18 +10,17 @@ export default function VendasStepper({steps = ["Cadastro", "Plano", "Revisão"]
     const DOT_HALF = DOT / 2;
 
     return (
-        <div className="w-full">
+        <div className="w-full flex flex-col md:flex-row gap-x-8 pb-12">
             {onBack ? (
                 <button
                     type="button"
                     onClick={onBack}
-                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700"
+                    className="flex items-center gap-2 text-base font-semibold text-[#8F8F8F] hover:text-gray-700"
                 >
-                    <span className="text-lg leading-none">‹</span>
+                    <span className="text-xl font-light leading-none">‹</span>
                     Voltar
                 </button>
             ) : null}
-
             <div className="relative mt-6 w-full">
                 <div
                     className="absolute top-5 h-[2px] bg-gray-300"
@@ -50,7 +49,7 @@ export default function VendasStepper({steps = ["Cadastro", "Plano", "Revisão"]
                             <div key={label} className="flex flex-col items-center">
                                 <div
                                     className={[
-                                        "h-10 w-10 rounded-full flex items-center justify-center transition-all",
+                                        "h-8 w-8 rounded-full flex items-center justify-center transition-all",
                                         done
                                             ? "bg-emerald-600"
                                             : active

@@ -10,9 +10,11 @@ import {cadastroInicialSchema} from "@/schemas/vendas/cadastroInicialSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 import {useEffect} from "react";
 import { maskCelular,maskCEP} from "@/utils/masks";
+import { sendPrecadastro } from "@/pageComponents/vendas/api/precadastro";
+import {toast} from "react-toastify";
 
 export default function StepCadastroInicial({onNext}) {
-    const {data, updateStep} = useSales();
+    const {data, updateStep,setPrecadastroBody} = useSales();
 
     const {
         register,
@@ -69,8 +71,15 @@ export default function StepCadastroInicial({onNext}) {
     const cep = watch("cep");
     const numero = watch("numero");
 
-    function onSubmit(values) {
+    async function onSubmit(values) {
         updateStep("cadastroInicial", values);
+
+        try {
+            const resp = await sendPrecadastro({...values, id: data?.precadastroBody?.id})
+            setPrecadastroBody(resp);
+        } catch (error) {
+            toast.error(error?.message)
+        }
         onNext?.();
     }
 

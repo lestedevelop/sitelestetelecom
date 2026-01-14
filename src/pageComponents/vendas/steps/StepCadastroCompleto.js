@@ -9,11 +9,12 @@ import {useSales} from "@/pageComponents/vendas/SalesContext";
 import {cadastroCompletoSchema} from "@/schemas/vendas/cadastroCompletoSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 
-import {maskCEP, maskCelular, maskTelefone} from "@/utils/masks";
-import VendasStepper from "@/pageComponents/vendas/VendasStepper";
+import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF} from "@/utils/masks";
+import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
+import {toast} from "react-toastify";
 
 export default function StepCadastroCompleto({onNext, onBack}) {
-    const {data, updateStep} = useSales();
+    const {data, updateStep,setPrecadastroBody} = useSales();
 
     const defaults = {
         nome: "",
@@ -79,12 +80,17 @@ export default function StepCadastroCompleto({onNext, onBack}) {
     const cep = watch("cep");
     const numero = watch("numero");
 
-    function onSubmit(values) {
-        // salva só quando avançar
+    async function onSubmit(values) {
         updateStep("cadastroCompleto", values);
+
+        try {
+            const resp = await sendPrecadastro({...values, id: data?.precadastroBody.id})
+            setPrecadastroBody(resp);
+        } catch (error) {
+            toast.error(error?.message)
+        }
         onNext?.();
     }
-
     return (
         <div>
 
@@ -97,18 +103,28 @@ export default function StepCadastroCompleto({onNext, onBack}) {
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message}/>
-                        <Input label="CPF" register={register} name="cpf" error={errors?.cpf?.message}/>
+                        <Input label="CPF" register={register} name="cpf" error={errors?.cpf?.message}
+                               onChange={(e) => {
+                                   const masked = maskCPF(e.target.value);
+                                   setValue("cpf",masked, { shouldDirty: true, shouldValidade:true})
+                               }}
+                        />
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         <Input label="Data de nascimento" register={register} name="dataNascimento"
-                               error={errors?.dataNascimento?.message} placeholder="dd/mm/aaaa"/>
+                               error={errors?.dataNascimento?.message} placeholder="dd/mm/aaaa"
+                                onChange={(e) => {
+                                    const masked = maskDataNascimento(e.target.value);
+                                    setValue("dataNascimento",masked, { shouldDirty: true, shouldValidade:true})
+                                }}
+                        />
                         <Input label="RG" register={register} name="rg" error={errors?.rg?.message}/>
                         <Input label="Emissor do RG" register={register} name="emissorRg"
                                error={errors?.emissorRg?.message}/>
                     </div>
                 </div>
-
+                <div className={"h-[1px] w-full bg-gray-300"} />
                 {/* Contato */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Informações de contato</h3>
@@ -138,6 +154,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     </div>
                 </div>
 
+                <div className={"h-[1px] w-full bg-gray-300"} />
                 {/* Endereço */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Endereço</h3>
@@ -150,7 +167,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                             error={errors?.cep?.message}
                             disabled={viabLoading}
                             onChange={(e) => {
-                                const masked = maskCep(e.target.value);
+                                const masked = maskCEP(e.target.value);
                                 setValue("cep", masked, {shouldDirty: true, shouldValidate: true});
                             }}
                             onBlur={() => checkViabilidade({cep, numero})}
@@ -168,11 +185,11 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                         <div className="space-y-2">
                             <label className="text-darkgreen font-semibold">Qual tipo de moradia?*</label>
                             <div className="flex gap-6 h-12 items-center">
-                                <label className="flex items-center gap-2 text-darkgreen">
+                                <label className="flex items-center gap-2 text-darkgreen  accent-primary">
                                     <input type="radio" value="predio" {...register("tipoMoradia")} />
                                     Prédio
                                 </label>
-                                <label className="flex items-center gap-2 text-darkgreen">
+                                <label className="flex items-center gap-2 text-darkgreen  accent-primary">
                                     <input type="radio" value="casa" {...register("tipoMoradia")} />
                                     Casa
                                 </label>
@@ -206,7 +223,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                 <button
                     type="submit"
                     disabled={isSubmitting || viabLoading}
-                    className="w-48 h-12 rounded-md bg-emerald-600 text-white font-semibold disabled:opacity-60"
+                    className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"
                 >
                     {viabLoading ? "Validando..." : isSubmitting ? "Salvando..." : "Continuar"}
                 </button>

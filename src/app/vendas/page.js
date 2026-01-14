@@ -4,6 +4,7 @@ import {SalesProvider} from "@/pageComponents/vendas/SalesContext";
 import VendasFlow from "@/pageComponents/vendas/VendasFlow";
 import Image from "next/image";
 import logo from "@/assets/lestelogocapabranco.png"
+import {ToastContainer} from "react-toastify";
 
 export default function VendasPage() {
     return (
@@ -19,6 +20,14 @@ export default function VendasPage() {
                    <VendasFlow/>
                </SalesProvider>
            </div>
+        <ToastContainer
+            position="top-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+        />
     </div>
 )
     ;

@@ -72,12 +72,19 @@ export function SalesProvider({ children }) {
         });
     }
 
+    function setPrecadastroBody(body) {
+        setData((prev) => ({
+            ...prev,
+            precadastroBody: body || null,
+        }));
+    }
     return (
         <SalesContext.Provider
             value={{
                 data,
                 updateStep,
                 clearSales,
+                setPrecadastroBody,
                 hydrated, // 👈 EXPÕE ISSO
             }}
         >

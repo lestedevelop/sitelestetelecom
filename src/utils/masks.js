@@ -61,3 +61,12 @@ export const maskCNPJ = (value = "") => {
         .replace(/\.(\d{3})(\d)/, ".$1/$2")
         .replace(/(\d{4})(\d{1,2})$/, "$1-$2");
 };
+
+// ====== DATA DE NASCIMENTO
+export const maskDataNascimento = (value = "") => {
+    const v = onlyDigits(value).slice(0, 8);
+
+    return v
+        .replace(/^(\d{2})(\d)/, "$1/$2")
+        .replace(/^(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
+};
