@@ -39,6 +39,7 @@ export function buildCadastroCompletoModel(data){
         complemento: data.complemento,
         referencia: data.pontoReferencia,
         predio: data.tipoMoradia === "predio" ? 1 : 0,
+        viabilidade:data.tipo_viabilidade,
         interesse: "sim",
         obs: "Cliente via site",
     };

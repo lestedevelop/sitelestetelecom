@@ -13,6 +13,7 @@ export function SalesProvider({ children }) {
         cadastroCompleto: {},
         plano: {},
         agendamento: {},
+        viabilidade: {},
     });
 
     // 🔹 1) Hidrata UMA vez do localStorage
@@ -65,6 +66,7 @@ export function SalesProvider({ children }) {
         } catch {}
 
         setData({
+            viabilidade: {},
             cadastroInicial: {},
             cadastroCompleto: {},
             plano: {},
