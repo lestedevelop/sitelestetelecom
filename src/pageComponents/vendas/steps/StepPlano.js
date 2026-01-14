@@ -16,7 +16,7 @@ export default function StepPlano({ onNext, onBack }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-darkgreen">
             <h2 className="text-xl font-semibold">Plano</h2>
 
             <select {...register("planoId")} className="w-full border p-3">
@@ -25,7 +25,7 @@ export default function StepPlano({ onNext, onBack }) {
                 <option value="600mega">600 Mega</option>
             </select>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 text-darkgreen">
                 <button type="button" onClick={onBack} className="rounded border px-4 py-2">
                     Voltar
                 </button>
