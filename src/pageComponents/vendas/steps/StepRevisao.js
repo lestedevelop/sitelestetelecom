@@ -1,6 +1,6 @@
 "use client";
 
-import { useSales } from "@/pageComponents/vendas/SalesContext";
+import { useSales } from "@/contexts/SalesContextNew";
 
 export default function StepRevisao({ onBack }) {
     const { data } = useSales();

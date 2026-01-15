@@ -5,7 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 
 import Input from "@/pageComponents/vendas/form/Input";
 import Checkbox from "@/pageComponents/vendas/form/Checkbox";
-import {useSales} from "@/pageComponents/vendas/SalesContext";
+import {useSales} from "@/contexts/SalesContextNew";
 import {cadastroInicialSchema} from "@/schemas/vendas/cadastroInicialSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 import {maskCelular, maskCEP} from "@/utils/masks";
@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroInicial({onNext}) {
-    const {data, updateStep, setPrecadastroBody} = useSales();
+    const { data, updateCadastro,setPrecadastroBody } = useSales();
 
     const {
         register,
@@ -30,18 +30,8 @@ export default function StepCadastroInicial({onNext}) {
         defaultValues: {
             nome: "",
             email: "",
-            celular: "",
-            cep: "",
-            numero: "",
-            cidade: "",
-            bairro: "",
-            rua: "",
-            complemento: "",
-            pontoReferencia: "",
             aceitouPrivacidade: false,
-            viabilidade: "",
-            viabilidadeRaw: null,
-            ...(data?.cadastroInicial || {}),
+            ...data?.cadastro,
         },
 
         resolver: yupResolver(cadastroInicialSchema),
@@ -50,8 +40,7 @@ export default function StepCadastroInicial({onNext}) {
     const {checkViabilidade, loading: viabLoading, error: viabError} = useViabilidade({
         setValue,
         trigger,
-        updateStep,
-        stepKey: "cadastroInicial",
+        updateCadastro,
     });
 
     const cep = watch("cep");
@@ -69,7 +58,7 @@ export default function StepCadastroInicial({onNext}) {
 
 
     async function onSubmit(values) {
-        updateStep("cadastroInicial", values);
+        updateCadastro(values);
 
         try {
             const resp = await sendPrecadastro({...values, id: data?.precadastroBody?.id})

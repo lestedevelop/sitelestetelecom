@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 
 import Input from "@/pageComponents/vendas/form/Input";
-import {useSales} from "@/pageComponents/vendas/SalesContext";
+import {useSales} from "@/contexts/SalesContextNew";
 import {cadastroCompletoSchema} from "@/schemas/vendas/cadastroCompletoSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 
@@ -15,35 +15,7 @@ import {toast} from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroCompleto({onNext, onBack}) {
-    const {data, updateStep, setPrecadastroBody} = useSales();
-
-    const defaults = {
-        nome: "",
-        cpf: "",
-        dataNascimento: "",
-        rg: "",
-        emissorRg: "",
-
-        email: "",
-        confirmacaoEmail: "",
-
-        celular: "",
-        telefone: "",
-
-        cep: "",
-        numero: "",
-        tipoMoradia: "",
-
-        rua: "",
-        bairro: "",
-        cidade: "",
-
-        complemento: "",
-        pontoReferencia: "",
-
-        viabilidade: "",
-        viabilidadeRaw: null,
-    };
+    const {data, updateCadastro, setPrecadastroBody} = useSales();
 
     const {
         register,
@@ -56,9 +28,28 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         formState: {errors, isSubmitting},
     } = useForm({
         defaultValues: {
-            ...defaults,
-            ...(data?.cadastroInicial || {}),   // traz o que já foi preenchido no step 1
-            ...(data?.cadastroCompleto || {}),  // traz o que já foi preenchido aqui antes
+                nome: "",
+                email: "",
+                // cpf: "",
+                // dataNascimento: "",
+                // rg: "",
+                // emissorRg: "",
+                // email: "",
+                // confirmacaoEmail: "",
+                // celular: "",
+                // telefone: "",
+                // cep: "",
+                // numero: "",
+                // tipoMoradia: "",
+                // rua: "",
+                // bairro: "",
+                // cidade: "",
+                // complemento: "",
+                // pontoReferencia: "",
+                // viabilidade: "",
+                // viabilidadeRaw: null,
+            ...data.cadastro,
+
         },
         resolver: yupResolver(cadastroCompletoSchema),
     });
@@ -68,9 +59,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         if (hydratedOnce.current) return;
 
         reset({
-            ...defaults,
-            ...(data?.cadastroInicial || {}),
-            ...(data?.cadastroCompleto || {}),
+            ...data?.cadastro,
         });
 
         hydratedOnce.current = true;
@@ -95,7 +84,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
     }, [cepDebounced, numeroDebounced, checkViabilidade]);
 
     async function onSubmit(values) {
-        updateStep("cadastroCompleto", values);
+        updateCadastro(values);
 
         try {
             const resp = await sendPrecadastro({...values, id: data?.precadastroBody.id})

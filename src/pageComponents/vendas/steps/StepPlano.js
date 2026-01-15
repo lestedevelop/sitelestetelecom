@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useSales } from "../SalesContext";
+import { useSales } from "@/contexts/SalesContextNew";
 
 export default function StepPlano({ onNext, onBack }) {
     const { updateStep, data } = useSales();

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useSales } from "@/pageComponents/vendas/SalesContext";
+import { useSales } from "@/contexts/SalesContextNew";
 
 import VendasStepper from "@/pageComponents/vendas/VendasStepper";
 
@@ -10,9 +10,6 @@ import StepCadastroCompleto from "@/pageComponents/vendas/steps/StepCadastroComp
 import StepPlano from "@/pageComponents/vendas/steps/StepPlano";
 import StepAgendamento from "@/pageComponents/vendas/steps/StepAgendamento";
 import StepRevisao from "@/pageComponents/vendas/steps/StepRevisao";
-import LogoLeste from "@/assets/logo.png";
-
-import Image from "next/image";
 
 const STEPS = ["cadastro_inicial", "cadastro_completo", "plano", "agendamento", "revisao"];
 const STEP_KEY = "leste_vendas_step_v1";

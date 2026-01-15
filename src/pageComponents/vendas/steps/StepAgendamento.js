@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useSales } from "@/pageComponents/vendas/SalesContext";
+import { useSales } from "@/contexts/SalesContextNew";
 
 export default function StepAgendamento({ onNext, onBack }) {
     const { updateStep, data } = useSales();

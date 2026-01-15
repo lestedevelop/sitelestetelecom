@@ -1,6 +1,6 @@
 "use client";
 
-import {SalesProvider} from "@/pageComponents/vendas/SalesContext";
+import {SalesProviderNew} from "@/contexts/SalesContextNew";
 import VendasFlow from "@/pageComponents/vendas/VendasFlow";
 import Image from "next/image";
 import logo from "@/assets/lestelogocapabranco.png"
@@ -16,9 +16,9 @@ export default function VendasPage() {
                </h2>
            </div>
            <div className={"w-full lg:w-1/2 md:pr-12 bg-light py-8 lg:py-24"}>
-               <SalesProvider>
+               <SalesProviderNew>
                    <VendasFlow/>
-               </SalesProvider>
+               </SalesProviderNew>
            </div>
         <ToastContainer
             position="top-right"
