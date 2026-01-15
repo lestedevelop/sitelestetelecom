@@ -81,7 +81,7 @@ export default function PlanCardVendas({ plan, selected, onSelect }) {
     const isSelected = !!selected;
 
     return (
-        <div className="relative w-[260px] rounded-3xl bg-white px-6 shadow-lg ring-1 ring-black/5 flex flex-col items-center">
+        <div className="relative rounded-3xl bg-white px-6 shadow-lg ring-1 ring-black/5 flex flex-col items-center">
             {/* Badge topo */}
             {badge ? (
                 <div className="absolute -top-16 left-1/2 -translate-x-1/2">

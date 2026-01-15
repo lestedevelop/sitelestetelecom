@@ -31,11 +31,9 @@ export default function StepPlans({ onNext, onBack }) {
             return;
         }
 
-        // evita chamadas duplicadas (StrictMode / rerender)
         if (lastKeyRef.current === key) return;
         lastKeyRef.current = key;
 
-        // cancela request anterior
         if (abortRef.current) abortRef.current.abort();
         const controller = new AbortController();
         abortRef.current = controller;
@@ -44,7 +42,6 @@ export default function StepPlans({ onNext, onBack }) {
 
         getPlanosByCodCid(key, { signal: controller.signal })
             .then((resp) => {
-                // tenta cobrir formatos diferentes de retorno
                 const list =
                     resp?.data?.data ||
                     resp?.data ||
@@ -71,23 +68,7 @@ export default function StepPlans({ onNext, onBack }) {
     }
 
     return (
-        <div className="max-w-6xl mx-auto space-y-6">
-            {/*<div className="flex items-center justify-between">*/}
-            {/*    <h3 className="text-lg font-semibold text-darkgreen">*/}
-            {/*        Selecione seu plano*/}
-            {/*    </h3>*/}
-
-            {/*    {onBack ? (*/}
-            {/*        <button*/}
-            {/*            type="button"*/}
-            {/*            onClick={onBack}*/}
-            {/*            className="text-sm text-gray-600 hover:text-gray-800"*/}
-            {/*        >*/}
-            {/*            Voltar*/}
-            {/*        </button>*/}
-            {/*    ) : null}*/}
-            {/*</div>*/}
-
+        <div className="max-w-5xl mx-auto space-y-6">
             {loading ? (
                 <div className="text-sm text-gray-500">Carregando planos...</div>
             ) : null}
@@ -95,6 +76,8 @@ export default function StepPlans({ onNext, onBack }) {
             {!loading && !plans.length ? (
                 <div className="text-sm text-gray-500">Nenhum plano disponível.</div>
             ) : null}
+
+            <h3 className={"text-3xl text-dark font-bold pb-8"}>Selecione o seu Plano</h3>
 
             {!!plans.length && (
                 <PlansSwiper

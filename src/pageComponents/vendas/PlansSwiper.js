@@ -12,7 +12,6 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
 
     return (
         <div className="relative">
-            {/* Setas (externas) */}
             <button
                 type="button"
                 aria-label="Anterior"
@@ -33,8 +32,8 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
 
             <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={1}
-                slidesPerView={1}
+                spaceBetween={32}
+                slidesPerView={1.25}
                 centeredSlides={false}
                 navigation={{
                     prevEl: ".swiper-plans-prev",
@@ -45,11 +44,10 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
                     dynamicBullets: true,
                 }}
                 breakpoints={{
-                    640: {slidesPerView: 1.15}, // mobile grande
-                    768: {slidesPerView: 2},    // tablet
-                    1024: {slidesPerView: 3},   // desktop
+                    640: {slidesPerView: 2},
+                    768: {slidesPerView: 3},
                 }}
-                className="pb-10" // espaço pras bolinhas da pagination
+                className="pb-10"
             >
                 {plans.map((plan) => (
                     <SwiperSlide key={plan.id} className="flex justify-center">
