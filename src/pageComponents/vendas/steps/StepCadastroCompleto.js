@@ -12,6 +12,7 @@ import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF, maskRG} from "@/utils/masks";
 import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
 import {toast} from "react-toastify";
+import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroCompleto({onNext, onBack}) {
     const {data, updateStep, setPrecadastroBody} = useSales();
@@ -82,6 +83,16 @@ export default function StepCadastroCompleto({onNext, onBack}) {
 
     const cep = watch("cep");
     const numero = watch("numero");
+
+    const cepDebounced = useDebounce(cep, 500);
+    const numeroDebounced = useDebounce(numero, 500);
+
+    useEffect(() => {
+        const c = String(cepDebounced || "").replace(/\D/g, "");
+        const n = String(numeroDebounced || "").trim();
+        if (c.length !== 8 || !n) return;
+        checkViabilidade({ cep: cepDebounced, numero: numeroDebounced });
+    }, [cepDebounced, numeroDebounced, checkViabilidade]);
 
     async function onSubmit(values) {
         updateStep("cadastroCompleto", values);
@@ -269,15 +280,12 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     {viabError ? <p className="text-xs text-red-500">{viabError}</p> : null}
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <Input label="Rua" register={register} name="rua" error={errors?.rua?.message}
-                               disabled={viabLoading}/>
-                        <Input label="Bairro" register={register} name="bairro" error={errors?.bairro?.message}
-                               disabled={viabLoading}/>
+                        <Input label="Rua" register={register} name="rua" error={errors?.rua?.message} readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
+                        <Input label="Bairro" register={register} name="bairro" error={errors?.bairro?.message}  readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                        <Input label="Cidade" register={register} name="cidade" error={errors?.cidade?.message}
-                               disabled={viabLoading}/>
+                        <Input label="Cidade" register={register} name="cidade" error={errors?.cidade?.message} readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
                         <Input
                             label="Complemento"
                             register={register}

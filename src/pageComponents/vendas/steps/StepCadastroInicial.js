@@ -8,10 +8,11 @@ import Checkbox from "@/pageComponents/vendas/form/Checkbox";
 import {useSales} from "@/pageComponents/vendas/SalesContext";
 import {cadastroInicialSchema} from "@/schemas/vendas/cadastroInicialSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
-import {useEffect} from "react";
 import {maskCelular, maskCEP} from "@/utils/masks";
 import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
 import {toast} from "react-toastify";
+import { useEffect } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroInicial({onNext}) {
     const {data, updateStep, setPrecadastroBody} = useSales();
@@ -56,6 +57,17 @@ export default function StepCadastroInicial({onNext}) {
     const cep = watch("cep");
     const numero = watch("numero");
 
+    const cepDebounced = useDebounce(cep, 500);
+    const numeroDebounced = useDebounce(numero, 500);
+
+    useEffect(() => {
+        const c = String(cepDebounced || "").replace(/\D/g, "");
+        const n = String(numeroDebounced || "").trim();
+        if (c.length !== 8 || !n) return;
+        checkViabilidade({ cep: cepDebounced, numero: numeroDebounced });
+    }, [cepDebounced, numeroDebounced, checkViabilidade]);
+
+
     async function onSubmit(values) {
         updateStep("cadastroInicial", values);
 
@@ -94,22 +106,24 @@ export default function StepCadastroInicial({onNext}) {
                     register={(n) =>
                         register(n, {
                             onChange: (e) => {
-                                e.target.value = maskCEP(e.target.value); // ✅ altera o valor antes do RHF salvar
+                                e.target.value = maskCEP(e.target.value);
                             },
-                            onBlur: () => checkViabilidade({cep: getValues("cep"), numero: getValues("numero")}),
+                            onBlur: () => checkViabilidade({ cep: getValues("cep"), numero: getValues("numero") }),
                         })
                     }
                 />
 
-
                 <Input
                     label="Número"
-                    register={register}
                     name="numero"
                     error={errors?.numero?.message}
-                    onBlur={() => checkViabilidade({cep, numero})}
-                    disabled={viabLoading}
+                    register={(n) =>
+                        register(n, {
+                            onBlur: () => checkViabilidade({ cep: getValues("cep"), numero: getValues("numero") }),
+                        })
+                    }
                 />
+
             </div>
 
             {/* feedback travando */}
@@ -122,14 +136,16 @@ export default function StepCadastroInicial({onNext}) {
                     register={register}
                     name="cidade"
                     error={errors?.cidade?.message}
-                    disabled={viabLoading}
+                    readOnly={viabLoading}
+                    className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
                 />
                 <Input
                     label="Bairro"
                     register={register}
                     name="bairro"
                     error={errors?.bairro?.message}
-                    disabled={viabLoading}
+                    readOnly={viabLoading}
+                    className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
                 />
             </div>
 
@@ -138,7 +154,8 @@ export default function StepCadastroInicial({onNext}) {
                 register={register}
                 name="rua"
                 error={errors?.rua?.message}
-                disabled={viabLoading}
+                readOnly={viabLoading}
+                className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
             />
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -147,14 +164,12 @@ export default function StepCadastroInicial({onNext}) {
                     register={register}
                     name="complemento"
                     error={errors?.complemento?.message}
-                    disabled={viabLoading}
                 />
                 <Input
                     label="Ponto de Referência"
                     register={register}
                     name="pontoReferencia"
                     error={errors?.pontoReferencia?.message}
-                    disabled={viabLoading}
                 />
             </div>
 

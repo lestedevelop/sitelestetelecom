@@ -29,7 +29,6 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 setLoading(true);
 
                 const resp = await getViabilidade({
-                    // se sua API espera com hífen, formata aqui; se aceita digits, deixa digits
                     cep: cepDigits,
                     numero: numeroStr,
                     signal: controller.signal,
@@ -37,26 +36,18 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
 
                 const v = Array.isArray(resp) ? resp[0] : resp;
 
-                setValue("viabilidade", v?.tipo_viabilidade || v?.tipo_viabilidade_nome || v?.viabilidade || "", {
-                    shouldDirty: true,
-                    shouldValidate: false,
-                });
+
+                const cidade = v?.cidade || v?.nome_cid || "";
+                const bairro = v?.bairro || "";
+                const rua = v?.logradouro || v?.endereco || v?.logradouro_do || "";
+
+                if (cidade) setValue("cidade", cidade, { shouldDirty: true, shouldTouch: true });
+                if (bairro) setValue("bairro", bairro, { shouldDirty: true, shouldTouch: true });
+                if (rua) setValue("rua", rua, { shouldDirty: true, shouldTouch: true });
+
+                if (trigger) await trigger(["cidade", "bairro", "rua"]);
 
 
-                //
-                // // ✅ preenche inputs
-                // if (v?.cidade) setValue("cidade", v.cidade, { shouldValidate: true, shouldDirty: true });
-                // if (v?.bairro) setValue("bairro", v.bairro, { shouldValidate: true, shouldDirty: true });
-                // if (v?.logradouro) setValue("rua", v.logradouro, { shouldValidate: true, shouldDirty: true });
-                //
-                // if (trigger) await trigger(["cidade", "bairro", "rua"]);
-                //
-                // // ✅ salva no contexto no step correto (cadastroInicial ou cadastroCompleto)
-                // if (updateStep && stepKey) {
-                //     updateStep(stepKey, {
-                //         viabilidade: v?.tipo_viabilidade,
-                //     });
-                // }
             } catch (e) {
                 if (e?.name === "AbortError") return;
                 setError(e?.message || "Erro ao validar viabilidade");
