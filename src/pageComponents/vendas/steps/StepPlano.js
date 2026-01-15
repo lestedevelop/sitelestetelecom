@@ -1,38 +1,125 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSales } from "@/contexts/SalesContextNew";
+import { cidadesMock } from "@/mocks/cidadesMock";
+import { findCodCidByName } from "@/utils/cidade";
+import { getPlanosByCodCid } from "@/pageComponents/vendas/api/planos";
 
-export default function StepPlano({ onNext, onBack }) {
-    const { updateStep, data } = useSales();
+import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
+import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";
 
-    const { register, handleSubmit } = useForm({
-        defaultValues: data.plano || {},
-    });
+export default function StepPlans({ onNext, onBack }) {
+    const { data, updateStep } = useSales();
 
-    function onSubmit(values) {
-        updateStep("plano", values);
-        onNext?.();
+    const [plans, setPlans] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const cidadeNome = data?.cadastro?.cidade || "";
+    const codcid = useMemo(
+        () => findCodCidByName(cidadeNome, cidadesMock),
+        [cidadeNome]
+    );
+
+    const lastKeyRef = useRef("");
+    const abortRef = useRef(null);
+
+    useEffect(() => {
+        const key = String(codcid || "");
+        if (!key) {
+            setPlans([]);
+            return;
+        }
+
+        // evita chamadas duplicadas (StrictMode / rerender)
+        if (lastKeyRef.current === key) return;
+        lastKeyRef.current = key;
+
+        // cancela request anterior
+        if (abortRef.current) abortRef.current.abort();
+        const controller = new AbortController();
+        abortRef.current = controller;
+
+        setLoading(true);
+
+        getPlanosByCodCid(key, { signal: controller.signal })
+            .then((resp) => {
+                // tenta cobrir formatos diferentes de retorno
+                const list =
+                    resp?.data?.data ||
+                    resp?.data ||
+                    resp?.planos ||
+                    resp ||
+                    [];
+                setPlans(Array.isArray(list) ? list : []);
+            })
+            .catch((err) => {
+                if (err?.name === "AbortError") return;
+                console.error("Erro ao buscar planos:", err);
+                setPlans([]);
+            })
+            .finally(() => setLoading(false));
+
+        return () => controller.abort();
+    }, [codcid]);
+
+    function handleSelect(plan) {
+        updateStep("plano", plan);
+
+        // se quiser avançar na hora:
+        // onNext?.();
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-darkgreen">
-            <h2 className="text-xl font-semibold">Plano</h2>
+        <div className="max-w-6xl mx-auto space-y-6">
+            {/*<div className="flex items-center justify-between">*/}
+            {/*    <h3 className="text-lg font-semibold text-darkgreen">*/}
+            {/*        Selecione seu plano*/}
+            {/*    </h3>*/}
 
-            <select {...register("planoId")} className="w-full border p-3">
-                <option value="">Selecione...</option>
-                <option value="1giga">1 Giga</option>
-                <option value="600mega">600 Mega</option>
-            </select>
+            {/*    {onBack ? (*/}
+            {/*        <button*/}
+            {/*            type="button"*/}
+            {/*            onClick={onBack}*/}
+            {/*            className="text-sm text-gray-600 hover:text-gray-800"*/}
+            {/*        >*/}
+            {/*            Voltar*/}
+            {/*        </button>*/}
+            {/*    ) : null}*/}
+            {/*</div>*/}
 
-            <div className="flex gap-3 text-darkgreen">
-                <button type="button" onClick={onBack} className="rounded border px-4 py-2">
-                    Voltar
-                </button>
-                <button type="submit" className="rounded bg-emerald-600 px-6 py-3 text-white">
+            {loading ? (
+                <div className="text-sm text-gray-500">Carregando planos...</div>
+            ) : null}
+
+            {!loading && !plans.length ? (
+                <div className="text-sm text-gray-500">Nenhum plano disponível.</div>
+            ) : null}
+
+            {!!plans.length && (
+                <PlansSwiper
+                    plans={plans}
+                    renderPlan={(plan) => (
+                        <PlanCard
+                            plan={plan}
+                            selected={data?.plano?.id === plan.id}
+                            onSelect={handleSelect}
+                        />
+                    )}
+                />
+            )}
+
+            {/* Botão continuar (se você não quiser avançar no clique do plano) */}
+            <div className="pt-2">
+                <button
+                    type="button"
+                    disabled={!data?.plano?.id}
+                    onClick={() => onNext?.()}
+                    className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"
+                >
                     Continuar
                 </button>
             </div>
-        </form>
+        </div>
     );
 }

@@ -1,21 +1,21 @@
 "use client";
 
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
+import { useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import Input from "@/pageComponents/vendas/form/Input";
 import Checkbox from "@/pageComponents/vendas/form/Checkbox";
-import {useSales} from "@/contexts/SalesContextNew";
-import {cadastroInicialSchema} from "@/schemas/vendas/cadastroInicialSchema";
-import {useViabilidade} from "@/hooks/vendas/useViabilidade";
-import {maskCelular, maskCEP} from "@/utils/masks";
-import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
-import {toast} from "react-toastify";
-import { useEffect } from "react";
+import { useSales } from "@/contexts/SalesContextNew";
+import { cadastroInicialSchema } from "@/schemas/vendas/cadastroInicialSchema";
+import { useViabilidade } from "@/hooks/vendas/useViabilidade";
+import { maskCelular, maskCEP } from "@/utils/masks";
+import { sendPrecadastro } from "@/pageComponents/vendas/api/precadastro";
+import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 
-export default function StepCadastroInicial({onNext}) {
-    const { data, updateCadastro,setPrecadastroBody } = useSales();
+export default function StepCadastroInicial({ onNext }) {
+    const { data, updateCadastro, setPrecadastroBody } = useSales();
 
     const {
         register,
@@ -25,23 +25,61 @@ export default function StepCadastroInicial({onNext}) {
         trigger,
         reset,
         getValues,
-        formState: {errors, isSubmitting},
+        formState: { errors, isSubmitting },
     } = useForm({
+        // ✅ deixa completo (evita campo undefined)
         defaultValues: {
             nome: "",
             email: "",
+            celular: "",
+            cep: "",
+            numero: "",
+            cidade: "",
+            bairro: "",
+            rua: "",
+            complemento: "",
+            pontoReferencia: "",
             aceitouPrivacidade: false,
             ...data?.cadastro,
         },
-
         resolver: yupResolver(cadastroInicialSchema),
     });
 
-    const {checkViabilidade, loading: viabLoading, error: viabError} = useViabilidade({
-        setValue,
-        trigger,
-        updateCadastro,
-    });
+    // ✅ hidrata 1x quando vier do storage/context (sem sobrescrever depois)
+    const hydratedOnce = useRef(false);
+    useEffect(() => {
+        // quando data.cadastro estiver pronto
+        if (hydratedOnce.current) return;
+
+        const hasAnySaved =
+            data?.cadastro && Object.keys(data.cadastro).length > 0;
+
+        if (!hasAnySaved) return;
+
+        reset({
+            nome: "",
+            email: "",
+            celular: "",
+            cep: "",
+            numero: "",
+            cidade: "",
+            bairro: "",
+            rua: "",
+            complemento: "",
+            pontoReferencia: "",
+            aceitouPrivacidade: false,
+            ...data.cadastro,
+        });
+
+        hydratedOnce.current = true;
+    }, [data?.cadastro, reset]);
+
+    const { checkViabilidade, loading: viabLoading, error: viabError } =
+        useViabilidade({
+            setValue,
+            trigger,
+            updateCadastro,
+        });
 
     const cep = watch("cep");
     const numero = watch("numero");
@@ -53,26 +91,32 @@ export default function StepCadastroInicial({onNext}) {
         const c = String(cepDebounced || "").replace(/\D/g, "");
         const n = String(numeroDebounced || "").trim();
         if (c.length !== 8 || !n) return;
+
         checkViabilidade({ cep: cepDebounced, numero: numeroDebounced });
     }, [cepDebounced, numeroDebounced, checkViabilidade]);
-
 
     async function onSubmit(values) {
         updateCadastro(values);
 
         try {
-            const resp = await sendPrecadastro({...values, id: data?.precadastroBody?.id})
+            const resp = await sendPrecadastro({
+                ...values,
+                id: data?.precadastroBody?.id,
+            });
             setPrecadastroBody(resp);
         } catch (error) {
-            toast.error(error?.message)
+            toast.error(error?.message || "Erro no pré-cadastro");
+            return; // ✅ não avança se falhar
         }
+
         onNext?.();
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto space-y-6">
-            <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message}/>
-            <Input label="Seu melhor e-mail" register={register} name="email" error={errors?.email?.message}/>
+            <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message} />
+            <Input label="Seu melhor e-mail" register={register} name="email" error={errors?.email?.message} />
+
             <Input
                 label="Celular / WhatsApp"
                 name="celular"
@@ -86,7 +130,6 @@ export default function StepCadastroInicial({onNext}) {
                 }
             />
 
-
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input
                     label="CEP"
@@ -97,7 +140,11 @@ export default function StepCadastroInicial({onNext}) {
                             onChange: (e) => {
                                 e.target.value = maskCEP(e.target.value);
                             },
-                            onBlur: () => checkViabilidade({ cep: getValues("cep"), numero: getValues("numero") }),
+                            onBlur: () =>
+                                checkViabilidade({
+                                    cep: getValues("cep"),
+                                    numero: getValues("numero"),
+                                }),
                         })
                     }
                 />
@@ -108,14 +155,16 @@ export default function StepCadastroInicial({onNext}) {
                     error={errors?.numero?.message}
                     register={(n) =>
                         register(n, {
-                            onBlur: () => checkViabilidade({ cep: getValues("cep"), numero: getValues("numero") }),
+                            onBlur: () =>
+                                checkViabilidade({
+                                    cep: getValues("cep"),
+                                    numero: getValues("numero"),
+                                }),
                         })
                     }
                 />
-
             </div>
 
-            {/* feedback travando */}
             {viabLoading ? <p className="text-xs text-gray-500">Validando viabilidade...</p> : null}
             {viabError ? <p className="text-xs text-red-500">{viabError}</p> : null}
 
@@ -148,18 +197,8 @@ export default function StepCadastroInicial({onNext}) {
             />
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Input
-                    label="Complemento"
-                    register={register}
-                    name="complemento"
-                    error={errors?.complemento?.message}
-                />
-                <Input
-                    label="Ponto de Referência"
-                    register={register}
-                    name="pontoReferencia"
-                    error={errors?.pontoReferencia?.message}
-                />
+                <Input label="Complemento" register={register} name="complemento" error={errors?.complemento?.message} />
+                <Input label="Ponto de Referência" register={register} name="pontoReferencia" error={errors?.pontoReferencia?.message} />
             </div>
 
             <Checkbox register={register} name="aceitouPrivacidade" error={errors?.aceitouPrivacidade?.message}>

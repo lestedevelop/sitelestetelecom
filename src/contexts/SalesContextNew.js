@@ -6,6 +6,7 @@ const SalesContextNew = createContext(null);
 const STORAGE_KEY = "leste_vendas_data_v2";
 
 const initialState = {
+    step: "cadastro_inicial", // 👈 step global
     // ✅ objeto único
     cadastro: {},
 
@@ -73,6 +74,13 @@ export function SalesProviderNew({ children }) {
         }));
     }
 
+    function setStep(step) {
+        setData((prev) => ({
+            ...prev,
+            step,
+        }));
+    }
+
     function clearSales() {
         try {
             localStorage.removeItem(STORAGE_KEY);
@@ -97,13 +105,9 @@ export function SalesProviderNew({ children }) {
             value={{
                 data,
                 hydrated,
-
-                // ✅ novo
                 updateCadastro,
-
-                // ✅ compat / geral
+                setStep,
                 updateStep,
-
                 clearSales,
                 setPrecadastroBody,
             }}

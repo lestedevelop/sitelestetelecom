@@ -1,52 +1,44 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSales } from "@/contexts/SalesContextNew";
+
+import StepCadastroInicial from "./steps/StepCadastroInicial";
+import StepCadastroCompleto from "./steps/StepCadastroCompleto";
+import StepPlans from "./steps/StepPlano";
 
 import VendasStepper from "@/pageComponents/vendas/VendasStepper";
 
-import StepCadastroInicial from "@/pageComponents/vendas/steps/StepCadastroInicial";
-import StepCadastroCompleto from "@/pageComponents/vendas/steps/StepCadastroCompleto";
-import StepPlano from "@/pageComponents/vendas/steps/StepPlano";
-import StepAgendamento from "@/pageComponents/vendas/steps/StepAgendamento";
-import StepRevisao from "@/pageComponents/vendas/steps/StepRevisao";
+const FLOW_STEPS = [
+    "cadastro_inicial",
+    "cadastro_completo",
+    "planos",
+    "agendamento",
+];
 
-const STEPS = ["cadastro_inicial", "cadastro_completo", "plano", "agendamento", "revisao"];
-const STEP_KEY = "leste_vendas_step_v1";
+const STEPPER_STEPS = ["Cadastro", "Plano", "Revisão"];
+
+const STEPPER_INDEX_MAP = {
+    cadastro_inicial: 0,
+    cadastro_completo: 0,
+    planos: 1,
+    agendamento: 2,
+};
 
 export default function VendasFlow() {
-    const { hydrated } = useSales();
-    const [step, setStep] = useState("cadastro_inicial");
+    const { data, setStep } = useSales();
+    const step = data.step || "cadastro_inicial";
 
-    useEffect(() => {
-        if (!hydrated) return;
-        try {
-            const saved = localStorage.getItem(STEP_KEY);
-            if (saved && STEPS.includes(saved)) setStep(saved);
-        } catch {}
-    }, [hydrated]);
+    const stepIndex = useMemo(
+        () => FLOW_STEPS.indexOf(step),
+        [step]
+    );
 
-    useEffect(() => {
-        if (!hydrated) return;
-        try {
-            localStorage.setItem(STEP_KEY, step);
-        } catch {}
-    }, [step, hydrated]);
-
-    const stepIndex = useMemo(() => {
-        const i = STEPS.indexOf(step);
-        return i >= 0 ? i : 0;
-    }, [step]);
-
-    const stepperIndex = useMemo(() => {
-        if (step === "cadastro_inicial" || step === "cadastro_completo") return 0;
-        if (step === "plano" || step === "agendamento") return 1;
-        return 2; // revisao
-    }, [step]);
+    const stepperIndex = STEPPER_INDEX_MAP[step] ?? 0;
 
     function goToIndex(nextIndex) {
-        const safe = Math.max(0, Math.min(nextIndex, STEPS.length - 1));
-        setStep(STEPS[safe]);
+        const safe = Math.max(0, Math.min(nextIndex, FLOW_STEPS.length - 1));
+        setStep(FLOW_STEPS[safe]);
     }
 
     function next() {
@@ -57,28 +49,32 @@ export default function VendasFlow() {
         goToIndex(stepIndex - 1);
     }
 
-    if (!hydrated) {
-        return <div className="p-6">Carregando...</div>;
-    }
-
     return (
-        <div className="max-w-5xl mx-auto p-6 flex flex-col items-center">
+        <>
+            {step !== "cadastro_inicial" && (
+                <VendasStepper
+                    steps={STEPPER_STEPS}
+                    current={stepperIndex}
+                    onBack={stepIndex > 0 ? back : undefined}
+                />
+            )}
 
-           {/*<Image src={LogoLeste} alt={""} width={100} />*/}
-            {step != "cadastro_inicial" && <VendasStepper
-                steps={["Cadastro", "Plano", "Revisão"]}
-                current={stepperIndex}
-                onBack={stepIndex === 0 ? undefined : back}
-            />}
+            {step === "cadastro_inicial" && (
+                <StepCadastroInicial onNext={next} />
+            )}
 
-            {/* Conteúdo */}
-            {step === "cadastro_inicial" && <StepCadastroInicial onNext={next} />}
-            {step === "cadastro_completo" && <StepCadastroCompleto onNext={next} onBack={back} />}
+            {step === "cadastro_completo" && (
+                <StepCadastroCompleto onBack={back} onNext={next} />
+            )}
 
-            {step === "plano" && <StepPlano onNext={next} onBack={back} />}
-            {step === "agendamento" && <StepAgendamento onNext={next} onBack={back} />}
+            {step === "planos" && (
+                <StepPlans onBack={back} onNext={next} />
+            )}
 
-            {step === "revisao" && <StepRevisao onBack={back} />}
-        </div>
+            {/* quando criar:
+      {step === "agendamento" && (
+        <StepAgendamento onBack={back} onNext={next} />
+      )} */}
+        </>
     );
 }
