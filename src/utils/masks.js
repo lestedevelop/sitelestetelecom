@@ -70,3 +70,11 @@ export const maskDataNascimento = (value = "") => {
         .replace(/^(\d{2})(\d)/, "$1/$2")
         .replace(/^(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
 };
+// ====== RG
+export function maskRG(value = "") {
+    const v = String(value).replace(/\D/g, "").slice(0, 9);
+    return v
+        .replace(/^(\d{2})(\d)/, "$1.$2")
+        .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1-$2");
+}

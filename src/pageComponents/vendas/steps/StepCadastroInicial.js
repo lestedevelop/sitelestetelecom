@@ -9,12 +9,12 @@ import {useSales} from "@/pageComponents/vendas/SalesContext";
 import {cadastroInicialSchema} from "@/schemas/vendas/cadastroInicialSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 import {useEffect} from "react";
-import { maskCelular,maskCEP} from "@/utils/masks";
-import { sendPrecadastro } from "@/pageComponents/vendas/api/precadastro";
+import {maskCelular, maskCEP} from "@/utils/masks";
+import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
 import {toast} from "react-toastify";
 
 export default function StepCadastroInicial({onNext}) {
-    const {data, updateStep,setPrecadastroBody} = useSales();
+    const {data, updateStep, setPrecadastroBody} = useSales();
 
     const {
         register,
@@ -23,6 +23,7 @@ export default function StepCadastroInicial({onNext}) {
         setValue,
         trigger,
         reset,
+        getValues,
         formState: {errors, isSubmitting},
     } = useForm({
         defaultValues: {
@@ -37,29 +38,13 @@ export default function StepCadastroInicial({onNext}) {
             complemento: "",
             pontoReferencia: "",
             aceitouPrivacidade: false,
+            viabilidade: "",
+            viabilidadeRaw: null,
             ...(data?.cadastroInicial || {}),
         },
+
         resolver: yupResolver(cadastroInicialSchema),
     });
-
-    useEffect(() => {
-        if (!data?.cadastroInicial) return;
-
-        reset({
-            nome: "",
-            email: "",
-            celular: "",
-            cep: "",
-            numero: "",
-            cidade: "",
-            bairro: "",
-            rua: "",
-            complemento: "",
-            pontoReferencia: "",
-            aceitouPrivacidade: false,
-            ...data.cadastroInicial,
-        });
-    }, [data?.cadastroInicial, reset]);
 
     const {checkViabilidade, loading: viabLoading, error: viabError} = useViabilidade({
         setValue,
@@ -87,28 +72,35 @@ export default function StepCadastroInicial({onNext}) {
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto space-y-6">
             <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message}/>
             <Input label="Seu melhor e-mail" register={register} name="email" error={errors?.email?.message}/>
-           <Input
+            <Input
                 label="Celular / WhatsApp"
-                register={register}
                 name="celular"
                 error={errors?.celular?.message}
-                onChange={(e) => {
-                    const masked = maskCelular(e.target.value);
-                    setValue("celular", masked, {shouldDirty: true, shouldValidate: true});
-            }}/>
+                register={(n) =>
+                    register(n, {
+                        onChange: (e) => {
+                            e.target.value = maskCelular(e.target.value);
+                        },
+                    })
+                }
+            />
+
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input
                     label="CEP"
-                    register={register}
                     name="cep"
                     error={errors?.cep?.message}
-                    onChange={(e) => {
-                        const masked = maskCEP(e.target.value);
-                        setValue("cep", masked, {shouldDirty: true, shouldValidate: true});
-                    }}
-                    onBlur={() => checkViabilidade({ cep, numero })}
+                    register={(n) =>
+                        register(n, {
+                            onChange: (e) => {
+                                e.target.value = maskCEP(e.target.value); // ✅ altera o valor antes do RHF salvar
+                            },
+                            onBlur: () => checkViabilidade({cep: getValues("cep"), numero: getValues("numero")}),
+                        })
+                    }
                 />
+
 
                 <Input
                     label="Número"

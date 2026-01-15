@@ -9,12 +9,12 @@ import {useSales} from "@/pageComponents/vendas/SalesContext";
 import {cadastroCompletoSchema} from "@/schemas/vendas/cadastroCompletoSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 
-import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF} from "@/utils/masks";
+import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF, maskRG} from "@/utils/masks";
 import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
 import {toast} from "react-toastify";
 
 export default function StepCadastroCompleto({onNext, onBack}) {
-    const {data, updateStep,setPrecadastroBody} = useSales();
+    const {data, updateStep, setPrecadastroBody} = useSales();
 
     const defaults = {
         nome: "",
@@ -39,6 +39,9 @@ export default function StepCadastroCompleto({onNext, onBack}) {
 
         complemento: "",
         pontoReferencia: "",
+
+        viabilidade: "",
+        viabilidadeRaw: null,
     };
 
     const {
@@ -48,6 +51,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         setValue,
         trigger,
         reset,
+        getValues,
         formState: {errors, isSubmitting},
     } = useForm({
         defaultValues: {
@@ -58,7 +62,6 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         resolver: yupResolver(cadastroCompletoSchema),
     });
 
-    // ✅ hidrata do context apenas uma vez (não “limpa” com updates)
     const hydratedOnce = useRef(false);
     useEffect(() => {
         if (hydratedOnce.current) return;
@@ -70,7 +73,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         });
 
         hydratedOnce.current = true;
-    }, [reset]); // intencional: roda 1x
+    }, [reset]);
 
     const {checkViabilidade, loading: viabLoading, error: viabError} = useViabilidade({
         setValue,
@@ -91,70 +94,119 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         }
         onNext?.();
     }
+
     return (
         <div>
-
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto space-y-8">
-                {/* Cabeçalho / ações */}
-
                 {/* Informações Pessoais */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Informações Pessoais</h3>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message}/>
-                        <Input label="CPF" register={register} name="cpf" error={errors?.cpf?.message}
-                               onChange={(e) => {
-                                   const masked = maskCPF(e.target.value);
-                                   setValue("cpf",masked, { shouldDirty: true, shouldValidade:true})
-                               }}
+
+                        <Input
+                            label="CPF"
+                            name="cpf"
+                            error={errors?.cpf?.message}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskCPF(e.target.value);
+                                    },
+                                })
+                            }
                         />
+
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                        <Input label="Data de nascimento" register={register} name="dataNascimento"
-                               error={errors?.dataNascimento?.message} placeholder="dd/mm/aaaa"
-                                onChange={(e) => {
-                                    const masked = maskDataNascimento(e.target.value);
-                                    setValue("dataNascimento",masked, { shouldDirty: true, shouldValidade:true})
-                                }}
+                        <Input
+                            label="Data de nascimento"
+                            name="dataNascimento"
+                            placeholder="dd/mm/aaaa"
+                            error={errors?.dataNascimento?.message}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskDataNascimento(e.target.value);
+                                    },
+                                })
+                            }
                         />
-                        <Input label="RG" register={register} name="rg" error={errors?.rg?.message}/>
-                        <Input label="Emissor do RG" register={register} name="emissorRg"
-                               error={errors?.emissorRg?.message}/>
+
+
+                        <Input
+                            label="RG"
+                            name="rg"
+                            error={errors?.rg?.message}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskRG(e.target.value);
+                                    },
+                                })
+                            }
+                        />
+
+
+                        <Input
+                            label="Emissor do RG"
+                            register={register}
+                            name="emissorRg"
+                            error={errors?.emissorRg?.message}
+                        />
                     </div>
                 </div>
-                <div className={"h-[1px] w-full bg-gray-300"} />
+
+                <div className={"h-[1px] w-full bg-gray-300"}/>
+
                 {/* Contato */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Informações de contato</h3>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input label="E-mail" register={register} name="email" error={errors?.email?.message}/>
-                        <Input label="Confirmação de e-mail" register={register} name="confirmacaoEmail"
-                               error={errors?.confirmacaoEmail?.message}/>
+                        <Input
+                            label="Confirmação de e-mail"
+                            register={register}
+                            name="confirmacaoEmail"
+                            error={errors?.confirmacaoEmail?.message}
+                        />
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input
                             label="Celular"
-                            register={register}
                             name="celular"
                             error={errors?.celular?.message}
-                            onChange={(e) => {
-                                const masked = maskCelular(e.target.value);
-                                setValue("celular", masked, {shouldDirty: true, shouldValidate: true});
-                            }}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskCelular(e.target.value);
+                                    },
+                                })
+                            }
                         />
-                        <Input label="Telefone" register={register} name="telefone" error={errors?.telefone?.message}
-                               onChange={(e) => {
-                                   const masked = maskTelefone(e.target.value);
-                                   setValue("telefone", masked, {shouldDirty: true, shouldValidate: true});
-                               }}/>
+
+                        <Input
+                            label="Telefone"
+                            name="telefone"
+                            error={errors?.telefone?.message}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskTelefone(e.target.value);
+                                    },
+                                })
+                            }
+                        />
+
                     </div>
                 </div>
 
-                <div className={"h-[1px] w-full bg-gray-300"} />
+                <div className={"h-[1px] w-full bg-gray-300"}/>
+
                 {/* Endereço */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Endereço</h3>
@@ -162,34 +214,47 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         <Input
                             label="CEP"
-                            register={register}
                             name="cep"
                             error={errors?.cep?.message}
                             disabled={viabLoading}
-                            onChange={(e) => {
-                                const masked = maskCEP(e.target.value);
-                                setValue("cep", masked, {shouldDirty: true, shouldValidate: true});
-                            }}
-                            onBlur={() => checkViabilidade({cep, numero})}
+                            register={(n) =>
+                                register(n, {
+                                    onChange: (e) => {
+                                        e.target.value = maskCEP(e.target.value);
+                                    },
+                                    onBlur: () => checkViabilidade({
+                                        cep: getValues("cep"),
+                                        numero: getValues("numero")
+                                    }),
+                                })
+                            }
                         />
+
 
                         <Input
                             label="Número"
-                            register={register}
                             name="numero"
                             error={errors?.numero?.message}
                             disabled={viabLoading}
-                            onBlur={() => checkViabilidade({cep, numero})}
+                            register={(n) =>
+                                register(n, {
+                                    onBlur: () => checkViabilidade({
+                                        cep: getValues("cep"),
+                                        numero: getValues("numero")
+                                    }),
+                                })
+                            }
                         />
+
 
                         <div className="space-y-2">
                             <label className="text-darkgreen font-semibold">Qual tipo de moradia?*</label>
                             <div className="flex gap-6 h-12 items-center">
-                                <label className="flex items-center gap-2 text-darkgreen  accent-primary">
+                                <label className="flex items-center gap-2 text-darkgreen accent-primary">
                                     <input type="radio" value="predio" {...register("tipoMoradia")} />
                                     Prédio
                                 </label>
-                                <label className="flex items-center gap-2 text-darkgreen  accent-primary">
+                                <label className="flex items-center gap-2 text-darkgreen accent-primary">
                                     <input type="radio" value="casa" {...register("tipoMoradia")} />
                                     Casa
                                 </label>
@@ -213,10 +278,20 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         <Input label="Cidade" register={register} name="cidade" error={errors?.cidade?.message}
                                disabled={viabLoading}/>
-                        <Input label="Complemento" register={register} name="complemento"
-                               error={errors?.complemento?.message} disabled={viabLoading}/>
-                        <Input label="Ponto de Referência" register={register} name="pontoReferencia"
-                               error={errors?.pontoReferencia?.message} disabled={viabLoading}/>
+                        <Input
+                            label="Complemento"
+                            register={register}
+                            name="complemento"
+                            error={errors?.complemento?.message}
+                            disabled={viabLoading}
+                        />
+                        <Input
+                            label="Ponto de Referência"
+                            register={register}
+                            name="pontoReferencia"
+                            error={errors?.pontoReferencia?.message}
+                            disabled={viabLoading}
+                        />
                     </div>
                 </div>
 
@@ -228,6 +303,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     {viabLoading ? "Validando..." : isSubmitting ? "Salvando..." : "Continuar"}
                 </button>
             </form>
+
         </div>
     );
 }
