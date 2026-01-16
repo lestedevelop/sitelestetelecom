@@ -27,7 +27,7 @@ export default function StepCadastroInicial({ onNext }) {
         getValues,
         formState: { errors, isSubmitting },
     } = useForm({
-        // ✅ deixa completo (evita campo undefined)
+
         defaultValues: {
             nome: "",
             email: "",
@@ -38,41 +38,12 @@ export default function StepCadastroInicial({ onNext }) {
             bairro: "",
             rua: "",
             complemento: "",
-            pontoReferencia: "",
+            referencia: "",
             aceitouPrivacidade: false,
             ...data?.cadastro,
         },
         resolver: yupResolver(cadastroInicialSchema),
     });
-
-    // ✅ hidrata 1x quando vier do storage/context (sem sobrescrever depois)
-    const hydratedOnce = useRef(false);
-    useEffect(() => {
-        // quando data.cadastro estiver pronto
-        if (hydratedOnce.current) return;
-
-        const hasAnySaved =
-            data?.cadastro && Object.keys(data.cadastro).length > 0;
-
-        if (!hasAnySaved) return;
-
-        reset({
-            nome: "",
-            email: "",
-            celular: "",
-            cep: "",
-            numero: "",
-            cidade: "",
-            bairro: "",
-            rua: "",
-            complemento: "",
-            pontoReferencia: "",
-            aceitouPrivacidade: false,
-            ...data.cadastro,
-        });
-
-        hydratedOnce.current = true;
-    }, [data?.cadastro, reset]);
 
     const { checkViabilidade, loading: viabLoading, error: viabError } =
         useViabilidade({
@@ -106,7 +77,7 @@ export default function StepCadastroInicial({ onNext }) {
             setPrecadastroBody(resp);
         } catch (error) {
             toast.error(error?.message || "Erro no pré-cadastro");
-            return; // ✅ não avança se falhar
+            return;
         }
 
         onNext?.();
@@ -198,12 +169,12 @@ export default function StepCadastroInicial({ onNext }) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input label="Complemento" register={register} name="complemento" error={errors?.complemento?.message} />
-                <Input label="Ponto de Referência" register={register} name="pontoReferencia" error={errors?.pontoReferencia?.message} />
+                <Input label="Ponto de Referência" register={register} name="referencia" error={errors?.referencia?.message} />
             </div>
 
             <Checkbox register={register} name="aceitouPrivacidade" error={errors?.aceitouPrivacidade?.message}>
                 Aceitar{" "}
-                <a className="text-primary underline" href="/faq/privacy-policy" target="_blank">
+                <a className="text-primary underline" href="/faq/politica-privacidade" target="_blank">
                     Políticas de Privacidade*
                 </a>
             </Checkbox>

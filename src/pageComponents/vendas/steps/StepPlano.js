@@ -8,23 +8,38 @@ import { getPlanosByCodCid } from "@/pageComponents/vendas/api/planos";
 
 import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
 import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";
-import VencimentoSection from "@/pageComponents/vendas/steps/VencimentoSection";
-import PagamentoSection from "@/pageComponents/vendas/steps/PagamentoSection";
+import VencimentoSection from "@/pageComponents/vendas/components/VencimentoSection";
+import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSection";
+import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
+import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    const lastKeyRef = useRef("");
+    const abortRef = useRef(null);
     const cidadeNome = data?.cadastro?.cidade || "";
     const codcid = useMemo(
         () => findCodCidByName(cidadeNome, cidadesMock),
         [cidadeNome]
     );
 
-    const lastKeyRef = useRef("");
-    const abortRef = useRef(null);
+    const [confirmOpen, setConfirmOpen] = useState(false);
+    const [addRespOpen, setAddRespOpen] = useState(false);
+
+
+    function handleContinue() {
+        const hasResponsavel = (data?.responsaveis || []).length > 0;
+
+        if (!hasResponsavel) {
+            setConfirmOpen(true);
+            return;
+        }
+
+        onNext?.();
+    }
 
     useEffect(() => {
         const key = String(codcid || "");
@@ -111,16 +126,33 @@ export default function StepPlans({ onNext, onBack }) {
             )}
 
             <div className={"h-[2px] bg-gray-300 w-full"} />
+            <ResponsaveisSection modalOpen={addRespOpen} setModalOpen={setAddRespOpen} />
             <div className="pt-2">
                 <button
                     type="button"
                     disabled={!data?.plano?.id}
-                    onClick={() => onNext?.()}
+                    onClick={handleContinue}
                     className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"
                 >
                     Continuar
                 </button>
             </div>
+
+            <ConfirmModal
+                open={confirmOpen}
+                title="Atenção"
+                message="Você está seguindo sem adicionar nenhum responsável adicional. Se não estiver disponível no dia da instalação, ninguém poderá receber a equipe técnica. Deseja continuar mesmo assim?"
+                confirmText="Continuar"
+                cancelText="Adicionar responsável"
+                onConfirm={() => {
+                    setConfirmOpen(false);
+                    onNext?.();
+                }}
+                onCancel={() => {
+                    setConfirmOpen(false);
+                    setAddRespOpen(true);
+                }}
+            />
         </div>
     );
 }

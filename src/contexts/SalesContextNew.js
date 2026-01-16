@@ -6,23 +6,40 @@ const SalesContextNew = createContext(null);
 const STORAGE_KEY = "leste_vendas_data_v2";
 
 const initialState = {
-    step: "cadastro_inicial", // 👈 step global
-    // ✅ objeto único
+    step: "cadastro_inicial",
     cadastro: {},
-
-    // mantém separado
     plano: {},
     agendamento: {},
-
-    // retorno do backend
     precadastroBody: null,
+    responsaveis: [],
+
 };
 
 export function SalesProviderNew({ children }) {
     const [hydrated, setHydrated] = useState(false);
     const [data, setData] = useState(initialState);
 
-    // 1) Hidrata UMA vez do localStorage
+    function addResponsavel(responsavel) {
+        setData((prev) => ({
+            ...prev,
+            responsaveis: [...(prev.responsaveis || []), { id: crypto.randomUUID?.() || String(Date.now()), ...responsavel }],
+        }));
+    }
+
+    function removeResponsavel(id) {
+        setData((prev) => ({
+            ...prev,
+            responsaveis: (prev.responsaveis || []).filter((r) => r.id !== id),
+        }));
+    }
+
+    function updateResponsavel(id, patch) {
+        setData((prev) => ({
+            ...prev,
+            responsaveis: (prev.responsaveis || []).map((r) => (r.id === id ? { ...r, ...patch } : r)),
+        }));
+    }
+
     useEffect(() => {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
@@ -46,7 +63,6 @@ export function SalesProviderNew({ children }) {
         }
     }, []);
 
-    // ✅ update do cadastro único
     function updateCadastro(values) {
         setData((prev) => ({
             ...prev,
@@ -54,7 +70,6 @@ export function SalesProviderNew({ children }) {
         }));
     }
 
-    // mantém updateStep (plano/agendamento), e também permite updateCadastro via step="cadastro"
     function updateStep(step, values) {
         if (step === "cadastro") return updateCadastro(values);
 
@@ -88,7 +103,6 @@ export function SalesProviderNew({ children }) {
         setData(initialState);
     }
 
-    // 3) Salva no localStorage SOMENTE depois de hidratar
     useEffect(() => {
         if (!hydrated) return;
 
@@ -110,6 +124,9 @@ export function SalesProviderNew({ children }) {
                 updateStep,
                 clearSales,
                 setPrecadastroBody,
+                addResponsavel,
+                removeResponsavel,
+                updateResponsavel,
             }}
         >
             {children}

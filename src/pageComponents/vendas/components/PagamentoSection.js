@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSales} from "@/contexts/SalesContextNew";
-import PagamentoBox from "@/pageComponents/vendas/steps/PagamentoBox";
+import PagamentoBox from "@/pageComponents/vendas/components/PagamentoBox";
 
 export default function PagamentoSection({}) {
     const [metodo, setMetodo] = useState("pix_instalacao");
