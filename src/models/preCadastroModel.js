@@ -41,6 +41,7 @@ export function buildCadastroCompletoModel(data){
         predio: data.tipoMoradia === "predio" ? 1 : 0,
         viabilidade:data.tipo_viabilidade,
         interesse: "sim",
+        tipo_cliente: "F",
         obs: "Cliente via site",
     };
 }
