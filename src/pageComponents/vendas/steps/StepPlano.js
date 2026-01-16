@@ -8,6 +8,8 @@ import { getPlanosByCodCid } from "@/pageComponents/vendas/api/planos";
 
 import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
 import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";
+import VencimentoSection from "@/pageComponents/vendas/steps/VencimentoSection";
+import PagamentoSection from "@/pageComponents/vendas/steps/PagamentoSection";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -62,9 +64,12 @@ export default function StepPlans({ onNext, onBack }) {
 
     function handleSelect(plan) {
         updateStep("plano", plan);
-
-        // se quiser avançar na hora:
-        // onNext?.();
+    }
+    function handleSelectVencimento(vencimento) {
+        updateStep("plano", {
+            ...data?.plano,
+            vencimento
+        });
     }
 
     return (
@@ -92,6 +97,20 @@ export default function StepPlans({ onNext, onBack }) {
                 />
             )}
 
+            {data?.plano?.id &&(
+                <>
+                    <div className={"h-[2px] bg-gray-300 w-full"} />
+                    <VencimentoSection onSelect={handleSelectVencimento} vencimentos={[2, 5, 17]}  selected={data?.plano?.vencimento}/>
+                </>)}
+
+            {data?.plano?.vencimento && (
+                <>
+                    <div className={"h-[2px] bg-gray-300 w-full"} />
+                    <PagamentoSection />
+                </>
+            )}
+
+            <div className={"h-[2px] bg-gray-300 w-full"} />
             <div className="pt-2">
                 <button
                     type="button"

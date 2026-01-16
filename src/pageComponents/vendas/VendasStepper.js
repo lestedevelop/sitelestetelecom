@@ -28,7 +28,7 @@ export default function VendasStepper({steps = ["Cadastro", "Plano", "Revisão"]
                 />
 
                 <div
-                    className="absolute top-5 h-[2px] bg-emerald-600 transition-all"
+                    className="absolute top-5 h-[2px] bg-primary transition-all"
                     style={{
                         left: DOT_HALF,
                         right: DOT_HALF,
@@ -51,9 +51,9 @@ export default function VendasStepper({steps = ["Cadastro", "Plano", "Revisão"]
                                     className={[
                                         "h-8 w-8 rounded-full flex items-center justify-center transition-all",
                                         done
-                                            ? "bg-emerald-600"
+                                            ? "bg-primary"
                                             : active
-                                                ? "bg-white border-2 border-emerald-600"
+                                                ? "bg-white border-2 border-primary"
                                                 : "bg-white border-2 border-gray-300",
                                     ].join(" ")}
                                 >
@@ -66,7 +66,7 @@ export default function VendasStepper({steps = ["Cadastro", "Plano", "Revisão"]
                                     className={[
                                         "mt-3 text-sm",
                                         done
-                                            ? "text-emerald-700 font-semibold"
+                                            ? "text-primary font-semibold"
                                             : active
                                                 ? "text-gray-700"
                                                 : "text-gray-400",
