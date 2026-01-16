@@ -1,5 +1,5 @@
-export async function getPlanosByCodCid(codcid) {
-    const res = await fetch(`/api/vendas/planos?cidade=${encodeURIComponent(codcid)}`, {
+export async function getPlanosByCodCid(data) {
+    const res = await fetch(`/api/vendas/planos?cidade=${encodeURIComponent(data.cidade)}&predio=${data.tipoMoradia === "predio"? 1 : 0 }`, {
         method: "GET",
         credentials: "include",
     });

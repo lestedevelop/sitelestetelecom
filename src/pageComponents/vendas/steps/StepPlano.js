@@ -40,7 +40,7 @@ export default function StepPlans({ onNext, onBack }) {
 
         setLoading(true);
 
-        getPlanosByCodCid(key, { signal: controller.signal })
+        getPlanosByCodCid({cidade:key,tipoMoradia:data?.cadastro?.tipoMoradia})
             .then((resp) => {
                 const list =
                     resp?.data?.data ||

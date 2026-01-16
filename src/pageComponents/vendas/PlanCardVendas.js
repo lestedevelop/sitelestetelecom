@@ -37,13 +37,12 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
     const {titleNumber, titleUnit} = useMemo(() => getTitle(plan), [plan]);
     const priceValue = plan?.valor - plan?.valor_desconto;
     const {inteiro, centavos} = formatPrice(priceValue);
-    const fidelidade = plan?.fidelidade || null;
     const isSelected = !!selected;
 
     return (
         <div className={"relative py-12"}>
             <div
-                className="rounded-3xl bg-white px-6 shadow-lg ring-1 ring-black/5 flex flex-col items-center">
+                className="rounded-3xl bg-white px-6 min-h-[588px] shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center">
                 {/* Badge topo */}
                 {badge ? (
                     <div className="absolute top-0 left-1/2 -translate-x-1/2">
