@@ -26,7 +26,7 @@ export function buildCadastroCompletoModel(data){
         e_mail: data.email,
         cpf: data.cpf,
         rg:data.rg,
-        dataNascimento: data.dataNascimento,
+        data_nac: data.dataNascimento,
         rg_emissor: data.emissor_rg,
         celular: data.celular,
         fone: data.telefone,

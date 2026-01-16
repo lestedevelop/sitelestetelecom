@@ -11,7 +11,7 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
     if (!plans.length) return null;
 
     return (
-        <div className="relative">
+        <div className="">
             <button
                 type="button"
                 aria-label="Anterior"
@@ -47,7 +47,7 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
                     640: {slidesPerView: 2},
                     768: {slidesPerView: 3},
                 }}
-                className="pb-10"
+                className="py-10"
             >
                 {plans.map((plan) => (
                     <SwiperSlide key={plan.id} className="flex justify-center">

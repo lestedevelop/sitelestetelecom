@@ -92,7 +92,6 @@ export default function StepPlans({ onNext, onBack }) {
                 />
             )}
 
-            {/* Botão continuar (se você não quiser avançar no clique do plano) */}
             <div className="pt-2">
                 <button
                     type="button"

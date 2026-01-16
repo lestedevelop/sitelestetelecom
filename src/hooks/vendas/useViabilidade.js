@@ -2,12 +2,14 @@
 
 import { useRef, useState, useCallback } from "react";
 import { getViabilidade } from "@/pageComponents/vendas/api/viabilidade";
+import {useSales} from "@/contexts/SalesContextNew";
 
 export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const abortRef = useRef(null);
     const lastKeyRef = useRef("");
+    const { data , updateCadastro} = useSales();
 
     const checkViabilidade = useCallback(
         async ({ cep, numero }) => {
@@ -46,6 +48,11 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 if (rua) setValue("rua", rua, { shouldDirty: true, shouldTouch: true });
 
                 if (trigger) await trigger(["cidade", "bairro", "rua"]);
+
+                updateCadastro({
+                    ...data?.cadastro,
+                    ...v
+                });
 
 
             } catch (e) {
