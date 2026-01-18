@@ -1,17 +1,20 @@
-import { NextResponse } from "next/server";
-import { coreApi } from "@/lib/coreApi";
+import {NextResponse} from "next/server";
+import {coreApi} from "@/lib/coreApi";
+import {getUtmFromReq} from "@/lib/utmServerRaw";
 
 export async function POST(req) {
     try {
         const body = await req.json();
+        const utm = getUtmFromReq(req);
 
         const payload = {
-          ...body
+            ...body,
+            ...utm,
         };
         console.log(payload);
         const resp = await coreApi.put("/api/sac/externo/precadastro", payload);
-        console.log((resp.data))
-        return NextResponse.json(resp.data, { status: 200 });
+
+        return NextResponse.json(resp.data, {status: 200});
     } catch (error) {
         const status = error?.response?.status || 500;
         const data = error?.response?.data;
@@ -27,6 +30,6 @@ export async function POST(req) {
             responseData: data || null,
         });
 
-        return NextResponse.json({ message, details: data || null }, { status });
+        return NextResponse.json({message, details: data || null}, {status});
     }
 }

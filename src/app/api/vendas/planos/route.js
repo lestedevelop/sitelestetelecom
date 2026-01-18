@@ -1,22 +1,27 @@
-import { NextResponse } from "next/server";
-import { coreApi } from "@/lib/coreApi";
+import {NextResponse} from "next/server";
+import {coreApi} from "@/lib/coreApi";
+import {getUtmFromReq} from "@/lib/utmServerRaw";
 
 export async function GET(req) {
     try {
-        const { searchParams } = new URL(req.url);
+        const {searchParams} = new URL(req.url);
         const cidade = searchParams.get("cidade");
         const predio = searchParams.get("predio");
-        console.log("predio: ", predio);
+        const {utm} = getUtmFromReq(req);
+
+
         if (!cidade) {
             return NextResponse.json(
-                { ok: false, message: "cidade é obrigatório" },
-                { status: 400 }
+                {ok: false, message: "cidade é obrigatório"},
+                {status: 400}
             );
         }
-        console.log(predio)
-        const response = await coreApi.post("/api/sac/externo/planos", { cidade:cidade, predio: Number(predio) });
 
-        return NextResponse.json({ ok: true, data: response.data }, { status: 200 });
+        const payload = {cidade: cidade, predio: Number(predio), ...utm};
+
+        const response = await coreApi.post("/api/sac/externo/planos", payload);
+
+        return NextResponse.json({ok: true, data: response.data}, {status: 200});
     } catch (error) {
         const status = error?.response?.status || 500;
         const data = error?.response?.data;
@@ -32,7 +37,7 @@ export async function GET(req) {
                     "Erro ao buscar planos",
                 data,
             },
-            { status }
+            {status}
         );
     }
 }
