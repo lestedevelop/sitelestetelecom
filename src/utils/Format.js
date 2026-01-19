@@ -29,3 +29,29 @@ export function getFirstAndInitial(name) {
     return `${first} ${secondInitial}.`;
 }
 
+export function daysInMonth(date) {
+    const y = date.getFullYear();
+    const m = date.getMonth();
+    return new Date(y, m + 1, 0).getDate();
+}
+
+export function toBRL(value) {
+    const n = Number(value || 0);
+    return n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+export function monthNamePT(date) {
+    return date.toLocaleDateString("pt-BR", { month: "long" });
+}
+export function lastDayOfMonthUTC(date) {
+    const y = date.getUTCFullYear();
+    const m = date.getUTCMonth();
+    return new Date(Date.UTC(y, m + 1, 0)); // último dia do mês em UTC
+}
+
+export function daysInMonthUTC(date) {
+    const y = date.getUTCFullYear();
+    const m = date.getUTCMonth();
+    return new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+}
+

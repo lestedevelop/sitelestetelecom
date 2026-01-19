@@ -1,49 +1,101 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useEffect, useMemo, useState } from "react";
+
+import AgendaDayPicker from "@/pageComponents/vendas/form/AgendaDayPicker";
+import { getVagaByCodCid } from "@/pageComponents/vendas/api/vaga";
 import { useSales } from "@/contexts/SalesContextNew";
+import { findCodCidByName } from "@/utils/cidade";
+import { cidadesMock } from "@/mocks/cidadesMock";
+import ProRataSection from "@/pageComponents/vendas/components/ProRataSection";
 
 export default function StepAgendamento({ onNext, onBack }) {
-    const { updateStep, data } = useSales();
+    const { data, setAgendamento } = useSales();
 
-    const { register, handleSubmit } = useForm({
-        defaultValues: data.agendamento || {},
-    });
+    const codcid = useMemo(() => {
+        return findCodCidByName(data?.cadastro?.cidade, cidadesMock);
+    }, [data?.cadastro?.cidade]);
 
-    function onSubmit(values) {
-        updateStep("agendamento", values);
+    const [slots, setSlots] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [selectedSlot, setSelectedSlot] = useState(null);
+
+    useEffect(() => {
+        let alive = true;
+
+        async function load() {
+            if (!codcid) {
+                setSlots([]);
+                return;
+            }
+
+            setLoading(true);
+            setError("");
+
+            try {
+                const res = await getVagaByCodCid({ cidade: codcid, date: new Date() , predio: data?.cadastro?.tipoMoradia });
+                const list = Array.isArray(res) ? res : res?.data || [];
+                if (alive) setSlots(list);
+            } catch (e) {
+                if (alive) {
+                    setError("Não foi possível carregar as datas. Tente novamente.");
+                    setSlots([]);
+                }
+            } finally {
+                if (alive) setLoading(false);
+            }
+        }
+
+        load();
+        return () => {
+            alive = false;
+        };
+    }, [codcid]);
+
+    function handleContinue() {
+        const hasAgendamento = (data?.agendamento.start);
+        if (!hasAgendamento) {
+            return;
+        }
         onNext?.();
     }
 
-    return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <h2 className="text-xl font-semibold">Agendamento</h2>
+    function handleSelectSlot(slot) {
+        setSelectedSlot(slot);
 
-            <input
-                {...register("dataInstalacao")}
-                placeholder="Data (yyyy-mm-dd)"
-                className="w-full border p-3"
+        setAgendamento({
+            slotId: slot?.id,
+            title: slot?.title,
+            start: slot?.start,
+            codcid,
+        });
+
+    }
+
+    return (
+        <div>
+            {loading && <div>Carregando vagas...</div>}
+            {error && <div style={{ color: "red" }}>{error}</div>}
+               <div>
+                   <h2 className={'text-darkgreen text-xl md:text-3xl font-bold'}>Agendamento</h2>
+                   <p className={'text-primary text-sm md:text-lg py-4'}>Escolha melhor data para sua instalação</p>
+               </div>
+            <AgendaDayPicker
+                slots={slots}
+                onSelectSlot={handleSelectSlot}
             />
 
-            <div className="flex gap-4">
-                <label className="flex items-center gap-2">
-                    <input type="radio" value="manha" {...register("periodoInstalacao")} />
-                    Manhã
-                </label>
-                <label className="flex items-center gap-2">
-                    <input type="radio" value="tarde" {...register("periodoInstalacao")} />
-                    Tarde
-                </label>
-            </div>
-
-            <div className="flex gap-3">
-                <button type="button" onClick={onBack} className="rounded border px-4 py-2">
-                    Voltar
-                </button>
-                <button type="submit" className="rounded bg-emerald-600 px-6 py-3 text-white">
+            {data?.agendamento.start && <ProRataSection/>}
+            {data?.agendamento.start && <div className="pt-6">
+                <button
+                    type="button"
+                    onClick={handleContinue}
+                    className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"
+                >
                     Continuar
                 </button>
-            </div>
-        </form>
+            </div>}
+        </div>
     );
 }

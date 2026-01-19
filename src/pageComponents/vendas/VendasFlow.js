@@ -1,19 +1,22 @@
 "use client";
 
-import { useMemo } from "react";
-import { useSales } from "@/contexts/SalesContextNew";
+import {useMemo} from "react";
+import {useSales} from "@/contexts/SalesContextNew";
 
 import StepCadastroInicial from "./steps/StepCadastroInicial";
 import StepCadastroCompleto from "./steps/StepCadastroCompleto";
 import StepPlans from "./steps/StepPlano";
 
 import VendasStepper from "@/pageComponents/vendas/VendasStepper";
+import StepAgendamento from "@/pageComponents/vendas/steps/StepAgendamento";
+import StepRevisao from "@/pageComponents/vendas/steps/StepRevisao";
 
 const FLOW_STEPS = [
     "cadastro_inicial",
     "cadastro_completo",
     "planos",
     "agendamento",
+    "revisao"
 ];
 
 const STEPPER_STEPS = ["Cadastro", "Plano", "Revisão"];
@@ -23,10 +26,11 @@ const STEPPER_INDEX_MAP = {
     cadastro_completo: 0,
     planos: 1,
     agendamento: 2,
+    revisao: 3,
 };
 
 export default function VendasFlow() {
-    const { data, setStep } = useSales();
+    const {data, setStep} = useSales();
     const step = data.step || "cadastro_inicial";
 
     const stepIndex = useMemo(
@@ -60,21 +64,22 @@ export default function VendasFlow() {
             )}
 
             {step === "cadastro_inicial" && (
-                <StepCadastroInicial onNext={next} />
+                <StepCadastroInicial onNext={next}/>
             )}
 
             {step === "cadastro_completo" && (
-                <StepCadastroCompleto onBack={back} onNext={next} />
+                <StepCadastroCompleto onBack={back} onNext={next}/>
             )}
 
             {step === "planos" && (
-                <StepPlans onBack={back} onNext={next} />
+                <StepPlans onBack={back} onNext={next}/>
             )}
-
-            {/* quando criar:
-      {step === "agendamento" && (
-        <StepAgendamento onBack={back} onNext={next} />
-      )} */}
+            {step === "agendamento" && (
+                <StepAgendamento onBack={back} onNext={next}/>
+            )}
+            {step === "revisao" && (
+                <StepRevisao onBack={back} onNext={next}/>
+            )}
         </>
     );
 }

@@ -89,6 +89,16 @@ export function SalesProviderNew({ children }) {
         }));
     }
 
+    function setAgendamento(payload) {
+        setData((prev) => ({
+            ...prev,
+            agendamento: {
+                ...prev.agendamento,
+                ...payload,
+            },
+        }));
+    }
+
     function setStep(step) {
         setData((prev) => ({
             ...prev,
@@ -127,6 +137,7 @@ export function SalesProviderNew({ children }) {
                 addResponsavel,
                 removeResponsavel,
                 updateResponsavel,
+                setAgendamento
             }}
         >
             {children}
