@@ -6,6 +6,7 @@ const PAYMENT_OPTIONS = [
     { value: "pix_instalacao", label: "Pix na instalação" },
     { value: "credito_instalacao", label: "Crédito na instalação" },
     { value: "debito_instalacao", label: "Débito na instalação" },
+    { value: "credito_parcelado", label: "Crédito 10x na instalação" },
 ];
 
 export default function PagamentoSelect({ value, onChange }) {

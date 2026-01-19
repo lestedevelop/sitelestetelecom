@@ -15,23 +15,24 @@ function clampPercent(p) {
     return Math.max(0, Math.min(100, n));
 }
 
-export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNormal = 250, pixOffPercent = 40, options = [{ value: "pix_instalacao", label: "Pix na instalação" }, { value: "credito_instalacao", label: "Crédito na instalação" }, { value: "debito_instalacao", label: "Débito na instalação" },
-                                       ],
-                                   }) {
+export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNormal = 250, pixOffPercent = 0, options = [{ value: "pix_instalacao", label: "Pix na instalação" }, { value: "credito_instalacao", label: "Crédito na instalação" }, { value: "debito_instalacao", label: "Débito na instalação" },    { value: "credito_parcelado", label: "Crédito 10x na instalação" },],}) {
     const isPix = value === "pix_instalacao";
+    const isParcelado = value === "credito_parcelado";
 
     const computed = useMemo(() => {
         const full = Number(taxaCheia || 0);
         const normal = Number(taxaNormal || 0);
-        const pct = clampPercent(pixOffPercent);
+        const pct = clampPercent(taxaCheia/taxaNormal) * 10;
 
         const pixPrice = normal ? normal * (1 - pct / 100) : 0;
+        const parceladoPrice = full;
 
-        const final = isPix ? pixPrice : normal;
-        const strike = isPix ? normal : full;
+        const final = isParcelado ? parceladoPrice : normal;
+        const strike = isParcelado ? parceladoPrice : full;
 
-        return { full, normal, pct, pixPrice, final, strike };
-    }, [taxaCheia, taxaNormal, pixOffPercent, isPix]);
+
+        return { full, normal, pct, parceladoPrice, final, strike };
+    }, [taxaCheia, taxaNormal, isParcelado]);
 
     return (
         <div className="space-y-3">
@@ -45,7 +46,7 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
             <div className="rounded-xl overflow-hidden border border-emerald-700/20">
                 <div className="bg-primary px-4 py-4 text-white flex items-center justify-between gap-4">
                     <div className="flex flex-col gap-2">
-                        {isPix ? (
+                        {!isParcelado ? (
                             <span className="inline-flex w-fit rounded-md bg-emerald-800/60 px-3 py-1 text-xs font-bold">
                 {computed.pct.toFixed(1)}% OFF
               </span>

@@ -13,7 +13,6 @@ export default function PagamentoSection({}) {
                    value={metodo}
                    taxaCheia={data?.plano?.taxa ?? 300}
                    taxaNormal={data?.plano?.taxa_desconto ?? 250}
-                   pixOffPercent={40}
                />
        </div>
    )
