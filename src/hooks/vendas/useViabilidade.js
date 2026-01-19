@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import { getViabilidade } from "@/pageComponents/vendas/api/viabilidade";
 import {useSales} from "@/contexts/SalesContextNew";
+import {toast} from "react-toastify";
 
 export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
     const [loading, setLoading] = useState(false);
@@ -36,6 +37,11 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                     signal: controller.signal,
                 });
 
+                if (!Array.isArray(resp) || resp.length === 0) {
+                    toast.error("CEP não encontrado ou sem cobertura");
+                    return;
+                }
+
                 const v = Array.isArray(resp) ? resp[0] : resp;
 
 
@@ -53,11 +59,12 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                     ...data?.cadastro,
                     ...v
                 });
-
+                toast.success("Cep validado com sucesso!");
 
             } catch (e) {
                 if (e?.name === "AbortError") return;
-                setError(e?.message || "Erro ao validar viabilidade");
+                toast.error("Erro ao Validar CEP , aguarde alguns segundos e tente novamente");
+
             } finally {
                 setLoading(false);
             }

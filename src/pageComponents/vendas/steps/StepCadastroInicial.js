@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroInicial({ onNext }) {
-    const { data, updateCadastro, setPrecadastroBody } = useSales();
+    const { data, hydrated, updateCadastro, setPrecadastroBody } = useSales();
 
     const {
         register,
@@ -31,19 +31,22 @@ export default function StepCadastroInicial({ onNext }) {
         defaultValues: {
             nome: "",
             email: "",
-            celular: "",
-            cep: "",
-            numero: "",
-            cidade: "",
-            bairro: "",
-            rua: "",
-            complemento: "",
-            referencia: "",
-            aceitouPrivacidade: false,
             ...data?.cadastro,
         },
         resolver: yupResolver(cadastroInicialSchema),
     });
+
+    const hydratedOnce = useRef(false);
+    useEffect(() => {
+        if (!hydrated) return;
+        if (hydratedOnce.current) return;
+
+        reset({
+            ...data?.cadastro,
+        });
+
+        hydratedOnce.current = true;
+    }, [hydrated, data?.cadastro, reset]);
 
     const { checkViabilidade, loading: viabLoading, error: viabError } =
         useViabilidade({
@@ -76,10 +79,14 @@ export default function StepCadastroInicial({ onNext }) {
             });
             setPrecadastroBody(resp);
         } catch (error) {
-            toast.error(error?.message || "Erro no pré-cadastro");
+            toast.error(
+                <div>
+                    <div className="font-semibold text-darkgreen">Falha ao salvar</div>
+                    <div className="text-sm text-gray-600">Tente novamente em alguns segundos.</div>
+                </div>,
+            );
             return;
         }
-
         onNext?.();
     }
 
@@ -105,7 +112,6 @@ export default function StepCadastroInicial({ onNext }) {
                 <Input
                     label="CEP"
                     name="cep"
-                    error={errors?.cep?.message}
                     register={(n) =>
                         register(n, {
                             onChange: (e) => {
@@ -169,7 +175,13 @@ export default function StepCadastroInicial({ onNext }) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input label="Complemento" register={register} name="complemento" error={errors?.complemento?.message} />
-                <Input label="Ponto de Referência" register={register} name="referencia" error={errors?.referencia?.message} />
+                <Input
+                    label="Ponto de Referência"
+                    register={register}
+                    name="referencia"
+                    error={errors?.referencia?.message}
+                    disabled={viabLoading}
+                />
             </div>
 
             <Checkbox register={register} name="aceitouPrivacidade" error={errors?.aceitouPrivacidade?.message}>

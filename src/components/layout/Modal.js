@@ -1,4 +1,3 @@
-// src/pageComponents/vendas/ui/Modal.jsx
 "use client";
 
 import { useEffect } from "react";
@@ -17,8 +16,7 @@ export default function Modal({ open, title, subtitle, onClose, children }) {
     if (!open) return null;
 
     return (
-        <div className="fixed inset-0 z-[60]">
-            {/* overlay */}
+        <div className="fixed inset-0 z-[60] overflow-y-auto">
             <button
                 type="button"
                 aria-label="Fechar"
@@ -26,8 +24,7 @@ export default function Modal({ open, title, subtitle, onClose, children }) {
                 onClick={onClose}
             />
 
-            {/* dialog */}
-            <div className="relative mx-auto mt-16 w-[92%] max-w-3xl">
+            <div className="relative mx-auto px-8 mt-16 w-full max-w-3xl">
                 <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/10">
                     <div className="flex items-start justify-between gap-4 px-6 py-5 border-b border-black/10">
                         <div>

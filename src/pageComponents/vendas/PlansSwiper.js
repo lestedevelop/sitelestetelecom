@@ -12,36 +12,14 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
 
     return (
         <div className="">
-            <button
-                type="button"
-                aria-label="Anterior"
-                className="swiper-plans-prev hidden md:flex items-center justify-center absolute left-[-56px] top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 z-10"
-                onClick={onPrev}
-            >
-                ‹
-            </button>
-
-            <button
-                type="button"
-                aria-label="Próximo"
-                className="swiper-plans-next hidden md:flex items-center justify-center absolute right-[-56px] top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 z-10"
-                onClick={onNext}
-            >
-                ›
-            </button>
-
             <Swiper
                 modules={[Navigation, Pagination]}
                 spaceBetween={32}
                 slidesPerView={1.25}
                 centeredSlides={false}
-                navigation={{
-                    prevEl: ".swiper-plans-prev",
-                    nextEl: ".swiper-plans-next",
-                }}
                 pagination={{
                     clickable: true,
-                    dynamicBullets: true,
+                    dynamicMainBullets: true,
                 }}
                 breakpoints={{
                     640: {slidesPerView: 2},

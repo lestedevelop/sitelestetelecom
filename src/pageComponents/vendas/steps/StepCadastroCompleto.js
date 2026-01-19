@@ -30,24 +30,6 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         defaultValues: {
                 nome: "",
                 email: "",
-                // cpf: "",
-                // dataNascimento: "",
-                // rg: "",
-                // emissorRg: "",
-                // email: "",
-                // confirmacaoEmail: "",
-                // celular: "",
-                // telefone: "",
-                // cep: "",
-                // numero: "",
-                // tipoMoradia: "",
-                // rua: "",
-                // bairro: "",
-                // cidade: "",
-                // complemento: "",
-                // pontoReferencia: "",
-                // viabilidade: "",
-                // viabilidadeRaw: null,
             ...data.cadastro,
 
         },
@@ -285,8 +267,8 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                         <Input
                             label="Ponto de Referência"
                             register={register}
-                            name="pontoReferencia"
-                            error={errors?.pontoReferencia?.message}
+                            name="referencia"
+                            error={errors?.referencia?.message}
                             disabled={viabLoading}
                         />
                     </div>

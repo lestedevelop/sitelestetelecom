@@ -26,5 +26,5 @@ export const cadastroCompletoSchema = yup.object({
     cidade: yup.string().trim().required("Informe a cidade"),
 
     complemento: yup.string().trim().nullable(),
-    pontoReferencia: yup.string().trim().nullable(),
+    referencia: yup.string().trim().nullable(),
 });

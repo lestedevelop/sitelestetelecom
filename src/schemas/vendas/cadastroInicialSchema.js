@@ -13,7 +13,7 @@ export const cadastroInicialSchema = yup.object({
     rua: yup.string().trim().required("Informe a rua"),
 
     complemento: yup.string().trim().optional(),
-    pontoReferencia: yup.string().trim().optional(),
+    referencia: yup.string().trim().optional(),
 
     aceitouPrivacidade: yup
         .boolean()

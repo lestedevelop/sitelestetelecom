@@ -28,7 +28,7 @@ export function buildAgendamentoModel(data) {
             bairro: data.bairro,
             nome_cid: data.cidade,
             complemento: data.complemento,
-            referencia: data.pontoReferencia,
+            referencia: data.referencia,
             predio: data.tipoMoradia === "predio" ? 1 : 0,
             viabilidade: data.tipo_viabilidade,
             interesse: "sim",
