@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 
 export default function StepCadastroInicial({ onNext }) {
-    const { data, hydrated, updateCadastro, setPrecadastroBody } = useSales();
+    const { data, hydrated, updateCadastro, setPrecadastroBody,setStep } = useSales();
 
     const {
         register,
@@ -77,7 +77,13 @@ export default function StepCadastroInicial({ onNext }) {
                 ...values,
                 id: data?.precadastroBody?.id,
             });
-            setPrecadastroBody(resp);
+            setPrecadastroBody(resp)
+
+            if (data.cadastro.tipo_viabilidade !== "FTTH" || data.cadastro.risco) {
+                setStep("semViabilidade");
+                return;
+            }
+
         } catch (error) {
             toast.error(
                 <div>

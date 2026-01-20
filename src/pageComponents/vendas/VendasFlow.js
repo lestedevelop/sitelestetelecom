@@ -11,6 +11,7 @@ import VendasStepper from "@/pageComponents/vendas/VendasStepper";
 import StepAgendamento from "@/pageComponents/vendas/steps/StepAgendamento";
 import StepRevisao from "@/pageComponents/vendas/steps/StepRevisao";
 import StepAssinatura from "@/pageComponents/vendas/steps/StepAssinatura";
+import StepSemViabilidade from "@/pageComponents/vendas/steps/StepSemViabilidade";
 
 const FLOW_STEPS = [
     "cadastro_inicial",
@@ -59,7 +60,7 @@ export default function VendasFlow() {
 
     return (
         <>
-            {step !== "cadastro_inicial" && step !== "assinatura" && (
+            {step !== "cadastro_inicial" && step !== "assinatura" &&  step !== "semViabilidade" && (
                 <VendasStepper
                     steps={STEPPER_STEPS}
                     current={stepperIndex}
@@ -86,6 +87,9 @@ export default function VendasFlow() {
             )}
             {step === "assinatura" && (
                 <StepAssinatura onBack={back} onNext={next} onEditSection={goToIndex}/>
+            )}
+            {step === "semViabilidade" && (
+                <StepSemViabilidade onBack={back} onNext={next} onEditSection={goToIndex}/>
             )}
 
         </>
