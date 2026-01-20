@@ -1,12 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
-import { useSales } from "@/contexts/SalesContextNew";
-import {daysInMonthUTC, monthNamePT , toBRL,lastDayOfMonthUTC} from "@/utils/Format";
+import {useEffect, useMemo} from "react";
+import {useSales} from "@/contexts/SalesContextNew";
+import {daysInMonthUTC, monthNamePT, toBRL, lastDayOfMonthUTC} from "@/utils/Format";
 import Image from "next/image";
 import iconBarra from "@/assets/icons/codigobarras.png";
 
-function calcProRataUTC(planValue,startISO) {
+function calcProRataUTC(planValue, startISO) {
     const startDate = new Date(startISO);
     const endDate = lastDayOfMonthUTC(startDate);
 
@@ -14,22 +14,22 @@ function calcProRataUTC(planValue,startISO) {
     const monthDays = daysInMonthUTC(startDate);
 
     const prorata = (planValue / monthDays) * usedDays;
-    console.log("planvalue "+ planValue);
+    console.log("planvalue " + planValue);
     const nextInvoice = planValue + prorata;
 
-    return { usedDays, prorata, nextInvoice,startDate,endDate };
+    return {usedDays, prorata, nextInvoice, startDate, endDate};
 }
 
 
 export default function ProRataSection() {
-    const {data} = useSales();
+    const {data, updateStep} = useSales();
 
     const startISO = data?.agendamento.start;
     const planValue = data?.plano.valor;
 
     const dueDay = data?.plano?.vencimento;
 
-    const { usedDays, prorata, nextInvoice,startDate,endDate } = useMemo(
+    const {usedDays, prorata, nextInvoice, startDate, endDate} = useMemo(
         () => calcProRataUTC(Number(planValue), startISO),
         [planValue, startISO]
     );
@@ -42,6 +42,14 @@ export default function ProRataSection() {
 
     const payLabel =
         startDate ? `${String(dueDay).padStart(2, "0")} de ${monthLabel}` : "-";
+
+    useEffect(() => {
+        updateStep("agendamento", {
+            ...data?.agendamento,
+            prorata
+        });
+
+    },[prorata]);
 
     return (
         <section className="w-full max-w-[980px]">
@@ -103,8 +111,8 @@ export default function ProRataSection() {
             )}
 
             <div className="mt-2 flex gap-4 items-center border-2 bg-white border-primary/40 rounded-xl p-4">
-                <div className={"w-12"} >
-                    <Image src={iconBarra} alt={""} />
+                <div className={"w-12"}>
+                    <Image src={iconBarra} alt={""}/>
                 </div>
                 <div>
                     <div className="text-primary font-extrabold">

@@ -59,7 +59,7 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                     ...data?.cadastro,
                     ...v
                 });
-                toast.success("Cep validado com sucesso!");
+                toast.success(`Cep validado com sucesso! + ${v.tipo_viabilidade}`);
 
             } catch (e) {
                 if (e?.name === "AbortError") return;

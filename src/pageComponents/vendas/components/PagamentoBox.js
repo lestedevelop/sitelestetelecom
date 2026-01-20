@@ -1,19 +1,10 @@
 // src/pageComponents/vendas/PaymentBox.jsx
 "use client";
 
-import { useMemo } from "react";
+import {useEffect, useMemo} from "react";
 import PagamentoSelect from "@/pageComponents/vendas/form/PagamentoSelect";
+import {clampPercent, toBRL} from "@/utils/Format";
 
-function formatBRL(v) {
-    const n = Number(v || 0);
-    return n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
-
-function clampPercent(p) {
-    const n = Number(p || 0);
-    if (!Number.isFinite(n)) return 0;
-    return Math.max(0, Math.min(100, n));
-}
 
 export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNormal = 250, pixOffPercent = 0, options = [{ value: "pix_instalacao", label: "Pix na instalação" }, { value: "credito_instalacao", label: "Crédito na instalação" }, { value: "debito_instalacao", label: "Débito na instalação" },    { value: "credito_parcelado", label: "Crédito 10x na instalação" },],}) {
     const isPix = value === "pix_instalacao";
@@ -30,16 +21,24 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
         const final = isParcelado ? parceladoPrice : normal;
         const strike = isParcelado ? parceladoPrice : full;
 
-
         return { full, normal, pct, parceladoPrice, final, strike };
     }, [taxaCheia, taxaNormal, isParcelado]);
 
+    useEffect(() => {
+        const label = options.find(option => {option.value = value; return option; });
+        onChange(value,computed.final,label.label);
+    },[])
+
+    function handleSelect() {
+        const label = options.find(option => {option.value = value; return option; });
+        onChange(value,computed.final,label.label);
+    }
     return (
         <div className="space-y-3">
             {/* Select */}
             <PagamentoSelect
                 value={value}
-                onChange={onChange}
+                onChange={handleSelect}
             />
 
             {/* Caixa verde */}
@@ -58,10 +57,10 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
                     <div className="text-right">
                         {/* riscado: */}
                         {computed.strike > 0 && computed.strike !== computed.final ? (
-                            <div className="text-sm opacity-80 line-through">{formatBRL(computed.strike)}</div>
+                            <div className="text-sm opacity-80 line-through">{toBRL(computed.strike)}</div>
                         ) : null}
 
-                        <div className="text-2xl font-bold">{formatBRL(computed.final)}</div>
+                        <div className="text-2xl font-bold">{toBRL(computed.final)}</div>
                     </div>
                 </div>
 

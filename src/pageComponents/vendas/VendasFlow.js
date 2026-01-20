@@ -78,7 +78,7 @@ export default function VendasFlow() {
                 <StepAgendamento onBack={back} onNext={next}/>
             )}
             {step === "revisao" && (
-                <StepRevisao onBack={back} onNext={next}/>
+                <StepRevisao onBack={back} onNext={next} onEditSection={goToIndex}/>
             )}
         </>
     );

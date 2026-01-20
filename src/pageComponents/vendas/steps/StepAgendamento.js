@@ -63,7 +63,6 @@ export default function StepAgendamento({ onNext, onBack }) {
 
     function handleSelectSlot(slot) {
         setSelectedSlot(slot);
-
         setAgendamento({
             slotId: slot?.id,
             title: slot?.title,

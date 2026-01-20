@@ -2,7 +2,6 @@ import {brToISODate} from "@/utils/Format";
 
 export function buildAgendamentoModel(data) {
     const cadastro = data?.cadastro || {};
-    const endereco = cadastro?.endereco || {};
     const plano = data?.plano || data?.planos || {};
     const agendamento = data?.agendamento || {};
     const precadastroBody = data?.precadastroBody || {};
@@ -23,20 +22,23 @@ export function buildAgendamentoModel(data) {
             e_mail: cadastro?.email,
             celular: cadastro?.celular,
             fone: cadastro?.telefone,
-            cep: endereco?.cep,
+            cep: cadastro?.cep,
             nome_cid: cadastro?.cidade,
-            bairro: endereco?.bairro,
-            rua: endereco?.rua,
-            numero: endereco?.numero,
-            complemento: endereco?.complemento,
-            referencia: endereco?.referencia,
-            moradiaTipo: endereco?.moradiaTipo,
+            bairro: cadastro?.bairro,
+            rua: cadastro?.rua,
+            endereco: cadastro?.rua,
+            numero: cadastro?.numero,
+            cidade: cadastro?.cidade,
+            uf: cadastro?.uf || "RJ",
+            complemento: cadastro?.complemento,
+            referencia: cadastro?.referencia,
+            moradiaTipo: cadastro?.moradiaTipo,
             codcid: agendamento?.codcid || data?.codcid,
             id: precadastroBody?.id,
             predio: cadastro?.tipoMoradia === "predio" ? 1 : 0,
             viabilidade:cadastro?.tipo_viabilidade,
             interesse: "sim",
-            tipo_cliente: "F",
+            tipo_ciente: "F",
             obs: "Cliente via site",
         },
         codser: plano.codser,

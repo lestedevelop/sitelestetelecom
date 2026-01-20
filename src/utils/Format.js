@@ -55,3 +55,34 @@ export function daysInMonthUTC(date) {
     return new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
 }
 
+export function fmtDateBR(iso) {
+    if (!iso) return "-";
+    const d = new Date(iso);
+    return d.toLocaleDateString("pt-BR");
+}
+
+export function inferPeriod(title) {
+    const t = String(title || "").toUpperCase();
+    if (t.includes("MANH")) return "Manhã";
+    if (t.includes("TARDE")) return "Tarde";
+    return "-";
+}
+
+export function clampPercent(p) {
+    const n = Number(p || 0);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.min(100, n));
+}
+
+export function brToISODate(br) {
+    if (!br) return "";
+    const [dd, mm, yyyy] = String(br).split("/");
+    if (!dd || !mm || !yyyy) return ""; // força vazio se vier ruim
+
+    // valida simples
+    if (dd.length !== 2 || mm.length !== 2 || yyyy.length !== 4) return "";
+    if (Number(mm) < 1 || Number(mm) > 12) return "";
+    if (Number(dd) < 1 || Number(dd) > 31) return "";
+
+    return `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
+}
