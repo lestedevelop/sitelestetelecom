@@ -49,17 +49,36 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
     const canContinue = !!aceitouTaxa && !!aceitouPrivacidade && isValid && !isSubmitting;
 
     async function onSubmit() {
-        const resp = await sendAgendamento(data);
-        if (resp.TicketNumber) {
-            updateStep("agendamento",
-                {
+        try {
+            const resp = await sendAgendamento(data);
+
+            if (resp?.TicketNumber) {
+                updateStep("agendamento", {
                     ...data.agendamento,
                     TicketNumber: resp.TicketNumber,
                 });
-            onNext?.();
-            return toast.success("Agendamento Criado com sucesso! Protocolo:");
+
+                toast.success(
+                    `Agendamento criado com sucesso! Protocolo: ${resp.TicketNumber}`
+                );
+
+                onNext?.();
+                return;
+            }
+
+            toast.error(
+                "Não foi possível concluir o agendamento. Tente novamente!"
+            );
+        } catch (error) {
+            console.error("Erro ao enviar agendamento:", error);
+
+            const message =
+                error?.response?.data?.message ||
+                error?.message ||
+                "Erro inesperado ao concluir o agendamento.";
+
+            toast.error(message);
         }
-        return toast.error("Nao foi Possivel concluir o angendamento, tente novamente!");
     }
 
     return (

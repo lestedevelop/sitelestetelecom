@@ -4,7 +4,7 @@ import PagamentoBox from "@/pageComponents/vendas/components/PagamentoBox";
 
 export default function PagamentoSection({}) {
     const { data ,updateStep} = useSales();
-    const [metodo, setMetodo] = useState(data?.plano.flagPagamento || "pix_instalacao");
+    const [metodo, setMetodo] = useState(data?.plano.flagPagamento || {value:"pix_instalacao",taxa:data.plano.taxa_desconto,label:"Pix na Instalação"});
 
     function handlePagamento(metodo) {
         setMetodo(metodo.value);
