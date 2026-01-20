@@ -35,7 +35,6 @@ export async function POST(req) {
         appendAny(form, "precadastro", payload?.precadastro);
         appendAny(form, "responsaveis", payload?.responsaveis);
 
-
         const resp = await coreApi.put("/api/sac/externo/agendamento", form, {
             headers: {
                 ...form.getHeaders(),

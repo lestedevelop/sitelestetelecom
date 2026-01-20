@@ -1,14 +1,21 @@
 // src/pageComponents/vendas/PaymentBox.jsx
 "use client";
 
-import {useEffect, useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import PagamentoSelect from "@/pageComponents/vendas/form/PagamentoSelect";
 import {clampPercent, toBRL} from "@/utils/Format";
 
 
-export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNormal = 250, pixOffPercent = 0, options = [{ value: "pix_instalacao", label: "Pix na instalação" }, { value: "credito_instalacao", label: "Crédito na instalação" }, { value: "debito_instalacao", label: "Débito na instalação" },    { value: "credito_parcelado", label: "Crédito 10x na instalação" },],}) {
+export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNormal = 250, pixOffPercent = 0}) {
     const isPix = value === "pix_instalacao";
     const isParcelado = value === "credito_parcelado";
+
+    const PAYMENT_OPTIONS = [
+        { value: "pix_instalacao", label: "Pix na instalação",taxa:taxaNormal },
+        { value: "credito_instalacao", label: "Crédito na instalação",taxa:taxaNormal },
+        { value: "debito_instalacao", label: "Débito na instalação",taxa:taxaNormal },
+        { value: "credito_parcelado", label: "Crédito 10x na instalação",taxa:taxaCheia },
+    ];
 
     const computed = useMemo(() => {
         const full = Number(taxaCheia || 0);
@@ -24,21 +31,13 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
         return { full, normal, pct, parceladoPrice, final, strike };
     }, [taxaCheia, taxaNormal, isParcelado]);
 
-    useEffect(() => {
-        const label = options.find(option => {option.value = value; return option; });
-        onChange(value,computed.final,label.label);
-    },[])
-
-    function handleSelect() {
-        const label = options.find(option => {option.value = value; return option; });
-        onChange(value,computed.final,label.label);
-    }
     return (
         <div className="space-y-3">
             {/* Select */}
             <PagamentoSelect
                 value={value}
-                onChange={handleSelect}
+                onChange={onChange}
+                options={PAYMENT_OPTIONS}
             />
 
             {/* Caixa verde */}

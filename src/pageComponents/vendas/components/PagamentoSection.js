@@ -3,15 +3,16 @@ import { useSales} from "@/contexts/SalesContextNew";
 import PagamentoBox from "@/pageComponents/vendas/components/PagamentoBox";
 
 export default function PagamentoSection({}) {
-    const [metodo, setMetodo] = useState("pix_instalacao");
     const { data ,updateStep} = useSales();
+    const [metodo, setMetodo] = useState(data?.plano.flagPagamento || "pix_instalacao");
 
-    function handlePagamento(metodo,total,metodoLabel) {
-        setMetodo(metodo);
+    function handlePagamento(metodo) {
+        setMetodo(metodo.value);
         updateStep("plano", {
             ...data?.plano,
-            taxaTotal: total,
-            formaDePagamento:metodoLabel,
+            taxaTotal: metodo.taxa,
+            formaDePagamento:metodo.label,
+            flagPagamento:metodo.value
         });
     }
 

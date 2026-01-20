@@ -9,14 +9,14 @@ const PAYMENT_OPTIONS = [
     { value: "credito_parcelado", label: "Crédito 10x na instalação" },
 ];
 
-export default function PagamentoSelect({ value, onChange }) {
+export default function PagamentoSelect({ options ,value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef(null);
 
-    const selected = PAYMENT_OPTIONS.find((o) => o.value === value);
+    const selected = options.find((o) => o.value === value);
 
     function choose(option) {
-        onChange?.(option.value);
+        onChange?.(option);
         setIsOpen(false);
     }
 
@@ -71,7 +71,7 @@ export default function PagamentoSelect({ value, onChange }) {
                      border border-black/10 shadow-[0_10px_24px_rgba(0,0,0,0.20)] z-20"
                 >
                     <div className="max-h-72 overflow-y-auto py-2">
-                        {PAYMENT_OPTIONS.map((opt) => {
+                        {options.map((opt) => {
                             const isSelected = opt.value === value;
                             return (
                                 <button

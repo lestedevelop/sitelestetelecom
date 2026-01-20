@@ -14,7 +14,7 @@ import {sendAgendamento} from "@/pageComponents/vendas/api/agendamento";
 import {toast} from "react-toastify";
 
 export default function StepRevisao({onNext, onBack, onEditSection}) {
-    const {data} = useSales();
+    const {data,updateStep} = useSales();
 
     const cadastro = data?.cadastro || {};
     const plano = data?.plano || data?.planos || {};
@@ -50,10 +50,16 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
 
     async function onSubmit() {
         const resp = await sendAgendamento(data);
-        if (resp.ok) {
+        if (resp.TicketNumber) {
+            updateStep("agendamento",
+                {
+                    ...data.agendamento,
+                    TicketNumber: resp.TicketNumber,
+                });
             onNext?.();
+            return toast.success("Agendamento Criado com sucesso! Protocolo:");
         }
-        toast.error("Aguarde alguns segundos e tente novamente!");
+        return toast.error("Nao foi Possivel concluir o angendamento, tente novamente!");
     }
 
     return (

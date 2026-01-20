@@ -1,6 +1,6 @@
 "use client";
 
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 import {useSales} from "@/contexts/SalesContextNew";
 
 import StepCadastroInicial from "./steps/StepCadastroInicial";
@@ -10,13 +10,15 @@ import StepPlans from "./steps/StepPlano";
 import VendasStepper from "@/pageComponents/vendas/VendasStepper";
 import StepAgendamento from "@/pageComponents/vendas/steps/StepAgendamento";
 import StepRevisao from "@/pageComponents/vendas/steps/StepRevisao";
+import StepAssinatura from "@/pageComponents/vendas/steps/StepAssinatura";
 
 const FLOW_STEPS = [
     "cadastro_inicial",
     "cadastro_completo",
     "planos",
     "agendamento",
-    "revisao"
+    "revisao",
+    "assinatura"
 ];
 
 const STEPPER_STEPS = ["Cadastro", "Plano", "Revisão"];
@@ -27,6 +29,7 @@ const STEPPER_INDEX_MAP = {
     planos: 1,
     agendamento: 2,
     revisao: 3,
+    assinatura: 4,
 };
 
 export default function VendasFlow() {
@@ -53,9 +56,10 @@ export default function VendasFlow() {
         goToIndex(stepIndex - 1);
     }
 
+
     return (
         <>
-            {step !== "cadastro_inicial" && (
+            {step !== "cadastro_inicial" && step !== "assinatura" && (
                 <VendasStepper
                     steps={STEPPER_STEPS}
                     current={stepperIndex}
@@ -80,6 +84,10 @@ export default function VendasFlow() {
             {step === "revisao" && (
                 <StepRevisao onBack={back} onNext={next} onEditSection={goToIndex}/>
             )}
+            {step === "assinatura" && (
+                <StepAssinatura onBack={back} onNext={next} onEditSection={goToIndex}/>
+            )}
+
         </>
     );
 }

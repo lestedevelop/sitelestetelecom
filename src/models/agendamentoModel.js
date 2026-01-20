@@ -28,7 +28,7 @@ export function buildAgendamentoModel(data) {
             rua: cadastro?.rua,
             endereco: cadastro?.rua,
             numero: cadastro?.numero,
-            cidade: cadastro?.cidade,
+            cidade: plano?.cidade,
             uf: cadastro?.uf || "RJ",
             complemento: cadastro?.complemento,
             referencia: cadastro?.referencia,

@@ -6,6 +6,6 @@ export const coreApi = axios.create({
     headers: {
         "Content-Type": "application/json",
         institucionalsessionid: process.env.INSTITUCIONAL_KEY || "",
-        sessionid: process.env.INSTITUCIONAL_KEY || "",
+        SessionID: process.env.INSTITUCIONAL_KEY || "",
     },
 });
