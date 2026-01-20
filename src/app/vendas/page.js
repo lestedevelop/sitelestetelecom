@@ -9,14 +9,22 @@ import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/toastify.css";
 import  {useCaptureUtm} from "@/pageComponents/vendas/useCaptureUtm";
+import {useIdleModal} from "@/hooks/useIdelModal";
+import IdleContinueModal from "@/pageComponents/vendas/components/IdelContinueModal";
 
 function VendasLayout() {
     const {data} = useSales();
     useCaptureUtm();
 
+    const { isOpen, close } = useIdleModal({
+        idleMs: 30000,
+        once: true,
+    });
+
 
     const showLeft =
         data?.step !== "cadastro_inicial";
+
 
     return (
         <div className="bg-darkgreen min-h-screen flex flex-col min-w-full lg:flex-row">
@@ -43,7 +51,16 @@ function VendasLayout() {
                 closeOnClick
                 pauseOnHover
             />
+            <IdleContinueModal
+                open={isOpen}
+                onClose={close}
+                onContinue={() => {
+                    close();
 
+                    const btn = document.querySelector('[data-cta="continuar"]');
+                    btn?.scrollIntoView({ behavior: "smooth", block: "center" });
+                }}
+            />
         </div>
     );
 }
