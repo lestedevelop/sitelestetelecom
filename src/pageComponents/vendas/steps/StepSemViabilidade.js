@@ -86,11 +86,11 @@ export default function StepSemViabilidade({ onBack }) {
                     </a>
 
                     <div className="flex items-center gap-2 md:ml-auto">
-                        <SocialIconButton href="#" icon={facebook}>f</SocialIconButton>
-                        <SocialIconButton href="#" icon={instagram}>i</SocialIconButton>
-                        <SocialIconButton href="#" icon={tiktok}>t</SocialIconButton>
-                        <SocialIconButton href="#" icon={twitter}>x</SocialIconButton>
-                        <SocialIconButton href="#" icon={linkedin}>in</SocialIconButton>
+                        <SocialIconButton href="http://www.facebook.com/lestetelecom" icon={facebook}>f</SocialIconButton>
+                        <SocialIconButton href="https://www.instagram.com/lestetelecom" icon={instagram}>i</SocialIconButton>
+                        <SocialIconButton href="https://www.tiktok.com/@leste.oficial" icon={tiktok}>t</SocialIconButton>
+                        <SocialIconButton href="https://twitter.com/lestetelecom" icon={twitter}>x</SocialIconButton>
+                        <SocialIconButton href="https://br.linkedin.com/company/lestetelecom" icon={linkedin}>in</SocialIconButton>
                     </div>
                 </div>
             </div>

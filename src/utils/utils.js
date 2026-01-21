@@ -24,3 +24,7 @@ export function getTitle(plan) {
     if (down > 0) return {titleNumber: String(down), titleUnit: "MEGA"};
     return {titleNumber: "—", titleUnit: ""};
 }
+
+export function toYmd(dateIso) {
+    return String(dateIso || "").slice(0, 10);
+}

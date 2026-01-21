@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {useEffect, useMemo, useState} from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { startOfDay, isSameDay } from "date-fns";
@@ -16,6 +16,15 @@ function inferPeriod(title) {
 export default function AgendaDayPicker({ slots = [], onSelectSlot }) {
     const [selectedDay, setSelectedDay] = useState();
     const [period, setPeriod] = useState("");
+    const [calendarMonth, setCalendarMonth] = useState(undefined);
+
+    const firstAvailableDay = useMemo(() => {
+        if (!slots?.length) return undefined;
+        const sorted = [...slots].sort(
+            (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+        );
+        return startOfDay(new Date(sorted[0].start));
+    }, [slots]);
 
     const availableDays = useMemo(() => {
         const m = new Map();
@@ -52,10 +61,19 @@ export default function AgendaDayPicker({ slots = [], onSelectSlot }) {
         if (chosen) onSelectSlot?.(chosen);
     }
 
+    useEffect(() => {
+        if (!firstAvailableDay) return;
+        setCalendarMonth(firstAvailableDay);
+        setSelectedDay((prev) => prev || firstAvailableDay);
+    }, [firstAvailableDay]);
+
+
     return (
         <div className="leste-agenda">
             <div className="card">
                 <DayPicker
+                    month={calendarMonth}
+                    onMonthChange={setCalendarMonth}
                     mode="single"
                     selected={selectedDay}
                     onSelect={(d) => {

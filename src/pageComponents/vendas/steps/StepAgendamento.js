@@ -35,7 +35,7 @@ export default function StepAgendamento({ onNext, onBack }) {
 
             try {
                 const res = await getVagaByCodCid({ cidade: codcid, date: new Date() , predio: data?.cadastro?.tipoMoradia });
-                const list = Array.isArray(res) ? res : res?.data || [];
+                const list = Array.isArray(res) ? res : res?.vagas || [];
                 if (alive) setSlots(list);
             } catch (e) {
                 if (alive) {
