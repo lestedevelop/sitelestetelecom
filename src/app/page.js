@@ -11,12 +11,14 @@ import HeroSlider from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.png";
 import SelectCity from "@/components/cards/SelectCity";
+import AppBarNew from "@/components/layout/AppBarNew";
 
 export default function Home() {
 
     return (
       <div className="min-h-full bg-light">
-        <AppBar/>
+        {/*<AppBar/>*/}
+          <AppBarNew />
         <HeroSlider />
         <PlanosSection  />
         <BannerUltraSection/>
