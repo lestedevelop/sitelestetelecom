@@ -3,7 +3,7 @@ import { useSite } from "@/contexts/SiteContext";
 
 export function useHomeData() {
     const { codcid, site, setPlanos } = useSite();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -12,7 +12,6 @@ export function useHomeData() {
         if (site?.planos && site?.homeLoaded) return;
 
         const controller = new AbortController();
-        setLoading(true);
         setError(null);
 
         fetch(`/api/home?cidade=${codcid}`, {
@@ -31,8 +30,7 @@ export function useHomeData() {
                     setError(err);
                 }
             })
-            .finally(() => setLoading(false));
-
+            .finally(() => setLoading(true));
         return () => controller.abort();
     }, [codcid]);
 

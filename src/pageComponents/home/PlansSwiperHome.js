@@ -7,8 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function PlansSwiperHome({plans = [], renderPlan, onPrev, onNext,}) {
-    if (!plans.length) return null;
+export default function PlansSwiperHome({plans = [], renderPlan}) {
 
     return (
         <div className="container flex items-center">

@@ -3,16 +3,18 @@ import TitleAndSubtitleSection from "@/components/listItems/TitleAndSubtitleSect
 import PlanCard from "@/components/cards/PlanCard";
 import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
 import {useSite} from "@/contexts/SiteContext";
+import {useHomeData} from "@/hooks/useHomeData";
 
-export default function PlanosSection({plans}) {
-    console.log(plans);
+export default function PlanosSection({}) {
+    const { planos, loading } = useHomeData();
     const {site} = useSite();
+
     return (
         <Section>
             <TitleAndSubtitleSection title={'Conheça nossos planos!'} text={'Internet Fibra Ótica de verdade, dentro da sua casa'} />
             <div className=" flex flex-col flex-wrap lg:flex-nowrap justify-center lg:justify-between md:flex-row gap-6 place-items-center">
                 <PlansSwiperHome
-                    plans={plans}
+                    plans={planos?.data || []}
                     renderPlan={(plan) => (
                         <PlanCard
                             plan={plan}

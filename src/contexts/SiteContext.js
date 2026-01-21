@@ -100,7 +100,7 @@ export function SiteProvider({children, defaultCity = null}) {
         if (!hydrated) return;
 
         try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
+            // localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
         } catch (e) {
             console.warn("Falha ao salvar localStorage (site):", e);
         }
