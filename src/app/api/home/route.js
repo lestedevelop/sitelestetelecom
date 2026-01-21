@@ -1,39 +1,40 @@
-import { NextResponse } from "next/server";
-import { coreApi } from "@/lib/coreApi";
-
-const ALLOWED_CITIES = new Set([
-    "niteroi",
-    "marica",
-    "itaborai",
-    "tangua",
-    "rio-bonito",
-    "mage",
-]);
-
-function normalizeCity(value) {
-    const city = String(value || "").trim().toLowerCase();
-    if (!city) return "niteroi";
-    return ALLOWED_CITIES.has(city) ? city : "niteroi";
-}
+import {NextResponse} from "next/server";
+import {coreApi} from "@/lib/coreApi";
 
 export async function GET(req) {
-    const { searchParams } = new URL(req.url);
-
-    const city = normalizeCity(searchParams.get("city"));
-
     try {
-        // const { data } = await coreApi.get("/public/home", {
-        //     params: { city },
-        // });
+        const {searchParams} = new URL(req.url);
+        const cidade = searchParams.get("cidade");
 
-        return NextResponse.json({ city, ...data });
-    } catch (err) {
-        const status = err?.response?.status || 502;
-        const message =
-            err?.response?.data?.error ||
-            err?.message ||
-            "Falha ao consultar o sistema principal";
 
-        return NextResponse.json({ error: message }, { status });
+        if (!cidade) {
+            return NextResponse.json(
+                {ok: false, message: "cidade é obrigatório"},
+                {status: 400}
+            );
+        }
+
+        const payload = {cidade: cidade, predio: 1,};
+
+        const response = await coreApi.post("/api/sac/externo/planos", payload);
+
+        return NextResponse.json({ok: true, data: response.data}, {status: 200});
+    } catch (error) {
+        const status = error?.response?.status || 500;
+        const data = error?.response?.data;
+
+        return NextResponse.json(
+            {
+                ok: false,
+                status,
+                message:
+                    data?.message ||
+                    data?.error ||
+                    error?.message ||
+                    "Erro ao buscar planos",
+                data,
+            },
+            {status}
+        );
     }
 }

@@ -14,20 +14,19 @@ import SelectCity from "@/components/cards/SelectCity";
 import {useHomeData} from "@/hooks/useHomeData";
 
 export default function Home() {
-    const { city, data, loading } = useHomeData();
-    console.log(city)
+    const { planos, loading } = useHomeData();
 
     return (
       <div className="min-h-full bg-light">
         <AppBar/>
         <HeroSlider />
-        <PlanosSection/>
+        <PlanosSection plans={planos.data} />
         <BannerUltraSection/>
         <JaeClienteSection/>
         <AreaCoberturaSection/>
         <BeneficiosSection/>
         <CanaisAtendimentosSection/>
-        <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"https://vendas.lestetelecom.com.br/"} />
+        <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"/vendas"} />
         <Footer/>
         <SelectCity></SelectCity>
       </div>

@@ -1,32 +1,44 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import { useCity } from "@/contexts/CityContext";
+import { useSite } from "@/contexts/SiteContext";
 
 export function useHomeData() {
-    const { city } = useCity();
-    const [data, setData] = useState(null);
+    const { codcid, site, setPlanos } = useSite();
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!city) return;
+        if (!codcid) return;
 
-        let cancelled = false;
+        if (site?.planos && site?.homeLoaded) return;
+
+        const controller = new AbortController();
         setLoading(true);
+        setError(null);
 
-        fetch(`/api/home?city=${encodeURIComponent(city)}`)
-            .then((r) => r.json())
-            .then((json) => {
-                if (!cancelled) setData(json);
+        fetch(`/api/home?cidade=${codcid}`, {
+            signal: controller.signal,
+        })
+            .then((r) => {
+                if (!r.ok) throw new Error("Erro ao buscar dados da home");
+                return r.json();
             })
-            .finally(() => {
-                if (!cancelled) setLoading(false);
-            });
+            .then((res) => {
+                setPlanos(res?.planos || res);
+            })
+            .catch((err) => {
+                if (err.name !== "AbortError") {
+                    console.error("HOME FETCH FAIL:", err);
+                    setError(err);
+                }
+            })
+            .finally(() => setLoading(false));
 
-        return () => {
-            cancelled = true;
-        };
-    }, [city]);
+        return () => controller.abort();
+    }, [codcid]);
 
-    return { city, data, loading };
+    return {
+        planos: site?.planos,
+        loading,
+        error,
+    };
 }

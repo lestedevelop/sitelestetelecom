@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { IBM_Plex_Sans } from 'next/font/google'
-import Providers from "@/components/providers/Providers";
+import {SiteProvider} from "@/contexts/SiteContext";
 
 
 const geistSans = Geist({
@@ -20,7 +20,7 @@ export const metadata = {
 };
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // escolha os pesos que quer
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
     <body
          className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
       >
-        <Providers>{children}</Providers>
+        <SiteProvider>{children}</SiteProvider>
       </body>
     </html>
   );

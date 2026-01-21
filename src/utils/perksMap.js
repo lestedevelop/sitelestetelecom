@@ -14,8 +14,8 @@ export const PERKS_MAP = {
     // EUVX14GTO8: "Mesh Wi-Fi AX",
 
     // Assistência
-    "ASSISTENCIA PRÊMIUM NIVEL 3": "Assistência Premium 3",
-    "ASSISTENCIA PRÊMIUM NIVEL 2": "Assistência Premium 2",
+    // "ASSISTENCIA PRÊMIUM NIVEL 3": "Assistência Premium 3",
+    // "ASSISTENCIA PRÊMIUM NIVEL 2": "Assistência Premium 2",
 
     // Quadrinhos
     // EUVX0VQBB7: "Super Comics",
