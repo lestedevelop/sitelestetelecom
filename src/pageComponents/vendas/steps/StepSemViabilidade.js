@@ -47,8 +47,8 @@ export default function StepSemViabilidade({ onBack }) {
             {/* Warning box */}
             <div className="mt-8 bg-white border border-graylighter rounded-2xl p-5 md:p-6">
                 <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-light grid place-items-center">
-                        <span className="text-[#f4b400] text-xl -mt-3">⚠</span>
+                    <div className="w-10 h-10 rounded-xl border border-[#f4b400] grid place-items-center">
+                        <span className="text-[#f4b400] text-xl -mt-1">⚠</span>
                     </div>
                     <div className="text-darkgreen text-base md:text-lg">
                         Um de nossos colaboradores fará contato para maiores informações.

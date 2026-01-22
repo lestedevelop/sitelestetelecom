@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const SalesContextNew = createContext(null);
 const STORAGE_KEY = "leste_vendas_data_v2";
+const TTL_MS = 60 * 60 * 1000;
 
 const initialState = {
     step: "cadastro_inicial",
@@ -40,21 +41,54 @@ export function SalesProviderNew({ children }) {
         }));
     }
 
+    // useEffect(() => {
+    //     try {
+    //         const raw = localStorage.getItem(STORAGE_KEY);
+    //         if (raw) {
+    //             const parsed = JSON.parse(raw);
+    //             if (parsed && typeof parsed === "object") {
+    //                 setData({
+    //                     ...initialState,
+    //                     ...parsed,
+    //                     cadastro: { ...(parsed.cadastro || {}) },
+    //                     plano: { ...(parsed.plano || {}) },
+    //                     agendamento: { ...(parsed.agendamento || {}) },
+    //                     precadastroBody: parsed.precadastroBody || null,
+    //                 });
+    //             }
+    //         }
+    //     } catch (e) {
+    //         console.warn("Falha ao ler localStorage (vendas):", e);
+    //     } finally {
+    //         setHydrated(true);
+    //     }
+    // }, []);
+
     useEffect(() => {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
-            if (raw) {
-                const parsed = JSON.parse(raw);
-                if (parsed && typeof parsed === "object") {
-                    setData({
-                        ...initialState,
-                        ...parsed,
-                        cadastro: { ...(parsed.cadastro || {}) },
-                        plano: { ...(parsed.plano || {}) },
-                        agendamento: { ...(parsed.agendamento || {}) },
-                        precadastroBody: parsed.precadastroBody || null,
-                    });
-                }
+            if (!raw) return;
+
+            const parsed = JSON.parse(raw);
+
+            const storedData = parsed?.data ? parsed.data : parsed;
+            const expiresAt = parsed?.expiresAt;
+
+            if (expiresAt && Date.now() > expiresAt) {
+                localStorage.removeItem(STORAGE_KEY);
+                return;
+            }
+
+            if (storedData && typeof storedData === "object") {
+                setData({
+                    ...initialState,
+                    ...storedData,
+                    cadastro: { ...(storedData.cadastro || {}) },
+                    plano: { ...(storedData.plano || {}) },
+                    agendamento: { ...(storedData.agendamento || {}) },
+                    precadastroBody: storedData.precadastroBody || null,
+                    responsaveis: Array.isArray(storedData.responsaveis) ? storedData.responsaveis : [],
+                });
             }
         } catch (e) {
             console.warn("Falha ao ler localStorage (vendas):", e);
@@ -62,6 +96,7 @@ export function SalesProviderNew({ children }) {
             setHydrated(true);
         }
     }, []);
+
 
     function updateCadastro(values) {
         setData((prev) => ({
@@ -113,16 +148,34 @@ export function SalesProviderNew({ children }) {
         setData(initialState);
     }
 
+    // useEffect(() => {
+    //     if (!hydrated) return;
+    //
+    //     try {
+    //         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    //         console.log("📦 SalesContext salvo no localStorage:", data);
+    //     } catch (e) {
+    //         console.warn("Falha ao salvar localStorage (vendas):", e);
+    //     }
+    // }, [data, hydrated]);
+
     useEffect(() => {
         if (!hydrated) return;
 
         try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify({
+                    data,
+                    expiresAt: Date.now() + TTL_MS,
+                })
+            );
             console.log("📦 SalesContext salvo no localStorage:", data);
         } catch (e) {
             console.warn("Falha ao salvar localStorage (vendas):", e);
         }
     }, [data, hydrated]);
+
 
     return (
         <SalesContextNew.Provider
