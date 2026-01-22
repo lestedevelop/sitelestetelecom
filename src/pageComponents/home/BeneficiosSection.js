@@ -20,19 +20,22 @@ export default function BeneficiosSection() {
             title: 'Leste Móvel',
             icon: lestemovel,
             primaryText: 'Chegou o chip da Leste!',
-            secondaryText: 'Onde comprar'
+            secondaryText: 'Onde comprar',
+            link: '/movel'
         },
         {
             title: 'Para a sua empresa',
             icon: empresaImg,
             primaryText: 'Mais que internet, é parceria no seu negócio',
-            secondaryText: 'Saiba mais'
+            secondaryText: 'Saiba mais',
+            link: '/pme'
         },
         {
             title: 'Leste Clube',
             icon: lesteClube,
             primaryText: 'Descontos exclusivos em lojas e sites',
-            secondaryText: 'Saiba mais'
+            secondaryText: 'Saiba mais',
+            link: '/leste-clube'
         },
     ]
 
@@ -112,7 +115,7 @@ export default function BeneficiosSection() {
 
             <div className="mt-25 flex flex-col md:flex-row justify-between gap-10">
                 {mock.map(item => (
-                    <CardProduto key={item.title} title={item.title} description={item.primaryText} imageSrc={item.icon} />
+                    <CardProduto key={item.title} link={item.link} title={item.title} description={item.primaryText} imageSrc={item.icon} />
                 ))}
 
             </div>

@@ -1,17 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const CardProduto = ({ 
-  imageSrc, 
-  title = "Leste Móvel", 
-  description = "Chegou o chip da Leste!", 
-  buttonText = "Onde comprar",
-  size = "md" // valores possíveis: sm, md, lg
-}) => {
-  const sizeClasses = {
-    sm: "w-64",
-    md: "w-80",
-    lg: "w-96"
-  };
+
+const CardProduto = ({imageSrc, title = "Leste Móvel", description = "Chegou o chip da Leste!", buttonText = "Onde comprar", link}) => {
 
   return (
     <div  className={`bg-white rounded-2xl overflow-hidden flex flex-col`}>
@@ -29,9 +20,9 @@ const CardProduto = ({
           </h2>
           <p className="text-dark text-lg">{description}</p>
         </div>
-        <button className="bg-primary mt-6 text-white text-[20px] font-medium py-2 px-6 rounded-lg hover:bg-[#007f68] transition">
+        <Link href={link} className="bg-primary mt-6 text-white text-[20px] font-medium py-2 px-6 rounded-lg hover:bg-[#007f68] transition">
           {buttonText}
-        </button>
+        </Link>
       </div>
     </div>
   );

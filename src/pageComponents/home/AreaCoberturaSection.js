@@ -1,5 +1,5 @@
 import Section from "@/components/layout/Section";
-import { Title } from "@/components/typoraphy";
+import Link from "next/link";
 import areaCobertura from "@/assets/areaCobertura.png"
 
 export default function AreaCoberturaSection() {
@@ -21,9 +21,9 @@ export default function AreaCoberturaSection() {
         <p className="hidden md:block text-base text-[20px] mb-6">
           Selecione sua cidade e confira <br /> se sua região é atendida.
         </p>
-        <a href="#" className="w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition">
+        <Link href="/viabilidade" className="w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition">
           Consultar!
-        </a>
+        </Link>
       </div>
 
     </Section>
