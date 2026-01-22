@@ -23,7 +23,7 @@ export default function PlansSwiperHome({plans = [], renderPlan}) {
                 className="py-10"
             >
                 {plans.map((plan) => (
-                    <SwiperSlide key={plan.id} className="flex justify-center min-h-[588px] md:w-[330px]!">
+                    <SwiperSlide key={plan.id} className="flex justify-center min-h-[588px] md:w-[280px]!">
                         {renderPlan(plan)}
                     </SwiperSlide>
                 ))}

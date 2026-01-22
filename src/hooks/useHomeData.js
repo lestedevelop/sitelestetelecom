@@ -3,26 +3,29 @@ import { useSite } from "@/contexts/SiteContext";
 
 export function useHomeData() {
     const { codcid, site, setPlanos } = useSite();
-    const [loading, setLoading] = useState(true);
+
+    const cityId = codcid || site?.city?.value || ""; //
+
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!codcid) return;
-
-        if (site?.planos && site?.homeLoaded) return;
+        if (!cityId) return;
 
         const controller = new AbortController();
+
+        setLoading(true);
         setError(null);
 
-        fetch(`/api/home?cidade=${codcid}`, {
-            signal: controller.signal,
-        })
+        setPlanos?.([]);
+
+        fetch(`/api/home?cidade=${cityId}`, { signal: controller.signal })
             .then((r) => {
                 if (!r.ok) throw new Error("Erro ao buscar dados da home");
                 return r.json();
             })
             .then((res) => {
-                setPlanos(res?.planos || res);
+                setPlanos(res?.planos || res || []);
             })
             .catch((err) => {
                 if (err.name !== "AbortError") {
@@ -30,12 +33,13 @@ export function useHomeData() {
                     setError(err);
                 }
             })
-            .finally(() => setLoading(true));
+            .finally(() => setLoading(false));
+
         return () => controller.abort();
-    }, [codcid]);
+    }, [cityId]);
 
     return {
-        planos: site?.planos,
+        planos: site?.planos || [],
         loading,
         error,
     };

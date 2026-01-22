@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { IBM_Plex_Sans } from 'next/font/google'
 import {SiteProvider} from "@/contexts/SiteContext";
+import {ToastContainer} from "react-toastify";
 
 
 const geistSans = Geist({
@@ -32,6 +33,13 @@ export default function RootLayout({ children }) {
          className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
       >
         <SiteProvider>{children}</SiteProvider>
+        <ToastContainer
+            position="top-right"
+            autoClose={4000}
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+        />
       </body>
     </html>
   );

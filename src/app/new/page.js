@@ -7,28 +7,28 @@ import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
 import CanaisAtendimentosSection from "@/pageComponents/home/CanaisAtendimentosSection";
 import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
-import HeroSlider from "@/pageComponents/home/HeroSlide";
+import HeroSliderNew from "@/pageComponents/home/HeroSlideNew";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.png";
 import SelectCity from "@/components/cards/SelectCity";
-import {useState} from "react";
+import AppBarNew from "@/components/layout/AppBarNew";
 
 export default function Home() {
-    const [openSelectCity,setOpenSelectCity] = useState(true);
 
     return (
-      <div className="min-h-full bg-light">
-        <AppBar/>
-        <HeroSlider />
-        <PlanosSection  />
-        <BannerUltraSection/>
-        <JaeClienteSection/>
-        <AreaCoberturaSection/>
-        <BeneficiosSection/>
-        <CanaisAtendimentosSection/>
-        <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"/vendas"} />
-        <Footer/>
-          <SelectCity visible={openSelectCity} setVisible={setOpenSelectCity}/>
-      </div>
-  );
+        <div className="min-h-full bg-light">
+            {/*<AppBar/>*/}
+            <AppBarNew />
+            <HeroSliderNew />
+            <PlanosSection  />
+            <BannerUltraSection/>
+            <JaeClienteSection/>
+            <AreaCoberturaSection/>
+            <BeneficiosSection/>
+            <CanaisAtendimentosSection/>
+            <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"/vendas"} />
+            <Footer/>
+            {/*<SelectCity></SelectCity>*/}
+        </div>
+    );
 }
