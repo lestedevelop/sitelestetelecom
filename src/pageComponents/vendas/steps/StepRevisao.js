@@ -10,7 +10,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 
 import ReviewField from "@/pageComponents/vendas/components/ReviewField";
 import ReviewCard from "@/pageComponents/vendas/components/ReviewCard";
-import {sendAgendamento} from "@/pageComponents/vendas/api/agendamento";
+import {sendAgendamento} from "@/services/vendas/agendamento";
 import {toast} from "react-toastify";
 
 export default function StepRevisao({onNext, onBack, onEditSection}) {

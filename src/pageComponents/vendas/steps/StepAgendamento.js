@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import AgendaDayPicker from "@/pageComponents/vendas/form/AgendaDayPicker";
-import { getVagaByCodCid } from "@/pageComponents/vendas/api/vaga";
+import { getVagaByCodCid } from "@/services/vendas/vaga";
 import { useSales } from "@/contexts/SalesContextNew";
 import { findCodCidByName } from "@/utils/cidade";
 import { cidadesMock } from "@/mocks/cidadesMock";

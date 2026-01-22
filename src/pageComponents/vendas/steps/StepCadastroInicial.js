@@ -10,7 +10,7 @@ import { useSales } from "@/contexts/SalesContextNew";
 import { cadastroInicialSchema } from "@/schemas/vendas/cadastroInicialSchema";
 import { useViabilidade } from "@/hooks/vendas/useViabilidade";
 import { maskCelular, maskCEP } from "@/utils/masks";
-import { sendPrecadastro } from "@/pageComponents/vendas/api/precadastro";
+import { sendPrecadastro } from "@/services/vendas/precadastro";
 import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 

@@ -10,7 +10,7 @@ import {cadastroCompletoSchema} from "@/schemas/vendas/cadastroCompletoSchema";
 import {useViabilidade} from "@/hooks/vendas/useViabilidade";
 
 import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF, maskRG} from "@/utils/masks";
-import {sendPrecadastro} from "@/pageComponents/vendas/api/precadastro";
+import {sendPrecadastro} from "@/services/vendas/precadastro";
 import {toast} from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 

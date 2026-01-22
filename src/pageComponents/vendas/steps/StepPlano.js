@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSales } from "@/contexts/SalesContextNew";
 import { cidadesMock } from "@/mocks/cidadesMock";
 import { findCodCidByName } from "@/utils/cidade";
-import { getPlanosByCodCid } from "@/pageComponents/vendas/api/planos";
+import { getPlanosByCodCid } from "@/services/vendas/planos";
 
 import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
 import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";

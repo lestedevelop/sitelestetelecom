@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback } from "react";
-import { getViabilidade } from "@/pageComponents/vendas/api/viabilidade";
+import { getViabilidade } from "@/services/vendas/viabilidade";
 import {useSales} from "@/contexts/SalesContextNew";
 import {toast} from "react-toastify";
 
