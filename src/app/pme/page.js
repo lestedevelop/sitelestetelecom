@@ -46,10 +46,10 @@ export default function Pme() {
         </section>
           <section className="flex flex-col container gap-8 items-center justify-center text-center min-h-screen md:min-h-[720px] py-8 md:py-8">
               <h3 className={"text-darkgreen text-2xl md:text-[40px] font-bold"}>Conheça nossos planos empresariais!</h3>
-                  <div className={"flex flex-col md:flex-row items-center justify-between w-full"}>
-                      <PlanCardEmp plan={plans[0]} className={"scale-85 lg:scale-100"}/>
-                      <PlanCardEmp plan={plans[1]} className={"scale-85 lg:scale-100"}/>
-                      <PlanCardEmp plan={plans[2]} className={"scale-85 lg:scale-100"}/>
+                  <div className={"flex flex-wrap items-center justify-center gap-8 w-full"}>
+                      <PlanCardEmp plan={plans[0]} className={""}/>
+                      <PlanCardEmp plan={plans[1]} className={""}/>
+                      <PlanCardEmp plan={plans[2]} className={""}/>
                   </div>
                   <p className={"text-graylight font-[13px]"}>*Consulte nosso FAQ para maiores informações, regras e condições gerais de venda dos planos ofertados.</p>
           </section>
