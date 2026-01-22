@@ -5,22 +5,21 @@ import {getUtmFromReq} from "@/lib/utmServerRaw";
 export async function POST(req) {
     try {
         const body = await req.json();
-        const utm = getUtmFromReq();
+        const utm = getUtmFromReq()
 
         const payload = {
-            celAmigo: body.celularAmigo,
-            cityAmigo: body.cidadeAmigo,
-            cpf: body.cpfAssinante,
-            enderecoAmigo: body.enderecoAmigo,
-            name: body.nomeAssinante,
-            nameAmigo: body.nomeAmigo,
-            phoneAmigo: body.telefoneAmigo,
+            name: body.nome,
+            email: body.email,
+            cel: body.telefone,
+            empresa: body.empresa,
+            cnpj: body.cnpj,
+            numero: body.numero,
+            cep:body.cep,
             ...utm
         };
-        console.log(payload);
-        const resp = await coreApi.put("/api/sac/externo/indique_ganhe", payload);
-
+        const resp = await coreApi.put("/api/sac/externo/corporate", payload);
         return NextResponse.json(resp.data, {status: 200});
+
     } catch (error) {
         const status = error?.response?.status || 500;
         const data = error?.response?.data;

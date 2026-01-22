@@ -7,12 +7,23 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "@/components/Form/FormComponents/Input";
 import { formCoporateSchema } from "@/schemas/FormSchemas";
 import { maskTelefone, maskCEP, maskCNPJ, onlyDigits } from "@/utils/masks";
+import {sendIndicacao} from "@/services/indicacao";
+import {toast} from "react-toastify";
+import SuccessCard from "@/components/cards/SuccessCard";
+import {sendCorporativo} from "@/services/corporativo";
 
 export default function FormConsultores() {
+
+    const [success, setSuccess] = useState(false);
+    const [ticketNumber, setTicketNumber] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
     const {
         register,
         handleSubmit,
         setValue,
+        reset,
         formState: { errors, isSubmitting },
     } = useForm({
         resolver: yupResolver(formCoporateSchema),
@@ -32,16 +43,38 @@ export default function FormConsultores() {
     const [cep, setCep] = useState("");
     const [cnpj, setCnpj] = useState("");
 
-    const onSubmit = (data) => {
-        const payload = {
-            ...data,
-            telefone: onlyDigits(data.telefone),
-            cep: onlyDigits(data.cep),
-            cnpj: onlyDigits(data.cnpj),
-        };
+    async function onSubmit(data) {
+        try {
+            setLoading(true);
+            setError(null);
+            console.log(data)
+            const res = await sendCorporativo(data);
 
-        console.log("CORPORATE payload:", payload);
-    };
+            const ticket = res?.result?.TicketNumber
+
+            setTicketNumber(String(ticket || ""));
+            setSuccess(true);
+            toast.success(`Indicado com sucesso! ticket: ${ticket}`);
+        } catch (err) {
+            setError(err?.message || "Erro ao enviar indicação");
+            toast.error("Erro ao enviar a indicação, tente novamente!");
+        } finally {
+            setLoading(false);
+        }
+    }
+
+
+    function handleNewIndication() {
+        setSuccess(false);
+        setTicketNumber("");
+        setError(null);
+
+        reset();
+    }
+
+    if (success) {
+        return <SuccessCard ticketNumber={ticketNumber} onNew={handleNewIndication} />;
+    }
 
     return (
         <section className="bg-light py-6">
@@ -125,12 +158,13 @@ export default function FormConsultores() {
 
                     <button
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={loading}
                         className="w-full h-14 rounded-full bg-primary text-white font-semibold tracking-wide
                        hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                        {isSubmitting ? "Enviando..." : "ENVIAR"}
+                        {loading ? "Enviando..." : "ENVIAR"}
                     </button>
+
 
                 </form>
             </div>

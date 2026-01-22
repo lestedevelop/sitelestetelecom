@@ -1,8 +1,10 @@
+"use client"
 import Image from "next/image";
 import ipicon from "@/assets/icons/ip.png";
 import image1 from "@/assets/cardcorporate3.png"
 import image2 from "@/assets/cardcorporate2.png"
 import image3 from "@/assets/cardcorporate1.png"
+import {scrollToSection} from "@/utils/scrollToSection";
 
 export default function SectionSolutionsCorporate() {
     return (
@@ -26,14 +28,14 @@ export default function SectionSolutionsCorporate() {
                                     Ideal para empresas que precisam de alto desempenho, com suporte a FTTx, Ponto a Ponto e redes metro. Ultilizamos tecnologia Giga Ethernet, garantindo sincronismo, flexibilidade, alta capacidade e velocidade.</p>
                             </div>
                             <div className={"pl-2 pt-8 md:hidden"}>
-                                <a href={"#contato"}
+                                <a onClick={() => scrollToSection("contato-corporate", 80)}
                                    className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                     Fale Conosco!
                                 </a>
                             </div>
                         </div>
                         <div className={"py-8 w-full hidden md:block"}>
-                            <a href={"#contato"}
+                            <a onClick={() => scrollToSection("contato-corporate", 80)}
                                className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark border text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                 Fale Conosco!
                             </a>
@@ -53,14 +55,14 @@ export default function SectionSolutionsCorporate() {
                                     Link IP e Hotspot Leste Corporate.</p>
                             </div>
                             <div className={"pl-2 pt-8 md:hidden"}>
-                                <a href={"#contato"}
+                                <a onClick={() => scrollToSection("contato-corporate", 80)}
                                    className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                     Fale Conosco!
                                 </a>
                             </div>
                         </div>
                         <div className={"py-8 w-full hidden md:block"}>
-                            <a href={"#contato"}
+                            <a onClick={() => scrollToSection("contato-corporate", 80)}
                                className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark border text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                 Fale Conosco!
                             </a>
@@ -81,14 +83,14 @@ export default function SectionSolutionsCorporate() {
                                         praças e shoppings.</p>
                                 </div>
                                 <div className={"pl-2 pt-8 md:hidden"}>
-                                    <a href={"#contato"}
+                                    <a onClick={() => scrollToSection("contato-corporate", 80)}
                                        className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                         Fale Conosco!
                                     </a>
                                 </div>
                             </div>
                             <div className={"py-8 w-full hidden md:block"}>
-                                <a href={"#contato"}
+                                <a onClick={() => scrollToSection("contato-corporate", 80)}
                                    className={`px-20 py-3 font-semibold text-md md:text-2xl text-dark border text-center rounded-2xl bg-[#64f7d7] hover:text-white hover:bg-primary transition-all duration-200`}>
                                     Fale Conosco!
                                 </a>
