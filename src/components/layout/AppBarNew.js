@@ -18,7 +18,7 @@ import {useSite} from "@/contexts/SiteContext";
 import {usePathname} from "next/dist/client/components/navigation";
 
 const TOP_ACTIONS = [
-    {href: "https://portal.lestetelecom.com.br/login", label: "Área do Cliente", icon: "none"},
+    {href: "https://portal.lestetelecom.com.br/login", label: "Area do Cliente", icon: "none"},
     // {href: "#cidade", label: "Selecione sua cidade", icon: "pin"},
     {href: "/vendas", label: "Assine já", icon: "chev"},
     // {href: "/login", label: "Login", icon: "user", caret: true},
@@ -26,14 +26,14 @@ const TOP_ACTIONS = [
 
 const PRIMARY_TABS = [
     {key: "internet", label: "Internet", hasDropdown: true},
-    {key: "movel", label: "Móvel", href: "/movel"},
+    {key: "movel", label: "Movel", href: "/movel"},
     // {key: "combos", label: "Combos", href: "/combos"},
     {key: "app", label: "App", href: "/leste-suporte"},
     {key: "indique", label: "Indique e Ganhe", href: "/indique-e-ganhe-leste"},
     {key: "para-empresa", label: "Para Empresas", href: "/pme"},
-    {key: "faq", label: "FAQ", href: "/faq"},
+    {key: "corporate", label: "Area Corporativa", href: "/corporate"},
     {key: "trabalhe-conosco", label: "Trabalhe na Leste", href: "https://lestetelecom.vagas.solides.com.br/"},
-    {key: "corp", label: "Área Corporativa", href: "/corporate", alignRight: true},
+    {key: "faq", label: "FAQ", href: "/faq", alignRight: true},
 ];
 
 const INTERNET_DROPDOWN = [
@@ -47,8 +47,14 @@ export default function AppBarNew() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [internetOpen, setInternetOpen] = useState(false);
     const [mobileInternetOpen, setMobileInternetOpen] = useState(true);
+    const [visible, setVisible] = useState(true);
+    const [searchOpen, setSearchOpen] = useState(false);
     const navRef = useRef(null);
     const dropdownRef = useRef(null);
+    const lastScrollY = useRef(0);
+    const lastToggleY = useRef(0);
+    const visibleRef = useRef(true);
+    const ticking = useRef(false);
     const uid = useId();
     const {site} = useSite();
     const [openSelectCity,setOpenSelectCity] = useState((site?.city?.label)? true : false );
@@ -58,12 +64,56 @@ export default function AppBarNew() {
         setOpenSelectCity(false);
     }, [pathname]);
 
+    useEffect(() => {
+        lastScrollY.current = window.scrollY;
+        lastToggleY.current = window.scrollY;
+        visibleRef.current = true;
+        const THRESHOLD = 150;
+
+        const setVisibleSafe = (value) => {
+            if (visibleRef.current !== value) {
+                visibleRef.current = value;
+                setVisible(value);
+            }
+        };
+
+        const onScroll = () => {
+            const currentY = window.scrollY;
+            if (ticking.current) return;
+            ticking.current = true;
+            window.requestAnimationFrame(() => {
+                const directionDown = currentY > lastScrollY.current;
+                const directionUp = currentY < lastScrollY.current;
+                if (currentY < 10) {
+                    setVisibleSafe(true);
+                    lastToggleY.current = currentY;
+                } else {
+                    const distFromToggle = Math.abs(currentY - lastToggleY.current);
+                    if (distFromToggle >= THRESHOLD) {
+                        if (directionDown) {
+                            setVisibleSafe(false);
+                            lastToggleY.current = currentY;
+                        } else if (directionUp) {
+                            setVisibleSafe(true);
+                            lastToggleY.current = currentY;
+                        }
+                    }
+                }
+                lastScrollY.current = currentY;
+                ticking.current = false;
+            });
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     useEffect(() => {
         function onKey(e) {
             if (e.key === "Escape") {
                 setMobileOpen(false);
                 setInternetOpen(false);
+                setSearchOpen(false);
             }
         }
 
@@ -106,7 +156,12 @@ export default function AppBarNew() {
                        aria-hidden="true"
                    />
                )}
-               <header ref={navRef} className="fixed top-0 mt-2 left-0 right-0 z-[90]">
+               <header
+                   ref={navRef}
+                   className={`fixed top-0 md:mt-2 left-0 right-0 z-[90] transition-transform duration-300 ease-out ${
+                       visible ? "translate-y-0" : "-translate-y-full"
+                   }`}
+               >
                    <div className="container">
                        <div className="border rounded-3xl border-graylighter bg-white shadow backdrop-blu">
                            {/* TOP BAR */}
@@ -117,6 +172,30 @@ export default function AppBarNew() {
 
                                {/* Top actions desktop */}
                                <div className="hidden md:flex items-center gap-6 text-[15px] text-darkgreen">
+                                   <div className="relative flex items-center">
+                                       <div
+                                           className={`overflow-hidden transition-all duration-200 ${
+                                               searchOpen ? "w-56 opacity-100 mr-2" : "w-0 opacity-0"
+                                           }`}
+                                       >
+                                           <input
+                                               type="text"
+                                               placeholder="Buscar..."
+                                               className="w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                                           />
+                                       </div>
+                                       <button
+                                           type="button"
+                                           className="p-2 rounded-full hover:bg-black/5"
+                                           aria-label="Buscar"
+                                           onClick={() => setSearchOpen((v) => !v)}
+                                       >
+                                           <Image src={lupaIcon} className="h-5 w-5" alt={""}/>
+                                       </button>
+                                   </div>
+
+                                   <div className="h-8 w-px bg-graylighter"/>
+
                                    <button onClick={() => setOpenSelectCity(true)}
                                            className="inline-flex items-center gap-2 hover:text-black transition-colors">
                                        <Image src={pinIcon} alt={""} className="h-5 -mt-2 w-5 text-primary"/>
@@ -127,20 +206,14 @@ export default function AppBarNew() {
                                                   caret={a.caret}/>
                                    ))}
 
-                                   <button type="button" className="p-2 rounded-full hover:bg-black/5"
-                                           aria-label="Buscar">
-                                       <Image src={lupaIcon} className="h-5 w-5" alt={""}/>
-                                   </button>
-
-                                   <div className="h-8 w-px bg-graylighter"/>
-
-                                   <button
-                                       type="button"
-                                       className="p-2 rounded-full hover:bg-black/5"
-                                       aria-label="Fechar"
-                                   >
-                                       <Image src={closeIcon} alt={""} className={"w-5 h-5"}/>
-                                   </button>
+                                   {/*<div className="h-8 w-px bg-graylighter"/>*/}
+                                   {/*<button*/}
+                                   {/*    type="button"*/}
+                                   {/*    className="p-2 rounded-full hover:bg-black/5"*/}
+                                   {/*    aria-label="Fechar"*/}
+                                   {/*>*/}
+                                   {/*    <Image src={closeIcon} alt={""} className={"w-5 h-5"}/>*/}
+                                   {/*</button>*/}
                                </div>
 
                                <button
@@ -193,8 +266,7 @@ export default function AppBarNew() {
                                })}
 
                                <div className="ml-auto">
-                                   <NavLink href={PRIMARY_TABS.find((t) => t.alignRight)?.href || "/corporate"}
-                                            label="Área Corporativa"/>
+                                   <NavLink href="/faq" key="faq"  label="FAQ"/>
                                </div>
                            </div>
 
@@ -216,4 +288,3 @@ export default function AppBarNew() {
            </>
     );
 }
-

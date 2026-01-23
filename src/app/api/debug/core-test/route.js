@@ -1,38 +1,42 @@
 import { NextResponse } from "next/server";
 import { coreApi } from "@/lib/coreApi";
+import { getUtmFromReq } from "@/lib/utmServerRaw";
 
-export async function GET() {
+export async function GET(req) {
     try {
-        // const response = await coreApi.post("/api/sac/planosvenda");
-        const response = await coreApi.post("/api/sac/externo/planos", {cidade: "3303302"});
-        // planos filtro codigoCidade
-        // const response = await coreApi.post("/api/sac/cidades");
+        // const body = await req.json();
+        const body = {latitude: -22.898893224563142, longitude: -43.11900602076392  }
 
-        return NextResponse.json(
-            {
-                ok: true,
-                data: response.data,
-            },
-            { status: 200 }
-        );
-        console.log(NextResponse.json({data:response.data}))
+
+        const payload = {
+            ...body,
+        };
+
+        const response = await coreApi.post("/api/sac/externo/viabilidade/latlng", payload);
+
+        return NextResponse.json(response.data, { status: 200 });
     } catch (error) {
         const status = error?.response?.status || 500;
         const data = error?.response?.data;
+        const message =
+            data?.message ||
+            data?.error ||
+            error?.message ||
+            "Erro ao validar viabilidade";
+
+        console.error("VIABILIDADE FAIL", {
+            status,
+            message,
+            responseData: data,
+            coreApiBase: process.env.CORE_API_URL,
+            keyPrefix: (process.env.INSTITUCIONAL_KEY || "").slice(0, 6) + "***",
+        });
 
         return NextResponse.json(
             {
-                ok: false,
+                message,
                 status,
-                message:
-                    data?.message ||
-                    data?.error ||
-                    error?.message ||
-                    "Erro ao chamar coreApi",
-                coreApiBase: process.env.CORE_API_URL,
-                keyPrefix:
-                    (process.env.INSTITUCIONAL_KEY || "").slice(0, 6) + "***",
-                data,
+                details: data || null,
             },
             { status }
         );
