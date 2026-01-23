@@ -2,15 +2,15 @@
 
 import { useRef, useState, useCallback } from "react";
 import { getViabilidade } from "@/services/vendas/viabilidade";
-import {useSales} from "@/contexts/SalesContextNew";
-import {toast} from "react-toastify";
+import { useSales } from "@/contexts/SalesContextNew";
+import { toast } from "react-toastify";
 
 export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const abortRef = useRef(null);
     const lastKeyRef = useRef("");
-    const { data , updateCadastro} = useSales();
+    const { data, updateCadastro } = useSales();
 
     const checkViabilidade = useCallback(
         async ({ cep, numero }) => {
@@ -27,6 +27,12 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
             const controller = new AbortController();
             abortRef.current = controller;
 
+            const clearAddressFields = () => {
+                setValue("cidade", "", { shouldDirty: true, shouldTouch: true });
+                setValue("bairro", "", { shouldDirty: true, shouldTouch: true });
+                setValue("rua", "", { shouldDirty: true, shouldTouch: true });
+            };
+
             try {
                 setError("");
                 setLoading(true);
@@ -38,13 +44,15 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 });
 
                 if (!Array.isArray(resp) || resp.length === 0) {
+                    clearAddressFields();
+                    if (trigger) await trigger(["cidade", "bairro", "rua"]);
                     toast.error("CEP não encontrado ou sem cobertura");
                     return;
                 }
 
                 const v = Array.isArray(resp) ? resp[0] : resp;
 
-
+                clearAddressFields();
                 const cidade = v?.cidade || v?.nome_cid || "";
                 const bairro = v?.bairro || "";
                 const rua = v?.logradouro || v?.endereco || v?.logradouro_do || "";
@@ -57,19 +65,18 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
 
                 updateCadastro({
                     ...data?.cadastro,
-                    ...v
+                    ...v,
+                    numero
                 });
-                toast.success(`Cep validado com sucesso!`);
-
+                toast.success("Cep validado com sucesso!");
             } catch (e) {
                 if (e?.name === "AbortError") return;
                 toast.error("Erro ao Validar CEP , aguarde alguns segundos e tente novamente");
-
             } finally {
                 setLoading(false);
             }
         },
-        [setValue, trigger, updateStep, stepKey]
+        [setValue, trigger, updateStep, stepKey, data?.cadastro, updateCadastro]
     );
 
     return { checkViabilidade, loading, error };
