@@ -6,6 +6,15 @@ import whatsappIcon from "@/assets/icons/whatsappButton.png";
 
 const WHATSAPP_PHONE = "552120201300";
 
+const QUESTIONS = [
+    { key: "help", question: "Como posso te ajudar?" },
+    { key: "name", question: "Qual seu nome?", answerPrefix: "" },
+    { key: "contact", question: "Qual seu e-mail?", answerPrefix: "" },
+    { key: "cel", question: "Qual seu celular?", answerPrefix: "" },
+];
+
+const EMPTY_ANSWERS = { help: "", name: "", contact: "",cel: "" };
+
 function buildWhatsAppLink({ name, contact, help }) {
     const trimmedName = String(name || "").trim();
     const trimmedContact = String(contact || "").trim();
@@ -16,42 +25,28 @@ function buildWhatsAppLink({ name, contact, help }) {
 
 export default function WhatsAppFloating() {
     const [open, setOpen] = useState(false);
-    const [help, setHelp] = useState("");
-    const [name, setName] = useState("");
-    const [contact, setContact] = useState("");
+    const [answers, setAnswers] = useState(EMPTY_ANSWERS);
     const [step, setStep] = useState(0);
 
-    const canGoName = help.trim().length > 0;
-    const canGoEmail = help.trim().length > 0 && name.trim().length > 0;
-    const canGoWhatsApp =
-        help.trim().length > 0 && name.trim().length > 0 && contact.trim().length > 0;
+    const currentQuestion = QUESTIONS[step] || null;
+    const currentKey = currentQuestion?.key || "";
+    const currentValue = currentKey ? answers[currentKey] : "";
+    const canAdvance = currentValue.trim().length > 0;
+    const isComplete = step >= QUESTIONS.length;
 
     const waLink = useMemo(
-        () => buildWhatsAppLink({ name, contact, help }),
-        [name, contact, help]
+        () => buildWhatsAppLink(answers),
+        [answers]
     );
 
-    const sendHelp = () => {
-        if (!canGoName) return;
-        setStep(1);
-    };
-
-    const sendName = () => {
-        if (!canGoEmail) return;
-        setStep(2);
-    };
-
-    const sendEmail = () => {
-        if (!canGoWhatsApp) return;
-        setStep(3);
+    const handleSend = () => {
+        if (!canAdvance) return;
+        setStep((s) => Math.min(s + 1, QUESTIONS.length));
     };
 
     useEffect(() => {
-        if (step !== 3) return;
-        console.log("Ajuda:", help);
-        console.log("Nome:", name);
-        console.log("Email:", contact);
-    }, [step, help, name, contact]);
+        if (step !== QUESTIONS.length) return;
+    }, [step, answers]);
 
     return (
         <div
@@ -78,58 +73,48 @@ export default function WhatsAppFloating() {
                         <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
                             Oi!
                         </div>
-                        <div className="mb-4 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
-                            Como posso te ajudar?
-                        </div>
 
-                        {step >= 1 ? (
-                            <div className="w-full flex justify-end">
-                                <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
-                                    {help || "—"}
-                                </p>
-                            </div>
-                        ) : null}
+                        {QUESTIONS.map((q, index) => {
+                            const isAsked = index <= step;
+                            const isAnswered = index < step;
+                            const value = answers[q.key];
 
-                        {step >= 1 ? (
-                            <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
-                                Qual seu nome?
-                            </div>
-                        ) : null}
+                            return (
+                                <div key={q.key}>
+                                    {isAsked ? (
+                                        <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
+                                            {q.question}
+                                        </div>
+                                    ) : null}
 
-                        {step >= 2 ? (
-                            <div className="w-full flex justify-end">
-                                <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
-                                    Meu nome é {name || "—"}
-                                </p>
-                            </div>
-                        ) : null}
-
-                        {step >= 2 ? (
-                            <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
-                                Qual seu e-mail?
-                            </div>
-                        ) : null}
-
-                        {step >= 3 ? (
-                            <div className="w-full flex justify-end">
-                                <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
-                                    Meu e-mail é {contact || "—"}
-                                </p>
-                            </div>
-                        ) : null}
+                                    {isAnswered ? (
+                                        <div className="w-full flex justify-end">
+                                            <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
+                                                {q.answerPrefix ? `${q.answerPrefix} ${value || "—"}` : value || "—"}
+                                            </p>
+                                        </div>
+                                    ) : null}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     <div className="border-t border-black/10 bg-white p-3">
-                        {step === 0 ? (
+                        {!isComplete ? (
                             <>
                                 <input
                                     type="text"
-                                    value={help}
-                                    onChange={(e) => setHelp(e.target.value)}
+                                    value={currentValue}
+                                    onChange={(e) =>
+                                        setAnswers((prev) => ({
+                                            ...prev,
+                                            [currentKey]: e.target.value,
+                                        }))
+                                    }
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter") {
                                             e.preventDefault();
-                                            sendHelp();
+                                            handleSend();
                                         }
                                     }}
                                     placeholder="Digite aqui..."
@@ -137,82 +122,24 @@ export default function WhatsAppFloating() {
                                 />
                                 <button
                                     type="button"
-                                    onClick={sendHelp}
+                                    onClick={handleSend}
                                     className={`w-full rounded-xl px-3 py-2 text-sm font-semibold text-white ${
-                                        canGoName ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
+                                        canAdvance ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
                                     }`}
                                 >
                                     Enviar
                                 </button>
                             </>
-                        ) : null}
-
-                        {step === 1 ? (
-                            <>
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter") {
-                                            e.preventDefault();
-                                            sendName();
-                                        }
-                                    }}
-                                    placeholder="Digite aqui..."
-                                    className="mb-3 w-full rounded-xl border text-dark border-black/10 px-3 py-2 text-sm outline-none focus:border-primary"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={sendName}
-                                    className={`w-full rounded-xl px-3 py-2 text-sm font-semibold text-white ${
-                                        canGoEmail ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
-                                    }`}
-                                >
-                                    Enviar
-                                </button>
-                            </>
-                        ) : null}
-
-                        {step === 2 ? (
-                            <>
-                                <input
-                                    type="text"
-                                    value={contact}
-                                    onChange={(e) => setContact(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter") {
-                                            e.preventDefault();
-                                            sendEmail();
-                                        }
-                                    }}
-                                    placeholder="Digite aqui..."
-                                    className="mb-3 w-full rounded-xl border text-dark border-black/10 px-3 py-2 text-sm outline-none focus:border-primary"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={sendEmail}
-                                    className={`w-full rounded-xl px-3 py-2 text-sm font-semibold text-white ${
-                                        canGoWhatsApp ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
-                                    }`}
-                                >
-                                    Enviar
-                                </button>
-                            </>
-                        ) : null}
-
-                        {step >= 3 ? (
+                        ) : (
                             <a
                                 href={waLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`block w-full rounded-xl px-3 py-2 text-center text-sm font-semibold text-white shadow-[0_10px_20px_rgba(37,211,102,.25)] ${
-                                    canGoWhatsApp ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
-                                }`}
+                                className="block w-full rounded-xl px-3 py-2 text-center text-sm font-semibold text-white shadow-[0_10px_20px_rgba(37,211,102,.25)] bg-[#25D366]"
                             >
                                 Chat no WhatsApp
                             </a>
-                        ) : null}
+                        )}
                     </div>
                 </div>
             ) : null}
@@ -222,6 +149,7 @@ export default function WhatsAppFloating() {
                 onClick={() => {
                     setOpen((v) => !v);
                     setStep(0);
+                    setAnswers(EMPTY_ANSWERS);
                 }}
                 className="relative grid h-16 w-16 place-items-center rounded-full bg-[#25D366] shadow-[0_12px_24px_rgba(0,0,0,.2)]"
                 aria-label="Abrir WhatsApp"
