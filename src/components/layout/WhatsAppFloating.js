@@ -1,37 +1,57 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import whatsappIcon from "@/assets/icons/whatsapp.png";
+import whatsappIcon from "@/assets/icons/whatsappButton.png";
 
 const WHATSAPP_PHONE = "552120201300";
 
-function buildWhatsAppLink({ name, contact }) {
+function buildWhatsAppLink({ name, contact, help }) {
     const trimmedName = String(name || "").trim();
     const trimmedContact = String(contact || "").trim();
-    const text = `Olá! Meu nome é ${trimmedName}. Meu contato é ${trimmedContact}. Gostaria de atendimento.`;
+    const trimmedHelp = String(help || "").trim();
+    const text = `Olá! Meu nome é ${trimmedName}. Meu contato é ${trimmedContact}. Preciso de ajuda com: ${trimmedHelp}.`;
     return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
 }
 
 export default function WhatsAppFloating() {
     const [open, setOpen] = useState(false);
+    const [help, setHelp] = useState("");
     const [name, setName] = useState("");
     const [contact, setContact] = useState("");
     const [step, setStep] = useState(0);
 
-    const canGoEmail = name.trim().length > 0;
-    const canGoWhatsApp = name.trim().length > 0 && contact.trim().length > 0;
-    const waLink = useMemo(() => buildWhatsAppLink({ name, contact }), [name, contact]);
+    const canGoName = help.trim().length > 0;
+    const canGoEmail = help.trim().length > 0 && name.trim().length > 0;
+    const canGoWhatsApp =
+        help.trim().length > 0 && name.trim().length > 0 && contact.trim().length > 0;
+
+    const waLink = useMemo(
+        () => buildWhatsAppLink({ name, contact, help }),
+        [name, contact, help]
+    );
+
+    const sendHelp = () => {
+        if (!canGoName) return;
+        setStep(1);
+    };
 
     const sendName = () => {
         if (!canGoEmail) return;
-        setStep(1);
+        setStep(2);
     };
 
     const sendEmail = () => {
         if (!canGoWhatsApp) return;
-        setStep(2);
+        setStep(3);
     };
+
+    useEffect(() => {
+        if (step !== 3) return;
+        console.log("Ajuda:", help);
+        console.log("Nome:", name);
+        console.log("Email:", contact);
+    }, [step, help, name, contact]);
 
     return (
         <div
@@ -62,13 +82,21 @@ export default function WhatsAppFloating() {
                             Como posso te ajudar?
                         </div>
 
-                        {step >= 0 ? (
+                        {step >= 1 ? (
+                            <div className="w-full flex justify-end">
+                                <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
+                                    {help || "—"}
+                                </p>
+                            </div>
+                        ) : null}
+
+                        {step >= 1 ? (
                             <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
                                 Qual seu nome?
                             </div>
                         ) : null}
 
-                        {step >= 1 ? (
+                        {step >= 2 ? (
                             <div className="w-full flex justify-end">
                                 <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
                                     Meu nome é {name || "—"}
@@ -76,13 +104,13 @@ export default function WhatsAppFloating() {
                             </div>
                         ) : null}
 
-                        {step >= 1 ? (
+                        {step >= 2 ? (
                             <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
                                 Qual seu e-mail?
                             </div>
                         ) : null}
 
-                        {step >= 2 ? (
+                        {step >= 3 ? (
                             <div className="w-full flex justify-end">
                                 <p className="mb-3 w-fit max-w-[85%] font-semibold rounded-xl bg-[#25d366] px-3 py-2 text-sm shadow-sm">
                                     Meu e-mail é {contact || "—"}
@@ -93,6 +121,33 @@ export default function WhatsAppFloating() {
 
                     <div className="border-t border-black/10 bg-white p-3">
                         {step === 0 ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={help}
+                                    onChange={(e) => setHelp(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            e.preventDefault();
+                                            sendHelp();
+                                        }
+                                    }}
+                                    placeholder="Digite aqui..."
+                                    className="mb-3 w-full rounded-xl border text-dark border-black/10 px-3 py-2 text-sm outline-none focus:border-primary"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={sendHelp}
+                                    className={`w-full rounded-xl px-3 py-2 text-sm font-semibold text-white ${
+                                        canGoName ? "bg-[#25D366]" : "pointer-events-none bg-[#25D366]/50"
+                                    }`}
+                                >
+                                    Enviar
+                                </button>
+                            </>
+                        ) : null}
+
+                        {step === 1 ? (
                             <>
                                 <input
                                     type="text"
@@ -119,7 +174,7 @@ export default function WhatsAppFloating() {
                             </>
                         ) : null}
 
-                        {step === 1 ? (
+                        {step === 2 ? (
                             <>
                                 <input
                                     type="text"
@@ -146,7 +201,7 @@ export default function WhatsAppFloating() {
                             </>
                         ) : null}
 
-                        {step >= 2 ? (
+                        {step >= 3 ? (
                             <a
                                 href={waLink}
                                 target="_blank"
