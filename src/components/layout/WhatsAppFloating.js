@@ -71,7 +71,7 @@ export default function WhatsAppFloating() {
 
                     <div className="bg-[url('/whatsapp-bg.png')] bg-[length:180px_180px] p-4">
                         <div className="mb-3 w-fit max-w-[85%] text-dark rounded-xl bg-white px-3 py-2 text-sm shadow-sm">
-                            Oi!
+                            Olá 🖐️
                         </div>
 
                         {QUESTIONS.map((q, index) => {
