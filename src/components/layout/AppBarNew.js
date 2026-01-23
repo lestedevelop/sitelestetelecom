@@ -226,9 +226,9 @@ export default function AppBarNew() {
                                </button>
                            </div>
 
-                           <div className="h-px bg-graylighter"/>
+                           <div className="h-px hidden md:block bg-graylighter"/>
 
-                           <div className="hidden md:flex items-center gap-10 px-6 py-4 text-[18px] text-darkgreen">
+                           <div className="hidden md:flex items-center gap-10 px-6 py-4 text-xs lg:text-[18px] text-darkgreen">
                                {PRIMARY_TABS.filter((t) => !t.alignRight).map((t) => {
                                    if (t.key === "internet") {
                                        return (

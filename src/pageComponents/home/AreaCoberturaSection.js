@@ -4,17 +4,18 @@ import areaCobertura from "@/assets/areaCobertura.png"
 
 export default function AreaCoberturaSection() {
   return (
-  <div className="bg-primary md:bg-contain bg-cover" style={{
-      backgroundImage: `url(${areaCobertura.src})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      // width: '100%',
-      height: '293px',
-      boxSizing: 'border-box'
-    }}>
+  <div className="relative h-[293px] bg-primary">
+    <div
+      className="absolute inset-0 hidden md:block bg-contain bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${areaCobertura.src})` }}
+    />
+    <div
+      className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url(/areaCoberturaMobile.png)" }}
+    />
       <Section 
     >
-      <div className="text-white h-[293px] flex justify-center flex-col ">
+      <div className="relative z-10 text-white h-[293px] flex justify-center flex-col ">
         <h2 className="text-2xl md:text-4xl font-bold mb-4">
           Área de Cobertura
         </h2>

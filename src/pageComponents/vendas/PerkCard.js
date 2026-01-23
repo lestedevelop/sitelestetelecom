@@ -3,7 +3,7 @@ import { getPerkByCodsimp } from "@/utils/getPerkByCodsimp";
 import Image from "next/image";
 import skeelo from "@/assets/icons/skelolivros.svg"
 import bebanca from "@/assets/icons/bebanca.svg"
-import lesteClub from "@/assets/lesteclube.svg"
+import lesteClub from "@/assets/icons/lesteclube-green.svg"
 
 export default function PerkCard({ descri_simp }) {
     const label = getPerkByCodsimp(descri_simp);

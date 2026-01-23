@@ -5,8 +5,7 @@ import { getUtmFromReq } from "@/lib/utmServerRaw";
 export async function GET(req) {
     try {
         // const body = await req.json();
-        const body = {latitude: -22.898893224563142, longitude: -43.11900602076392  }
-
+        const body = {latitude: -22.905329258544903, longitude: -43.10621668614797  }
 
         const payload = {
             ...body,

@@ -50,11 +50,11 @@ export default function WhatsAppFloating() {
 
     return (
         <div
-            className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3"
+            className="fixed bottom-5 w-[85%] right-5 z-[60] flex flex-col items-end gap-3"
             style={{ right: 20, bottom: 20, zIndex: 2147483647 }}
         >
             {open ? (
-                <div className="w-[300px] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_16px_40px_rgba(0,0,0,.12)]">
+                <div className="w-full md:w-[300px] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_16px_40px_rgba(0,0,0,.12)]">
                     <div className="flex items-center justify-between bg-[#0b8f73] px-4 py-3 text-white">
                         <div>
                             <div className="text-sm font-semibold">Leste Telecom</div>
