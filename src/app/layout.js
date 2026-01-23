@@ -3,6 +3,7 @@ import "./globals.css";
 import { IBM_Plex_Sans } from 'next/font/google'
 import {SiteProvider} from "@/contexts/SiteContext";
 import {ToastContainer} from "react-toastify";
+import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 
 
 const geistSans = Geist({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
             closeOnClick
             pauseOnHover
         />
+        <WhatsAppFloating />
       </body>
     </html>
   );
