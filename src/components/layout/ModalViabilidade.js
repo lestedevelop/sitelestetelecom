@@ -9,13 +9,12 @@ import { useViabilidade } from "@/hooks/vendas/useViabilidade";
 import { maskCEP, onlyDigits } from "@/utils/masks";
 import { useSales } from "@/contexts/SalesContextNew";
 import Link from "next/link";
-import {AlertViabilidade} from "@/components/cards/AlertViabilidade";
-
+import { AlertViabilidade } from "@/components/cards/AlertViabilidade";
 
 export default function ModalViabilidade({ open, onClose, updateCadastro }) {
     const { data } = useSales();
 
-    const { register, getValues, setValue, trigger, watch, formState: { errors } } =
+    const { register, setValue, trigger, watch, formState: { errors } } =
         useForm({ defaultValues: { cep: "", numero: "" }, mode: "onBlur" });
 
     const { checkViabilidade, loading: viabLoading, error: viabError } = useViabilidade({
@@ -35,38 +34,34 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
 
     const canAutoCheck = cepDigits.length === 8 && numeroDigits.length > 0;
 
-    const [showAlert, setShowAlert] = useState(false);
+    const [dismissedKey, setDismissedKey] = useState("");
 
-    const tipo = data?.cadastro?.tipo_viabilidade; // "FTTH" etc.
+    const tipo = data?.cadastro?.tipo_viabilidade;
 
     const finished = open && canAutoCheck && !viabLoading && !viabError;
     const available = finished && tipo === "FTTH";
-    const unavailable = finished && tipo !== "FTTH"; // inclui "" aqui
+    const unavailable = finished && tipo !== "FTTH";
+    const shouldShowAlert = open && canAutoCheck && !viabLoading && (viabError || tipo !== undefined);
 
+    const alertKey = useMemo(() => {
+        if (!canAutoCheck) return "";
+        const resultKey = viabError ? "error" : String(tipo ?? "");
+        return `${cepDigits}-${numeroDigits}-${resultKey}`;
+    }, [canAutoCheck, cepDigits, numeroDigits, viabError, tipo]);
 
     useEffect(() => {
         if (!open) return;
         if (!canAutoCheck) return;
 
-        setShowAlert(false);
+        setDismissedKey("");
         checkViabilidade({ cep: cepDigits, numero: numeroDigits });
-    }, [open, canAutoCheck, cepDigits, numeroDigits]);
-
-    useEffect(() => {
-        if (!open) return;
-
-        if (canAutoCheck && !viabLoading && (viabError || tipo !== undefined)) {
-            setShowAlert(true);
-        }
-    }, [open, canAutoCheck, viabLoading, viabError, tipo]);
-
-
+    }, [open, canAutoCheck, cepDigits, numeroDigits, checkViabilidade]);
 
     useEffect(() => {
         if (open) return;
         setValue("cep", "");
         setValue("numero", "");
-        setShowAlert(false);
+        setDismissedKey("");
     }, [open, setValue]);
 
     return (
@@ -88,11 +83,6 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
                             onChange: (e) => {
                                 e.target.value = maskCEP(e.target.value);
                             },
-                            onBlur: () => {
-                                const c = onlyDigits(getValues("cep")).slice(0, 8);
-                                const num = onlyDigits(getValues("numero")).slice(0, 10);
-                                if (c.length === 8 && num) checkViabilidade({ cep: c, numero: num });
-                            },
                         })
                     }
                 />
@@ -105,37 +95,32 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
                         register(n, {
                             required: "Informe o número",
                             validate: (v) => (onlyDigits(v).length ? true : "Número inválido"),
-                            onBlur: () => {
-                                const c = onlyDigits(getValues("cep")).slice(0, 8);
-                                const num = onlyDigits(getValues("numero")).slice(0, 10);
-                                if (c.length === 8 && num) checkViabilidade({ cep: c, numero: num });
-                            },
                         })
                     }
                 />
             </div>
 
-            {showAlert && open && canAutoCheck && !viabLoading ? (
+            {shouldShowAlert && dismissedKey !== alertKey ? (
                 viabError ? (
                     <AlertViabilidade
                         variant="error"
                         title="Erro ao consultar"
                         text={String(viabError)}
-                        onClose={() => setShowAlert(false)}
+                        onClose={() => setDismissedKey(alertKey)}
                     />
                 ) : available ? (
                     <AlertViabilidade
                         variant="success"
                         title="Plano disponível!"
                         text="Oba! Este plano está disponível no endereço consultado."
-                        onClose={() => setShowAlert(false)}
+                        onClose={() => setDismissedKey(alertKey)}
                     />
                 ) : unavailable ? (
                     <AlertViabilidade
                         variant="error"
                         title="No momento estamos sem disponibilidade"
                         text="Infelizmente ainda não temos disponibilidade na sua região."
-                        onClose={() => setShowAlert(false)}
+                        onClose={() => setDismissedKey(alertKey)}
                     />
                 ) : null
             ) : null}
@@ -154,7 +139,7 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
                 <button
                     type="button"
                     onClick={() => onClose(false)}
-                    className="rounded-xl px-4 py-2 text-sm font-semibold bg-black/5 hover:bg-black/10 transition"
+                    className="rounded-xl px-4 text-graylight py-2 text-sm font-semibold bg-black/5 hover:bg-black/10 transition"
                 >
                     Fechar
                 </button>
