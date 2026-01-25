@@ -20,11 +20,11 @@ export default function Modal({ open, title, subtitle, onClose, children }) {
             <button
                 type="button"
                 aria-label="Fechar"
-                className="absolute inset-0 bg-black/50"
+                className="absolute inset-0 bg-black/50 z-0"
                 onClick={onClose}
             />
 
-            <div className="relative mx-auto px-8 mt-16 w-full max-w-3xl">
+            <div className="relative z-10 mx-auto px-8 w-full mt-16 max-w-3xl">
                 <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/10">
                     <div className="flex items-start justify-between gap-4 px-6 py-5 border-b border-black/10">
                         <div>

@@ -18,9 +18,9 @@ export default function MobileDrawer({
     setMobileInternetOpen,
     INTERNET_DROPDOWN,
     setOpenSelectCity,
+    setModalViabilidadeOpen
 }) {
     const { site } = useSite();
-    const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
 
     return (
         <div
@@ -158,9 +158,6 @@ export default function MobileDrawer({
                     </Link>
                 </div>
             </div>
-            <SalesProviderNew>
-                <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />
-            </SalesProviderNew>
         </div>
     );
 }

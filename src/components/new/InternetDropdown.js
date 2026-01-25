@@ -5,8 +5,7 @@ import {useState} from "react";
 import pinIcon from "@/assets/icons/pin.svg"
 import ModalViabilidade from "@/components/layout/ModalViabilidade";
 
-export default function InternetDropdown({id, items, onClose}) {
-    const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
+export default function InternetDropdown({id, items, onClose,modalViabilidadeOpen,setModalViabilidadeOpen}) {
 
     return (
         <>
@@ -35,9 +34,9 @@ export default function InternetDropdown({id, items, onClose}) {
                     </button>
                 </div>
             </div>
-            <SalesProviderNew>
-                <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />
-            </SalesProviderNew>
+            {/*<SalesProviderNew>*/}
+            {/*    <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />*/}
+            {/*</SalesProviderNew>*/}
         </>
     );
 }

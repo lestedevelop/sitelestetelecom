@@ -43,7 +43,7 @@ const INTERNET_DROPDOWN = [
     {href: "/faq/lojas", label: "Lojas"},
 ];
 
-export default function AppBarNew() {
+export default function AppBarNew({setModalViabilidadeOpen}) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [internetOpen, setInternetOpen] = useState(false);
     const [mobileInternetOpen, setMobileInternetOpen] = useState(true);
@@ -151,14 +151,14 @@ export default function AppBarNew() {
            <>
                {mobileOpen && (
                    <div
-                       className="fixed inset-0 z-[80] bg-black/40 md:hidden"
+                       className="fixed inset-0 z-20 bg-black/40 md:hidden"
                        onClick={closeMobile}
                        aria-hidden="true"
                    />
                )}
                <header
                    ref={navRef}
-                   className={`fixed top-0 md:mt-2 left-0 right-0 z-[90] transition-transform duration-300 ease-out ${
+                   className={`fixed top-0 md:mt-2 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
                        visible ? "translate-y-0" : "-translate-y-full"
                    }`}
                >
@@ -254,6 +254,7 @@ export default function AppBarNew() {
                                                        id={`internet-dd-${uid}`}
                                                        items={INTERNET_DROPDOWN}
                                                        onClose={() => setInternetOpen(false)}
+                                                       setModalViabilidadeOpen={setModalViabilidadeOpen}
                                                    />
                                                )}
                                            </div>
@@ -276,6 +277,7 @@ export default function AppBarNew() {
                                onClose={closeMobile}
                                mobileInternetOpen={mobileInternetOpen}
                                setMobileInternetOpen={setMobileInternetOpen}
+                               setModalViabilidadeOpen={setModalViabilidadeOpen}
                                openSelectCity={openSelectCity}
                                setOpenSelectCity={setOpenSelectCity}
                            />
