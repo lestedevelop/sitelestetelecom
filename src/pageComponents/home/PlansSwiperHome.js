@@ -7,7 +7,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function PlansSwiperHome({plans = [], renderPlan}) {
+export default function PlansSwiperHome({
+    plans = [],
+    renderPlan,
+    loading = false,
+    renderSkeleton,
+    skeletonCount = 3,
+}) {
+    const items = loading
+        ? Array.from({ length: skeletonCount }, (_, index) => ({
+              __skeleton: true,
+              id: `plan-skeleton-${index}`,
+          }))
+        : plans;
 
     return (
         <div className="container flex items-center">
@@ -22,9 +34,9 @@ export default function PlansSwiperHome({plans = [], renderPlan}) {
                 }}
                 className="py-10"
             >
-                {plans.map((plan) => (
+                {items.map((plan) => (
                     <SwiperSlide key={plan.id} className="flex justify-center min-h-[588px] md:w-[280px]!">
-                        {renderPlan(plan)}
+                        {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
                     </SwiperSlide>
                 ))}
             </Swiper>

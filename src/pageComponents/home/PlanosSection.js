@@ -1,6 +1,7 @@
 import Section from "@/components/layout/Section";
 import TitleAndSubtitleSection from "@/components/listItems/TitleAndSubtitleSection";
 import PlanCard from "@/components/cards/PlanCard";
+import PlanCardSkeleton from "@/components/skeletom/PlanCardSkeletom";
 import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
@@ -8,13 +9,17 @@ import {useHomeData} from "@/hooks/useHomeData";
 export default function PlanosSection({}) {
     const { planos, loading } = useHomeData();
     const {site} = useSite();
+    const plansData = planos?.data || [];
+    const showSkeleton = loading || plansData.length === 0;
 
     return (
         <Section>
             <TitleAndSubtitleSection title={'Conheça nossos planos!'} text={'Internet Fibra Ótica de verdade, dentro da sua casa'} />
             <div className=" flex flex-col flex-wrap lg:flex-nowrap justify-center lg:justify-between md:flex-row gap-6 place-items-center">
                 <PlansSwiperHome
-                    plans={planos?.data || []}
+                    loading={showSkeleton}
+                    renderSkeleton={() => <PlanCardSkeleton />}
+                    plans={plansData}
                     renderPlan={(plan) => (
                         <PlanCard
                             plan={plan}
@@ -29,3 +34,4 @@ export default function PlanosSection({}) {
         </Section>
     )
 }
+
