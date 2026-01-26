@@ -8,6 +8,7 @@ const STORAGE_KEY = "leste_site_v1";
 const initialState = {
     city: null,
     cityModalOpen: false,
+    cityConfirmed: false,
     planos: [],
 };
 
@@ -29,6 +30,7 @@ export function SiteProvider({children, defaultCity = null}) {
                         ...parsed,
                         city: parsed.city || (defaultCity ? defaultCity : null),
                         cityModalOpen: !!parsed.cityModalOpen,
+                        cityConfirmed: !!parsed.cityConfirmed,
                     });
                 }
             } else if (defaultCity) {
@@ -51,7 +53,7 @@ export function SiteProvider({children, defaultCity = null}) {
 
     function setCity(cityOption) {
         if (!cityOption) {
-            setSite((prev) => ({...prev, city: null}));
+            setSite((prev) => ({...prev, city: null, cityConfirmed: false}));
             return;
         }
 
@@ -68,6 +70,10 @@ export function SiteProvider({children, defaultCity = null}) {
         setSite((prev) => ({...prev, cityModalOpen: !!open}));
     }
 
+    function setCityConfirmed(confirmed) {
+        setSite((prev) => ({...prev, cityConfirmed: !!confirmed}));
+    }
+
     function clearSite() {
         try {
             localStorage.removeItem(STORAGE_KEY);
@@ -76,6 +82,7 @@ export function SiteProvider({children, defaultCity = null}) {
         setSite({
             ...initialState,
             ...(defaultCity ? {city: defaultCity} : {}),
+            cityConfirmed: false,
         });
     }
 
@@ -100,7 +107,7 @@ export function SiteProvider({children, defaultCity = null}) {
         if (!hydrated) return;
 
         try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
+            // localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
         } catch (e) {
             console.warn("Falha ao salvar localStorage (site):", e);
         }
@@ -117,6 +124,7 @@ export function SiteProvider({children, defaultCity = null}) {
             setPlanos,
             clearPlanos,
             setCityModalOpen,
+            setCityConfirmed,
             STORAGE_KEY,
         }),
         [site, hydrated, codcid, cityLabel]

@@ -2,23 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useId, useMemo, useRef, useState} from "react";
+import {useEffect, useId, useRef, useState} from "react";
 import logo from "@/assets/logo.png";
 import lupaIcon from "@/assets/icons/lupa.svg";
 import menuOpenIcon from "@/assets/icons/menuicon.svg"
-import closeIcon from "@/assets/icons/close.svg"
 import arrowDown from "@/assets/icons/arrowDown.svg"
 import InternetDropdown from "@/components/new/InternetDropdown";
 import NavLink from "@/components/new/NavLink";
 import TopAction from "@/components/new/TopAction";
 import MobileDrawer from "@/components/new/MobileDrawer";
-import SelectCity from "@/components/cards/SelectCity";
 import pinIcon from "@/assets/icons/pin.svg";
 import {useSite} from "@/contexts/SiteContext";
 import {usePathname} from "next/dist/client/components/navigation";
-import {getLocation} from "@/utils/getLocation";
 import {SalesProviderNew} from "@/contexts/SalesContextNew";
 import ModalViabilidade from "@/components/layout/ModalViabilidade";
+import {findCodCidByName} from "@/utils/cidade";
+import {cidadesMock} from "@/mocks/cidadesMock";
+import {getLocationByIP} from "@/utils/getLocationByIP";
+import ModalConfirmCity from "@/components/layout/ModalConfirmCity";
+import { useUiStore } from "@/store/useUiStore";
 
 const TOP_ACTIONS = [
     {href: "https://portal.lestetelecom.com.br/login", label: "Area do Cliente", icon: "none"},
@@ -59,15 +61,52 @@ export default function AppBarNew({}) {
     const visibleRef = useRef(true);
     const ticking = useRef(false);
     const uid = useId();
-    const {site} = useSite();
-    const [openSelectCity,setOpenSelectCity] = useState((site?.city?.label)? true : false );
+    const {site, setCity, hydrated, setCityConfirmed} = useSite();
+    const {
+        openSelectCity,
+        closeSelectCity,
+        openConfirmCity,
+        closeConfirmCity,
+        isSelectCityOpen,
+        isConfirmCityOpen,
+    } = useUiStore();
     const pathname = usePathname();
-    const [location,setLocation] = useState([]);
+    const [ipChecked, setIpChecked] = useState(false);
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
 
     useEffect(() => {
-        setOpenSelectCity(false);
-    }, [pathname]);
+        closeSelectCity();
+        closeConfirmCity();
+    }, [pathname, closeSelectCity, closeConfirmCity]);
+
+    useEffect(() => {
+        if (!hydrated) return;
+
+        if (isConfirmCityOpen || isSelectCityOpen) return;
+
+        if (!site?.city?.value) {
+            if (isConfirmCityOpen && !isSelectCityOpen) closeConfirmCity();
+            if (ipChecked && !isSelectCityOpen) openSelectCity();
+            return;
+        }
+
+        if (!site?.cityConfirmed) {
+            if (!isConfirmCityOpen) openConfirmCity();
+            return;
+        }
+
+        if (isConfirmCityOpen) closeConfirmCity();
+    }, [
+        hydrated,
+        site?.city?.value,
+        site?.cityConfirmed,
+        ipChecked,
+        isSelectCityOpen,
+        isConfirmCityOpen,
+        openSelectCity,
+        openConfirmCity,
+        closeConfirmCity,
+    ]);
 
     useEffect(() => {
         lastScrollY.current = window.scrollY;
@@ -109,7 +148,7 @@ export default function AppBarNew({}) {
             });
         };
 
-        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("scroll", onScroll, {passive: true});
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
@@ -151,143 +190,163 @@ export default function AppBarNew({}) {
 
     const closeMobile = () => setMobileOpen(false);
 
-    const latlng = getLocation();
+    useEffect(() => {
+        let cancelled = false;
+        if (!hydrated) return;
+        if (site?.city?.value || site?.city?.label) return;
+
+        (async () => {
+                const cidade = await getLocationByIP();
+                const codcid = findCodCidByName(cidade.cidade, cidadesMock);
+                setCity({value: codcid, label: cidade.cidade});
+        })();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [hydrated, site?.city?.value, site?.city?.label, setCity, setCityConfirmed]);
 
 
     return (
-           <>
-               {mobileOpen && (
-                   <div
-                       className="fixed inset-0 z-20 bg-black/40 md:hidden"
-                       onClick={closeMobile}
-                       aria-hidden="true"
-                   />
-               )}
-               <header
-                   ref={navRef}
-                   className={`fixed top-0 md:mt-2 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
-                       visible ? "translate-y-0" : "-translate-y-full"
-                   }`}
-               >
-                   <div className="container">
-                       <div className="border rounded-3xl border-graylighter bg-white shadow backdrop-blu">
-                           {/* TOP BAR */}
-                           <div className="flex items-center justify-between px-6 py-4">
-                               <Link href="/" className="shrink-0">
-                                   <Image src={logo} alt="Leste" width={120} height={48} priority/>
-                               </Link>
+        <>
+            {mobileOpen && (
+                <div
+                    className="fixed inset-0 z-20 bg-black/40 md:hidden"
+                    onClick={closeMobile}
+                    aria-hidden="true"
+                />
+            )}
+            <header
+                ref={navRef}
+                className={`fixed top-0 md:mt-2 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+                    visible ? "translate-y-0" : "-translate-y-full"
+                }`}
+            >
+                <div className="container">
+                    <div className="border rounded-3xl border-graylighter bg-white shadow backdrop-blu">
+                        {/* TOP BAR */}
+                        <div className="flex items-center justify-between px-6 py-4">
+                            <Link href="/" className="shrink-0">
+                                <Image src={logo} alt="Leste" width={120} height={48} priority/>
+                            </Link>
 
-                               {/* Top actions desktop */}
-                               <div className="hidden md:flex items-center gap-6 text-[15px] text-darkgreen">
-                                   <div className="relative flex items-center">
-                                       <div
-                                           className={`overflow-hidden transition-all duration-200 ${
-                                               searchOpen ? "w-56 opacity-100 mr-2" : "w-0 opacity-0"
-                                           }`}
-                                       >
-                                           <input
-                                               type="text"
-                                               placeholder="Buscar..."
-                                               className="w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                                           />
-                                       </div>
-                                       <button
-                                           type="button"
-                                           className="p-2 rounded-full hover:bg-black/5"
-                                           aria-label="Buscar"
-                                           onClick={() => setSearchOpen((v) => !v)}
-                                       >
-                                           <Image src={lupaIcon} className="h-5 w-5" alt={""}/>
-                                       </button>
-                                   </div>
+                            {/* Top actions desktop */}
+                            <div className="relative hidden md:flex items-center gap-6 text-[15px] text-darkgreen">
+                                <div className="relative flex items-center">
+                                    <div
+                                        className={`overflow-hidden transition-all duration-200 ${
+                                            searchOpen ? "w-56 opacity-100 mr-2" : "w-0 opacity-0"
+                                        }`}
+                                    >
+                                        <input
+                                            type="text"
+                                            placeholder="Buscar..."
+                                            className="w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <button
+                                        type="button"
+                                        className="p-2 rounded-full hover:bg-black/5"
+                                        aria-label="Buscar"
+                                        onClick={() => setSearchOpen((v) => !v)}
+                                    >
+                                        <Image src={lupaIcon} className="h-5 w-5" alt={""}/>
+                                    </button>
+                                </div>
 
-                                   <div className="h-8 w-px bg-graylighter"/>
+                                <div className="h-8 w-px bg-graylighter"/>
 
-                                   <button onClick={() => setOpenSelectCity(true)}
-                                           className="inline-flex items-center gap-2 hover:text-black transition-colors">
-                                       <Image src={pinIcon} alt={""} className="h-5 -mt-2 w-5 text-primary"/>
-                                       {site?.city?.label || "Selecione sua Cidade" }
-                                   </button>
-                                   {TOP_ACTIONS.map((a) => (
-                                       <TopAction key={a.label} href={a.href} label={a.label} icon={a.icon}
-                                                  caret={a.caret}/>
-                                   ))}
-                               </div>
+                                <button
+                                    onClick={() => {
+                                        openConfirmCity();
+                                        openSelectCity();
+                                    }}
+                                        className="inline-flex items-center gap-2 hover:text-black transition-colors">
+                                    <Image src={pinIcon} alt={""} className="h-5 -mt-2 w-5 text-primary"/>
+                                    {site?.city?.label || "Selecione sua Cidade"}
+                                </button>
+                                {TOP_ACTIONS.map((a) => (
+                                    <TopAction key={a.label} href={a.href} label={a.label} icon={a.icon}
+                                               caret={a.caret}/>
+                                ))}
+                                <ModalConfirmCity />
+                            </div>
 
-                               <button
-                                   type="button"
-                                   className="md:hidden inline-flex items-center justify-center rounded-xl p-2 hover:bg-black/5"
-                                   onClick={() => setMobileOpen(true)}
-                                   aria-label="Abrir menu"
-                               >
-                                   <Image src={menuOpenIcon} alt={""} className="h-7 w-7 text-[#00997b]"/>
-                               </button>
-                           </div>
+                            <button
+                                type="button"
+                                className="md:hidden inline-flex items-center justify-center rounded-xl p-2 hover:bg-black/5"
+                                onClick={() => setMobileOpen(true)}
+                                aria-label="Abrir menu"
+                            >
+                                <Image src={menuOpenIcon} alt={""} className="h-7 w-7 text-[#00997b]"/>
+                            </button>
+                        </div>
 
-                           <div className="h-px hidden md:block bg-graylighter"/>
+                        <div className="h-px hidden md:block bg-graylighter"/>
 
-                           <div className="hidden md:flex items-center gap-10 px-6 py-4 text-xs lg:text-[18px] text-darkgreen">
-                               {PRIMARY_TABS.filter((t) => !t.alignRight).map((t) => {
-                                   if (t.key === "internet") {
-                                       return (
-                                           <div key={t.key} className="relative" ref={dropdownRef}>
-                                               <button
-                                                   type="button"
-                                                   onClick={() => setInternetOpen((v) => !v)}
-                                                   className="inline-flex items-center gap-2 font-semibold text-darkgreen hover:text-dark"
-                                                   aria-expanded={internetOpen}
-                                                   aria-controls={`internet-dd-${uid}`}
-                                               >
+                        <div
+                            className="hidden md:flex items-center gap-10 px-6 py-4 text-xs lg:text-[18px] text-darkgreen">
+                            {PRIMARY_TABS.filter((t) => !t.alignRight).map((t) => {
+                                if (t.key === "internet") {
+                                    return (
+                                        <div key={t.key} className="relative" ref={dropdownRef}>
+                                            <button
+                                                type="button"
+                                                onClick={() => setInternetOpen((v) => !v)}
+                                                className="inline-flex items-center gap-2 font-semibold text-darkgreen hover:text-dark"
+                                                aria-expanded={internetOpen}
+                                                aria-controls={`internet-dd-${uid}`}
+                                            >
                                                 <span className="relative">
                                                   Internet
                                                   <span
                                                       className="absolute -bottom-1 left-0 h-[3px] w-14 rounded-full bg-primary"/>
                                                 </span>
-                                                   <Image src={arrowDown} alt={""}
-                                                          className={`h-4 w-4 transition-transform ${internetOpen ? "rotate-180" : ""}`}/>
-                                               </button>
+                                                <Image src={arrowDown} alt={""}
+                                                       className={`h-4 w-4 transition-transform ${internetOpen ? "rotate-180" : ""}`}/>
+                                            </button>
 
-                                               {internetOpen && (
-                                                   <InternetDropdown
-                                                       id={`internet-dd-${uid}`}
-                                                       items={INTERNET_DROPDOWN}
-                                                       onClose={() => setInternetOpen(false)}
-                                                       setModalViabilidadeOpen={setModalViabilidadeOpen}
-                                                   />
-                                               )}
-                                           </div>
-                                       );
-                                   }
+                                            {internetOpen && (
+                                                <InternetDropdown
+                                                    id={`internet-dd-${uid}`}
+                                                    items={INTERNET_DROPDOWN}
+                                                    onClose={() => setInternetOpen(false)}
+                                                    setModalViabilidadeOpen={setModalViabilidadeOpen}
+                                                />
+                                            )}
+                                        </div>
+                                    );
+                                }
 
-                                   return (
-                                       <NavLink key={t.key} href={t.href} label={t.label}/>
-                                   );
-                               })}
+                                return (
+                                    <NavLink key={t.key} href={t.href} label={t.label}/>
+                                );
+                            })}
 
-                               <div className="ml-auto">
-                                   <NavLink href="/faq" key="faq"  label="FAQ"/>
-                               </div>
-                           </div>
+                            <div className="ml-auto">
+                                <NavLink href="/faq" key="faq" label="FAQ"/>
+                            </div>
+                        </div>
 
-                           <MobileDrawer
-                               INTERNET_DROPDOWN={INTERNET_DROPDOWN}
-                               open={mobileOpen}
-                               onClose={closeMobile}
-                               mobileInternetOpen={mobileInternetOpen}
-                               setMobileInternetOpen={setMobileInternetOpen}
-                               setModalViabilidadeOpen={setModalViabilidadeOpen}
-                               openSelectCity={openSelectCity}
-                               setOpenSelectCity={setOpenSelectCity}
-                           />
-                       </div>
-                   </div>
-               </header>
+                        <MobileDrawer
+                            INTERNET_DROPDOWN={INTERNET_DROPDOWN}
+                            open={mobileOpen}
+                            onClose={closeMobile}
+                            mobileInternetOpen={mobileInternetOpen}
+                            setMobileInternetOpen={setMobileInternetOpen}
+                            setModalViabilidadeOpen={setModalViabilidadeOpen}
+                        />
+                    </div>
+                </div>
+            </header>
 
-               <div className="h-[110px] md:h-[170px]"/>
-               <SelectCity visible={openSelectCity} setVisible={setOpenSelectCity}/>
-               <SalesProviderNew >
-                   <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />
-               </SalesProviderNew>
-           </>
+            <div className="h-[110px] md:h-[170px]"/>
+            <SalesProviderNew>
+                <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen}/>
+            </SalesProviderNew>
+           <div className={"absolute md:hidden top-0 left-[50%] -translate-x-[50%] z-1000"}>
+               <ModalConfirmCity />
+           </div>
+        </>
     );
 }

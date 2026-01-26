@@ -7,9 +7,7 @@ import logo from "@/assets/logo.png";
 import MobileRow from "@/components/new/MobileRow";
 import lupaIcon from "@/assets/icons/lupa.svg";
 import { useSite } from "@/contexts/SiteContext";
-import { SalesProviderNew } from "@/contexts/SalesContextNew";
-import ModalViabilidade from "@/components/layout/ModalViabilidade";
-import { useState } from "react";
+import { useUiStore } from "@/store/useUiStore";
 
 export default function MobileDrawer({
     open,
@@ -17,10 +15,10 @@ export default function MobileDrawer({
     mobileInternetOpen,
     setMobileInternetOpen,
     INTERNET_DROPDOWN,
-    setOpenSelectCity,
     setModalViabilidadeOpen
 }) {
     const { site } = useSite();
+    const { openSelectCity, openConfirmCity } = useUiStore();
 
     return (
         <div
@@ -54,7 +52,13 @@ export default function MobileDrawer({
                         type="button"
                         className="w-full rounded-xl border border-graylight bg-light px-4 py-3 text-left text-darkgreen"
                     >
-                        <div className="flex items-center justify-between" onClick={() => setOpenSelectCity(true)}>
+                        <div
+                            className="flex items-center justify-between"
+                            onClick={() => {
+                                openConfirmCity();
+                                openSelectCity();
+                            }}
+                        >
                             <span className="inline-flex items-center gap-2 hover:text-black transition-colors">
                                 <Image src={pinIcon} alt={""} className="h-5 -mt-2 w-5 text-primary" />
                                 {site?.city?.label || "Selecione sua Cidade"}
