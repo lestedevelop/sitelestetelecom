@@ -23,7 +23,7 @@ export const metadata = {
 export default function ConfigRotador() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como configurar o roteador para obter acesso à Internet?</>}/>
@@ -72,7 +72,7 @@ export default function ConfigRotador() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

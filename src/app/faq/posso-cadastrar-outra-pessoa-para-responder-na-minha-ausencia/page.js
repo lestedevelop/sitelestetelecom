@@ -14,7 +14,7 @@ export const metadata = {
 export default function PossoCadastrarOutraPessoa(prop) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Posso cadastrar outra pessoa para responder na minha ausência?</>}/>
@@ -31,7 +31,7 @@ export default function PossoCadastrarOutraPessoa(prop) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

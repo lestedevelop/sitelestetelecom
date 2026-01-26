@@ -14,7 +14,7 @@ export const metadata = {
 export default function RegrasMigracaoGratis(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Regras da promoção "MIGRAÇÃO GRÁTIS".</>}/>
@@ -41,7 +41,7 @@ export default function RegrasMigracaoGratis(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

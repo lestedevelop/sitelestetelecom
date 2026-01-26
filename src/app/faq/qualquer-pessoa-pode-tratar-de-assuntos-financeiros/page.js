@@ -14,7 +14,7 @@ export const metadata = {
 export default function QualQuerPessoaPodeTratarAssuntosFinanceiros(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Qualquer pessoa pode tratar de assuntos financeiros?</>}/>
@@ -31,7 +31,7 @@ export default function QualQuerPessoaPodeTratarAssuntosFinanceiros(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

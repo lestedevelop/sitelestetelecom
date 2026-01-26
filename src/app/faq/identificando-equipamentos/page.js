@@ -13,7 +13,7 @@ export const metadata = {
 export default function IdendificarEquipamentos() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como me certificar que os cabos estão conectados corretamente?</>}/>
@@ -26,7 +26,7 @@ export default function IdendificarEquipamentos() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

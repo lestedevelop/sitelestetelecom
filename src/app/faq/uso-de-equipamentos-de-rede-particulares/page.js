@@ -14,7 +14,7 @@ export const metadata = {
 export default function UsoDeEquipamentosDeRedeParticulares() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Uso de equipamentos de rede particulares</>}/>
@@ -31,7 +31,7 @@ export default function UsoDeEquipamentosDeRedeParticulares() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

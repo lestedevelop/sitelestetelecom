@@ -14,7 +14,7 @@ export const metadata = {
 export default function OfertasPlanosProfissionaisSicronos() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>A Leste Telecom oferta planos profissionais (síncronos)?</>}/>
@@ -31,7 +31,7 @@ export default function OfertasPlanosProfissionaisSicronos() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

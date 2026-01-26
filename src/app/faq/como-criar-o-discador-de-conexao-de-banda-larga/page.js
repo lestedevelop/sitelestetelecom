@@ -15,7 +15,7 @@ export const metadata = {
 export default function ComoCriarDiscador() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como criar o discador de conexão de Banda Larga?</>}/>
@@ -40,7 +40,7 @@ export default function ComoCriarDiscador() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

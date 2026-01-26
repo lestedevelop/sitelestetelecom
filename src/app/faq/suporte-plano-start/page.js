@@ -20,7 +20,7 @@ export default function SuportePlanoStart() {
     ]
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Plano Start (Leste Móvel)</>}/>
@@ -88,7 +88,7 @@ export default function SuportePlanoStart() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

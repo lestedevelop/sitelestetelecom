@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoPossoBloquearMeuPlano(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como posso suspender ou bloquear o meu plano?</>}/>
@@ -38,7 +38,7 @@ export default function ComoPossoBloquearMeuPlano(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

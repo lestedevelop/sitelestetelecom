@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoAlterarVencimento(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como posso mudar a data de vencimento da minha mensalidade?</>}/>
@@ -37,7 +37,7 @@ export default function ComoAlterarVencimento(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

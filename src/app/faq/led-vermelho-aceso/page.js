@@ -14,7 +14,7 @@ export const metadata = {
 export default function LedVermelho(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Há um LED vermelho piscando na ONU. O que devo fazer?</>}/>
@@ -39,7 +39,7 @@ export default function LedVermelho(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

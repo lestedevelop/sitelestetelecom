@@ -14,7 +14,7 @@ export const metadata = {
 export default function CanalOficialDeatendimento() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Canal oficial de atendimento - Email.</>}/>
@@ -39,7 +39,7 @@ export default function CanalOficialDeatendimento() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

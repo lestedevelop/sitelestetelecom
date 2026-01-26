@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoPossoFazerUmaReclamacao(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como posso fazer uma reclamação?</>}/>
@@ -44,7 +44,7 @@ export default function ComoPossoFazerUmaReclamacao(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

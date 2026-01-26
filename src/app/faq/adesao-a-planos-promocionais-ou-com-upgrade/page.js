@@ -14,7 +14,7 @@ export const metadata = {
 export default function AdesaoAPlanosPromocionais(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Adesão a planos promocionais ou com upgrade (troca) de equipamentos - condições:</>}/>
@@ -34,7 +34,7 @@ export default function AdesaoAPlanosPromocionais(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

@@ -14,7 +14,7 @@ export const metadata = {
 export default function OqueAconteceNaMudancaDePlano(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>O que acontece na mudança de plano?</>}/>
@@ -34,7 +34,7 @@ export default function OqueAconteceNaMudancaDePlano(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

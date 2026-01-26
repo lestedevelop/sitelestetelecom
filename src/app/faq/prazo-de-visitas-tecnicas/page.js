@@ -14,7 +14,7 @@ export const metadata = {
 export default function PrazoVisita() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Prazo de visitas técnicas.
@@ -32,7 +32,7 @@ export default function PrazoVisita() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

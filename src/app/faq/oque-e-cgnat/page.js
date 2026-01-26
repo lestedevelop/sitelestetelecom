@@ -14,7 +14,7 @@ export const metadata = {
 export default function OqueECgnat() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>O que é CGNAT?</>}/>
@@ -37,7 +37,7 @@ export default function OqueECgnat() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

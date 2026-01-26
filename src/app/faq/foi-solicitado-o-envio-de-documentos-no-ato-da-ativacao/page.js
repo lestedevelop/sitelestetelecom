@@ -14,7 +14,7 @@ export const metadata = {
 export default function SolicitadoEnvioDocumentos() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Foi solicitado o envio de documentos no ato da ativação, é mesmo necessário?</>}/>
@@ -29,7 +29,7 @@ export default function SolicitadoEnvioDocumentos() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

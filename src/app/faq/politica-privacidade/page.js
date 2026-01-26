@@ -12,7 +12,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container px-6 py-12">
                 <TitleFaq title={<>Política de privacidade - Uso de dados.</>}/>
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

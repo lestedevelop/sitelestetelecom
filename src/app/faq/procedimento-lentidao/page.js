@@ -16,7 +16,7 @@ export const metadata = {
 export default function TesteDeVelocidadeFaq() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Em caso de lentidão, o que fazer?</>}/>
@@ -44,7 +44,7 @@ export default function TesteDeVelocidadeFaq() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

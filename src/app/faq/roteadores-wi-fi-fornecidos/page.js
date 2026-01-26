@@ -14,7 +14,7 @@ export const metadata = {
 export default function RoteadoresFornecidos() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Roteadores Wi-Fi fornecidos</>}/>
@@ -31,7 +31,7 @@ export default function RoteadoresFornecidos() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

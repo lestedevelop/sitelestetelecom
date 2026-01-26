@@ -14,7 +14,7 @@ export const metadata = {
 export default function TenhoUmPlanoDe150(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Tenho um plano de 150Mbps (ou superior), mas meus testes de velocidade não passam de 100Mbps. O que fazer?</>}/>
@@ -31,7 +31,7 @@ export default function TenhoUmPlanoDe150(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

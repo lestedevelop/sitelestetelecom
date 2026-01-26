@@ -14,7 +14,7 @@ export const metadata = {
 export default function PlanosPrediaisNiteroi() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Planos Prediais cidade de Niterói</>}/>
@@ -40,7 +40,7 @@ export default function PlanosPrediaisNiteroi() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

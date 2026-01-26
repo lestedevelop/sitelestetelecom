@@ -16,7 +16,7 @@ export const metadata = {
 export default function RetiradoBoletoNaCentral(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como retirar seu boleto pelo site?</>}/>
@@ -47,7 +47,7 @@ export default function RetiradoBoletoNaCentral(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

@@ -19,7 +19,7 @@ export default function SuportePlanoTurbo() {
     ]
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Plano Turbo (Leste Móvel)</>}/>
@@ -86,7 +86,7 @@ export default function SuportePlanoTurbo() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

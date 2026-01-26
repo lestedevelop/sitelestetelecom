@@ -14,7 +14,7 @@ export const metadata = {
 export default function RegrasParaUsoRedes(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Regras para uso de nossas redes sociais (Facebook, Instagram, Twitter...)</>}/>
@@ -73,7 +73,7 @@ export default function RegrasParaUsoRedes(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

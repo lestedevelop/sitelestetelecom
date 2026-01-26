@@ -19,7 +19,7 @@ export const metadata = {
 export default function ConfigWIFIDaLeste() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Configurando o Wi-Fi <br/>do conversor ótico da Leste!</>}/>
@@ -66,7 +66,7 @@ export default function ConfigWIFIDaLeste() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

@@ -14,7 +14,7 @@ export const metadata = {
 export default function AtualizacaoDeBoleto(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Planos Prediais cidade de Niterói</>}/>
@@ -43,7 +43,7 @@ export default function AtualizacaoDeBoleto(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoMudarDePlano(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como mudar de plano?</>}/>
@@ -39,7 +39,7 @@ export default function ComoMudarDePlano(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

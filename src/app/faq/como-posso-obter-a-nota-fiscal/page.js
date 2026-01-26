@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoObterANotaFiscal(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como posso obter a nota fiscal?</>}/>
@@ -46,7 +46,7 @@ export default function ComoObterANotaFiscal(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

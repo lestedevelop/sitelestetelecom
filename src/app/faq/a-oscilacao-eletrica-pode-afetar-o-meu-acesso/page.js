@@ -14,7 +14,7 @@ export const metadata = {
 export default function OcilacaoEletrica(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>A oscilação elétrica pode afetar o meu acesso?</>}/>
@@ -29,7 +29,7 @@ export default function OcilacaoEletrica(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

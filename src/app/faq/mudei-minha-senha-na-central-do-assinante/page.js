@@ -14,7 +14,7 @@ export const metadata = {
 export default function MudeiMinhaSenhaNaCentralEminhanInternetCaiu(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Mudei minha senha na Central do Assinante e agora minha internet caiu. O que fazer?</>}/>
@@ -31,7 +31,7 @@ export default function MudeiMinhaSenhaNaCentralEminhanInternetCaiu(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

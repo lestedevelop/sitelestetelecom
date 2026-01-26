@@ -22,7 +22,7 @@ export const metadata = {
 export default function RetirandoBoletoPeloWhatsapp(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como retirar seu boleto pelo WhatsApp?</>}/>
@@ -72,7 +72,7 @@ export default function RetirandoBoletoPeloWhatsapp(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

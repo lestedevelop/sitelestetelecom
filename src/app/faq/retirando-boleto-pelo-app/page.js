@@ -19,7 +19,7 @@ export const metadata = {
 export default function RetirandoBoletoPeloApp(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como emitir seu boleto no app da Leste</>}/>
@@ -63,7 +63,7 @@ export default function RetirandoBoletoPeloApp(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

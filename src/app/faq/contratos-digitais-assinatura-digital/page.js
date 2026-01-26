@@ -14,7 +14,7 @@ export const metadata = {
 export default function ContratoDigitaisAssinatura(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Contratos Digitais – Assinatura Digital – Obrigatoriedade do uso / assinatura</>}/>
@@ -40,7 +40,7 @@ export default function ContratoDigitaisAssinatura(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

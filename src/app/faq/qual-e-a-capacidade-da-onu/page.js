@@ -14,7 +14,7 @@ export const metadata = {
 export default function SemInternt() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Qual é a capacidade da ONU?</>}/>
@@ -29,7 +29,7 @@ export default function SemInternt() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

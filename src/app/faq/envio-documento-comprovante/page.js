@@ -14,7 +14,7 @@ export const metadata = {
 export default function EnvioDocumentosComprovante(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Para onde devo enviar os documentos e/ou comprovantes de pagamento?</>}/>
@@ -39,7 +39,7 @@ export default function EnvioDocumentosComprovante(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

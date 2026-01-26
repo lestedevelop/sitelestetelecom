@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoCancelarOMeuPlano(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como cancelar o meu plano de internet?</>}/>
@@ -43,7 +43,7 @@ export default function ComoCancelarOMeuPlano(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

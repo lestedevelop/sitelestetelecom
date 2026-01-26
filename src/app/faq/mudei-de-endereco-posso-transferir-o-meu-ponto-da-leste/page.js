@@ -14,7 +14,7 @@ export const metadata = {
 export default function MudeiDeEnderecoPossoTransferir(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Mudei de endereço. Posso transferir o meu ponto da Leste?</>}/>
@@ -35,7 +35,7 @@ export default function MudeiDeEnderecoPossoTransferir(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

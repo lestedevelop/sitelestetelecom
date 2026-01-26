@@ -12,7 +12,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Aviso legal sobre o atendimento<br/>WhatsApp em fase beta.</>}/>
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

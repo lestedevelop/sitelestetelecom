@@ -14,7 +14,7 @@ export const metadata = {
 export default function ComoEntrarEmContatoComACentral(props) {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Como entrar em contato com nossa central de atendimento?</>}/>
@@ -37,7 +37,7 @@ export default function ComoEntrarEmContatoComACentral(props) {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }

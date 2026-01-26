@@ -14,7 +14,7 @@ export const metadata = {
 export default function DesligarEligarPodeResolve() {
     return (
         <main className="bg-light">
-            <AppBar />
+            
 
             <div className="container py-12">
                 <TitleFaq title={<>Desligar e ligar os equipamentos pode resolver o problema da minha conexão?
@@ -32,7 +32,7 @@ export default function DesligarEligarPodeResolve() {
             </div>
 
             <SupportFooter />
-            <Footer />
+            
         </main>
     );
 }
