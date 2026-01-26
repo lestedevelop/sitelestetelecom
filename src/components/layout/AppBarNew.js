@@ -197,8 +197,23 @@ export default function AppBarNew({}) {
 
         (async () => {
                 const cidade = await getLocationByIP();
-                const codcid = findCodCidByName(cidade.cidade, cidadesMock);
-                setCity({value: codcid, label: cidade.cidade});
+                const cityName = cidade?.cidade || cidade?.city || cidade || "";
+                let codcid = findCodCidByName(cityName, cidadesMock);
+
+                if (!codcid) {
+                    const fallbackName = "Niteroi";
+                    codcid = findCodCidByName(fallbackName, cidadesMock);
+                    if (codcid) {
+                        setCity({ value: codcid, label: fallbackName });
+                        setCityConfirmed(false);
+                        return;
+                    }
+                }
+
+                if (codcid && cityName) {
+                    setCity({ value: codcid, label: cityName });
+                    setCityConfirmed(false);
+                }
         })();
 
         return () => {
@@ -218,7 +233,7 @@ export default function AppBarNew({}) {
             )}
             <header
                 ref={navRef}
-                className={`fixed top-0 md:mt-2 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+                className={`fixed top-0 mt-2 left-0 right-0 z-50 transition-transform duration-300 ease-out ${mobileOpen? "mt-0!" : ""} ${
                     visible ? "translate-y-0" : "-translate-y-full"
                 }`}
             >
@@ -244,14 +259,14 @@ export default function AppBarNew({}) {
                                             className="w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-primary"
                                         />
                                     </div>
-                                    <button
-                                        type="button"
-                                        className="p-2 rounded-full hover:bg-black/5"
-                                        aria-label="Buscar"
-                                        onClick={() => setSearchOpen((v) => !v)}
-                                    >
-                                        <Image src={lupaIcon} className="h-5 w-5" alt={""}/>
-                                    </button>
+                                    {/*<button*/}
+                                    {/*    type="button"*/}
+                                    {/*    className="p-2 rounded-full hover:bg-black/5"*/}
+                                    {/*    aria-label="Buscar"*/}
+                                    {/*    onClick={() => setSearchOpen((v) => !v)}*/}
+                                    {/*>*/}
+                                    {/*    <Image src={lupaIcon} className="h-5 w-5" alt={""}/>*/}
+                                    {/*</button>*/}
                                 </div>
 
                                 <div className="h-8 w-px bg-graylighter"/>

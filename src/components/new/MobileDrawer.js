@@ -69,18 +69,18 @@ export default function MobileDrawer({
                 </div>
 
                 {/* busca */}
-                <div className="px-5 pb-4">
-                    <div className="w-full rounded-xl border border-graylight bg-light px-4 py-3 text-left text-darkgreen">
-                        <div className="flex items-center gap-3">
-                            <Image src={lupaIcon} alt={""} className="h-5 w-5 text-primary" />
-                            <input
-                                type="text"
-                                placeholder="Buscar..."
-                                className="w-full bg-transparent text-[15px] outline-none placeholder:text-graylight"
-                            />
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="px-5 pb-4">*/}
+                {/*    <div className="w-full rounded-xl border border-graylight bg-light px-4 py-3 text-left text-darkgreen">*/}
+                {/*        <div className="flex items-center gap-3">*/}
+                {/*            <Image src={lupaIcon} alt={""} className="h-5 w-5 text-primary" />*/}
+                {/*            <input*/}
+                {/*                type="text"*/}
+                {/*                placeholder="Buscar..."*/}
+                {/*                className="w-full bg-transparent text-[15px] outline-none placeholder:text-graylight"*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div className="px-5 pb-5">
                     {/* Internet accordion (aberto por padrão) */}
