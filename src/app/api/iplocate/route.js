@@ -8,9 +8,7 @@ export async function POST(req) {
         const ipFromQuery = url.searchParams.get("ip");
         const forwarded = req.headers.get("x-forwarded-for") || "";
         const ipFromHeader = forwarded.split(",")[0]?.trim();
-        // const ip = ipFromQuery || ipFromHeader;
-        const ip = "186.211.32.254"
-        console.log(ipFromHeader);
+        const ip = ipFromQuery || ipFromHeader;
 
         if (!process.env.IPLOCATE_API_KEY) {
             return NextResponse.json(
