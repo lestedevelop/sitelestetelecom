@@ -14,7 +14,7 @@ export const metadata = {
 export default function WifiGratis() {
     return (
         <main className="bg-light">
-            <AppBar />
+            <AppBar/>
 
             <div className="container py-12">
                 <TitleFaq title={<>A Leste Telecom oferece wi-fi grátis aos novos assinantes?</>}/>

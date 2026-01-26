@@ -10,8 +10,7 @@ import ActionButton from "@/components/Buttons/ActionButton";
 export default function TesteDeVelocidade() {
   return (
       <div className="min-h-full">
-        <AppBar/>
-        <section className="md:mt-[160px] mt-[90px] w-full">
+        <section className="w-full">
             <div className="flex flex-col md:flex-row items-center justify-between w-full container gap-8 py-8 md:py-16">
                 <div className="text-primary md:w-110 flex flex-col gap-8">
                     <h3 className={"font-bold text-4xl md:text-[50px]"}>Teste sua velocidade </h3>
@@ -45,9 +44,6 @@ export default function TesteDeVelocidade() {
             </div>
         </section>
           <BannerDownloadNow />
-
-      <Footer/>
-
       </div>
   );
 }

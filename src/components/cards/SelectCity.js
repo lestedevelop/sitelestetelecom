@@ -5,15 +5,8 @@ import {useEffect, useRef, useState} from "react";
 import charLeste from "@/assets/charleste.png";
 import {SiteProvider, useSite} from "@/contexts/SiteContext";
 import {getLocation} from "@/utils/getLocation";
+import {cidadesMock} from "@/mocks/cidadesMock";
 
-const CITIES = [
-    {value: 3303302, label: "Niterói"},
-    {value: 3302700, label: "Maricá"},
-    {value: 3301900, label: "Itaboraí"},
-    {value: 3305752, label: "Tanguá"},
-    {value: 3304300, label: "Rio Bonito"},
-    {value: 3302502, label: "Magé"},
-];
 
 export default function SelectCity({visible, setVisible}) {
     const {
@@ -69,7 +62,7 @@ export default function SelectCity({visible, setVisible}) {
     }, [hydrated, site?.city?.value]);
 
     function chooseCity(option) {
-        setCity(option);
+        setCity({value: option.codcid,label: option.nome_cid});
         setVisible(false);
     }
 
@@ -109,14 +102,14 @@ export default function SelectCity({visible, setVisible}) {
                                 <div role="listbox"
                                      className="absolute left-0 right-0 mt-2 overflow-hidden rounded-2xl bg-light border border-black/10 shadow-[0_10px_24px_rgba(0,0,0,0.20)]">
                                     <div className="max-h-72 overflow-y-auto py-2">
-                                        {CITIES.map((c) => {
-                                            const isSelected = c.value === codcid;
+                                        {cidadesMock.map((c) => {
+                                            const isSelected = c.codcid === codcid;
 
                                             return (
-                                                <button key={c.value} type="button" role="option"
+                                                <button key={c.codcid} type="button" role="option"
                                                         aria-selected={isSelected} onClick={() => chooseCity(c)}
                                                         className={["w-full px-6 py-3 text-left text-lg text-primary hover:bg-emerald-50", isSelected ? "bg-emerald-50 font-extrabold" : "",].join(" ")}>
-                                                    {c.label}
+                                                    {c.nome_cid}
                                                 </button>
                                             );
                                         })}
@@ -124,12 +117,6 @@ export default function SelectCity({visible, setVisible}) {
                                 </div>
                             )}
                         </div>
-
-                        {/*{codcid ? (*/}
-                        {/*    <div className="mt-3 text-light/90 text-sm">*/}
-                        {/*        Código da cidade: <span className="font-bold">{codcid}</span>*/}
-                        {/*    </div>*/}
-                        {/*) : null}*/}
                     </div>
                 </div>
 

@@ -15,7 +15,6 @@ import central from "@/assets/central24.svg";
 export default function Faq() {
   return (
       <div className="min-h-full">
-        <AppBar/>
         <SectionFaq />
         <section className="py-16 md:py-0 bg-primary">
           <div className="flex flex-col-reverse gap-y-12 md:flex-row container justify-between items-center w-full min-h-[547px]">
@@ -62,8 +61,6 @@ export default function Faq() {
                  </div>
              </div>
           </section>
-      <Footer/>
-
       </div>
   );
 }

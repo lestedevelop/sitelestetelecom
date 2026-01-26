@@ -8,7 +8,6 @@ import SectionApp from "@/pageComponents/leste-suporte/SectionApp";
 export default function LesteSuporte() {
   return (
       <div className="min-h-full">
-        <AppBar/>
 
         <section className="md:mt-[160px] mt-[90px] w-full">
             <SectionBanner className="bg-primary w-full h-[182px] md:h-[350px] " title={"Já conhece os\n" +
@@ -16,8 +15,6 @@ export default function LesteSuporte() {
             />
         </section>
         <SectionApp />
-      <Footer/>
-
       </div>
   );
 }

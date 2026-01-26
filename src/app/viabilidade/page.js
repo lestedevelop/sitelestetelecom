@@ -8,8 +8,7 @@ import bannerAssineOnline from "@/assets/cardBanner.png";
 export default function Faq() {
   return (
       <div className="min-h-full">
-        <AppBar/>
-        <section className="md:mt-[160px] mt-[90px] w-full">
+        <section className="w-full">
             <SectionBanner className="bg-primary w-full h-[182px] md:h-[350px]" subtitleClassName={"text-[13px] md:text-[20px]! md:w-80"}  title={"Área de Cobertura\n"} subtitle={"Selecione sua cidade e confira se sua região é atendida.\n"} image={bannerViabilidades}/>
         </section>
 
@@ -56,7 +55,6 @@ export default function Faq() {
               </div>
           </section>
           <CardBanner className={"py-10 pb-0 md:py-20"} image={bannerAssineOnline} title={"Vem para o melhor caminho!"} buttonText={"Assine Online"} link={"https://vendas.lestetelecom.com.br/"} />
-      <Footer/>
 
       </div>
   );

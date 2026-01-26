@@ -8,7 +8,6 @@ import FormCompleto from "@/components/Form/FormCompleto";
 export default function IndiqueEGanheLestePage() {
     return (
         <div className="min-h-full bg-light">
-            <AppBar/>
             <section className={"mt-[90px] md:mt-[161px] bg-[url('/indiqueeganha-mobile.png')] md:bg-[url('/indiqueeganhe.png')] bg-cover bg-center"}>
                 <div className={"container flex flex-col md:flex-row md:justify-between min-h-[80vh] md:min-h-full py-12 md:py-24"}>
                     <div className={'md:w-1/2'}>
@@ -67,7 +66,6 @@ export default function IndiqueEGanheLestePage() {
                     <Image alt={"banner"} src={imageIndicacao} className={"max-w-full rounded-2xl md:max-w-[447px]"}/>
                 </div>
             </section>
-            <Footer/>
         </div>
     );
 }

@@ -16,6 +16,9 @@ import SelectCity from "@/components/cards/SelectCity";
 import pinIcon from "@/assets/icons/pin.svg";
 import {useSite} from "@/contexts/SiteContext";
 import {usePathname} from "next/dist/client/components/navigation";
+import {getLocation} from "@/utils/getLocation";
+import {SalesProviderNew} from "@/contexts/SalesContextNew";
+import ModalViabilidade from "@/components/layout/ModalViabilidade";
 
 const TOP_ACTIONS = [
     {href: "https://portal.lestetelecom.com.br/login", label: "Area do Cliente", icon: "none"},
@@ -43,7 +46,7 @@ const INTERNET_DROPDOWN = [
     {href: "/faq/lojas", label: "Lojas"},
 ];
 
-export default function AppBarNew({setModalViabilidadeOpen}) {
+export default function AppBarNew({}) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [internetOpen, setInternetOpen] = useState(false);
     const [mobileInternetOpen, setMobileInternetOpen] = useState(true);
@@ -59,6 +62,8 @@ export default function AppBarNew({setModalViabilidadeOpen}) {
     const {site} = useSite();
     const [openSelectCity,setOpenSelectCity] = useState((site?.city?.label)? true : false );
     const pathname = usePathname();
+    const [location,setLocation] = useState([]);
+    const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
 
     useEffect(() => {
         setOpenSelectCity(false);
@@ -146,6 +151,8 @@ export default function AppBarNew({setModalViabilidadeOpen}) {
 
     const closeMobile = () => setMobileOpen(false);
 
+    const latlng = getLocation();
+
 
     return (
            <>
@@ -205,15 +212,6 @@ export default function AppBarNew({setModalViabilidadeOpen}) {
                                        <TopAction key={a.label} href={a.href} label={a.label} icon={a.icon}
                                                   caret={a.caret}/>
                                    ))}
-
-                                   {/*<div className="h-8 w-px bg-graylighter"/>*/}
-                                   {/*<button*/}
-                                   {/*    type="button"*/}
-                                   {/*    className="p-2 rounded-full hover:bg-black/5"*/}
-                                   {/*    aria-label="Fechar"*/}
-                                   {/*>*/}
-                                   {/*    <Image src={closeIcon} alt={""} className={"w-5 h-5"}/>*/}
-                                   {/*</button>*/}
                                </div>
 
                                <button
@@ -287,6 +285,9 @@ export default function AppBarNew({setModalViabilidadeOpen}) {
 
                <div className="h-[110px] md:h-[170px]"/>
                <SelectCity visible={openSelectCity} setVisible={setOpenSelectCity}/>
+               <SalesProviderNew >
+                   <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />
+               </SalesProviderNew>
            </>
     );
 }

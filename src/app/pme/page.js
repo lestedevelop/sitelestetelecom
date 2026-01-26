@@ -33,9 +33,7 @@ export default function Pme() {
 
     return (
       <div className="min-h-full">
-        <AppBar/>
-
-        <section className="md:mt-[160px] mt-[90px]">
+        <section className="">
             <SectionBanner
                 imageClassName={"objet-cover"}
                 titleClassName={"w-64 md:w-144 text-2xl! md:text-[65px]! font-light"}
@@ -53,7 +51,6 @@ export default function Pme() {
                   </div>
                   <p className={"text-graylight font-[13px]"}>*Consulte nosso FAQ para maiores informações, regras e condições gerais de venda dos planos ofertados.</p>
           </section>
-      <Footer/>
       </div>
   );
 }

@@ -1,48 +1,42 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-import { IBM_Plex_Sans } from 'next/font/google'
+import {IBM_Plex_Sans} from 'next/font/google'
 import {SiteProvider} from "@/contexts/SiteContext";
-import {ToastContainer} from "react-toastify";
-import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
+import RootShell from "@/components/layout/RootShell";
 
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "Leste Telecom",
-  description: "Leste Telecom",
+    title: "Leste Telecom",
+    description: "Leste Telecom",
 };
 const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    display: 'swap',
 })
 
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-    <body
-         className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
-      >
-        <SiteProvider>{children}</SiteProvider>
-        <ToastContainer
-            position="top-right"
-            autoClose={4000}
-            newestOnTop
-            closeOnClick
-            pauseOnHover
-        />
-        <WhatsAppFloating />
-      </body>
-    </html>
-  );
+export default function RootLayout({children}) {
+
+    return (
+        <html lang="en">
+        <body
+            className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
+        >
+        <SiteProvider>
+            <RootShell>{children}</RootShell>
+        </SiteProvider>
+        </body>
+        </html>
+    );
 }

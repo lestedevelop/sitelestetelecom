@@ -9,12 +9,10 @@ import ParceirosClube from "@/pageComponents/clube/ParceirosClube";
 export default function LesteClube() {
     return (
         <div className="min-h-full bg-light overflow-hidden">
-            <AppBar/>
             <BannerClube/>
             <MainClube />
             <CadastreSeuEstabelecimento />
             <ParceirosClube />
-            <Footer/>
         </div>
     );
 }
