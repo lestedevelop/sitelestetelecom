@@ -15,12 +15,37 @@ function originAllowed(req) {
     if (!allowed) return true;
     const origin = req.headers.get("origin");
     if (!origin) return true;
+    const normalizeOrigin = (value) => {
+        const cleaned = String(value || "").trim();
+        if (!cleaned) return "";
+        try {
+            return new URL(cleaned).origin;
+        } catch {
+            return cleaned.replace(/\/+$/, "");
+        }
+    };
+
     const allowedOrigins = allowed
         .split(",")
-        .map((value) => value.trim())
+        .map((value) => normalizeOrigin(value))
         .filter(Boolean);
+
     if (allowedOrigins.length === 0) return true;
-    return allowedOrigins.includes(origin);
+
+    const normalizedOrigin = normalizeOrigin(origin);
+    if (allowedOrigins.includes(normalizedOrigin)) return true;
+
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || "";
+    const normalizedHost = host.trim().replace(/\/+$/, "");
+    const originHost = (() => {
+        try {
+            return new URL(normalizedOrigin).host;
+        } catch {
+            return "";
+        }
+    })();
+
+    return originHost && normalizedHost && originHost === normalizedHost;
 }
 
 export async function GET(req) {
