@@ -3,8 +3,9 @@
 import {useEffect, useMemo, useState} from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import { startOfDay, isSameDay } from "date-fns";
+import { startOfDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { toYmd } from "@/utils/utils";
 
 function inferPeriod(title) {
     const t = String(title || "").toUpperCase();
@@ -18,26 +19,44 @@ export default function AgendaDayPicker({ slots = [], onSelectSlot }) {
     const [period, setPeriod] = useState("");
     const [calendarMonth, setCalendarMonth] = useState(undefined);
 
+    function ymdFromDate(date) {
+        if (!date) return "";
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const d = String(date.getDate()).padStart(2, "0");
+        return `${y}-${m}-${d}`;
+    }
+
+    function dateFromYmd(ymd) {
+        if (!ymd) return undefined;
+        const [y, m, d] = String(ymd).split("-").map(Number);
+        if (!y || !m || !d) return undefined;
+        return new Date(y, m - 1, d);
+    }
+
     const firstAvailableDay = useMemo(() => {
         if (!slots?.length) return undefined;
         const sorted = [...slots].sort(
             (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
         );
-        return startOfDay(new Date(sorted[0].start));
+        const ymd = toYmd(sorted[0].start);
+        return startOfDay(dateFromYmd(ymd));
     }, [slots]);
 
     const availableDays = useMemo(() => {
         const m = new Map();
         for (const s of slots) {
-            const d = startOfDay(new Date(s.start));
-            m.set(d.getTime(), d);
+            const ymd = toYmd(s.start);
+            const d = startOfDay(dateFromYmd(ymd));
+            if (d) m.set(d.getTime(), d);
         }
         return Array.from(m.values());
     }, [slots]);
 
     const daySlots = useMemo(() => {
         if (!selectedDay) return [];
-        return slots.filter((s) => isSameDay(new Date(s.start), selectedDay));
+        const selectedYmd = ymdFromDate(selectedDay);
+        return slots.filter((s) => toYmd(s.start) === selectedYmd);
     }, [slots, selectedDay]);
 
     const periodsAvailable = useMemo(() => {
@@ -48,9 +67,7 @@ export default function AgendaDayPicker({ slots = [], onSelectSlot }) {
     const disabledDays = useMemo(
         () => [
             (date) =>
-                !availableDays.some(
-                    (d) => d.getTime() === startOfDay(date).getTime()
-                ),
+                !availableDays.some((d) => d.getTime() === startOfDay(date).getTime()),
         ],
         [availableDays]
     );
