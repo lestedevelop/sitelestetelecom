@@ -8,8 +8,8 @@ import {
     getAdminSecret,
     verifyAdminSession,
 } from "@/lib/monitoring/adminAuth";
-import LoginForm from "../LoginForm";
-import RequestTabs from "../RequestTabs";
+import LoginForm from "../../../../pageComponents/monitoramento/LoginForm";
+import RequestTabs from "../../../../pageComponents/monitoramento/RequestTabs";
 import { formatDate, getDisplayLevel } from "@/pageComponents/monitoramento/utils";
 
 export const dynamic = "force-dynamic";

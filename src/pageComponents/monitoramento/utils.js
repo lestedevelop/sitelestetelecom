@@ -81,11 +81,56 @@ function getDisplayLevel(event) {
     return event?.level || "-";
 }
 
+function getTypeBadgeClass(type) {
+    switch (type) {
+        case "js_error":
+        case "promise_rejection":
+            return "bg-red-50 text-red-700 border-red-200";
+        case "api_error":
+            return "bg-orange-50 text-orange-700 border-orange-200";
+        case "warning":
+            return "bg-yellow-50 text-yellow-700 border-yellow-200";
+        case "web_vital":
+            return "bg-blue-50 text-blue-700 border-blue-200";
+        case "navigation":
+            return "bg-indigo-50 text-indigo-700 border-indigo-200";
+        default:
+            return "bg-neutral-100 text-neutral-700 border-neutral-200";
+    }
+}
+
+function getLevelBadgeClass(level) {
+    switch (level) {
+        case "fatal":
+            return "bg-red-100 text-red-800 border-red-200";
+        case "error":
+            return "bg-orange-100 text-orange-800 border-orange-200";
+        case "warn":
+            return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        case "info":
+            return "bg-emerald-100 text-emerald-800 border-emerald-200";
+        default:
+            return "bg-neutral-100 text-neutral-700 border-neutral-200";
+    }
+}
+
+function getStatusBadgeClass(status) {
+    const code = Number(status);
+    if (!Number.isFinite(code)) return "bg-neutral-100 text-neutral-700 border-neutral-200";
+    if (code >= 500) return "bg-red-100 text-red-800 border-red-200";
+    if (code >= 400) return "bg-orange-100 text-orange-800 border-orange-200";
+    if (code >= 300) return "bg-yellow-100 text-yellow-800 border-yellow-200";
+    return "bg-emerald-100 text-emerald-800 border-emerald-200";
+}
+
 export {
     buildQuery,
     buildSearchParams,
     formatDate,
     getDisplayLevel,
+    getLevelBadgeClass,
+    getStatusBadgeClass,
+    getTypeBadgeClass,
     normalizeParam,
     parseDate,
 };

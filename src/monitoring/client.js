@@ -142,6 +142,32 @@ function dedupKey(event) {
     return `${event.type || ""}|${event.level || ""}|${event.message || ""}|${event.stack || ""}|${event.page || ""}`;
 }
 
+function normalizePath(value) {
+    if (!value) return "";
+    try {
+        const url = value.startsWith("http") ? new URL(value) : null;
+        return url ? url.pathname : value;
+    } catch {
+        return value;
+    }
+}
+
+function matchesIgnoredPath(path, ignoredList) {
+    if (!path || !ignoredList?.length) return false;
+    return ignoredList.some((item) => path === item || path.startsWith(`${item}/`));
+}
+
+function shouldIgnoreEvent(event, options) {
+    const ignored = options.ignoreRoutes || [];
+    const pagePath = normalizePath(event.page || event.route || "");
+    if (matchesIgnoredPath(pagePath, ignored)) return true;
+
+    const requestUrl = normalizePath(event.request?.url || "");
+    if (matchesIgnoredPath(requestUrl, ignored)) return true;
+
+    return false;
+}
+
 function isDuplicate(event, ttlMs) {
     const key = dedupKey(event);
     const t = now();
@@ -246,6 +272,7 @@ function enqueue(event, options) {
         event.type === "web_vital" ? options.webVitalSampleRate : options.sampleRate;
     const dedupWindowMs =
         event.type === "web_vital" ? options.webVitalDedupWindowMs : options.dedupWindowMs;
+    if (shouldIgnoreEvent(event, options)) return;
     if (!shouldSample(level, sampleRate)) return;
     if (!allowByRateLimit(level, options.rateLimit, options.rateWindowMs)) return;
     if (isDuplicate(event, dedupWindowMs)) return;
@@ -431,6 +458,8 @@ function wrapFetch(options) {
 
 function captureGlobalErrors(options) {
     window.addEventListener("error", (event) => {
+        const path = window.location?.pathname || "";
+        if (matchesIgnoredPath(path, options.ignoreRoutes)) return;
         if (event?.message && String(event.message).includes("ChunkLoadError")) {
             enqueue(
                 {
@@ -451,12 +480,15 @@ function captureGlobalErrors(options) {
     });
 
     window.addEventListener("unhandledrejection", (event) => {
+        const path = window.location?.pathname || "";
+        if (matchesIgnoredPath(path, options.ignoreRoutes)) return;
         captureErrorEvent("promise_rejection", event?.reason || event, options);
     });
 }
 
 function trackNavigation(options) {
     const update = (from, to, reason) => {
+        if (matchesIgnoredPath(to, options.ignoreRoutes)) return;
         if (from === to) return;
         enqueue(
             {
@@ -565,6 +597,8 @@ function setupPerformanceObservers(options) {
     } catch {}
 
     const reportVitals = () => {
+        const path = window.location?.pathname || "";
+        if (matchesIgnoredPath(path, options.ignoreRoutes)) return;
         if (state.perf.lcp != null) {
             enqueue(
                 {
@@ -628,6 +662,7 @@ export function init(userOptions = {}) {
         webVitalDedupWindowMs: 120_000,
         maxPerFlush: 5,
         blankScreenDelayMs: 6000,
+        ignoreRoutes: ["/monitoramento"],
         ...userOptions,
     };
 
