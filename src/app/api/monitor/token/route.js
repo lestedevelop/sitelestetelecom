@@ -15,7 +15,12 @@ function originAllowed(req) {
     if (!allowed) return true;
     const origin = req.headers.get("origin");
     if (!origin) return true;
-    return origin === allowed;
+    const allowedOrigins = allowed
+        .split(",")
+        .map((value) => value.trim())
+        .filter(Boolean);
+    if (allowedOrigins.length === 0) return true;
+    return allowedOrigins.includes(origin);
 }
 
 export async function GET(req) {
