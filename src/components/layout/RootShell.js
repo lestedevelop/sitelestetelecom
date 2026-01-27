@@ -17,6 +17,10 @@ export default function RootShell({children}) {
 
     useEffect(() => {
         initMonitoring();
+        const root = document.querySelector("#__next");
+        if (root) {
+            root.setAttribute("data-monitor-ready", "true");
+        }
     }, []);
 
     if (isOverrideRoute) {

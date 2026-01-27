@@ -14,6 +14,14 @@ const state =
         lastFlush: 0,
         rate: { count: 0, resetAt: 0 },
         dedup: new Map(),
+        perf: {
+            lcp: null,
+            cls: 0,
+            fid: null,
+        },
+        navigation: {
+            currentPath: "",
+        },
         originalConsole: null,
         consoleWrapped: false,
         fetchWrapped: false,
@@ -218,6 +226,7 @@ function buildBaseEvent() {
     return {
         timestamp: now(),
         page: window.location?.pathname || "",
+        route: window.location?.pathname || "",
         environment: process.env.NEXT_PUBLIC_APP_ENV,
         appVersion: process.env.NEXT_PUBLIC_APP_VERSION,
         client: {
@@ -233,9 +242,13 @@ function buildBaseEvent() {
 
 function enqueue(event, options) {
     const level = event.level || "error";
-    if (!shouldSample(level, options.sampleRate)) return;
+    const sampleRate =
+        event.type === "web_vital" ? options.webVitalSampleRate : options.sampleRate;
+    const dedupWindowMs =
+        event.type === "web_vital" ? options.webVitalDedupWindowMs : options.dedupWindowMs;
+    if (!shouldSample(level, sampleRate)) return;
     if (!allowByRateLimit(level, options.rateLimit, options.rateWindowMs)) return;
-    if (isDuplicate(event, options.dedupWindowMs)) return;
+    if (isDuplicate(event, dedupWindowMs)) return;
 
     state.queue.push(event);
     saveQueue(state.queue);
@@ -259,6 +272,46 @@ function captureErrorEvent(type, error, options, extra = {}) {
     );
 }
 
+function findAppRoot() {
+    return (
+        document.querySelector("#__next") ||
+        document.querySelector("[data-monitor-root]") ||
+        document.body
+    );
+}
+
+function isLikelyBlank(root) {
+    if (!root) return true;
+    const text = root.textContent ? root.textContent.trim() : "";
+    if (text.length > 5) return false;
+    if (root.hasAttribute && root.hasAttribute("data-monitor-ready")) return false;
+    const nodes = root.querySelectorAll
+        ? root.querySelectorAll("img,svg,canvas,video,iframe,[data-monitor-ready]")
+        : [];
+    return nodes.length === 0;
+}
+
+function scheduleBlankScreenCheck(options, reason = "timeout") {
+    const delay = options.blankScreenDelayMs || 6000;
+    if (!delay || delay <= 0) return;
+
+    setTimeout(() => {
+        if (document.visibilityState !== "visible") return;
+        const root = findAppRoot();
+        if (!isLikelyBlank(root)) return;
+
+        enqueue(
+            {
+                ...buildBaseEvent(),
+                type: "blank_screen",
+                level: "error",
+                message: `Blank screen detected (${reason})`,
+            },
+            options
+        );
+    }, delay);
+}
+
 function wrapConsole(options) {
     if (state.consoleWrapped) return;
     state.originalConsole = {
@@ -278,6 +331,24 @@ function wrapConsole(options) {
                 },
                 options
             );
+            if (
+                args.some(
+                    (item) =>
+                        typeof item === "string" &&
+                        item.toLowerCase().includes("hydration")
+                )
+            ) {
+                enqueue(
+                    {
+                        ...buildBaseEvent(),
+                        type: "navigation",
+                        level: "error",
+                        message: "Hydration error detected",
+                        tags: ["hydration"],
+                    },
+                    options
+                );
+            }
         } catch {
             // ignore
         }
@@ -327,7 +398,7 @@ function wrapFetch(options) {
                     {
                         ...buildBaseEvent(),
                         type: "api_error",
-                        level: status >= 500 ? "error" : "warn",
+                        level: "error",
                         message: `Fetch ${method} ${url} -> ${status}`,
                         request: { url, method, status, durationMs, bodySnippet },
                         correlationId: requestId,
@@ -384,16 +455,179 @@ function captureGlobalErrors(options) {
     });
 }
 
+function trackNavigation(options) {
+    const update = (from, to, reason) => {
+        if (from === to) return;
+        enqueue(
+            {
+                ...buildBaseEvent(),
+                type: "navigation",
+                level: "info",
+                message: `Route change: ${from} -> ${to}`,
+                tags: ["route"],
+                route: to,
+                request: { url: to },
+            },
+            options
+        );
+        scheduleBlankScreenCheck(options, reason);
+    };
+
+    state.navigation.currentPath = window.location?.pathname || "";
+
+    const wrapHistoryMethod = (methodName) => {
+        const original = history[methodName];
+        if (!original || original.__monitorWrapped) return;
+        history[methodName] = function patched(...args) {
+            const from = state.navigation.currentPath;
+            const result = original.apply(this, args);
+            const to = window.location?.pathname || "";
+            state.navigation.currentPath = to;
+            update(from, to, methodName);
+            return result;
+        };
+        history[methodName].__monitorWrapped = true;
+    };
+
+    wrapHistoryMethod("pushState");
+    wrapHistoryMethod("replaceState");
+
+    window.addEventListener("popstate", () => {
+        const from = state.navigation.currentPath;
+        const to = window.location?.pathname || "";
+        state.navigation.currentPath = to;
+        update(from, to, "popstate");
+    });
+
+    window.addEventListener("hashchange", () => {
+        const from = state.navigation.currentPath;
+        const to = window.location?.pathname || "";
+        state.navigation.currentPath = to;
+        update(from, to, "hashchange");
+    });
+}
+
+function setupPerformanceObservers(options) {
+    if (typeof PerformanceObserver === "undefined") return;
+
+    try {
+        const lcpObserver = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const last = entries[entries.length - 1];
+            if (last) {
+                state.perf.lcp = Math.round(last.startTime);
+            }
+        });
+        lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
+    } catch {}
+
+    try {
+        const clsObserver = new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+                if (!entry.hadRecentInput) {
+                    state.perf.cls += entry.value || 0;
+                }
+            }
+        });
+        clsObserver.observe({ type: "layout-shift", buffered: true });
+    } catch {}
+
+    try {
+        const fidObserver = new PerformanceObserver((entryList) => {
+            const entry = entryList.getEntries()[0];
+            if (entry) {
+                state.perf.fid = Math.round(entry.processingStart - entry.startTime);
+            }
+        });
+        fidObserver.observe({ type: "first-input", buffered: true });
+    } catch {}
+
+    try {
+        const longTaskObserver = new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+                enqueue(
+                    {
+                        ...buildBaseEvent(),
+                        type: "web_vital",
+                        level: "info",
+                        message: "Long task",
+                        tags: ["longtask"],
+                        details: {
+                            duration: Math.round(entry.duration),
+                            startTime: Math.round(entry.startTime),
+                        },
+                    },
+                    options
+                );
+            }
+        });
+        longTaskObserver.observe({ type: "longtask", buffered: true });
+    } catch {}
+
+    const reportVitals = () => {
+        if (state.perf.lcp != null) {
+            enqueue(
+                {
+                    ...buildBaseEvent(),
+                    type: "web_vital",
+                    level: "info",
+                    message: "LCP",
+                    tags: ["lcp"],
+                    details: { value: state.perf.lcp },
+                },
+                options
+            );
+        }
+        if (state.perf.cls != null) {
+            enqueue(
+                {
+                    ...buildBaseEvent(),
+                    type: "web_vital",
+                    level: "info",
+                    message: "CLS",
+                    tags: ["cls"],
+                    details: { value: Number(state.perf.cls.toFixed(4)) },
+                },
+                options
+            );
+        }
+        if (state.perf.fid != null) {
+            enqueue(
+                {
+                    ...buildBaseEvent(),
+                    type: "web_vital",
+                    level: "info",
+                    message: "FID",
+                    tags: ["fid"],
+                    details: { value: state.perf.fid },
+                },
+                options
+            );
+        }
+    };
+
+    window.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") {
+            reportVitals();
+        }
+    });
+
+    window.addEventListener("pagehide", reportVitals);
+}
+
 export function init(userOptions = {}) {
     if (typeof window === "undefined" || state.initialized) return;
 
     const options = {
         endpoint: DEFAULT_ENDPOINT,
         sampleRate: 0.2,
+        webVitalSampleRate: 0.05,
         rateLimit: 30,
         rateWindowMs: 60_000,
         dedupWindowMs: 30_000,
+        webVitalDedupWindowMs: 120_000,
         maxPerFlush: 5,
+        blankScreenDelayMs: 6000,
         ...userOptions,
     };
 
@@ -403,6 +637,9 @@ export function init(userOptions = {}) {
     captureGlobalErrors(options);
     wrapConsole(options);
     wrapFetch(options);
+    trackNavigation(options);
+    setupPerformanceObservers(options);
+    scheduleBlankScreenCheck(options, "initial");
 
     window.addEventListener("online", () => flushQueue(options));
     document.addEventListener("visibilitychange", () => {

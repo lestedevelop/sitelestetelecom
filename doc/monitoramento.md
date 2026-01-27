@@ -3,7 +3,7 @@
 Este documento descreve **tudo que foi implementado** na área de monitoramento, onde editar e como estender.
 
 ## Visão geral
-- **Client SDK** captura erros JS, `unhandledrejection`, warnings, falhas de `fetch` e envia para o backend.
+- **Client SDK** captura erros JS, `unhandledrejection`, warnings, falhas de `fetch`, navegaÃ§Ãµes e "tela branca".
 - **Ingest API** valida/sanitiza e grava eventos no **MongoDB de monitoramento**.
 - **Painel** `/monitoramento` com filtros, lista e **detalhe por evento** (tabs com request/payload/response/etc.).
 - **Auth interna** simples por cookie assinado usando `MONITOR_INGEST_SECRET` ou `MONITOR_ADMIN_PASSWORD`.
@@ -47,6 +47,9 @@ Este documento descreve **tudo que foi implementado** na área de monitoramento,
 - `window.onerror` e `unhandledrejection`
 - Intercepta `console.error` e `console.warn`
 - Intercepta `fetch` para capturar falhas (4xx/5xx e exceptions)
+- NavegaÃ§Ãµes (pushState/replaceState/popstate)
+- "Tela branca": heurÃ­stica apÃ³s timeout
+- Web Vitals bÃ¡sicos (LCP/CLS/FID) + long tasks
 - Envia `request.bodySnippet` (payload) quando possível
 - Fila local + retry + rate limit + dedup
 
@@ -57,6 +60,7 @@ Este documento descreve **tudo que foi implementado** na área de monitoramento,
 - Sampling/rate limit: `sampleRate`, `rateLimit`, `rateWindowMs` no `init()`
 - Dedup: `dedupWindowMs`
 - Captura de payload: `getRequestBodySnippetAsync()`
+- Tela branca: `blankScreenDelayMs` + `data-monitor-ready` no root
 
 ---
 
@@ -154,4 +158,25 @@ Recomendadas:
 - **Viewer JSON:** `src/components/JsonDraculaViewer.js`
 - **Ingest API:** `src/app/api/monitor/events/route.js`
 - **Client SDK:** `src/monitoring/client.js`
+
+---
+
+## Como testar localmente (rÃ¡pido)
+
+1) Configure `.env.local` com:
+   - `MONGODB_MONITOR_URI`
+   - `MONITOR_INGEST_SECRET`
+   - `MONITOR_ADMIN_PASSWORD` (ou use o mesmo secret)
+   - `NEXT_PUBLIC_APP_ENV` e `NEXT_PUBLIC_APP_VERSION` (opcional)
+2) Abra o app e acesse `/monitoramento`.
+3) Gere um erro no console:
+   - `throw new Error("Monitor test");`
+4) FaÃ§a uma requisiÃ§Ã£o falha (ex: fetch para 404).
+5) Volte ao painel e confirme os eventos na lista.
+
+**Teste de tela branca**
+- Remova temporariamente a renderizaÃ§Ã£o do root, recarregue e aguarde o timeout.
+
+**Teste de web vitals**
+- Recarregue a pÃ¡gina e verifique eventos `web_vital` (LCP/CLS/FID).
 

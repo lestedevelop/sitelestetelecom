@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
-import { getMonitorCollection } from "@/lib/mongoMonitor";
+import {cookies} from "next/headers";
+import {getMonitorCollection} from "@/lib/mongoMonitor";
 import {
     ADMIN_COOKIE_NAME,
     getAdminSecret,
@@ -7,6 +7,14 @@ import {
 } from "@/lib/monitoring/adminAuth";
 import LoginForm from "./LoginForm";
 import Link from "next/link";
+import {
+    buildQuery,
+    buildSearchParams,
+    formatDate,
+    getDisplayLevel,
+    normalizeParam,
+    parseDate,
+} from "@/pageComponents/monitoramento/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -24,77 +32,8 @@ const TYPE_OPTIONS = [
 
 const LEVEL_OPTIONS = ["", "info", "warn", "error", "fatal"];
 
-function formatDate(timestamp) {
-    if (!timestamp) return "-";
-    const date = timestamp instanceof Date ? timestamp : new Date(timestamp);
-    return date.toLocaleString("pt-BR");
-}
-
-function normalizeParam(value) {
-    if (Array.isArray(value)) return value[0];
-    return value || "";
-}
-
-function parseDate(value, endOfDay = false) {
-    if (!value) return null;
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return null;
-    if (endOfDay) {
-        date.setHours(23, 59, 59, 999);
-    } else {
-        date.setHours(0, 0, 0, 0);
-    }
-    return date.getTime();
-}
-
-function escapeRegex(input) {
-    return String(input).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function buildQuery(filters) {
-    const query = {};
-    if (filters.type) query.type = filters.type;
-    if (filters.level) query.level = filters.level;
-    if (filters.status) query["request.status"] = filters.status;
-    if (filters.appVersion) query.appVersion = filters.appVersion;
-    if (filters.environment) query.environment = filters.environment;
-
-    if (filters.route) {
-        const route = String(filters.route);
-        query.$or = [
-            { page: route },
-            { route },
-            { "request.url": { $regex: escapeRegex(route), $options: "i" } },
-        ];
-    }
-
-    if (filters.q) {
-        const regex = new RegExp(escapeRegex(filters.q), "i");
-        query.$and = (query.$and || []).concat([
-            { $or: [{ message: regex }, { "request.url": regex }, { stack: regex }] },
-        ]);
-    }
-
-    if (filters.from || filters.to) {
-        query.timestamp = {};
-        if (filters.from) query.timestamp.$gte = filters.from;
-        if (filters.to) query.timestamp.$lte = filters.to;
-    }
-
-    return query;
-}
-
-function buildSearchParams(params) {
-    const entries = Object.entries(params).filter(([, value]) => value !== "" && value != null);
-    const search = new URLSearchParams();
-    for (const [key, value] of entries) {
-        search.set(key, String(value));
-    }
-    const qs = search.toString();
-    return qs ? `?${qs}` : "";
-}
-
-export default async function MonitoramentoPage({ searchParams }) {
+export default async function MonitoramentoPage({searchParams}) {
+    const resolvedSearchParams = await searchParams;
     const secret = getAdminSecret();
     const cookieStore = await cookies();
     const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value || "";
@@ -116,7 +55,7 @@ export default async function MonitoramentoPage({ searchParams }) {
     }
 
     if (!session) {
-        return <LoginForm />;
+        return <LoginForm/>;
     }
 
     if (!hasDb) {
@@ -132,18 +71,18 @@ export default async function MonitoramentoPage({ searchParams }) {
         );
     }
 
-    const from = normalizeParam(searchParams?.from);
-    const to = normalizeParam(searchParams?.to);
-    const type = normalizeParam(searchParams?.type);
-    const level = normalizeParam(searchParams?.level);
-    const route = normalizeParam(searchParams?.route);
-    const appVersion = normalizeParam(searchParams?.appVersion);
-    const environment = normalizeParam(searchParams?.environment);
-    const q = normalizeParam(searchParams?.q);
-    const statusRaw = normalizeParam(searchParams?.status);
+    const from = normalizeParam(resolvedSearchParams?.from);
+    const to = normalizeParam(resolvedSearchParams?.to);
+    const type = normalizeParam(resolvedSearchParams?.type);
+    const level = normalizeParam(resolvedSearchParams?.level);
+    const route = normalizeParam(resolvedSearchParams?.route);
+    const appVersion = normalizeParam(resolvedSearchParams?.appVersion);
+    const environment = normalizeParam(resolvedSearchParams?.environment);
+    const q = normalizeParam(resolvedSearchParams?.q);
+    const statusRaw = normalizeParam(resolvedSearchParams?.status);
     const status = statusRaw ? Number(statusRaw) : null;
-    const limitRaw = normalizeParam(searchParams?.limit);
-    const pageRaw = normalizeParam(searchParams?.page);
+    const limitRaw = normalizeParam(resolvedSearchParams?.limit);
+    const pageRaw = normalizeParam(resolvedSearchParams?.page);
 
     const limit = Math.min(200, Math.max(10, Number(limitRaw) || 50));
     const page = Math.max(1, Number(pageRaw) || 1);
@@ -165,7 +104,7 @@ export default async function MonitoramentoPage({ searchParams }) {
     const collection = await getMonitorCollection("events");
     const rawEvents = await collection
         .find(query)
-        .sort({ timestamp: -1 })
+        .sort({timestamp: -1})
         .skip((page - 1) * limit)
         .limit(limit)
         .toArray();
@@ -339,53 +278,53 @@ export default async function MonitoramentoPage({ searchParams }) {
             <div className="mt-6 overflow-auto rounded-xl border border-neutral-200 bg-white shadow-sm">
                 <table className="min-w-full text-sm">
                     <thead className="bg-neutral-50 text-left text-xs uppercase text-neutral-500">
-                        <tr>
-                            <th className="px-4 py-3">Quando</th>
-                            <th className="px-4 py-3">Tipo</th>
-                            <th className="px-4 py-3">Nível</th>
-                            <th className="px-4 py-3">Mensagem</th>
-                            <th className="px-4 py-3">Rota</th>
-                            <th className="px-4 py-3">Status</th>
-                        </tr>
+                    <tr>
+                        <th className="px-4 py-3">Quando</th>
+                        <th className="px-4 py-3">Tipo</th>
+                        <th className="px-4 py-3">Nível</th>
+                        <th className="px-4 py-3">Mensagem</th>
+                        <th className="px-4 py-3">Rota</th>
+                        <th className="px-4 py-3">Status</th>
+                    </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-200">
-                        {events.map((event) => (
-                            <tr key={String(event._id)} className="text-neutral-700">
+                    {events.map((event) => (
+                        <tr key={String(event._id)} className="text-neutral-700">
+                            <td className="px-4 py-3 whitespace-nowrap">
+                                {formatDate(event.timestamp || event.serverTimestamp)}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                                {event.type || "-"}
+                            </td>
                                 <td className="px-4 py-3 whitespace-nowrap">
-                                    {formatDate(event.timestamp || event.serverTimestamp)}
+                                    {getDisplayLevel(event)}
                                 </td>
-                                <td className="px-4 py-3 whitespace-nowrap">
-                                    {event.type || "-"}
-                                </td>
-                                <td className="px-4 py-3 whitespace-nowrap">
-                                    {event.level || "-"}
-                                </td>
-                                <td className="px-4 py-3 max-w-[320px] truncate">
-                                    <Link
-                                        href={`/monitoramento/${event._id}`}
-                                        className="text-primary hover:underline"
-                                    >
-                                        {event.message || event.request?.url || "-"}
-                                    </Link>
-                                </td>
-                                <td className="px-4 py-3 whitespace-nowrap">
-                                    {event.page || event.route || "-"}
-                                </td>
-                                <td className="px-4 py-3 whitespace-nowrap">
-                                    {event.request?.status || "-"}
-                                </td>
-                            </tr>
-                        ))}
-                        {!events.length ? (
-                            <tr>
-                                <td
-                                    colSpan={6}
-                                    className="px-4 py-6 text-center text-sm text-neutral-500"
+                            <td className="px-4 py-3 max-w-[320px] truncate">
+                                <Link
+                                    href={`/monitoramento/${event._id}`}
+                                    className="text-primary hover:underline"
                                 >
-                                    Nenhum evento encontrado para os filtros atuais.
-                                </td>
-                            </tr>
-                        ) : null}
+                                    {event.message || event.request?.url || "-"}
+                                </Link>
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                                {event.page || event.route || "-"}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                                {event.request?.status || "-"}
+                            </td>
+                        </tr>
+                    ))}
+                    {!events.length ? (
+                        <tr>
+                            <td
+                                colSpan={6}
+                                className="px-4 py-6 text-center text-sm text-neutral-500"
+                            >
+                                Nenhum evento encontrado para os filtros atuais.
+                            </td>
+                        </tr>
+                    ) : null}
                     </tbody>
                 </table>
             </div>

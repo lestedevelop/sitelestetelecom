@@ -10,14 +10,9 @@ import {
 } from "@/lib/monitoring/adminAuth";
 import LoginForm from "../LoginForm";
 import RequestTabs from "../RequestTabs";
+import { formatDate, getDisplayLevel } from "@/pageComponents/monitoramento/utils";
 
 export const dynamic = "force-dynamic";
-
-function formatDate(timestamp) {
-    if (!timestamp) return "-";
-    const date = timestamp instanceof Date ? timestamp : new Date(timestamp);
-    return date.toLocaleString("pt-BR");
-}
 
 export default async function MonitorEventPage({ params }) {
     const secret = getAdminSecret();
@@ -109,7 +104,7 @@ export default async function MonitorEventPage({ params }) {
                         {event.type || "Sem tipo"}
                     </h2>
                     <p className="mt-1 text-sm text-neutral-600">
-                        {formatDate(event.timestamp || event.serverTimestamp)} · {event.level || "-"}
+                        {formatDate(event.timestamp || event.serverTimestamp)} · {getDisplayLevel(event)}
                     </p>
                 </div>
                 <Link
@@ -188,7 +183,7 @@ export default async function MonitorEventPage({ params }) {
                                             {item.type || "-"}
                                         </td>
                                         <td className="px-4 py-3 whitespace-nowrap">
-                                            {item.level || "-"}
+                                            {getDisplayLevel(item)}
                                         </td>
                                         <td className="px-4 py-3 max-w-[320px] truncate">
                                             <Link
@@ -211,3 +206,4 @@ export default async function MonitorEventPage({ params }) {
         </div>
     );
 }
+
