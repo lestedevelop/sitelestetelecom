@@ -9,7 +9,7 @@ export default function LesteSuporte() {
   return (
       <div className="min-h-full">
 
-        <section className="md:mt-[160px] mt-[90px] w-full">
+        <section className="w-full">
             <SectionBanner className="bg-primary w-full h-[182px] md:h-[350px] " title={"Já conhece os\n" +
                 "Apps da Leste?"} subtitle={"Confira abaixo."} image={bannerSuporte}
             />

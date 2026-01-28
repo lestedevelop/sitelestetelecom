@@ -8,7 +8,7 @@ import FormCompleto from "@/components/Form/FormCompleto";
 export default function IndiqueEGanheLestePage() {
     return (
         <div className="min-h-full bg-light">
-            <section className={"mt-[90px] md:mt-[161px] bg-[url('/indiqueeganha-mobile.png')] md:bg-[url('/indiqueeganhe.png')] bg-cover bg-center"}>
+            <section className={"bg-[url('/indiqueeganha-mobile.png')] md:bg-[url('/indiqueeganhe.png')] bg-cover bg-center"}>
                 <div className={"container flex flex-col md:flex-row md:justify-between min-h-[80vh] md:min-h-full py-12 md:py-24"}>
                     <div className={'md:w-1/2'}>
                         <h3 className={"text-[40px]/10 md:text-[70px]/16 font-bold"}>Indique <br/>e ganhe!</h3>

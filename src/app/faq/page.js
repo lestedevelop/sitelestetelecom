@@ -3,7 +3,7 @@ import SectionBanner from "@/components/layout/SectionBanner";
 import bannerFaq from "@/assets/bannerfaq.png";
 import imageFaq from "@/assets/imagefaq.jpg";
 import Footer from "@/components/layout/Footer";
-import SectionFaq from "@/pageComponents/faq/SectionFaq";
+import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
 import googlePlay from "@/assets/googleplay.svg";
 import appstore from "@/assets/appstore.svg";
 import checkIcon from "@/assets/check.svg";
@@ -15,13 +15,13 @@ import central from "@/assets/central24.svg";
 export default function Faq() {
   return (
       <div className="min-h-full">
-        <SectionFaq />
+        <FaqHelpCenter />
         <section className="py-16 md:py-0 bg-primary">
           <div className="flex flex-col-reverse gap-y-12 md:flex-row container justify-between items-center w-full min-h-[547px]">
               <Image src={imageFaq} alt="" className={"rounded-3xl"} />
               <div className=" flex flex-col items-start justify-start gap-8">
-                  <h3 className={"font-bold text-4xl w-64"}>Baixe agora o Leste Central!</h3>
-                  <p className={"text-xl"}>O App <span className={"font-bold"}>Leste Central </span> muito <span className={"font-bold"}>prático e fácil</span> de usar!</p>
+                  <h3 className={"font-bold text-light text-4xl w-64"}>Baixe agora o Leste Central!</h3>
+                  <p className={"text-xl text-light"}>O App <span className={"font-bold"}>Leste Central </span> muito <span className={"font-bold"}>prático e fácil</span> de usar!</p>
                   <div className={"flex items-center justify-center gap-2 md:gap-x-6"}>
                       <a href="https://onelink.to/lestecentral">
                           <Image src={googlePlay} width={114} alt={"ICONE"}/>
@@ -30,7 +30,7 @@ export default function Faq() {
                           <Image src={appstore} width={114} alt={"ICONE"}/>
                       </a>
                   </div>
-                  <ul className={"text-xl flex flex-col gap-6"}>
+                  <ul className={"text-xl flex text-light flex-col gap-6"}>
                       <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Acesse ao boleto</li>
                       <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Troque a senha do Wifi</li>
                       <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Receba avisos</li>
