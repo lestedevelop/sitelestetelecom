@@ -2,15 +2,9 @@ import { NextResponse } from "next/server";
 import { coreApi } from "@/lib/coreApi";
 import { getUtmFromReq } from "@/lib/utmServerRaw";
 
-export async function POST(req) {
+export async function GET(req) {
     try {
-        const body = await req.json();
-
-        const payload = {
-            ...body,
-        };
-
-        const response = await coreApi.post("/api/sac/externo/viabilidade/latlng", payload);
+        const response = await coreApi.get("/api/sac/externo/faq");
 
         return NextResponse.json(response.data, { status: 200 });
     } catch (error) {
