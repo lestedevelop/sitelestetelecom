@@ -19,7 +19,7 @@ export async function GET(req) {
         }
 
         const payloadNext = { cidade, data: date, ...utm };
-        const nextResp = await coreApi.post("/api/sac/externo/vaga/next", payloadNext);
+        const nextResp = await coreApi.post("/api/sac/externo/vaga/nextNew", payloadNext);
         const slot = nextResp.data;
 
         const slotObj = Array.isArray(slot) ? slot[0] : slot;

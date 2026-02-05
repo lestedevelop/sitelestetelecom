@@ -35,13 +35,13 @@ export async function POST(req) {
         appendAny(form, "precadastro", payload?.precadastro);
         appendAny(form, "responsaveis", payload?.responsaveis);
 
-        const resp = await coreApi.put("/api/sac/externo/agendamento", form, {
+        const resp = await coreApi.put("/api/sac/externo/agendamentoNew", form, {
             headers: {
                 ...form.getHeaders(),
             },
             maxBodyLength: Infinity,
         });
-
+        console.log(resp)
         return NextResponse.json(resp.data, { status: 200 });
     } catch (error) {
         const status = error?.response?.status || 500;

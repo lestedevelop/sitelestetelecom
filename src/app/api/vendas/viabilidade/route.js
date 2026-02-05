@@ -16,7 +16,7 @@ export async function POST(req) {
             ...utm,
         };
 
-        const response = await coreApi.post("/api/sac/externo/viabilidade", payload);
+        const response = await coreApi.post("/api/sac/externo/viabilidadeNew", payload);
 
         return NextResponse.json(response.data, { status: 200 });
     } catch (error) {

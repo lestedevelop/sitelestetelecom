@@ -12,7 +12,7 @@ export async function POST(req) {
             ...utm,
         };
         console.log(payload);
-        const resp = await coreApi.put("/api/sac/externo/precadastro", payload);
+        const resp = await coreApi.put("/api/sac/externo/precadastroNew", payload);
 
         return NextResponse.json(resp.data, {status: 200});
     } catch (error) {

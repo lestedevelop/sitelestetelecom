@@ -19,7 +19,7 @@ export async function GET(req) {
 
         const payload = {cidade: cidade, predio: Number(predio), ...utm};
 
-        const response = await coreApi.post("/api/sac/externo/planos", payload);
+        const response = await coreApi.post("/api/sac/externo/planosNew", payload);
 
         return NextResponse.json({ok: true, data: response.data}, {status: 200});
     } catch (error) {

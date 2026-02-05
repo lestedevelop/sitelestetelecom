@@ -18,7 +18,7 @@ export async function GET(req) {
         }
 
         const payloadVaga = { cidade, data: date, ...utm };
-        const vagasResp = await coreApi.post("/api/sac/externo/vaga", payloadVaga);
+        const vagasResp = await coreApi.post("/api/sac/externo/vagaNew", payloadVaga);
 
         return NextResponse.json(
             {
