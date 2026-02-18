@@ -112,11 +112,10 @@ export default function StepPlans({ onNext, onBack }) {
                 />
             )}
 
-            {data?.plano?.id &&(
                 <>
                     <div className={"h-[2px] bg-gray-300 w-full"} />
                     <VencimentoSection onSelect={handleSelectVencimento} vencimentos={[2, 5, 17]}  selected={data?.plano?.vencimento}/>
-                </>)}
+                </>
 
             {data?.plano?.vencimento && (
                 <>

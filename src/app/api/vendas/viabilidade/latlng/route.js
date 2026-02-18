@@ -10,7 +10,7 @@ export async function POST(req) {
             ...body,
         };
 
-        const response = await coreApi.post("/api/sac/externo/viabilidade/latlngNew", payload);
+        const response = await coreApi.post("/api/sac/externo/viabilidadeNew/latlng", payload);
 
         return NextResponse.json(response.data, { status: 200 });
     } catch (error) {

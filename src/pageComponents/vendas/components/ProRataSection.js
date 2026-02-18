@@ -2,19 +2,61 @@
 
 import {useEffect, useMemo} from "react";
 import {useSales} from "@/contexts/SalesContextNew";
-import {daysInMonthUTC, monthNamePT, toBRL, lastDayOfMonthUTC} from "@/utils/Format";
+import {daysInMonthUTC, toBRL, lastDayOfMonthUTC} from "@/utils/Format";
 import Image from "next/image";
 import iconBarra from "@/assets/icons/codigobarras.png";
 
+const DUE_DAY_OPTIONS = [2, 5, 17];
+
+function parseYmdAsUTC(dateLike) {
+    const ymd = String(dateLike || "").slice(0, 10);
+    const [y, m, d] = ymd.split("-").map(Number);
+    if (!y || !m || !d) return null;
+    return new Date(Date.UTC(y, m - 1, d));
+}
+
+function buildInvoiceDateUTC(startDate, dueDay) {
+    if (!startDate || dueDay === undefined || dueDay === null) return null;
+
+    const due = Number(dueDay);
+    if (!Number.isFinite(due)) return null;
+
+    const startDay = startDate.getUTCDate();
+    // Regra de negócio: primeira cobrança ocorre no mês seguinte ao vencimento de referência.
+    const monthOffset = due >= startDay ? 1 : 2;
+    const firstOfTargetMonth = new Date(
+        Date.UTC(startDate.getUTCFullYear(), startDate.getUTCMonth() + monthOffset, 1)
+    );
+
+    const maxDay = daysInMonthUTC(firstOfTargetMonth);
+    const safeDueDay = Math.min(Math.max(1, Math.trunc(due)), maxDay);
+
+    return new Date(
+        Date.UTC(
+            firstOfTargetMonth.getUTCFullYear(),
+            firstOfTargetMonth.getUTCMonth(),
+            safeDueDay
+        )
+    );
+}
+
 function calcProRataUTC(planValue, startISO) {
-    const startDate = new Date(startISO);
+    const startDate = parseYmdAsUTC(startISO);
+    if (!startDate) {
+        return {
+            usedDays: 0,
+            prorata: 0,
+            nextInvoice: Number(planValue || 0),
+            startDate: null,
+            endDate: null
+        };
+    }
     const endDate = lastDayOfMonthUTC(startDate);
 
     const usedDays = endDate.getUTCDate() - startDate.getUTCDate() + 1; // inclusive
     const monthDays = daysInMonthUTC(startDate);
 
     const prorata = (planValue / monthDays) * usedDays;
-    console.log("planvalue " + planValue);
     const nextInvoice = planValue + prorata;
 
     return {usedDays, prorata, nextInvoice, startDate, endDate};
@@ -27,21 +69,41 @@ export default function ProRataSection() {
     const startISO = data?.agendamento.start;
     const planValue = data?.plano.valor;
 
-    const dueDay = data?.plano?.vencimento;
-
     const {usedDays, prorata, nextInvoice, startDate, endDate} = useMemo(
         () => calcProRataUTC(Number(planValue), startISO),
         [planValue, startISO]
     );
 
-    const monthLabel = startDate ? monthNamePT(startDate) : "";
+    const periodMonthLabel = startDate
+        ? startDate.toLocaleDateString("pt-BR", {month: "long", timeZone: "UTC"})
+        : "";
+
     const periodLabel =
         startDate && endDate
-            ? `01 a ${String(endDate.getDate()).padStart(2, "0")} de ${monthLabel}`
+            ? `${String(startDate.getUTCDate()).padStart(2, "0")} a ${String(endDate.getUTCDate()).padStart(2, "0")} de ${periodMonthLabel}`
             : "-";
 
-    const payLabel =
-        startDate ? `${String(dueDay).padStart(2, "0")} de ${monthLabel}` : "-";
+    const tableRows = useMemo(
+        () =>
+            DUE_DAY_OPTIONS.map((option, index) => {
+                const rowInvoiceDate = buildInvoiceDateUTC(startDate, option);
+                const rowPayLabel = rowInvoiceDate
+                    ? `${String(rowInvoiceDate.getUTCDate()).padStart(2, "0")} de ${rowInvoiceDate.toLocaleDateString("pt-BR", {
+                        month: "long",
+                        timeZone: "UTC"
+                    })}`
+                    : "-";
+
+                return {
+                    id: `${option}-${index}`,
+                    periodLabel,
+                    dueDay: option,
+                    payLabel: rowPayLabel,
+                    rowClassName: index % 2 === 0 ? "bg-white text-darkgreen" : "bg-light text-darkgreen"
+                };
+            }),
+        [startDate, periodLabel]
+    );
 
     useEffect(() => {
         updateStep("agendamento", {
@@ -58,7 +120,7 @@ export default function ProRataSection() {
             <p className="text-darkgreen mb-4">
                 O pagamento da fatura deverá ser feito sempre no mês em que o serviço for utilizado.
                 Todo os meses, será gerada uma fatura com o valor do plano para o vencimento escolhido,
-                cujo período de utilização do serviço compreenderá do 1º ao último dia do mês, por exemplo:
+                cujo período de utilização do serviço compreenderá da data de instalação até o ultimo dia do mês , por exemplo:
             </p>
 
             <div className="border botext-graylighter rounded-lg overflow-hidden mb-3">
@@ -72,21 +134,13 @@ export default function ProRataSection() {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr className="bg-white text-darkgreen">
-                            <td className="px-4 py-3 border-t border-graylighter">01 a 28 de Fevereiro</td>
-                            <td className="px-4 py-3 border-t border-graylighter">2</td>
-                            <td className="px-4 py-3 border-t border-graylighter">02 de Fevereiro</td>
-                        </tr>
-                        <tr className="bg-light text-darkgreen">
-                            <td className="px-4 py-3 border-t border-graylighter">01 a 28 de Fevereiro</td>
-                            <td className="px-4 py-3 border-t border-graylighter">5</td>
-                            <td className="px-4 py-3 border-t border-graylighter">05 de Fevereiro</td>
-                        </tr>
-                        <tr className="bg-white text-darkgreen">
-                            <td className="px-4 py-3 border-t border-graylighter">01 a 31 de Janeiro</td>
-                            <td className="px-4 py-3 border-t border-graylighter">17</td>
-                            <td className="px-4 py-3 border-t border-graylighter">17 de Janeiro</td>
-                        </tr>
+                        {tableRows.map((row) => (
+                            <tr key={row.id} className={row.rowClassName}>
+                                <td className="px-4 py-3 border-t border-graylighter">{row.periodLabel}</td>
+                                <td className="px-4 py-3 border-t border-graylighter">{row.dueDay}</td>
+                                <td className="px-4 py-3 border-t border-graylighter">{row.payLabel}</td>
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
                 </div>
@@ -127,3 +181,4 @@ export default function ProRataSection() {
         </section>
     );
 }
+
