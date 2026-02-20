@@ -1,6 +1,6 @@
-export default function VencimentoSection({vencimentos, onSelect, selected}) {
+export default function VencimentoSection({vencimentos, onSelect, selected,className}) {
     return (
-        <div className="">
+        <div className={className}>
             <h3 className={"font-bold text-2xl text-darkgreen"}>Vencimento</h3>
             <p className={"text-darkgreen text-lg pb-4"}>Qual melhor data de Vencimento para sua Fatura?</p>
 

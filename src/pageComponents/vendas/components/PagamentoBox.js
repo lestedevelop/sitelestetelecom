@@ -33,13 +33,6 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
 
     return (
         <div className="space-y-3">
-            {/* Select */}
-            <PagamentoSelect
-                value={value}
-                onChange={onChange}
-                options={PAYMENT_OPTIONS}
-            />
-
             {/* Caixa verde */}
             <div className="rounded-xl overflow-hidden border border-emerald-700/20">
                 <div className="bg-primary px-4 py-4 text-white flex items-center justify-between gap-4">
@@ -75,6 +68,13 @@ export default function PagamentoBox({value, onChange, taxaCheia = 300, taxaNorm
                     </div>
                 </div>
             </div>
+
+            {/* Select */}
+            <PagamentoSelect
+                value={value}
+                onChange={onChange}
+                options={PAYMENT_OPTIONS}
+            />
         </div>
     );
 }

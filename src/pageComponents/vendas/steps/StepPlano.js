@@ -112,17 +112,16 @@ export default function StepPlans({ onNext, onBack }) {
                 />
             )}
 
-                <>
-                    <div className={"h-[2px] bg-gray-300 w-full"} />
-                    <VencimentoSection onSelect={handleSelectVencimento} vencimentos={[2, 5, 17]}  selected={data?.plano?.vencimento}/>
-                </>
+                {/*<>*/}
+                {/*    <div className={"h-[2px] bg-gray-300 w-full"} />*/}
+                {/*    <VencimentoSection onSelect={handleSelectVencimento} vencimentos={[2, 5, 17]}  selected={data?.plano?.vencimento}/>*/}
+                {/*</>*/}
 
-            {data?.plano?.vencimento && (
+
                 <>
                     <div className={"h-[2px] bg-gray-300 w-full"} />
                     <PagamentoSection />
                 </>
-            )}
 
             <div className={"h-[2px] bg-gray-300 w-full"} />
             <ResponsaveisSection modalOpen={addRespOpen} setModalOpen={setAddRespOpen} />

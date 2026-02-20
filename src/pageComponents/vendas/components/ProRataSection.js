@@ -5,6 +5,7 @@ import {useSales} from "@/contexts/SalesContextNew";
 import {daysInMonthUTC, toBRL, lastDayOfMonthUTC} from "@/utils/Format";
 import Image from "next/image";
 import iconBarra from "@/assets/icons/codigobarras.png";
+import VencimentoSection from "@/pageComponents/vendas/components/VencimentoSection";
 
 const DUE_DAY_OPTIONS = [2, 5, 17];
 
@@ -113,6 +114,13 @@ export default function ProRataSection() {
 
     },[prorata]);
 
+    function handleSelectVencimento(vencimento) {
+        updateStep("plano", {
+            ...data?.plano,
+            vencimento
+        });
+    }
+
     return (
         <section className="w-full max-w-[980px]">
             <h3 className="text-xl mt-8 font-bold text-darkgreen mb-3">Pro rata</h3>
@@ -146,6 +154,11 @@ export default function ProRataSection() {
                 </div>
             </div>
 
+            <div className={"py-8"}>
+                <div className={"h-[2px] bg-gray-300 w-full"} />
+                <VencimentoSection className={"py-8"} onSelect={handleSelectVencimento} vencimentos={[2, 5, 17]}  selected={data?.plano?.vencimento}/>
+                <div className={"h-[2px] bg-gray-300 w-full"} />
+            </div>
             <div className="text-center text-graylight font-bold mb-6">Datas de Pagamento</div>
             <p className="text-darkgreen text-lg mb-4">
                 Se no primeiro mês, não utilizar o serviço por completo, realizaremos um cálculo proporcional
