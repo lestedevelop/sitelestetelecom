@@ -22,9 +22,8 @@ function buildInvoiceDateUTC(startDate, dueDay) {
     const due = Number(dueDay);
     if (!Number.isFinite(due)) return null;
 
-    const startDay = startDate.getUTCDate();
-    // Regra de negócio: primeira cobrança ocorre no mês seguinte ao vencimento de referência.
-    const monthOffset = due >= startDay ? 1 : 2;
+    // A tabela de pro-rata sempre mostra o pagamento no mes seguinte ao periodo de utilizacao.
+    const monthOffset = 1;
     const firstOfTargetMonth = new Date(
         Date.UTC(startDate.getUTCFullYear(), startDate.getUTCMonth() + monthOffset, 1)
     );
