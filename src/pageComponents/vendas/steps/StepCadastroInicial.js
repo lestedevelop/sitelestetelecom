@@ -13,9 +13,10 @@ import { maskCelular, maskCEP } from "@/utils/masks";
 import { sendPrecadastro } from "@/services/vendas/precadastro";
 import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
+import {VENDAS_GTM_BUTTON_IDS, VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
 export default function StepCadastroInicial({ onNext }) {
-    const { data, hydrated, updateCadastro, setPrecadastroBody,setStep } = useSales();
+    const { data, hydrated, updateCadastro, setPrecadastroBody, setStep } = useSales();
 
     const {
         register,
@@ -27,7 +28,6 @@ export default function StepCadastroInicial({ onNext }) {
         getValues,
         formState: { errors, isSubmitting },
     } = useForm({
-
         defaultValues: {
             nome: "",
             email: "",
@@ -77,13 +77,12 @@ export default function StepCadastroInicial({ onNext }) {
                 ...values,
                 id: data?.precadastroBody?.id,
             });
-            setPrecadastroBody(resp)
+            setPrecadastroBody(resp);
 
             if (data.cadastro.tipo_viabilidade !== "FTTH" || data.cadastro.risco) {
                 setStep("semViabilidade");
                 return;
             }
-
         } catch (error) {
             toast.error(
                 <div>
@@ -98,10 +97,23 @@ export default function StepCadastroInicial({ onNext }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto space-y-6">
-            <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message} />
-            <Input label="Seu melhor e-mail" register={register} name="email" error={errors?.email?.message} />
+            <Input
+                id={VENDAS_GTM_FORM_IDS.cadastroInicial.nome}
+                label="Nome completo"
+                register={register}
+                name="nome"
+                error={errors?.nome?.message}
+            />
+            <Input
+                id={VENDAS_GTM_FORM_IDS.cadastroInicial.email}
+                label="Seu melhor e-mail"
+                register={register}
+                name="email"
+                error={errors?.email?.message}
+            />
 
             <Input
+                id={VENDAS_GTM_FORM_IDS.cadastroInicial.celular}
                 label="Celular / WhatsApp"
                 name="celular"
                 error={errors?.celular?.message}
@@ -116,6 +128,7 @@ export default function StepCadastroInicial({ onNext }) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.cep}
                     label="CEP"
                     name="cep"
                     register={(n) =>
@@ -133,6 +146,7 @@ export default function StepCadastroInicial({ onNext }) {
                 />
 
                 <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.numero}
                     label="Número"
                     name="numero"
                     error={errors?.numero?.message}
@@ -153,6 +167,7 @@ export default function StepCadastroInicial({ onNext }) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.cidade}
                     label="Cidade"
                     register={register}
                     name="cidade"
@@ -161,6 +176,7 @@ export default function StepCadastroInicial({ onNext }) {
                     className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
                 />
                 <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.bairro}
                     label="Bairro"
                     register={register}
                     name="bairro"
@@ -171,6 +187,7 @@ export default function StepCadastroInicial({ onNext }) {
             </div>
 
             <Input
+                id={VENDAS_GTM_FORM_IDS.cadastroInicial.rua}
                 label="Rua"
                 register={register}
                 name="rua"
@@ -180,8 +197,15 @@ export default function StepCadastroInicial({ onNext }) {
             />
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Input label="Complemento" register={register} name="complemento" error={errors?.complemento?.message} />
                 <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.complemento}
+                    label="Complemento"
+                    register={register}
+                    name="complemento"
+                    error={errors?.complemento?.message}
+                />
+                <Input
+                    id={VENDAS_GTM_FORM_IDS.cadastroInicial.referencia}
                     label="Ponto de Referência"
                     register={register}
                     name="referencia"
@@ -190,7 +214,12 @@ export default function StepCadastroInicial({ onNext }) {
                 />
             </div>
 
-            <Checkbox register={register} name="aceitouPrivacidade" error={errors?.aceitouPrivacidade?.message}>
+            <Checkbox
+                id={VENDAS_GTM_FORM_IDS.cadastroInicial.aceitouPrivacidade}
+                register={register}
+                name="aceitouPrivacidade"
+                error={errors?.aceitouPrivacidade?.message}
+            >
                 Aceitar{" "}
                 <a className="text-primary underline" href="/faq/politica-privacidade" target="_blank">
                     Políticas de Privacidade*
@@ -198,6 +227,7 @@ export default function StepCadastroInicial({ onNext }) {
             </Checkbox>
 
             <button
+                id={VENDAS_GTM_BUTTON_IDS.cadastroInicialContinuar}
                 type="submit"
                 disabled={isSubmitting || viabLoading}
                 className="w-full h-12 rounded-md bg-emerald-600 text-white font-semibold disabled:opacity-60"

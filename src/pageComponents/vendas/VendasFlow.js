@@ -59,7 +59,7 @@ export default function VendasFlow() {
 
 
     return (
-        <>
+        <div id="gtm-vendas-flow" data-vendas-step={step}>
             {step !== "cadastro_inicial" && step !== "assinatura" &&  step !== "semViabilidade" && (
                 <VendasStepper
                     steps={STEPPER_STEPS}
@@ -92,6 +92,6 @@ export default function VendasFlow() {
                 <StepSemViabilidade onBack={back} onNext={next} onEditSection={goToIndex}/>
             )}
 
-        </>
+        </div>
     );
 }

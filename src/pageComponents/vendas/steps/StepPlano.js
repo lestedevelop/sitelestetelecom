@@ -12,6 +12,7 @@ import VencimentoSection from "@/pageComponents/vendas/components/VencimentoSect
 import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSection";
 import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
+import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -127,6 +128,7 @@ export default function StepPlans({ onNext, onBack }) {
             <ResponsaveisSection modalOpen={addRespOpen} setModalOpen={setAddRespOpen} />
             <div className="pt-2">
                 <button
+                    id={VENDAS_GTM_BUTTON_IDS.planosContinuar}
                     type="button"
                     disabled={!data?.plano?.id}
                     onClick={handleContinue}

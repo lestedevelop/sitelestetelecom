@@ -6,6 +6,7 @@ import "react-day-picker/dist/style.css";
 import { startOfDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { toYmd } from "@/utils/utils";
+import {VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
 function inferPeriod(title) {
     const t = String(title || "").toUpperCase();
@@ -123,6 +124,7 @@ export default function AgendaDayPicker({ slots = [], onSelectSlot }) {
                         {periodsAvailable.map((p) => (
                             <label key={p} className="radio">
                                 <input
+                                    id={String(p).toUpperCase().includes("MANH") ? VENDAS_GTM_FORM_IDS.agendamento.periodoManha : VENDAS_GTM_FORM_IDS.agendamento.periodoTarde}
                                     type="radio"
                                     name="period"
                                     checked={period === p}

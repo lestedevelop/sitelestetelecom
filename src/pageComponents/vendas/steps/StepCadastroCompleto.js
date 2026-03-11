@@ -13,6 +13,7 @@ import {maskCEP, maskCelular, maskTelefone, maskDataNascimento, maskCPF, maskRG}
 import {sendPrecadastro} from "@/services/vendas/precadastro";
 import {toast} from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
+import {VENDAS_GTM_BUTTON_IDS, VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
 export default function StepCadastroCompleto({onNext, onBack}) {
     const {data, updateCadastro, setPrecadastroBody} = useSales();
@@ -28,10 +29,9 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         formState: {errors, isSubmitting},
     } = useForm({
         defaultValues: {
-                nome: "",
-                email: "",
+            nome: "",
+            email: "",
             ...data.cadastro,
-
         },
         resolver: yupResolver(cadastroCompletoSchema),
     });
@@ -45,7 +45,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         });
 
         hydratedOnce.current = true;
-    }, [reset]);
+    }, [reset, data?.cadastro]);
 
     const {checkViabilidade, loading: viabLoading, error: viabError} = useViabilidade({
         setValue,
@@ -69,10 +69,10 @@ export default function StepCadastroCompleto({onNext, onBack}) {
         updateCadastro(values);
 
         try {
-            const resp = await sendPrecadastro({...values, id: data?.precadastroBody.id})
+            const resp = await sendPrecadastro({...values, id: data?.precadastroBody.id});
             setPrecadastroBody(resp);
         } catch (error) {
-            toast.error(error?.message)
+            toast.error(error?.message);
         }
         onNext?.();
     }
@@ -80,14 +80,20 @@ export default function StepCadastroCompleto({onNext, onBack}) {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto space-y-8">
-                {/* Informações Pessoais */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Informações Pessoais</h3>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message}/>
+                        <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.nome}
+                            label="Nome completo"
+                            register={register}
+                            name="nome"
+                            error={errors?.nome?.message}
+                        />
 
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.cpf}
                             label="CPF"
                             name="cpf"
                             error={errors?.cpf?.message}
@@ -99,11 +105,11 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                                 })
                             }
                         />
-
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.dataNascimento}
                             label="Data de nascimento"
                             name="dataNascimento"
                             placeholder="dd/mm/aaaa"
@@ -117,8 +123,8 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                             }
                         />
 
-
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.rg}
                             label="RG"
                             name="rg"
                             error={errors?.rg?.message}
@@ -131,8 +137,8 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                             }
                         />
 
-
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.emissorRg}
                             label="Emissor do RG"
                             register={register}
                             name="emissorRg"
@@ -141,15 +147,21 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     </div>
                 </div>
 
-                <div className={"h-[1px] w-full bg-gray-300"}/>
+                <div className={"h-[1px] w-full bg-gray-300"} />
 
-                {/* Contato */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Informações de contato</h3>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <Input label="E-mail" register={register} name="email" error={errors?.email?.message}/>
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.email}
+                            label="E-mail"
+                            register={register}
+                            name="email"
+                            error={errors?.email?.message}
+                        />
+                        <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.confirmacaoEmail}
                             label="Confirmação de e-mail"
                             register={register}
                             name="confirmacaoEmail"
@@ -159,6 +171,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.celular}
                             label="Celular"
                             name="celular"
                             error={errors?.celular?.message}
@@ -172,6 +185,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                         />
 
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.telefone}
                             label="Telefone"
                             name="telefone"
                             error={errors?.telefone?.message}
@@ -183,18 +197,17 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                                 })
                             }
                         />
-
                     </div>
                 </div>
 
-                <div className={"h-[1px] w-full bg-gray-300"}/>
+                <div className={"h-[1px] w-full bg-gray-300"} />
 
-                {/* Endereço */}
                 <div className="space-y-6">
                     <h3 className="text-lg font-semibold text-darkgreen">Endereço</h3>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.cep}
                             label="CEP"
                             name="cep"
                             error={errors?.cep?.message}
@@ -206,14 +219,14 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                                     },
                                     onBlur: () => checkViabilidade({
                                         cep: getValues("cep"),
-                                        numero: getValues("numero")
+                                        numero: getValues("numero"),
                                     }),
                                 })
                             }
                         />
 
-
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.numero}
                             label="Número"
                             name="numero"
                             error={errors?.numero?.message}
@@ -222,22 +235,31 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                                 register(n, {
                                     onBlur: () => checkViabilidade({
                                         cep: getValues("cep"),
-                                        numero: getValues("numero")
+                                        numero: getValues("numero"),
                                     }),
                                 })
                             }
                         />
 
-
                         <div className="space-y-2">
                             <label className="text-darkgreen font-semibold">Qual tipo de moradia?*</label>
                             <div className="flex gap-6 h-12 items-center">
-                                <label className="flex items-center gap-2 text-darkgreen accent-primary">
-                                    <input type="radio" value="predio" {...register("tipoMoradia")} />
+                                <label className="flex items-center gap-2 text-darkgreen accent-primary" htmlFor={VENDAS_GTM_FORM_IDS.cadastroCompleto.tipoMoradiaPredio}>
+                                    <input
+                                        id={VENDAS_GTM_FORM_IDS.cadastroCompleto.tipoMoradiaPredio}
+                                        type="radio"
+                                        value="predio"
+                                        {...register("tipoMoradia")}
+                                    />
                                     Prédio
                                 </label>
-                                <label className="flex items-center gap-2 text-darkgreen accent-primary">
-                                    <input type="radio" value="casa" {...register("tipoMoradia")} />
+                                <label className="flex items-center gap-2 text-darkgreen accent-primary" htmlFor={VENDAS_GTM_FORM_IDS.cadastroCompleto.tipoMoradiaCasa}>
+                                    <input
+                                        id={VENDAS_GTM_FORM_IDS.cadastroCompleto.tipoMoradiaCasa}
+                                        type="radio"
+                                        value="casa"
+                                        {...register("tipoMoradia")}
+                                    />
                                     Casa
                                 </label>
                             </div>
@@ -251,13 +273,38 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     {viabError ? <p className="text-xs text-red-500">{viabError}</p> : null}
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <Input label="Rua" register={register} name="rua" error={errors?.rua?.message} readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
-                        <Input label="Bairro" register={register} name="bairro" error={errors?.bairro?.message}  readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
+                        <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.rua}
+                            label="Rua"
+                            register={register}
+                            name="rua"
+                            error={errors?.rua?.message}
+                            readOnly={viabLoading}
+                            className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
+                        />
+                        <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.bairro}
+                            label="Bairro"
+                            register={register}
+                            name="bairro"
+                            error={errors?.bairro?.message}
+                            readOnly={viabLoading}
+                            className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
+                        />
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                        <Input label="Cidade" register={register} name="cidade" error={errors?.cidade?.message} readOnly={viabLoading} className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}/>
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.cidade}
+                            label="Cidade"
+                            register={register}
+                            name="cidade"
+                            error={errors?.cidade?.message}
+                            readOnly={viabLoading}
+                            className={viabLoading ? "opacity-70 cursor-not-allowed" : ""}
+                        />
+                        <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.complemento}
                             label="Complemento"
                             register={register}
                             name="complemento"
@@ -265,6 +312,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                             disabled={viabLoading}
                         />
                         <Input
+                            id={VENDAS_GTM_FORM_IDS.cadastroCompleto.referencia}
                             label="Ponto de Referência"
                             register={register}
                             name="referencia"
@@ -275,6 +323,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                 </div>
 
                 <button
+                    id={VENDAS_GTM_BUTTON_IDS.cadastroCompletoContinuar}
                     type="submit"
                     disabled={isSubmitting || viabLoading}
                     className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"
@@ -282,7 +331,6 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     {viabLoading ? "Validando..." : isSubmitting ? "Salvando..." : "Continuar"}
                 </button>
             </form>
-
         </div>
     );
 }
