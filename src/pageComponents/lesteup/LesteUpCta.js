@@ -18,7 +18,7 @@ export default function LesteUpCta() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#003934]/30 via-transparent to-[#001d1a]/75" />
 
           <div className="absolute inset-0 flex items-center p-6 md:p-10">
-            <div className="max-w-[420px] text-white">
+            <div className="max-w-[600px] text-white py-12">
               <h2 className="text-3xl font-semibold leading-[1.04] md:text-[3rem]">
                 Esteja pronto antes da queda de luz: conte com Leste UP.
               </h2>
