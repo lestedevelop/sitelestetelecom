@@ -2,6 +2,7 @@
 
 import {useEffect, useMemo} from "react";
 import {useSales} from "@/contexts/SalesContextNew";
+import {DEFAULT_VENDAS_STEP, getVendasPathByStep, VENDAS_BASE_PATH} from "@/lib/vendas/stepRouting";
 
 import StepCadastroInicial from "./steps/StepCadastroInicial";
 import StepCadastroCompleto from "./steps/StepCadastroCompleto";
@@ -34,8 +35,8 @@ const STEPPER_INDEX_MAP = {
 };
 
 export default function VendasFlow() {
-    const {data, setStep} = useSales();
-    const step = data.step || "cadastro_inicial";
+    const {data, hydrated, setStep} = useSales();
+    const step = data.step || DEFAULT_VENDAS_STEP;
 
     const stepIndex = useMemo(
         () => FLOW_STEPS.indexOf(step),
@@ -57,6 +58,17 @@ export default function VendasFlow() {
         goToIndex(stepIndex - 1);
     }
 
+    useEffect(() => {
+        if (!hydrated || typeof window === "undefined") return;
+
+        const targetPath = step === DEFAULT_VENDAS_STEP ? VENDAS_BASE_PATH : getVendasPathByStep(step);
+        const nextUrl = `${targetPath}${window.location.search}${window.location.hash}`;
+        const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+        if (currentUrl === nextUrl) return;
+
+        window.history.replaceState(window.history.state, "", nextUrl);
+    }, [hydrated, step]);
 
     return (
         <div id="gtm-vendas-flow" data-vendas-step={step}>
