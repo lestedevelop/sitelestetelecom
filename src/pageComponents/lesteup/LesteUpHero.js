@@ -1,6 +1,6 @@
 import Image from "next/image";
-import heroBanner from "@/assets/lesteup/BANNELESTEUP2.png";
-import productImage from "@/assets/lesteup/Leste Up 2.png";
+import heroBanner from "@/assets/lesteup/BANNELESTEUP2.webp";
+import productImage from "@/assets/lesteup/Leste Up 2.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
 
 const WHATSAPP_URL = "https://wa.me/552120201300";
@@ -129,3 +129,4 @@ export default function LesteUpHero() {
     </section>
   );
 }
+

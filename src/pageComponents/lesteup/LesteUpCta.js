@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ctaBanner from "@/assets/lesteup/BANNELESTEUP3.png";
+import ctaBanner from "@/assets/lesteup/BANNELESTEUP3.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
 
 const WHATSAPP_URL = "https://wa.me/552120201300";
@@ -45,3 +45,4 @@ export default function LesteUpCta() {
     </section>
   );
 }
+

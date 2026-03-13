@@ -1,8 +1,8 @@
 import Image from "next/image";
-import productImage from "@/assets/lesteup/Leste Up 2.png";
-import iconPower from "@/assets/lesteup/c1d205_4b04d946c1814cd498cd38be2ca0459d~mv2.png";
-import iconBattery from "@/assets/lesteup/c1d205_7b49dc22e71244d9886f06b31e8829f8~mv2.png";
-import iconDevice from "@/assets/lesteup/iconequipamento.png";
+import productImage from "@/assets/lesteup/Leste Up 2.webp";
+import iconPower from "@/assets/lesteup/c1d205_4b04d946c1814cd498cd38be2ca0459d~mv2.webp";
+import iconBattery from "@/assets/lesteup/c1d205_7b49dc22e71244d9886f06b31e8829f8~mv2.webp";
+import iconDevice from "@/assets/lesteup/iconequipamento.webp";
 
 const FEATURES = [
   {
@@ -81,3 +81,4 @@ export default function LesteUpOverview() {
     </section>
   );
 }
+

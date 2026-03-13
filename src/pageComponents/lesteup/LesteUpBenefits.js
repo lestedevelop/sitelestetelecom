@@ -1,9 +1,9 @@
 import Image from "next/image";
-import cardConnected from "@/assets/lesteup/17df7f_b1d69c504f29403cb8381db6769fc2e6~mv2.png";
-import cardData from "@/assets/lesteup/17df7f_c4a2fb2c0ae947bd9368e7e2a6ffaed2~mv2.png";
-import cardProtected from "@/assets/lesteup/2 -2.png";
-import cardWork from "@/assets/lesteup/17df7f_04097f6245f94d8f93a671d8df1dc66b~mv2.png";
-import cardGame from "@/assets/lesteup/17df7f_984a4595b91e4769aa3cbc4aa564004b~mv2.png";
+import cardConnected from "@/assets/lesteup/17df7f_b1d69c504f29403cb8381db6769fc2e6~mv2.webp";
+import cardData from "@/assets/lesteup/17df7f_c4a2fb2c0ae947bd9368e7e2a6ffaed2~mv2.webp";
+import cardProtected from "@/assets/lesteup/2 -2.webp";
+import cardWork from "@/assets/lesteup/17df7f_04097f6245f94d8f93a671d8df1dc66b~mv2.webp";
+import cardGame from "@/assets/lesteup/17df7f_984a4595b91e4769aa3cbc4aa564004b~mv2.webp";
 
 const PRIMARY_CARDS = [
   {
@@ -81,3 +81,4 @@ export default function LesteUpBenefits() {
     </section>
   );
 }
+
