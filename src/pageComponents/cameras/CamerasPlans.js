@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import camera360 from "@/assets/cameras/camera360.png";
-import camerafixa from "@/assets/cameras/camerafixa.png";
-import plano360 from "@/assets/cameras/plano360.png";
-import planofixa from "@/assets/cameras/planofixa.png";
+import camera360 from "@/assets/cameras/camera360.webp";
+import camerafixa from "@/assets/cameras/camerafixa.webp";
+import plano360 from "@/assets/cameras/plano360.webp";
+import planofixa from "@/assets/cameras/planofixa.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
 
 const PLANS = [
@@ -155,3 +155,4 @@ export default function CamerasPlans() {
     </section>
   );
 }
+

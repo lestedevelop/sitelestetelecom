@@ -1,13 +1,13 @@
 import Image from "next/image";
-import camerafixa from "@/assets/cameras/camerafixa.png";
-import camera360 from "@/assets/cameras/camera360.png";
-import icon1080 from "@/assets/cameras/1080p.png";
-import iconAngulo from "@/assets/cameras/angulo.png";
-import iconChamadas from "@/assets/cameras/chamadas.png";
-import iconDeteccao from "@/assets/cameras/deteccao.png";
-import iconVisao from "@/assets/cameras/visaonoturna.png";
-import iconDeteccaoHumana from "@/assets/cameras/deteccaohumana.png";
-import iconPanoramica from "@/assets/cameras/panoramica.png";
+import camerafixa from "@/assets/cameras/camerafixa.webp";
+import camera360 from "@/assets/cameras/camera360.webp";
+import icon1080 from "@/assets/cameras/1080p.webp";
+import iconAngulo from "@/assets/cameras/angulo.webp";
+import iconChamadas from "@/assets/cameras/chamadas.webp";
+import iconDeteccao from "@/assets/cameras/deteccao.webp";
+import iconVisao from "@/assets/cameras/visaonoturna.webp";
+import iconDeteccaoHumana from "@/assets/cameras/deteccaohumana.webp";
+import iconPanoramica from "@/assets/cameras/panoramica.webp";
 
 const CAMERAS = [
   {
@@ -144,3 +144,4 @@ export default function CamerasModels() {
     </section>
   );
 }
+

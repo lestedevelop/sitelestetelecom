@@ -1,7 +1,7 @@
 import Image from "next/image";
-import banner from "@/assets/cameras/bannercameras.png";
-import bannerMobile from "@/assets/cameras/banner-mobile.png";
-import logo from "@/assets/cameras/logocameras.png";
+import banner from "@/assets/cameras/bannercameras.webp";
+import bannerMobile from "@/assets/cameras/banner-mobile.webp";
+import logo from "@/assets/cameras/logocameras.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
 
 export default function CamerasHero() {
@@ -75,3 +75,4 @@ export default function CamerasHero() {
     </section>
   );
 }
+

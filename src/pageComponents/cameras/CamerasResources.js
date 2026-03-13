@@ -1,14 +1,14 @@
 import Image from "next/image";
-import resource1 from "@/assets/cameras/17df7f_36d8875874d742b7abbb952f769fc2c0~mv2.png";
-import resource2 from "@/assets/cameras/17df7f_7e62a475fa3f41308dbeade1cbca19d1~mv2.png";
-import resource3 from "@/assets/cameras/17df7f_8d1a692f366c48bda2a2fbb811baab16~mv2.png";
-import resource4 from "@/assets/cameras/17df7f_9b2b15023d20441cba2ce1917f1419c3~mv2.png";
-import resource5 from "@/assets/cameras/17df7f_e6c403338ab74104b51a7489afdfb506~mv2.png";
-import mobile1 from "@/assets/cameras/17df7f_f0522f54e9044762aa6a29bb6e10fdaa~mv2.png";
-import mobile2 from "@/assets/cameras/17df7f_0b5c688f8a734f07a0badcce6b8da4d2~mv2.png";
-import mobile3 from "@/assets/cameras/17df7f_7f0335b3facc428aa541d71960f51d49~mv2.png";
-import mobile4 from "@/assets/cameras/17df7f_22a6c52e1b984953ab53c5572ad613b5~mv2.png";
-import mobile5 from "@/assets/cameras/17df7f_3d53414449504d3eb6ddd6d35f9ecdcb~mv2.png";
+import resource1 from "@/assets/cameras/17df7f_36d8875874d742b7abbb952f769fc2c0~mv2.webp";
+import resource2 from "@/assets/cameras/17df7f_7e62a475fa3f41308dbeade1cbca19d1~mv2.webp";
+import resource3 from "@/assets/cameras/17df7f_8d1a692f366c48bda2a2fbb811baab16~mv2.webp";
+import resource4 from "@/assets/cameras/17df7f_9b2b15023d20441cba2ce1917f1419c3~mv2.webp";
+import resource5 from "@/assets/cameras/17df7f_e6c403338ab74104b51a7489afdfb506~mv2.webp";
+import mobile1 from "@/assets/cameras/17df7f_f0522f54e9044762aa6a29bb6e10fdaa~mv2.webp";
+import mobile2 from "@/assets/cameras/17df7f_0b5c688f8a734f07a0badcce6b8da4d2~mv2.webp";
+import mobile3 from "@/assets/cameras/17df7f_7f0335b3facc428aa541d71960f51d49~mv2.webp";
+import mobile4 from "@/assets/cameras/17df7f_22a6c52e1b984953ab53c5572ad613b5~mv2.webp";
+import mobile5 from "@/assets/cameras/17df7f_3d53414449504d3eb6ddd6d35f9ecdcb~mv2.webp";
 
 const RESOURCES = [
   {
@@ -108,3 +108,4 @@ export default function CamerasResources() {
     </section>
   );
 }
+
