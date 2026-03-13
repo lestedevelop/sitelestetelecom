@@ -3,7 +3,7 @@ import SectionBanner from "@/components/layout/SectionBanner";
 import Footer from "@/components/layout/Footer";
 import bannerViabilidades from "@/assets/areaCobertura.png";
 import CardBanner from "@/components/cards/CardBanner";
-import bannerAssineOnline from "@/assets/cardBanner.png";
+import bannerAssineOnline from "@/assets/cardBanner.webp";
 
 export default function Faq() {
   return (
@@ -59,3 +59,4 @@ export default function Faq() {
       </div>
   );
 }
+

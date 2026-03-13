@@ -2,7 +2,7 @@ import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/indentificar.png"
+import image1 from "@/assets/faq/indentificar.webp"
 import Image from "next/image";
 
 export const metadata = {
@@ -30,3 +30,4 @@ export default function IdendificarEquipamentos() {
         </main>
     );
 }
+

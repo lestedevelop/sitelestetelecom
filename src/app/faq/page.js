@@ -1,6 +1,6 @@
 import AppBar from "@/components/layout/AppBar";
 import SectionBanner from "@/components/layout/SectionBanner";
-import bannerFaq from "@/assets/bannerfaq.png";
+import bannerFaq from "@/assets/bannerfaq.webp";
 import imageFaq from "@/assets/imagefaq.jpg";
 import Footer from "@/components/layout/Footer";
 import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
@@ -64,3 +64,4 @@ export default function Faq() {
       </div>
   );
 }
+

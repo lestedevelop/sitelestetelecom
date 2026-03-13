@@ -3,10 +3,10 @@ import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/telaapp1.png"
-import image2 from "@/assets/faq/telaapp2.png"
-import image3 from "@/assets/faq/telaapp3.png"
-import image4 from "@/assets/faq/telaapp4.png"
-import image5 from "@/assets/faq/telaapp5.png"
+import image2 from "@/assets/faq/telaapp2.webp"
+import image3 from "@/assets/faq/telaapp3.webp"
+import image4 from "@/assets/faq/telaapp4.webp"
+import image5 from "@/assets/faq/telaapp5.webp"
 
 
 import Image from "next/image";
@@ -67,3 +67,4 @@ export default function RetirandoBoletoPeloApp(props) {
         </main>
     );
 }
+

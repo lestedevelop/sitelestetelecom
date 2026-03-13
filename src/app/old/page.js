@@ -9,7 +9,7 @@ import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
 import HeroSlider from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
-import bannerAssineOnline from "@/assets/cardBanner.png";
+import bannerAssineOnline from "@/assets/cardBanner.webp";
 import SelectCity from "@/components/cards/SelectCity";
 import {useState} from "react";
 
@@ -32,3 +32,4 @@ export default function Home() {
       </div>
   );
 }
+

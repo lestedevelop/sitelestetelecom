@@ -1,8 +1,8 @@
 import Image from "next/image";
 import CardApp from "@/components/cards/CardApp";
 import arrow from "@/assets/arrowright.svg";
-import bannerSuporteApp from "@/assets/lestesuporte.png";
-import bannerCentral from "@/assets/lestecentral.png";
+import bannerSuporteApp from "@/assets/lestesuporte.webp";
+import bannerCentral from "@/assets/lestecentral.webp";
 
 export default function SectionApp() {
     return (

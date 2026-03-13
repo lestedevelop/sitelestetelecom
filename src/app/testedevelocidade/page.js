@@ -1,5 +1,5 @@
 import AppBar from "@/components/layout/AppBar";
-import velocidadeBanner from "@/assets/testevelocidade.png";
+import velocidadeBanner from "@/assets/testevelocidade.webp";
 import Footer from "@/components/layout/Footer";
 import Image from "next/image";
 import arrow from "@/assets/arrowright.svg";
@@ -47,3 +47,4 @@ export default function TesteDeVelocidade() {
       </div>
   );
 }
+

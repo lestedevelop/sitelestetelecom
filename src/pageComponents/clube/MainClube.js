@@ -10,8 +10,8 @@ import parceiro6 from "@/assets/parceiro6.png";
 import parceiro7 from "@/assets/parceiro7.png";
 import parceiro8 from "@/assets/parceiro8.png";
 import parceiro9 from "@/assets/parceiro9.png";
-import bannerClube from "@/assets/bannerclube2.png";
-import bannerClubeMobile from "@/assets/clube-mobile.png";
+import bannerClube from "@/assets/bannerclube2.webp";
+import bannerClubeMobile from "@/assets/clube-mobile.webp";
 import CardApp from "@/components/cards/CardApp";
 
 export default function MainClube() {

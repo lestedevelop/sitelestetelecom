@@ -1,6 +1,6 @@
 import AppBar from "@/components/layout/AppBar";
 import SectionBanner from "@/components/layout/SectionBanner";
-import bannerSuporte from "@/assets/bannersuporte.png";
+import bannerSuporte from "@/assets/bannersuporte.webp";
 import Footer from "@/components/layout/Footer";
 
 import SectionApp from "@/pageComponents/leste-suporte/SectionApp";
@@ -18,3 +18,4 @@ export default function LesteSuporte() {
       </div>
   );
 }
+

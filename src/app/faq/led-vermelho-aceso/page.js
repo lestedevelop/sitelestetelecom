@@ -2,8 +2,8 @@ import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/ledvermelho1.png"
-import image2 from "@/assets/faq/seminternet2.png"
+import image1 from "@/assets/faq/ledvermelho1.webp"
+import image2 from "@/assets/faq/seminternet2.webp"
 import Image from "next/image";
 
 export const metadata = {
@@ -43,3 +43,4 @@ export default function LedVermelho(props) {
         </main>
     );
 }
+

@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/testevelocicade1.png"
-import image2 from "@/assets/faq/testevelocicade2.png"
+import image2 from "@/assets/faq/testevelocicade2.webp"
 import image3 from "@/assets/faq/testevelocicade3.png"
 
 import Image from "next/image";
@@ -56,3 +56,4 @@ export default function TesteDeVelocidadeFaq() {
         </main>
     );
 }
+

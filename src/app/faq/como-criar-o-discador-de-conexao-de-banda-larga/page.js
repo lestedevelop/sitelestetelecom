@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.png"
+import image2 from "@/assets/faq/seminternet2.webp"
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,3 +44,4 @@ export default function ComoCriarDiscador() {
         </main>
     );
 }
+

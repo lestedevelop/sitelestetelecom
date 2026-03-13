@@ -1,5 +1,5 @@
 import SectionBanner from "@/components/layout/SectionBanner";
-import bannerFaq from "@/assets/bannerfaq.png";
+import bannerFaq from "@/assets/bannerfaq.webp";
 
 export const metadata = {
     title: "FAQ | Leste Telecom",
@@ -17,3 +17,4 @@ export default function FaqLayout({ children }) {
         </div>
     );
 }
+
