@@ -1,9 +1,47 @@
 import { NextResponse } from "next/server";
 
+const VENDAS_ENTRY_PATH = "/vendas";
+
+function isStaticAsset(pathname = "") {
+    return /\.[^/]+$/.test(pathname);
+}
+
+function isAllowedPath(pathname = "") {
+    if (
+        pathname === VENDAS_ENTRY_PATH ||
+        pathname.startsWith(`${VENDAS_ENTRY_PATH}/`) ||
+        pathname.startsWith("/vendas-")
+    ) {
+        return true;
+    }
+
+    if (pathname.startsWith("/api/vendas/")) {
+        return true;
+    }
+
+    if (
+        pathname.startsWith("/_next/") ||
+        pathname === "/favicon.ico" ||
+        pathname === "/robots.txt" ||
+        pathname === "/sitemap.xml" ||
+        isStaticAsset(pathname)
+    ) {
+        return true;
+    }
+
+    return false;
+}
+
 export function middleware(request) {
+    const { pathname } = request.nextUrl;
     const requestId = request.headers.get("x-request-id") || crypto.randomUUID();
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-request-id", requestId);
+
+    if (!isAllowedPath(pathname)) {
+        const redirectUrl = new URL(VENDAS_ENTRY_PATH, request.url);
+        return NextResponse.redirect(redirectUrl);
+    }
 
     const response = NextResponse.next({
         request: { headers: requestHeaders },
@@ -14,5 +52,5 @@ export function middleware(request) {
 }
 
 export const config = {
-    matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+    matcher: ["/:path*"],
 };
