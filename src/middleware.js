@@ -1,21 +1,12 @@
 import { NextResponse } from "next/server";
-
-const VENDAS_ENTRY_PATH = "/vendas";
+import { isRouteAllowed, siteLockConfig } from "@/lib/siteLockConfig";
 
 function isStaticAsset(pathname = "") {
     return /\.[^/]+$/.test(pathname);
 }
 
 function isAllowedPath(pathname = "") {
-    if (
-        pathname === VENDAS_ENTRY_PATH ||
-        pathname.startsWith(`${VENDAS_ENTRY_PATH}/`) ||
-        pathname.startsWith("/vendas-")
-    ) {
-        return true;
-    }
-
-    if (pathname.startsWith("/api/vendas/")) {
+    if (isRouteAllowed(pathname)) {
         return true;
     }
 
@@ -38,8 +29,8 @@ export function middleware(request) {
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-request-id", requestId);
 
-    if (!isAllowedPath(pathname)) {
-        const redirectUrl = new URL(VENDAS_ENTRY_PATH, request.url);
+    if (siteLockConfig.enabled && !isAllowedPath(pathname)) {
+        const redirectUrl = new URL(siteLockConfig.redirectPath, request.url);
         return NextResponse.redirect(redirectUrl);
     }
 
