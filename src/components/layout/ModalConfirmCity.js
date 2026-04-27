@@ -4,7 +4,7 @@ import {useSite} from "@/contexts/SiteContext";
 import {useUiStore} from "@/store/useUiStore";
 import SelectCityNow from "@/components/cards/SelectCityNow";
 
-export default function ModalConfirmCity() {
+export default function ModalConfirmCity({className = ""}) {
     const {site, setCityConfirmed} = useSite();
     const {isConfirmCityOpen, closeConfirmCity, openSelectCity, isSelectCityOpen, closeSelectCity} = useUiStore();
     const cityLabel = site?.city?.label || "";
@@ -22,7 +22,7 @@ export default function ModalConfirmCity() {
     return (
         <>
         {isConfirmCityOpen && <div
-            className="md:absolute md:top-4 md:right-20 z-1000 mt-4 w-85 translate-y-4 rounded-2xl border border-graylight bg-white shadow-[0_24px_70px_rgba(0,0,0,.18)] overflow-hidden"
+            className={`z-1000 mt-6 w-85 overflow-hidden rounded-2xl border border-graylight bg-white shadow-[0_24px_70px_rgba(0,0,0,.18)] ${className}`}
             role="menu"
         >
             <div className="px-5 py-4 bg-white">

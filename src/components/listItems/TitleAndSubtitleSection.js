@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 
-export default function TitleAndSubtitleSection({title,text,styleTitle,styleText,className}) {
+export default function TitleAndSubtitleSection({title, text, styleTitle = "", styleText = "", className = ""}) {
   return (
-    <section className="pt-8 pb-8">
-      <h2 style={styleTitle} className={twMerge("text-4xl font-bold text-[#00997b]",className)}>
+    <section className={twMerge("pt-8 pb-8", className)}>
+      <h2 className={twMerge("text-[28px] font-bold leading-[1.05] text-primary md:text-[64px]", styleTitle)}>
         {title}
       </h2>
-      <p style={styleText} className={twMerge("text-lg text-gray-900 mt-2 font-sans",className)}>
+      <p className={twMerge("mt-2 text-[16px] leading-[1.3] text-dark md:text-[24px]", styleText)}>
         {text}
       </p>
     </section>

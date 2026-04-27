@@ -7,7 +7,7 @@ import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
 import CanaisAtendimentosSection from "@/pageComponents/home/CanaisAtendimentosSection";
 import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
-import HeroSliderNew from "@/pageComponents/home/HeroSlideNew";
+import HeroSlide from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.webp";
 
@@ -15,7 +15,7 @@ export default function Home() {
 
     return (
         <div className="min-h-full bg-light">
-            <HeroSliderNew />
+            <HeroSlide />
             <PlanosSection  />
             <BannerUltraSection/>
             <JaeClienteSection/>
