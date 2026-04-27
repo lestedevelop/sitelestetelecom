@@ -2,7 +2,7 @@ import AppBarMovel from "@/pageComponents/movel/AppBarMovel"
 import SectionMovelPlan from "@/pageComponents/movel/SectionMovelPlans";
 import BannerMovel from "@/pageComponents/movel/BannerMovel";
 import CardLesteMovel from "@/pageComponents/movel/CardLesteMovel";
-import imagemMovel from "@/assets/5g.png";
+import imagemMovel from "@/assets/5g.webp";
 import playstore from "@/assets/playstore.png";
 import appstore from "@/assets/appstoreverde.png";
 import piechart from "@/assets/icons/piechart.svg";
@@ -97,3 +97,4 @@ export default function Movel() {
         </div>
     );
 }
+

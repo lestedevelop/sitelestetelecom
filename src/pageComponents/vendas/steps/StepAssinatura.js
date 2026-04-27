@@ -13,6 +13,7 @@ import facebook from "@/assets/facebook.svg"
 import tiktok from "@/assets/tiktok.svg"
 import twitter from "@/assets/twitter.svg"
 import instagram from "@/assets/insta.svg"
+import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
 
 export default function StepAssinatura({ onNext, onBack, onAssinar }) {
     const { data } = useSales();
@@ -83,6 +84,7 @@ export default function StepAssinatura({ onNext, onBack, onAssinar }) {
 
                         <div className="mt-5 flex items-center gap-3">
                             <a
+                                id={VENDAS_GTM_BUTTON_IDS.assinaturaAssinar}
                                 href={assinaturaUrl}
                                 className="bg-primary text-white font-extrabold px-10 py-3 rounded-md disabled:opacity-50"
                             >

@@ -9,7 +9,7 @@ import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
 import HeroSliderNew from "@/pageComponents/home/HeroSlideNew";
 import CardBanner from "@/components/cards/CardBanner";
-import bannerAssineOnline from "@/assets/cardBanner.png";
+import bannerAssineOnline from "@/assets/cardBanner.webp";
 
 export default function Home() {
 
@@ -26,3 +26,4 @@ export default function Home() {
         </div>
     );
 }
+

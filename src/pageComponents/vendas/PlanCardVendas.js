@@ -5,6 +5,7 @@ import Image from "next/image";
 import addIcon from "@/assets/icons/addIconVendas.svg"
 import PerkCard from "@/pageComponents/vendas/PerkCard";
 import {getBadge, getTitle} from "@/utils/utils";
+import {getPlanoButtonId} from "@/lib/gtm/vendas";
 
 
 
@@ -83,8 +84,11 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                 </div>
 
                 <button
+                    id={getPlanoButtonId(plan)}
                     type="button"
                     onClick={() => onSelect?.(plan)}
+                    data-gtm-plan-codser={plan?.codser || ""}
+                    data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
                     className={[
                         "mt-5 w-[calc(100%+3rem)] -mx-6 rounded-b-3xl px-4 py-4 text-center font-semibold transition",
                         selected ? "bg-primary text-white" : "bg-[#8F8F8F] text-white hover:bg-gray-500",

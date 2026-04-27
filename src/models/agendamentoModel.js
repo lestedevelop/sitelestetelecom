@@ -39,6 +39,7 @@ export function buildAgendamentoModel(data) {
             viabilidade:cadastro?.tipo_viabilidade,
             interesse: "sim",
             tipo_ciente: "F",
+            tipo_cliente: "F",
             obs: "Cliente via site",
         },
         codser: plano.codser,

@@ -5,11 +5,11 @@ import PostCard from "@/pageComponents/corporate/blog/PostCard";
 import BlogTabs from "@/pageComponents/corporate/blog/BlogTabs";
 import AppBarCorporate from "@/pageComponents/corporate/AppBarCorporate";
 import FooterCorporate from "@/pageComponents/corporate/FooterCorporate";
-import post1 from "@/assets/blog/post1.png"
-import post2 from "@/assets/blog/post2.png"
-import post3 from "@/assets/blog/post3.png"
-import post4 from "@/assets/blog/post4.png"
-import post5 from "@/assets/blog/post5.png"
+import post1 from "@/assets/blog/post1.webp"
+import post2 from "@/assets/blog/post2.webp"
+import post3 from "@/assets/blog/post3.webp"
+import post4 from "@/assets/blog/post4.webp"
+import post5 from "@/assets/blog/post5.webp"
 /* ================= MOCK ================= */
 const CATEGORIES = [
     { key: "all", label: "Todos os posts" },
@@ -119,3 +119,4 @@ export default function CorporateBlogPage() {
         </div>
     );
 }
+

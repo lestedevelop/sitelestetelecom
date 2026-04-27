@@ -12,9 +12,10 @@ import ReviewField from "@/pageComponents/vendas/components/ReviewField";
 import ReviewCard from "@/pageComponents/vendas/components/ReviewCard";
 import {sendAgendamento} from "@/services/vendas/agendamento";
 import {toast} from "react-toastify";
+import {VENDAS_GTM_BUTTON_IDS, VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
 export default function StepRevisao({onNext, onBack, onEditSection}) {
-    const {data,updateStep} = useSales();
+    const {data, updateStep} = useSales();
 
     const cadastro = data?.cadastro || {};
     const plano = data?.plano || data?.planos || {};
@@ -168,55 +169,54 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
                         )}
                     </ReviewCard>
 
-
                     <ReviewCard title="Agendamento" onEdit={() => onEditSection?.(3)}>
                         <ReviewField label="Data" value={fmtDateBR(agendamento?.start)}/>
                         <ReviewField label="Período" value={periodo}/>
                     </ReviewCard>
                 </div>
 
-            {/* CHECKS */}
-            <div className="mt-6 flex flex-row gap-3">
-                <Checkbox
-                    register={register}
-                    name="aceitouTaxa"
-                    error={errors?.aceitouTaxa?.message}
-                >
-                    Aceitar{" "}
-                    <a className="text-primary underline" href="/faq/" target="_blank" rel="noreferrer">
-                        Taxa de Adesão*
-                    </a>
-                </Checkbox>
-
-                <Checkbox
-                    register={register}
-                    name="aceitouPrivacidade"
-                    error={errors?.aceitouPrivacidade?.message}
-                >
-                    Aceitar{" "}
-                    <a
-                        className="text-primary underline"
-                        href="/faq/politica-privacidade"
-                        target="_blank"
-                        rel="noreferrer"
+                <div className="mt-6 flex flex-row gap-3">
+                    <Checkbox
+                        id={VENDAS_GTM_FORM_IDS.revisao.aceitouTaxa}
+                        register={register}
+                        name="aceitouTaxa"
+                        error={errors?.aceitouTaxa?.message}
                     >
-                        Políticas de Privacidade*
-                    </a>
-                </Checkbox>
-            </div>
+                        Aceitar{" "}
+                        <a className="text-primary underline" href="/faq/" target="_blank" rel="noreferrer">
+                            Taxa de Adesão*
+                        </a>
+                    </Checkbox>
 
-            {/* SUBMIT */}
-            <div className="mt-6">
-                <button
-                    type="submit"
-                    disabled={!canContinue}
-                    className="bg-primary text-white font-bold px-10 py-3 rounded-md disabled:opacity-50"
-                >
-                    {isSubmitting ? "Enviando..." : "Continuar"}
-                </button>
+                    <Checkbox
+                        id={VENDAS_GTM_FORM_IDS.revisao.aceitouPrivacidade}
+                        register={register}
+                        name="aceitouPrivacidade"
+                        error={errors?.aceitouPrivacidade?.message}
+                    >
+                        Aceitar{" "}
+                        <a
+                            className="text-primary underline"
+                            href="/faq/politica-privacidade"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Políticas de Privacidade*
+                        </a>
+                    </Checkbox>
+                </div>
+
+                <div className="mt-6">
+                    <button
+                        id={VENDAS_GTM_BUTTON_IDS.revisaoContinuar}
+                        type="submit"
+                        disabled={!canContinue}
+                        className="bg-primary text-white font-bold px-10 py-3 rounded-md disabled:opacity-50"
+                    >
+                        {isSubmitting ? "Enviando..." : "Continuar"}
+                    </button>
+                </div>
             </div>
-        </div>
-</form>
-)
-    ;
+        </form>
+    );
 }

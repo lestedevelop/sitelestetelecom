@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AppBarMovel from "@/pageComponents/movel/AppBarMovel"
-import image from "@/assets/lestemovelimagem.png";
+import image from "@/assets/lestemovelimagem.webp";
 import chip from "@/assets/icons/chip.svg";
 import whatsapp from "@/assets/icons/whatsapp.png";
 import rede5g from "@/assets/icons/5G.webp";
@@ -120,3 +120,4 @@ export default function Chip() {
         </div>
     );
 }
+

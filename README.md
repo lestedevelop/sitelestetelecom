@@ -1,36 +1,70 @@
-This is a [NextActionButton.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Leste Telecom
 
-## Getting Started
+Aplicação web da Leste Telecom construída com Next.js App Router. O projeto reúne páginas institucionais, fluxo de vendas, área corporativa, páginas de suporte/FAQ, Leste Móvel, Leste Clube e APIs usadas pelo frontend.
 
-First, run the development server:
+## Stack
+
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- Zustand
+- React Hook Form + Yup/Zod
+- MongoDB
+
+## Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O ambiente de desenvolvimento roda com Turbopack via `next dev --turbopack`.
 
-You can start editing the page by modifying `app/pageActionButton.js`. The page auto-updates as you edit the file.
+## Estrutura principal
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+  app/               rotas, layouts e endpoints API
+  components/        componentes reutilizaveis
+  pageComponents/    composicao das paginas por dominio
+  contexts/          providers globais
+  services/          integracoes e chamadas de servico
+  hooks/             hooks compartilhados
+  lib/               utilitarios de infraestrutura e regra de negocio
+  models/            modelos de dados
+  schemas/           validacoes
+  store/             estado global
+  assets/            imagens e icones
+```
 
-## Learn More
+## Layout e UI
 
-To learn more about NextActionButton.js, take a look at the following resources:
+Os padroes visuais do projeto estao documentados em [layout.md](./layout.md). Esse arquivo deve ser tratado como referencia para:
 
-- [NextActionButton.js Documentation](https://nextjs.org/docs) - learn about NextActionButton.js features and API.
-- [Learn NextActionButton.js](https://nextjs.org/learn) - an interactive NextActionButton.js tutorial.
+- containers, espacamentos e responsividade
+- cores e tokens de interface
+- padroes de inputs, botoes, cards e modais
+- organizacao de componentes e convencoes de implementacao
 
-You can check out [the NextActionButton.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Antes de criar ou alterar componentes, consulte `layout.md` para manter consistencia com o que ja existe no codigo.
 
-## Deploy on Vercel
+## Rotas e areas do projeto
 
-The easiest way to deploy your NextActionButton.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of NextActionButton.js.
+Algumas areas relevantes:
 
-Check out our [NextActionButton.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` home institucional
+- `/vendas` fluxo comercial
+- `/corporate` area corporativa
+- `/movel` Leste Movel
+- `/faq` central de ajuda
+- `/cameras`, `/lesteup`, `/leste-clube`, `/leste-suporte`
+- `/api/*` endpoints internos consumidos pelo frontend
+
+## Observacoes de arquitetura
+
+- O layout global fica em [`src/app/layout.js`](./src/app/layout.js).
+- O shell padrao fica em [`src/components/layout/RootShell.js`](./src/components/layout/RootShell.js) e remove header/footer em rotas com layout proprio, como `vendas`, `movel` e `corporate`.
+- Imports internos usam alias `@/`.
+- Estilos globais ficam concentrados em `src/app/globals.css` e arquivos pontuais em `src/styles/`.

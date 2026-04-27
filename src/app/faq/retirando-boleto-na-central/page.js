@@ -3,8 +3,8 @@ import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/retiradaboleto1.png"
-import image2 from "@/assets/faq/retiradaboleto2.png"
-import image3 from "@/assets/faq/retiradaboleto3.png"
+import image2 from "@/assets/faq/retiradaboleto2.webp"
+import image3 from "@/assets/faq/retiradaboleto3.webp"
 
 import Image from "next/image";
 
@@ -51,3 +51,4 @@ export default function RetiradoBoletoNaCentral(props) {
         </main>
     );
 }
+

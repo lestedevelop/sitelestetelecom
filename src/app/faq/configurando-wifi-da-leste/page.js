@@ -2,13 +2,13 @@ import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/configurando-wifi-da-leste6.png"
-import image2 from "@/assets/faq/configurando-wifi-da-leste5.png"
-import image3 from "@/assets/faq/configurando-wifi-da-leste4.png"
-import image4 from "@/assets/faq/configurando-wifi-da-leste3.png"
-import image6 from "@/assets/faq/configurando-wifi-da-leste.png"
-import image7 from "@/assets/faq/configurando-wifi-da-leste2.png"
-import image5 from "@/assets/faq/configurando-wifi-da-leste7.png"
+import image1 from "@/assets/faq/configurando-wifi-da-leste6.webp"
+import image2 from "@/assets/faq/configurando-wifi-da-leste5.webp"
+import image3 from "@/assets/faq/configurando-wifi-da-leste4.webp"
+import image4 from "@/assets/faq/configurando-wifi-da-leste3.webp"
+import image6 from "@/assets/faq/configurando-wifi-da-leste.webp"
+import image7 from "@/assets/faq/configurando-wifi-da-leste2.webp"
+import image5 from "@/assets/faq/configurando-wifi-da-leste7.webp"
 import Image from "next/image";
 
 export const metadata = {
@@ -70,3 +70,4 @@ export default function ConfigWIFIDaLeste() {
         </main>
     );
 }
+

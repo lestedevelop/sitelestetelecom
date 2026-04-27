@@ -7,8 +7,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import banner from "@/assets/bannerhome-01-2026.png";
-import banner2 from "@/assets/bannehome-01-2026-1.png";
+import banner from "@/assets/bannerhome-01-2026.webp";
+import banner2 from "@/assets/bannehome-01-2026-1.webp";
 
 
 export default function HeroSlider() {

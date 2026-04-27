@@ -3,9 +3,9 @@ import AppBarCorporate from "@/pageComponents/corporate/AppBarCorporate";
 import FooterCorporate from "@/pageComponents/corporate/FooterCorporate";
 import RecentPosts from "@/pageComponents/corporate/blog/RecentPosts";
 import CommentsBox from "@/pageComponents/corporate/blog/CommentsBox";
-import post2 from "@/assets/blog/post2.png";
-import post3 from "@/assets/blog/post3.png";
-import post4 from "@/assets/blog/post4.png";
+import post2 from "@/assets/blog/post2.webp";
+import post3 from "@/assets/blog/post3.webp";
+import post4 from "@/assets/blog/post4.webp";
 
 async function getPostBySlug(slug) {
    return {

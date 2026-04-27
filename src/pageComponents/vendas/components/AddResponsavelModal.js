@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Modal from "@/components/layout/Modal";
 import Input from "@/pageComponents/vendas/form/Input";
 import { maskCPF, maskDataNascimento, maskRG, maskCelular, maskTelefone } from "@/utils/masks";
+import {VENDAS_GTM_BUTTON_IDS, VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
 export default function AddResponsavelModal({ open, onClose, onAdd }) {
     const {
@@ -46,9 +47,16 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
                 <h4 className="text-base font-semibold text-darkgreen">Informações pessoais</h4>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <Input label="Nome completo" register={register} name="nome" error={errors?.nome?.message} />
+                    <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.nome}
+                        label="Nome completo"
+                        register={register}
+                        name="nome"
+                        error={errors?.nome?.message}
+                    />
 
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.cpf}
                         label="CPF"
                         name="cpf"
                         error={errors?.cpf?.message}
@@ -62,6 +70,7 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.dataNascimento}
                         label="Data de nascimento"
                         name="dataNascimento"
                         placeholder="dd/mm/aaaa"
@@ -74,6 +83,7 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
                     />
 
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.rg}
                         label="RG"
                         name="rg"
                         error={errors?.rg?.message}
@@ -89,6 +99,7 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.cargoParentesco}
                         label="Cargo/Parentesco"
                         register={register}
                         name="cargoParentesco"
@@ -96,11 +107,18 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
                         placeholder="Ex: Filho"
                     />
 
-                    <Input label="E-mail" register={register} name="email" error={errors?.email?.message} />
+                    <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.email}
+                        label="E-mail"
+                        register={register}
+                        name="email"
+                        error={errors?.email?.message}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.celular}
                         label="Celular / WhatsApp"
                         name="celular"
                         error={errors?.celular?.message}
@@ -112,6 +130,7 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
                     />
 
                     <Input
+                        id={VENDAS_GTM_FORM_IDS.responsavel.telefone}
                         label="Telefone"
                         name="telefone"
                         error={errors?.telefone?.message}
@@ -125,6 +144,7 @@ export default function AddResponsavelModal({ open, onClose, onAdd }) {
 
                 <div className="flex justify-end pt-2">
                     <button
+                        id={VENDAS_GTM_BUTTON_IDS.responsavelAdicionar}
                         type="submit"
                         disabled={isSubmitting}
                         className="w-40 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"

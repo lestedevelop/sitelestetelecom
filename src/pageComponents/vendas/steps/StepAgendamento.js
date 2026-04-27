@@ -8,6 +8,7 @@ import { useSales } from "@/contexts/SalesContextNew";
 import { findCodCidByName } from "@/utils/cidade";
 import { cidadesMock } from "@/mocks/cidadesMock";
 import ProRataSection from "@/pageComponents/vendas/components/ProRataSection";
+import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
 
 export default function StepAgendamento({ onNext, onBack }) {
     const { data, setAgendamento } = useSales();
@@ -88,6 +89,7 @@ export default function StepAgendamento({ onNext, onBack }) {
             {data?.agendamento.start && <ProRataSection/>}
             {data?.agendamento.start && <div className="pt-6">
                 <button
+                    id={VENDAS_GTM_BUTTON_IDS.agendamentoContinuar}
                     type="button"
                     onClick={handleContinue}
                     className="w-48 h-12 rounded-md bg-primary text-white font-semibold disabled:opacity-60"

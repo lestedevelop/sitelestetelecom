@@ -1,8 +1,8 @@
 import Image from "next/image";
 import logoLesteClube from "@/assets/lesteclube.svg";
 import CardApp from "@/components/cards/CardApp";
-import bannerClube from "@/assets/bannerclube.png";
-import bannerClubeMobile from "@/assets/bannerclube-mobile.png";
+import bannerClube from "@/assets/bannerclube.webp";
+import bannerClubeMobile from "@/assets/bannerclube-mobile.webp";
 
 export default function BannerClube() {
     return (

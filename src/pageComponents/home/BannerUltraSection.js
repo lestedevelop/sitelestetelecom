@@ -1,6 +1,6 @@
 'use-client'
 import Section from "@/components/layout/Section";
-import bannerLeste from "@/assets/LesteUltraBanner.png"
+import bannerLeste from "@/assets/LesteUltraBanner.webp"
 import LogoLesteBranco from "@/assets/lestelogocapabranco.png"
 import Image from "next/image";
 import VelocidadeBanner from "@/components/typoraphy/SloganTitle";

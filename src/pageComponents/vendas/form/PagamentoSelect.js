@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const PAYMENT_OPTIONS = [
-    { value: "pix_instalacao", label: "Pix na instalação" },
-    { value: "credito_instalacao", label: "Crédito na instalação" },
-    { value: "debito_instalacao", label: "Débito na instalação" },
-    { value: "credito_parcelado", label: "Crédito 10x na instalação" },
-];
+import {VENDAS_GTM_PAYMENT_IDS} from "@/lib/gtm/vendas";
 
 export default function PagamentoSelect({ options ,value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,14 +31,15 @@ export default function PagamentoSelect({ options ,value, onChange }) {
             </label>
 
             <button
+                id="gtm-vendas-pagamento-toggle"
                 type="button"
                 onClick={() => setIsOpen((v) => !v)}
                 className="w-full rounded-xl bg-white px-6 py-5 text-left border border-gray-300
                    flex items-center justify-between"
             >
-        <span className={`text-lg ${selected ? "text-primary" : "text-gray-400"}`}>
-          {selected ? selected.label : "Clique e escolha"}
-        </span>
+                <span className={`text-lg ${selected ? "text-primary" : "text-gray-400"}`}>
+                    {selected ? selected.label : "Clique e escolha"}
+                </span>
 
                 <svg
                     className={`h-5 w-5 text-primary transition-transform ${
@@ -66,6 +61,7 @@ export default function PagamentoSelect({ options ,value, onChange }) {
 
             {isOpen && (
                 <div
+                    id="gtm-vendas-pagamento-opcoes"
                     role="listbox"
                     className="absolute left-0 right-0 mt-2 overflow-hidden rounded-2xl bg-white
                      border border-black/10 shadow-[0_10px_24px_rgba(0,0,0,0.20)] z-20"
@@ -76,10 +72,12 @@ export default function PagamentoSelect({ options ,value, onChange }) {
                             return (
                                 <button
                                     key={opt.value}
+                                    id={VENDAS_GTM_PAYMENT_IDS[opt.value] || `gtm-vendas-pagamento-${opt.value}`}
                                     type="button"
                                     role="option"
                                     aria-selected={isSelected}
                                     onClick={() => choose(opt)}
+                                    data-gtm-payment={opt.value}
                                     className={[
                                         "w-full px-6 py-3 text-left text-lg text-primary hover:bg-emerald-50",
                                         isSelected ? "bg-light font-semibold" : "",

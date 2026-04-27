@@ -2,14 +2,14 @@ import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/boletowhatsapp1.png"
-import image2 from "@/assets/faq/boletowhatsapp2.png"
-import image3 from "@/assets/faq/boletowhatsapp3.png"
+import image1 from "@/assets/faq/boletowhatsapp1.webp"
+import image2 from "@/assets/faq/boletowhatsapp2.webp"
+import image3 from "@/assets/faq/boletowhatsapp3.webp"
 import image4 from "@/assets/faq/boletowhatsapp4.png"
-import image5 from "@/assets/faq/boletowhatsapp5.png"
-import image6 from "@/assets/faq/boletowhatsapp6.png"
-import image7 from "@/assets/faq/boletowhatsapp7.png"
-import image8 from "@/assets/faq/boletowhatsapp8.png"
+import image5 from "@/assets/faq/boletowhatsapp5.webp"
+import image6 from "@/assets/faq/boletowhatsapp6.webp"
+import image7 from "@/assets/faq/boletowhatsapp7.webp"
+import image8 from "@/assets/faq/boletowhatsapp8.webp"
 
 
 import Image from "next/image";
@@ -76,3 +76,4 @@ export default function RetirandoBoletoPeloWhatsapp(props) {
         </main>
     );
 }
+

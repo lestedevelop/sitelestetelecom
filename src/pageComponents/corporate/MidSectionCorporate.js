@@ -5,7 +5,7 @@ import cgr from "@/assets/icons/cgr.png"
 import cache from "@/assets/icons/cache.png";
 import backoffice from "@/assets/icons/backoffice.png";
 import backbone from "@/assets/icons/backbone.png";
-import mapaConexao from "@/assets/mapacorporate.png"
+import mapaConexao from "@/assets/mapacorporate.webp"
 
 import equinix from "@/assets/equinix.png"
 import lumem from "@/assets/lumem.png"

@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.png"
+import image2 from "@/assets/faq/seminternet2.webp"
 import Image from "next/image";
 
 export const metadata = {
@@ -47,3 +47,4 @@ export default function AtualizacaoDeBoleto(props) {
         </main>
     );
 }
+
