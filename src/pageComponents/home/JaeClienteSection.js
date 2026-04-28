@@ -31,12 +31,12 @@ const benefits = [
 
 function BenefitCard({item}) {
     return (
-        <article className="relative rounded-[1.75rem] bg-white px-6 py-7 shadow-[0_14px_36px_rgba(0,0,0,.05)] md:min-h-[152px] md:pl-24 lg:min-h-[150px]">
-            <div className="mb-5 flex items-center gap-4 md:absolute md:left-0 md:top-1/2 md:mb-0 md:-translate-x-1/2 md:-translate-y-1/2">
-                    <Image src={item.icon} alt="" className="flex h-24 w-24 items-center justify-center rounded-full"/>
+        <article className="relative rounded-[1.75rem] bg-white px-6 pb-7 pt-16 shadow-[0_14px_36px_rgba(0,0,0,.05)] md:min-h-[152px] md:pl-24 md:pt-7 lg:min-h-[150px]">
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 md:left-0 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                <Image src={item.icon} alt="" className="h-24 w-24 rounded-full"/>
             </div>
 
-            <div className="space-y-2 text-left">
+            <div className="space-y-2 text-center md:text-left">
                 <h3 className="text-[1.85rem] font-semibold leading-none tracking-[-0.03em] text-primary">
                     {item.title}
                 </h3>
@@ -67,7 +67,7 @@ export default function JaeClienteSection() {
                         </p>
                     </header>
 
-                    <div className="grid gap-x-18 gap-y-6 md:grid-cols-2 md:gap-y-8">
+                    <div className="grid gap-y-18 md:grid-cols-2 md:gap-x-20 md:gap-y-8 md:pl-14">
                         {benefits.map((item) => (
                             <BenefitCard key={item.title} item={item}/>
                         ))}

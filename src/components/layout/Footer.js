@@ -12,6 +12,7 @@ import youtube from "@/assets/icons/footer/youtube.svg";
 import portalLeste from "@/assets/portalLeste.svg";
 import appLeste from "@/assets/appLeste.svg";
 import reclameAqui from "@/assets/icons/footer/img.png";
+import topoFooter from "@/assets/icons/footer/topo.svg";
 
 const socialLinks = [
     {href: "https://wa.me/552120201300", label: "WhatsApp", icon: whatsIcon},
@@ -43,7 +44,15 @@ const supportPhones = [
 
 export default function Footer() {
     return (
-        <footer className="relative w-full overflow-x-hidden overflow-y-visible bg-darkgreen text-white">
+        <footer className="relative w-full z-50 bg-[#003B2E] mt-[5%] text-white">
+            <div className="w-full absolute top-0 -translate-y-[50%]">
+                <Image
+                    src={topoFooter}
+                    alt=""
+                    className="w-full"
+                />
+            </div>
+
             <div className="container pt-14 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
                 <div className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
                     <div className="space-y-10">
