@@ -2,7 +2,6 @@ import Image from "next/image";
 import CardApp from "@/components/cards/CardApp";
 import arrow from "@/assets/arrowright.svg";
 import bannerSuporteApp from "@/assets/lestesuporte.webp";
-import bannerCentral from "@/assets/lestecentral.webp";
 
 export default function SectionApp() {
     return (
@@ -84,7 +83,6 @@ export default function SectionApp() {
 
                     </div>
                     <div className="md:max-w-1/2 flex mt-10 md:mt-0 flex-col gap-y-8">
-                        <Image alt={"banner"} src={bannerCentral} width={370}/>
                         <CardApp download link={"https://onelink.to/lestecentral"}/>
                     </div>
                 </div>

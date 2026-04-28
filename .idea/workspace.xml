@@ -4,21 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/assets/home/SELO-MAISPREMIADO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/SELO-RA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/banner-assinante.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/banner-assinantemobile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/card-servico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/topo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/AreaAssinanteSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Fix: ajusta vencimento prorata">
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/JaeClienteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/JaeClienteSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/SectionBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/SectionBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +21,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="557" />
+    <option name="cachedIndexableFilesCount" value="561" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="McpProjectServerCommands">
@@ -58,30 +48,19 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "newLayout",
+    "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/wamp64/www/projetos/leste/sitelestetelecom/src/assets/icons/footer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\projetos\leste\sitelestetelecom\src\assets\icons\footer" />
-      <recent name="C:\wamp64\www\projetos\leste\sitelestetelecom\src\assets\home" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\vendas\icons" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom" />
-    </key>
-  </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -100,7 +79,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -112,25 +91,11 @@
       <option name="presentableId" value="Default" />
       <updated>1777292243098</updated>
       <workItem from="1777292244136" duration="89000" />
-      <workItem from="1777292369878" duration="71000" />
-      <workItem from="1777292537737" duration="16933000" />
+      <workItem from="1777391091753" duration="6130000" />
     </task>
-    <task id="LOCAL-00001" summary="++">
-      <option name="closed" value="true" />
-      <created>1777292385877</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1777292385877</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="++" />
-    <option name="LAST_COMMIT_MESSAGE" value="++" />
   </component>
 </project>

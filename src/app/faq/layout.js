@@ -1,5 +1,4 @@
-import SectionBanner from "@/components/layout/SectionBanner";
-import bannerFaq from "@/assets/bannerfaq.webp";
+import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 export const metadata = {
     title: "FAQ | Leste Telecom",
@@ -10,11 +9,18 @@ export default function FaqLayout({ children }) {
     return (
         <div className="bg-white text-[#5F5F5F]">
             <section className="w-full">
-                <SectionBanner className="bg-primary w-full h-[182px] md:h-[350px]" titleClassName={"text-7xl"} subtitleClassName={"text-[15px]"} title={"FAQ"} subtitle={"Tire suas dúvidas aqui.\n"} image={bannerFaq}
-                />
+                <HomeHeroBanner
+                    alt="Banner FAQ da Leste Telecom"
+                    className="h-[182px] md:h-[350px]"
+                    contentClassName="container flex flex-col justify-center text-light"
+                >
+                    <div className="max-w-48 md:max-w-66">
+                        <h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>
+                        <p className="text-[13px] md:text-[26px]">Tire suas duvidas aqui.</p>
+                    </div>
+                </HomeHeroBanner>
             </section>
             {children}
         </div>
     );
 }
-
