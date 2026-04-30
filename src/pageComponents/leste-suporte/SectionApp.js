@@ -1,14 +1,16 @@
 import Image from "next/image";
 import CardApp from "@/components/cards/CardApp";
 import arrow from "@/assets/arrowright.svg";
+import arrow2 from "@/assets/arrowrightlight.svg";
 import bannerSuporteApp from "@/assets/app/mockup-app.png";
 import bannerSuporteApp2 from "@/assets/app/mockup-app2.png";
 
 function BulletItem({ children, light = false }) {
   return (
     <li className="flex items-start gap-3 md:gap-4">
-      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-darkgreen md:h-[34px] md:w-[34px]">
-        <Image src={arrow} alt="icon" className="ml-3 w-3 md:w-5" />
+      <div className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${light? "bg-light" : "bg-darkgreen" } md:h-[34px] md:w-[34px]`}>
+        {light && <Image src={arrow2} alt="icon" className="ml-3 w-3 md:w-5 stroke-primary"/>}
+        {!light && <Image src={arrow} alt="icon" className="ml-3 w-3 md:w-5 stroke-primary"/>}
       </div>
       <p className={`text-sm leading-5 md:text-xl md:leading-7 ${light ? "text-light" : "text-primary"}`}>
         {children}
