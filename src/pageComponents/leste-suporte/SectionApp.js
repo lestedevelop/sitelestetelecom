@@ -8,7 +8,7 @@ function BulletItem({ children, light = false }) {
   return (
     <li className="flex items-start gap-3 md:gap-4">
       <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-darkgreen md:h-[34px] md:w-[34px]">
-        <Image src={arrow} alt="icon" className="ml-0.5 w-3 md:w-5" />
+        <Image src={arrow} alt="icon" className="ml-3 w-3 md:w-5" />
       </div>
       <p className={`text-sm leading-5 md:text-xl md:leading-7 ${light ? "text-light" : "text-primary"}`}>
         {children}
@@ -59,7 +59,7 @@ export default function SectionApp() {
         </div>
       </section>
 
-      <section className="translate-y-10 lg:translate-y-24 bg-primary pb-12 2xl:translate-y-36 2xl:pb-24">
+      <section className="translate-y-10 lg:translate-y-24 bg-primary pb-12 2xl:translate-y-38 2xl:pb-24">
         <div className="container flex min-h-screen w-full flex-col justify-between gap-10 py-12 md:min-h-[760px] md:gap-14 md:py-16 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-center">
           <div className="order-2 text-light lg:order-1">
             <CardApp central className="mx-auto lg:mx-0" />

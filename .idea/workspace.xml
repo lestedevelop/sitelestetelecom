@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/assets/app/mockup-app.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/app/mockup-app2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/leste-suporte/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/leste-suporte/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/CardApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +85,7 @@
       <updated>1777292243098</updated>
       <workItem from="1777292244136" duration="89000" />
       <workItem from="1777391091753" duration="7932000" />
-      <workItem from="1777546929461" duration="14426000" />
+      <workItem from="1777546929461" duration="14744000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -108,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777555962571</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="++">
+      <option name="closed" value="true" />
+      <created>1777572297848</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777572297848</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

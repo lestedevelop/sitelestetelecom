@@ -44,16 +44,16 @@ const supportPhones = [
 
 export default function Footer() {
     return (
-        <footer className="relative w-full z-50 bg-[#003B2E] mt-[5%] text-white">
-            <div className="w-full absolute top-0 -translate-y-[50%]">
+        <footer className="relative w-full bg-[#003B2E] mt-[5%] text-white">
+            <div className="w-full absolute z-40 top-0 -translate-y-[50%]">
                 <Image
                     src={topoFooter}
                     alt=""
-                    className="w-full"
+                    className="w-full xl:mb-24"
                 />
             </div>
 
-            <div className="container pt-14 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
+            <div className="container pt-14 z-50 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
                 <div className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
                     <div className="space-y-10">
                         <div className="flex flex-wrap items-center gap-3">
