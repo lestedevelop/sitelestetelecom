@@ -15,13 +15,22 @@ export default function HomeHeroBanner({
     children,
 }) {
     const content = (
-        <div className={`relative h-[calc(100dvh-93px)] overflow-hidden md:h-[380px] lg:h-[460px] xl:h-[520px] ${className}`}>
+        <div className={`relative h-[calc(100dvh-93px)] overflow-hidden bg-primary md:h-[380px] lg:h-[460px] xl:h-[520px] ${className}`}>
+            <Image
+                src={bannerHomeDesktop}
+                alt=""
+                fill
+                priority={priority}
+                aria-hidden="true"
+                className="pointer-events-none hidden scale-110 object-cover object-center opacity-45 blur-2xl lg:block 2xl:scale-[1.18]"
+                sizes="100vw"
+            />
             <Image
                 src={bannerHomeDesktop}
                 alt={alt}
                 fill
                 priority={priority}
-                className="hidden object-cover lg:block"
+                className="hidden object-cover object-center lg:block 2xl:object-contain"
                 sizes="100vw"
             />
             <Image
