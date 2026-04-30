@@ -13,34 +13,24 @@ import seloMaisPremiado from "@/assets/home/SELO-MAISPREMIADO.png";
 
 const seals = [
     {
-        description: "*Premio de melhor atendimento pelo Reclame Aqui 2025",
+        description: "*Alta avaliação no atendimento (Reclame Aqui)",
         image: seloRa1000,
         alt: "Selo RA1000 de melhor atendimento de 2025",
     },
     {
-        description: "*Selo de provedor mais premiado pelo MelhorPlano em 2025",
+        description: "*Destaque em velocidade, satisfação e qualidade (MelhorPlano)\n",
         image: seloMaisPremiado,
         alt: "Selo de 28 premios em 2025 do MelhorPlano",
     },
     {
-        description: "*Selo de provedor premiado pelo MelhorPlano em 2025",
-        image: seloMaisPremiado,
-        alt: "Selo de provedor premiado pelo MelhorPlano em 2025",
-    },
-    {
-        description: "*Selo de provedor premiado pelo MelhorPlano em 2025",
-        image: seloMaisPremiado,
-        alt: "Selo de provedor premiado pelo MelhorPlano em 20252",
-    },
-    {
-        description: "*Selo de provedor premiado pelo MelhorPlano em 2025",
-        image: seloMaisPremiado,
-        alt: "Selo de provedor premiado pelo MelhorPlano em 20251",
-    },
-    {
-        description: "*Premio de melhor atendimento pelo Reclame Aqui 2025",
+        description: "*Alta avaliação no atendimento (Reclame Aqui)",
         image: seloRa1000,
-        alt: "Selo RA1000 de melhor atendimento de 20255",
+        alt: "Selo RA1000 de melhor atendimento de 20251",
+    },
+    {
+        description: "*Destaque em velocidade, satisfação e qualidade (MelhorPlano)\n",
+        image: seloMaisPremiado,
+        alt: "Selo de 28 premios em 2025 do MelhorPlano1",
     },
 ];
 
@@ -73,12 +63,12 @@ export default function AmaisPremiadaDoEstado() {
                         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
                             <header>
                                 <h2 className="text-3xl lg:text-6xl font-bold leading-[1.02] tracking-[-0.04em] text-primary md:text-[4rem]">
-                                    A mais Premiada
+                                    Prêmios
                                     <br />
-                                    do Estado!
+                                    e reconhecimento
                                 </h2>
                                 <p className="mt-3 hidden lg:block text-3xl leading-7 pb-8 text-darkgreen md:text-[2rem] md:leading-none">
-                                    Confira os nossos premios
+                                    Destaque em atendimento, velocidade e satisfação.
                                 </p>
                             </header>
 

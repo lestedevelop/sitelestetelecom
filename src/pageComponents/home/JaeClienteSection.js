@@ -7,24 +7,24 @@ import roteadorIcon from "@/assets/home/roteador-home.svg";
 
 const benefits = [
     {
-        title: "A melhor estabilidade",
-        description: "Nas cidades de Niteroi, Marica, Itaborai e Rio Bonito*",
-        note: "*Segundo o Premio Melhor Plano.net de 2025",
+        title: "Internet mais estável",
+        description: "Com 100% fibra ótica, você tem mais estabilidade e velocidade próxima da contratada.",
+        note: "Com base no Prêmio MelhorPlano.net 2026",
         icon: roteadorIcon,
     },
     {
         title: "Suporte tecnico 24h",
-        description: "Via telefone, WhatsApp, Instagram, Messenger, Twitter e Telegram",
+        description: "Atendimento por telefone, WhatsApp, Instagram, Messenger, Twitter e Telegram.",
         icon: suporteIcon,
     },
     {
-        title: "Conheca nossos SVA's",
-        description: "Servicos exclusivos para assinantes Leste, como: Leste Clube, Bebanca e Skeelo.",
+        title: "Além da internet",
+        description: "Acesso a serviços inclusos como Leste Clube, Skeelo e outros parceiros.",
         icon: svaIcon,
     },
     {
         title: "Atendimento Nota 1000",
-        description: "Reconhecida com o selo RA1000, que certifica excelencia no atendimento ao cliente.",
+        description: "Selo RA1000 no Reclame Aqui, que certifica excelência no atendimento ao cliente.",
         icon: nota1000Icon,
     },
 ];
@@ -60,10 +60,10 @@ export default function JaeClienteSection() {
                 <div className="mx-auto max-w-[1020px]">
                     <header className="mb-10 md:mb-12">
                         <h2 className="text-[2.2rem] font-bold leading-[1.02] tracking-[-0.04em] text-primary md:text-[4rem]">
-                            Por que escolher o melhor caminho?
+                            O que você pode esperar da sua internet
                         </h2>
                         <p className="mt-3 text-lg leading-7 text-darkgreen md:text-[2rem] md:leading-none">
-                            Confira os nossos principais beneficios
+                            O caminho para uma conexão melhor no seu dia a dia.
                         </p>
                     </header>
 

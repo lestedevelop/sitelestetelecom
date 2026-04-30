@@ -17,16 +17,17 @@ export default function AreaAssinanteSection() {
                         </div>
                         <div className="px-8 pb-10 pt-6 text-white">
                             <h2 className="text-[2rem] font-bold leading-tight">
-                                Já faz parte<br />da Leste?
+                                Já é cliente
+                                <br />Leste?
                             </h2>
                             <p className="mt-2 text-sm leading-6 text-white/80">
-                                O ambiente exclusivo para assinantes Leste
+                                Consulte faturas, serviços e tudo da sua conta em um só lugar.
                             </p>
                             <Link
                                 href="https://minhaarea.lestetelecom.com.br"
                                 className="mt-6 inline-block rounded-full bg-darkgreen px-8 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-darkgreen/80"
                             >
-                                Área do Assinante
+                                Acessar minha conta
                             </Link>
                         </div>
                     </div>

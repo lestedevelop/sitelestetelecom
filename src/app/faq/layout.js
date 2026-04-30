@@ -5,7 +5,7 @@ export const metadata = {
     description: "Leste Telecom",
 };
 
-export default function FaqLayout({ children }) {
+export default function FaqLayout({ children,title,subtitle }) {
     return (
         <div className="bg-white text-[#5F5F5F]">
             <section className="w-full">
@@ -15,8 +15,8 @@ export default function FaqLayout({ children }) {
                     contentClassName="container flex flex-col justify-center text-light"
                 >
                     <div className="max-w-48 md:max-w-66">
-                        <h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>
-                        <p className="text-[13px] md:text-[26px]">Tire suas duvidas aqui.</p>
+                        <h1 className="mb-6 text-2xl font-bold md:text-[50px]">{title}</h1>
+                        <p className="text-[13px] md:text-[26px]">{subtitle}</p>
                     </div>
                 </HomeHeroBanner>
             </section>

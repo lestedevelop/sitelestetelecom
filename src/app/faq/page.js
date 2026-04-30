@@ -1,8 +1,5 @@
 import imageFaq from "@/assets/imagefaq.jpg";
 import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
-import googlePlay from "@/assets/googleplay.svg";
-import appstore from "@/assets/appstore.svg";
-import checkIcon from "@/assets/check.svg";
 import Image from "next/image";
 import autoatendimento from "@/assets/autoatendimento.svg";
 import nossaloja from "@/assets/nossaloja.svg";
@@ -10,54 +7,70 @@ import central from "@/assets/central24.svg";
 
 export default function Faq() {
   return (
-      <div className="min-h-full">
-        <FaqHelpCenter />
-        <section className="py-16 md:py-0 bg-primary">
-          <div className="flex flex-col-reverse gap-y-12 md:flex-row container justify-between items-center w-full min-h-[547px]">
-              <Image src={imageFaq} alt="" className={"rounded-3xl"} />
-              <div className=" flex flex-col items-start justify-start gap-8">
-                  <h3 className={"font-bold text-light text-4xl w-64"}>Baixe agora o Leste Central!</h3>
-                  <p className={"text-xl text-light"}>O App <span className={"font-bold"}>Leste Central </span> muito <span className={"font-bold"}>prático e fácil</span> de usar!</p>
-                  <div className={"flex items-center justify-center gap-2 md:gap-x-6"}>
-                      <a href="https://onelink.to/lestecentral">
-                          <Image src={googlePlay} width={114} alt={"ICONE"}/>
-                      </a>
-                      <a href="https://onelink.to/lestecentral">
-                          <Image src={appstore} width={114} alt={"ICONE"}/>
-                      </a>
-                  </div>
-                  <ul className={"text-xl flex text-light flex-col gap-6"}>
-                      <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Acesse ao boleto</li>
-                      <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Troque a senha do Wifi</li>
-                      <li className={"flex gap-6"}><Image src={checkIcon} width={25} alt={""} />Receba avisos</li>
-                  </ul>
-              </div>
-          </div>
-        </section>
-          <section className={"py-8 bg-graylighter"}>
-             <div className="container text-center p-6">
-               <div className="py-6 mb-4">
-                   <h2 className={"text-primary text-4xl font-bold"}>Canais de atendimento</h2>
-                   <p className={"font-light text-md text-darkgreen"}>Diversos canais de atendimento para melhor te atender!</p>
-               </div>
+    <div className="min-h-full">
+      <FaqHelpCenter />
 
-                 <div className={"flex md:flex-row flex-col items-center justify-center gap-6"}>
-                     <div className="flex items-center justify-center bg-light gap-4  rounded-xl w-[250px] h-[90px]">
-                         <Image src={autoatendimento} width={40} alt={""} />
-                         <a className={"text-primary text-md w-32 font-bold"} href="https://api.whatsapp.com/send/?phone=552120201300&text&app_absent=0">Autoatendimento WhatsApp</a>
-                     </div>
-                     <div className="flex items-center justify-center bg-light gap-4  rounded-xl w-[250px] h-[90px]">
-                         <Image src={nossaloja} width={40} alt={""} />
-                         <a className={"text-primary text-md w-32 font-bold"} href="https://www.lestetelecom.com.br/lojas">Nossas Lojas</a>
-                     </div>
-                     <div className="flex items-center justify-center bg-light gap-4  rounded-xl w-[250px] h-[90px]">
-                         <Image src={central} width={40} alt={""} />
-                         <a className={"text-primary text-md w-32 font-bold"} href="#">Central 24h</a>
-                     </div>
-                 </div>
-             </div>
-          </section>
-      </div>
+      <section className="bg-primary py-16 md:py-0">
+        <div className="container flex min-h-[547px] items-center justify-center">
+          <div className="sr-only">
+            <h2>Baixe agora o Leste Central</h2>
+            <p>O app Leste Central e pratico e facil de usar.</p>
+            <ul>
+              <li>Acesse ao boleto</li>
+              <li>Troque a senha do Wifi</li>
+              <li>Receba avisos</li>
+            </ul>
+            <a href="https://onelink.to/lestecentral">Google Play</a>
+            <a href="https://onelink.to/lestecentral">App Store</a>
+          </div>
+
+          <Image
+            src={imageFaq}
+            alt="Banner do aplicativo Leste Central"
+            className="rounded-3xl"
+          />
+        </div>
+      </section>
+
+      <section className="bg-graylighter py-8">
+        <div className="container p-6 text-center">
+          <div className="mb-4 py-6">
+            <h2 className="text-4xl font-bold text-primary">
+              Canais de atendimento
+            </h2>
+            <p className="text-md font-light text-darkgreen">
+              Diversos canais de atendimento para melhor te atender!
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+            <div className="flex h-[90px] w-[250px] items-center justify-center gap-4 rounded-xl bg-light">
+              <Image src={autoatendimento} width={40} alt="" />
+              <a
+                className="w-32 text-md font-bold text-primary"
+                href="https://api.whatsapp.com/send/?phone=552120201300&text&app_absent=0"
+              >
+                Autoatendimento WhatsApp
+              </a>
+            </div>
+            <div className="flex h-[90px] w-[250px] items-center justify-center gap-4 rounded-xl bg-light">
+              <Image src={nossaloja} width={40} alt="" />
+              <a
+                className="w-32 text-md font-bold text-primary"
+                href="https://www.lestetelecom.com.br/lojas"
+              >
+                Nossas Lojas
+              </a>
+            </div>
+            <div className="flex h-[90px] w-[250px] items-center justify-center gap-4 rounded-xl bg-light">
+              <Image src={central} width={40} alt="" />
+              <a className="w-32 text-md font-bold text-primary" href="#">
+                Central 24h
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
-

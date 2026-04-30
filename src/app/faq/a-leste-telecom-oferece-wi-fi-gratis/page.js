@@ -1,5 +1,4 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
 import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import image1 from "@/assets/faq/seminternet1.png"
@@ -33,7 +32,6 @@ export default function WifiGratis() {
             </div>
 
             <SupportFooter/>
-            <Footer/>
         </main>
     );
 }
