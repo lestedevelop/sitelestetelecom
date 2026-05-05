@@ -1,42 +1,20 @@
-import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-import {IBM_Plex_Sans} from 'next/font/google'
-import {SiteProvider} from "@/contexts/SiteContext";
+import { SiteProvider } from "@/contexts/SiteContext";
 import RootShell from "@/components/layout/RootShell";
 
-
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
 export const metadata = {
-    title: "Leste Telecom",
-    description: "Leste Telecom",
+  title: "Leste Telecom",
+  description: "Leste Telecom",
 };
-const ibmPlexSans = IBM_Plex_Sans({
-    subsets: ['latin'],
-    weight: ['400', '500', '600', '700'],
-    display: 'swap',
-})
 
-
-export default function RootLayout({children}) {
-
-    return (
-        <html lang="en">
-        <body
-            className={`bg-light! ${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className} antialiased `}
-        >
+export default function RootLayout({ children }) {
+  return (
+    <html lang="pt-BR">
+      <body className="bg-light text-dark antialiased">
         <SiteProvider>
-            <RootShell>{children}</RootShell>
+          <RootShell>{children}</RootShell>
         </SiteProvider>
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }

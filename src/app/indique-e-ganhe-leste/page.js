@@ -1,71 +1,158 @@
 import Image from "next/image";
-import AppBar from "@/components/layout/AppBar";
-import Footer from "@/components/layout/Footer";
-import imageIndicacao from "@/assets/indicacao.jpg";
+import { CircleAlert } from "lucide-react";
 import FormIndicate from "@/components/Form/FormIndicate";
-import FormCompleto from "@/components/Form/FormCompleto";
+import indiqueImage from "@/assets/indique2.png";
+
+const PARTICIPATION_STEPS = [
+  {
+    number: "01",
+    text: "Preencha o formulário acima com seus dados e do seu amigo.",
+    accent: true,
+  },
+  {
+    number: "02",
+    text: "Aguarde seu amigo assinar.",
+  },
+  {
+    number: "03",
+    text: "Após seu amigo realizar o pagamento da primeira mensalidade você ganhará a mensalidade grátis na próxima fatura.",
+  },
+  {
+    number: "04",
+    text: "Pronto! No próximo mês você não pagará a mensalidade.",
+  },
+];
+
+const REGULATION_ITEMS = [
+  "O cliente ganhará um desconto de uma mensalidade por cada amigo que este indicar e assinar, qualquer plano.",
+  "Se indicar mais amigos, os valores serão descontados na fatura imediatamente subsequente. Não há limite para o número de pessoas indicadas. Quanto mais amigos assinarem e quitarem as primeiras mensalidades mais descontos sucessivamente.",
+  "Só serão computados como amigos indicados clientes devidamente instalados e com a primeira mensalidade em dia. Ou seja, apenas após o pagamento da primeira mensalidade de valor cheio será computado o amigo indicado.",
+  "Somente serão considerados como amigo indicado novas contratações. Outros planos ou acesso para quem já é assinante não serão contabilizados. Consideramos já assinante todo CPF em nossa base.",
+  "A promoção não depende de sorteio, concurso ou operação semelhante.",
+  "O cliente garante ter obtido autorização da pessoa indicada para fornecer seus dados pessoais e de contato à Leste Telecom. Caso haja qualquer reclamação, seja em âmbito judicial ou extrajudicial da pessoa indicada, o cliente responderá por eventuais perdas e danos suportados pela empresa.",
+  "Todos os dados do indicado devem ser colocados no formulário de nossa página. Dados incorretos ou faltantes podem invalidar a indicação.",
+  "O amigo indicado terá de confirmar na hora da contratação dos serviços nome e ou CPF da pessoa que o indicou. A falta de confirmação por parte do indicado invalidará a indicação. Todas as ligações são gravadas.",
+  "A atual promoção não envolve qualquer outro prêmio que não descontos em mensalidades.",
+  "Caso dois ou mais clientes indiquem o mesmo amigo, será considerada somente a indicação feita em primeiro lugar.",
+];
 
 export default function IndiqueEGanheLestePage() {
-    return (
-        <div className="min-h-full bg-light">
-            <section className={"bg-[url('/indiqueeganha-mobile.png')] md:bg-[url('/indiqueeganhe.png')] bg-cover bg-center"}>
-                <div className={"container flex flex-col md:flex-row md:justify-between min-h-[80vh] md:min-h-full py-12 md:py-24"}>
-                    <div className={'md:w-1/2'}>
-                        <h3 className={"text-[40px]/10 md:text-[70px]/16 font-bold"}>Indique <br/>e ganhe!</h3>
-                        <p className={"text-[13px] md:text-[20px] py-4 md:py-8"}> Ao indicar um amigo e ele assinar, você ganha
-                            a próxima mensalidade grátis</p>
-                    </div>
-                    <div className={"md:w-1/2"}>
-                        <FormIndicate />
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="min-h-full bg-light">
+      <section className="w-full bg-light">
+        <div className="container grid gap-8 py-10 md:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:py-16">
+          <div className="px-2 md:px-0">
+            <div className="mt-4 text-center lg:mt-8 lg:text-left">
+              <h1 className="text-[2.8rem] font-bold leading-none text-primary md:text-[4rem]">
+                Indique e ganhe
+              </h1>
+              <p className="mx-auto mt-3 max-w-[24rem] text-base leading-tight text-darkgreen/85 md:text-[1.45rem] lg:mx-0 lg:max-w-[18rem] lg:text-[1.7rem]">
+                Ao indicar um amigo e ele assinar, você ganha a próxima
+                mensalidade grátis.
+              </p>
+            </div>
 
-            <section className="">
-                <div className={"container w-full flex flex-col gap-y-8 md:flex-row py-0 pb-8 md:py-12 items-start justify-between"}>
-                    <div className="text-primary bg-light">
-                        <h3 className={"text-[33px] md:text-[40px] font-bold py-8"}>Para participar é fácil!</h3>
-                        <ul className="w-full flex flex-col gap-y-8">
-                            <li className="flex items-center gap-x-4 shrink-0">
-                                <div
-                                    className={"rounded-full bg-darkgreen flex items-center justify-center min-w-[40px] h-[40px] md:min-w-[60px] md:h-[60px]"}>
-                                    <p className={"text-light text-[22px] md:text-[35px] font-[helvetica] text-bold"}>1</p>
-                                </div>
-                                <p className={"text-xs md:text-[22px] text-darkgreen"}><span className={"font-bold"}>Preencha o formulário acima </span><br/>com
-                                    seus dados e do seu amigo.</p>
-                            </li>
-                            <li className="flex items-center gap-x-4 shrink-0">
-                                <div
-                                    className={"rounded-full bg-darkgreen flex items-center justify-center min-w-[40px] h-[40px] md:min-w-[60px] md:h-[60px]"}>
-                                    <p className={"text-light text-[22px] md:text-[35px] font-[helvetica] text-bold"}>2</p>
-                                </div>
-                                <p className={"text-xs md:text-[22px] text-darkgreen font-bold"}>Aguarde seu amigo assinar.</p>
-                            </li>
-                            <li className="flex items-center gap-x-4 shrink-0">
-                                <div
-                                    className={"rounded-full bg-darkgreen flex items-center justify-center min-w-[40px] h-[40px] md:min-w-[60px] md:h-[60px]"}>
-                                    <p className={"text-light text-[22px] md:text-[35px] font-[helvetica] text-bold"}>3</p>
-                                </div>
-                                <p className={"text-xs md:text-[22px] text-darkgreen"}>Após seu amigo realizar o <span
-                                    className={"font-bold"}>pagamento
-                                  da primeira mensalidade</span> você ganhará a <span className={"font-bold"}>mensalidade grátis</span> na
-                                    próxima fatura.</p>
-                            </li>
-                            <li className="flex items-center gap-x-4 shrink-0">
-                                <div
-                                    className={"rounded-full bg-darkgreen flex items-center justify-center min-w-[40px] h-[40px] md:min-w-[60px] md:h-[60px]"}>
-                                    <p className={"text-light text-[22px] md:text-[35px] font-[helvetica] text-bold"}>4</p>
-                                </div>
-                                <p className={"text-xs md:text-[22px] text-darkgreen"}>
-                                    <span className={"font-bold"}>Pronto!</span> No próximo mês
-                                    <span className={"font-bold"}>você não pagará</span>a mensalidade!
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <Image alt={"banner"} src={imageIndicacao} className={"max-w-full rounded-2xl md:max-w-[447px]"}/>
-                </div>
-            </section>
+            <div className="mt-8 overflow-hidden rounded-[1.7rem] bg-primary md:mt-10">
+              <Image
+                src={indiqueImage}
+                alt="Clientes usando notebook"
+                className="h-auto w-full"
+                priority
+              />
+            </div>
+          </div>
+
+          <div className="lg:pl-1">
+            <FormIndicate />
+          </div>
         </div>
-    );
+      </section>
+
+      <section className="w-full bg-[#d8eeea]">
+        <div className="container rounded-[2rem_2rem_0_0] px-6 py-12 md:px-10 md:py-16">
+          <h2 className="text-center text-[2.8rem] font-bold leading-none text-primary md:text-[4rem]">
+            Para participar é fácil!
+          </h2>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 md:hidden">
+            {PARTICIPATION_STEPS.map((step) => (
+              <article
+                key={step.number}
+                className={`flex min-h-[12rem] flex-col rounded-[2rem] px-5 py-6 ${
+                  step.accent ? "bg-[#10d0af]" : "bg-darkgreen"
+                }`}
+              >
+                <span
+                  className={`text-center text-[2.6rem] font-bold leading-none ${
+                    step.accent ? "text-darkgreen" : "text-[#effff9]"
+                  }`}
+                >
+                  {step.number}
+                </span>
+                <p
+                  className={`mt-5 text-sm font-semibold leading-tight ${
+                    step.accent ? "text-darkgreen" : "text-light"
+                  }`}
+                >
+                  {step.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 hidden space-y-4 md:mt-12 md:block md:space-y-5">
+            {PARTICIPATION_STEPS.map((step) => (
+              <article
+                key={step.number}
+                className={`flex flex-col gap-3 rounded-full px-8 py-5 md:flex-row md:items-center md:gap-8 md:px-16 md:py-7 ${
+                  step.accent ? "bg-[#10d0af]" : "bg-darkgreen"
+                }`}
+              >
+                <span
+                  className={`min-w-24 text-center text-[3.25rem] font-bold leading-none md:min-w-28 md:text-[4.1rem] ${
+                    step.accent ? "text-darkgreen" : "text-[#effff9]"
+                  }`}
+                >
+                  {step.number}
+                </span>
+                <p
+                  className={`max-w-4xl text-xl font-semibold leading-tight md:text-[2rem] ${
+                    step.accent ? "text-darkgreen" : "text-light"
+                  }`}
+                >
+                  {step.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="translate-y-10 lg:translate-y-24 bg-light pb-24 2xl:translate-y-38 2xl:pb-48">
+        <div className="container px-6 py-12 text-darkgreen md:px-10 md:py-16">
+          <div className="flex items-center gap-3">
+            <CircleAlert className="h-8 w-8 text-darkgreen" strokeWidth={2.2} />
+            <h2 className="text-[2.9rem] font-bold leading-none md:text-[4rem]">
+              Regulamento
+            </h2>
+          </div>
+
+          <div className="mt-8 space-y-1 text-base leading-7 text-darkgreen/85 md:text-[1.45rem] md:leading-8">
+            <p>Regras e condições</p>
+            <p>PROMOÇÃO INDIQUE E GANHE LESTE TELECOM 2024</p>
+            <p>Regras Gerais da Promoção</p>
+          </div>
+
+          <ol className="mt-8 space-y-3 text-base leading-7 text-darkgreen/90 md:text-[1.35rem] md:leading-8">
+            {REGULATION_ITEMS.map((item, index) => (
+              <li key={item}>
+                <span className="font-bold">{index + 1}. </span>
+                {item}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    </div>
+  );
 }
