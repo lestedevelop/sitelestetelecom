@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CircleAlert } from "lucide-react";
 import FormIndicate from "@/components/Form/FormIndicate";
 import indiqueImage from "@/assets/indique2.png";
+import HeroSlide from "@/pageComponents/home/HeroSlide";
 
 const PARTICIPATION_STEPS = [
   {
@@ -39,6 +40,8 @@ const REGULATION_ITEMS = [
 export default function IndiqueEGanheLestePage() {
   return (
     <div className="min-h-full bg-light">
+      <HeroSlide />
+
       <section className="w-full bg-light">
         <div className="container grid gap-8 py-10 md:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:py-16">
           <div className="px-2 md:px-0">
