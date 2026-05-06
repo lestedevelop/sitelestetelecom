@@ -5,101 +5,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { getLesteServices } from "@/mocks/lesteServices";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import cardServico from "@/assets/cardlesteup.png";
-
-const services = [
-  {
-    title: "Leste UP",
-    description: "Fique conectado mesmo sem energia",
-    href: "/lesteup",
-    image: cardServico,
-    alt: "Fique conectado mesmo sem energia",
-    actionLabel: "Saiba mais",
-    actionHref: "/lesteup",
-  },
-  {
-    title: "Leste Cameras",
-    description: "Acompanhe sua casa em tempo real",
-    href: "/cameras",
-    image: cardServico,
-    alt: "Acompanhe sua casa em tempo real",
-    actionLabel: "Saiba mais",
-    actionHref: "/cameras",
-  },
-  {
-    title: "Leste Movel",
-    description: "Internet no celular para quando voce estiver fora de casa",
-    href: "/lesteup",
-    image: cardServico,
-    alt: "Internet no celular para quando voce estiver fora de casa",
-    actionLabel: "Saiba mais",
-    actionHref: "/lesteup",
-  },
-  {
-    title: "Leste Ultra",
-    description: "Velocidade acima do padrao para sua internet",
-    href: "/lesteup",
-    image: cardServico,
-    alt: "Velocidade acima do padrao para sua internet",
-    actionLabel: "Saiba mais",
-    actionHref: "/lesteup",
-  },
-  {
-    title: "Leste Corporate",
-    description: "Para empresas que nao podem ficar sem internet",
-    href: "/lesteup",
-    image: cardServico,
-    alt: "Para empresas que nao podem ficar sem internet",
-    actionLabel: "Saiba mais",
-    actionHref: "/lesteup",
-  },
-];
-
 function ServiceCard({ service }) {
   return (
-    <article className="mx-auto w-full w-[330px] overflow-hidden rounded-3xl">
-      <div className="relative">
-        <Image
-          src={service.image}
-          alt={service.alt}
-          fill
-          className="object-cover"
-        />
-
-        <div className="absolute inset-0 from-transparent via-transparent to-black/55" />
-
-        <div className="relative z-10 mx-auto flex min-h-[460px] w-full flex-col justify-end p-8 text-light">
-          <h3 className="text-2xl font-bold leading-none">{service.title}</h3>
-          {service.description ? (
-            <p className="my-3 text-sm leading-5 text-light/90">
-              {service.description}
-            </p>
-          ) : null}
-
-          <Link
-            href={service.actionHref || service.href}
-            className="w-full min-h-12 items-center justify-center rounded-full border border-light bg-light px-6 py-3 text-center text-sm font-semibold text-darkgreen transition hover:bg-transparent hover:text-light"
-          >
-            {service.actionLabel || "Saiba mais"}
-          </Link>
+    <Link href={service.href} className="mx-auto block w-full max-w-[360px]">
+      <article className="flex min-h-[450px] flex-col overflow-hidden rounded-2xl bg-light transition duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div className="relative h-[200px] w-full">
+          <Image src={service.image} alt={service.title} fill className="object-cover" />
         </div>
 
-        <Link
-          href={service.href}
-          aria-label={service.title}
-          className="absolute inset-0 z-0"
-        />
-      </div>
-    </article>
+        <div className="flex flex-1 flex-col px-6 pb-4 pt-8">
+          <h3 className="text-[28px] font-bold leading-[0.95] tracking-[-0.05em] text-primary">
+            {service.title}
+          </h3>
+
+          <p className="mt-8 text-[14px] leading-[1.15] text-corporate">
+            {service.excerpt}
+          </p>
+
+          <span className="mt-auto pt-4 text-base font-bold text-primary">
+            {service.cta}
+          </span>
+        </div>
+      </article>
+    </Link>
   );
 }
 
 export default function ConhecaNossosServicosSection() {
   const swiperRef = useRef(null);
+  const services = getLesteServices();
 
   return (
     <section className="w-full bg-light">
@@ -171,7 +110,7 @@ export default function ConhecaNossosServicosSection() {
                     spaceBetween: 16,
                   },
                   1280: {
-                    slidesPerView: 2.5,
+                    slidesPerView: 2.1,
                     centeredSlides: false,
                     spaceBetween: 16,
                   },
@@ -179,7 +118,7 @@ export default function ConhecaNossosServicosSection() {
                 className="overflow-visible pb-8 md:pb-0 [&_.swiper-pagination]:!bottom-0 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 lg:[&_.swiper-pagination]:hidden [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
               >
                 {services.map((service) => (
-                  <SwiperSlide key={service.alt} className="h-auto">
+                  <SwiperSlide key={service.id} className="max-h-[550px]">
                     <ServiceCard service={service} />
                   </SwiperSlide>
                 ))}

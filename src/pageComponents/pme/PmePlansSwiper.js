@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 export default function PmePlansSwiper({plans = []}) {
   return (
-    <div className="w-full overflow-hidden">
+    <div className="mx-auto w-full max-w-[1120px] overflow-hidden">
       <Swiper
         modules={[Pagination]}
         slidesPerView="auto"
@@ -27,7 +27,7 @@ export default function PmePlansSwiper({plans = []}) {
             spaceBetween: 32,
           },
         }}
-        className="!overflow-visible px-2 py-10 [&_.swiper-pagination]:!bottom-0 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
+        className="!overflow-visible px-2 py-10 xl:[&_.swiper-wrapper]:justify-center [&_.swiper-pagination]:!bottom-0 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
       >
         {plans.map((plan) => (
           <SwiperSlide
