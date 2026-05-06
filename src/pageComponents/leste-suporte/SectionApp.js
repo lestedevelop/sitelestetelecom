@@ -61,7 +61,7 @@ export default function SectionApp() {
         </div>
       </section>
 
-      <section className="translate-y-10 lg:translate-y-24 bg-primary pb-12 2xl:translate-y-38 2xl:pb-24">
+      <section className="bg-primary pb-8 sm:pb-12 lg:pb-24">
         <div className="container flex min-h-screen w-full flex-col justify-between gap-10 py-12 md:min-h-[760px] md:gap-14 md:py-16 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-center">
           <div className="order-2 text-light lg:order-1">
             <CardApp central className="mx-auto lg:mx-0" />

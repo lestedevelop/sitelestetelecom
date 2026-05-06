@@ -418,7 +418,7 @@ export default function AppBarNew() {
                                         ))}
 
                                         <Link
-                                            href="https://portal.lestetelecom.com.br/login"
+                                            href="/area-do-cliente"
                                             className="inline-flex min-h-11 items-center rounded-full border border-[#67ddcd] px-9 text-[22px] font-semibold text-white transition-colors hover:bg-white/8"
                                         >
                                             Ja sou Assinante
@@ -669,7 +669,7 @@ export default function AppBarNew() {
                             </Link>
 
                             <Link
-                                href="https://portal.lestetelecom.com.br/login"
+                                href="/area-do-cliente"
                                 onClick={closeMobile}
                                 className="flex min-h-11 items-center justify-center rounded-full bg-primary px-4 text-[15px] font-semibold text-white"
                             >

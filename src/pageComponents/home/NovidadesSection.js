@@ -63,7 +63,7 @@ export default function NovidadesSection() {
   const swiperRef = useRef(null);
 
   return (
-    <section className="w-full bg-light">
+    <section className="w-full bg-light pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
       <div className="container py-8 md:py-16">
         <div className="overflow-hidden rounded-[2rem] bg-white px-6 py-8 md:px-10 md:py-12 lg:px-14 xl:px-16">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:items-center lg:gap-10 xl:grid-cols-[480px_minmax(0,1fr)]">

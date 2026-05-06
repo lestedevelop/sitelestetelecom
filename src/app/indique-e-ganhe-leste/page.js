@@ -131,7 +131,7 @@ export default function IndiqueEGanheLestePage() {
         </div>
       </section>
 
-      <section className="translate-y-10 lg:translate-y-24 bg-light pb-24 2xl:translate-y-38 2xl:pb-48">
+      <section className="pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
         <div className="container px-6 py-12 text-darkgreen md:px-10 md:py-16">
           <div className="flex items-center gap-3">
             <CircleAlert className="h-8 w-8 text-darkgreen" strokeWidth={2.2} />

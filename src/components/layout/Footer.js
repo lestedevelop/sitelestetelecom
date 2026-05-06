@@ -44,7 +44,7 @@ const supportPhones = [
 
 export default function Footer() {
     return (
-        <footer className="relative w-full bg-[#003B2E] mt-[5%] text-white">
+        <footer className="relative w-full bg-[#003B2E] text-white">
             <div className="w-full absolute z-40 top-0 -translate-y-[50%]">
                 <Image
                     src={topoFooter}

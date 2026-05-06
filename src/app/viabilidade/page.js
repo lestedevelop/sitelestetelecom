@@ -187,7 +187,7 @@ export default function ViabilidadePage() {
       </section>
 
       <CardBanner
-        className="bg-light py-12 pb-10 md:py-20 md:pb-24 xl:pb-48 translate-y-16 xl:translate-y-24 px-8"
+        className="bg-light pb-8 translate-y-8 lg:translate-y-0 lg:pb-24 xl:pb-48"
         image={bannerAssineOnline}
         title="Vem para o melhor caminho!"
         buttonText="Assine Online"

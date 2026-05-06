@@ -109,7 +109,7 @@ export default function TesteDeVelocidade() {
         </div>
       </section>
 
-      <section className="translate-y-10 lg:translate-y-24 bg-lightgreenBackground pb-24 2xl:translate-y-38 2xl:pb-48">
+      <section className="pb-8 sm:pb-12 lg:pb-24 xl:pb-36 bg-lightgreenBackground">
         <div className="container relative px-8 py-12 md:px-16 md:py-16">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold leading-tight text-primary md:text-[3.25rem]">

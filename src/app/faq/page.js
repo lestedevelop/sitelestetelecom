@@ -32,7 +32,7 @@ export default function Faq() {
         </div>
       </section>
 
-      <section className="bg-graylighter py-8">
+      <section className="bg-graylighter py-8 pb-8 sm:pb-12 lg:pb-24 xl:pb-48">
         <div className="container p-6 text-center">
           <div className="mb-4 py-6">
             <h2 className="text-4xl font-bold text-primary">
