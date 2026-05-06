@@ -27,7 +27,7 @@ const socialLinks = [
 const footerLinks = [
     {href: "/vendas", label: "Contratacao on-line"},
     {href: "/leste-suporte", label: "Central de atendimento"},
-    {href: "/faq/area-de-cobertura", label: "Mapa de cobertura"},
+    {href: "/viabilidade", label: "Mapa de cobertura"},
     {href: "https://portal.lestetelecom.com.br/login", label: "2a via da conta"},
     {href: "/faq", label: "Precisa de ajuda? FAQ"},
     {href: "/faq/lojas", label: "Nossas lojas"},
