@@ -34,7 +34,7 @@ function ArrowIcon() {
 
 export default function TireDuvidasSection() {
   return (
-    <section className="bg-[linear-gradient(180deg,#009373_0%,#045441_100%)] py-14 text-white md:py-20 lg:py-24 lg:pb-36 -mt-12 translate-y-10 xl:translate-y-16 lg:-mt-24">
+    <section className="bg-[linear-gradient(180deg,#009373_0%,#045441_100%)] py-14 pb-24 -mt-12 text-white translate-y-8 lg:translate-y-0 lg:pb-24 xl:pb-48">
       <div className="container gap-10 flex-col flex lg:flex-row lg:items-center">
         <div className="flex lg:flex-col gap-x-4 items-center">
           <h2 className="max-w-[420px] text-2xl lg:text-8xl font-bold leading-[0.92] tracking-[-0.05em] md:text-[5.6rem]">

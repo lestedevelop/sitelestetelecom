@@ -1,4 +1,5 @@
 import HeroSlide from "@/pageComponents/home/HeroSlide";
+import NovidadesSection from "@/pageComponents/home/NovidadesSection";
 import BannerIndique from "@/pageComponents/indique-e-ganhe-leste/BannerIndique";
 import AppHighlight from "@/pageComponents/area-cliente/AppHighlight";
 import CanaisAtendimentoClienteSection from "@/pageComponents/area-cliente/CanaisAtendimentoClienteSection";
@@ -14,6 +15,7 @@ export default function AreaDoClientePage() {
       <CanaisAtendimentoClienteSection />
       <AppHighlight variant="suporte" />
       <AppHighlight variant="central" />
+      <NovidadesSection />
       <TireDuvidasSection />
     </main>
   );

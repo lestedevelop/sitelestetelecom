@@ -1,0 +1,154 @@
+[
+  {
+    "id": "1",
+    "slug": "como-a-internet-pode-ajudar-o-meu-evento",
+    "title": "Como a internet pode ajudar o meu evento?",
+    "excerpt": "Eventos hoje tambem dependem de conexao estavel para transmissao, operacao, pagamentos e experiencia do publico.",
+    "category": "Noticias",
+    "author": "Leste Telecom",
+    "date": "2026-01-18",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post1",
+    "cta": "Saiba mais >",
+    "showOnHome": false,
+    "showOnClientArea": false,
+    "content": [
+      "Uma internet estavel deixou de ser apoio e passou a fazer parte da estrutura principal de muitos eventos. Credenciamento, transmissao ao vivo, pagamentos, atendimento e comunicacao da equipe dependem de uma conexao confiavel.",
+      "Para evitar gargalos, o ideal e dimensionar a rede considerando quantidade de pessoas, dispositivos conectados e aplicacoes usadas durante o evento. Tambem e importante separar a rede operacional da rede oferecida ao publico.",
+      "Com planejamento e suporte tecnico, a conectividade ajuda o evento a funcionar melhor, reduzindo interrupcoes e melhorando a experiencia de organizadores, expositores e visitantes."
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "vantagens-de-um-link-dedicado",
+    "title": "Vantagens de um link dedicado.",
+    "excerpt": "O link dedicado oferece mais estabilidade, simetria e previsibilidade para empresas que dependem da internet.",
+    "category": "Dicas",
+    "author": "Leste Telecom",
+    "date": "2026-01-12",
+    "readingTime": "3 min de leitura",
+    "imageKey": "post2",
+    "cta": "Saiba mais >",
+    "showOnHome": false,
+    "showOnClientArea": false,
+    "content": [
+      "Empresas que usam sistemas em nuvem, videoconferencias, telefonia IP e transferencias de arquivos precisam de uma conexao previsivel. O link dedicado atende esse tipo de demanda com maior controle de desempenho.",
+      "Diferente de conexoes compartilhadas, o link dedicado e projetado para entregar mais estabilidade e melhor SLA. Isso reduz riscos de lentidao em horarios de maior uso e melhora a experiencia das equipes.",
+      "Antes de contratar, avalie o volume de uso, quantidade de usuarios, criticidade da operacao e necessidade de suporte. Esses pontos ajudam a escolher a capacidade correta."
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "link-dedicado-para-empresas",
+    "title": "Link dedicado para empresas.",
+    "excerpt": "Entenda quando sua empresa deve considerar uma conexao dedicada para manter a produtividade.",
+    "category": "Solucoes",
+    "author": "Leste Telecom",
+    "date": "2026-01-10",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post3",
+    "cta": "Saiba mais >",
+    "showOnHome": false,
+    "showOnClientArea": false,
+    "content": [
+      "Quando a internet se torna parte essencial da operacao, quedas e oscilacoes deixam de ser apenas incomodos e passam a representar perda de produtividade.",
+      "Um link dedicado pode ser indicado para empresas que dependem de acesso remoto, sistemas de gestao, atendimento on-line, cameras em nuvem ou operacoes que nao podem parar.",
+      "A escolha deve considerar disponibilidade tecnica, velocidade necessaria e nivel de suporte esperado para o negocio."
+    ]
+  },
+  {
+    "id": "4",
+    "slug": "ter-wifi-liberado-para-clientes",
+    "title": "Ter Wi-Fi liberado para clientes?",
+    "excerpt": "Oferecer Wi-Fi ao publico pode melhorar a experiencia, mas exige controle e boa configuracao.",
+    "category": "Dicas",
+    "author": "Leste Telecom",
+    "date": "2026-01-08",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post4",
+    "cta": "Saiba mais >",
+    "showOnHome": false,
+    "showOnClientArea": false,
+    "content": [
+      "Disponibilizar Wi-Fi para clientes pode aumentar o tempo de permanencia, facilitar pagamentos e melhorar a experiencia no estabelecimento.",
+      "O ponto principal e separar a rede dos clientes da rede interna da empresa. Essa separacao melhora a seguranca e evita que dispositivos externos interfiram em sistemas internos.",
+      "Tambem vale definir limite de uso, cobertura adequada e equipamentos compativeis com a quantidade de acessos esperada."
+    ]
+  },
+  {
+    "id": "5",
+    "slug": "conheca-a-leste-telecom",
+    "title": "Conheca a Leste Telecom!",
+    "excerpt": "A Leste oferece internet fibra e solucoes digitais para casas, empresas e operacoes que precisam estar conectadas.",
+    "category": "Noticias",
+    "author": "Leste Telecom",
+    "date": "2026-01-05",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post5",
+    "cta": "Saiba mais >",
+    "showOnHome": false,
+    "showOnClientArea": false,
+    "content": [
+      "A Leste Telecom atua com solucoes de conectividade para diferentes perfis de clientes, desde planos residenciais ate necessidades empresariais.",
+      "A proposta e entregar internet de fibra otica com estabilidade, atendimento e servicos complementares que ajudam o cliente no dia a dia.",
+      "Para conhecer os planos disponiveis, consulte a cobertura e escolha a melhor opcao para sua casa ou empresa."
+    ]
+  },
+  {
+    "id": "6",
+    "slug": "por-que-escolher-o-leste-movel",
+    "title": "Por que escolher o Leste Movel?",
+    "excerpt": "O Wi-Fi funciona dentro de casa, mas fora dela voce depende da internet movel no celular. Com o Leste Movel 5G, voce continua conectado com mais estabilidade e sem depender de redes abertas.",
+    "category": "Dicas",
+    "author": "Leste Telecom",
+    "date": "2026-01-03",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post1",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "O Leste Movel ajuda voce a continuar conectado fora de casa, sem depender de redes Wi-Fi abertas ou instaveis.",
+      "Para quem usa aplicativos de banco, mapas, mensagens e redes sociais todos os dias, ter internet movel confiavel melhora a rotina e reduz interrupcoes.",
+      "Antes de contratar, avalie sua necessidade de dados, cobertura e como voce costuma usar o celular fora de casa."
+    ]
+  },
+  {
+    "id": "7",
+    "slug": "cameras-inteligentes-em-casa",
+    "title": "Voce ja pensou em ter cameras inteligentes em casa?",
+    "excerpt": "Com o Leste Cameras, voce acompanha sua casa pelo celular em tempo real, de forma simples, sem precisar configurar tudo sozinho ou usar varios aplicativos diferentes.",
+    "category": "Solucoes",
+    "author": "Leste Telecom",
+    "date": "2026-01-02",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post2",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "Cameras inteligentes permitem acompanhar ambientes pelo celular e ajudam a manter mais controle sobre a rotina da casa.",
+      "A instalacao correta, a qualidade da conexao e o posicionamento dos equipamentos influenciam diretamente a experiencia de uso.",
+      "Com uma solucao integrada, voce reduz configuracoes manuais e acompanha tudo de forma mais simples."
+    ]
+  },
+  {
+    "id": "8",
+    "slug": "internet-mais-rapida-de-niteroi",
+    "title": "Qual a internet mais rapida de Niteroi?",
+    "excerpt": "A Leste e considerada a melhor internet de Niteroi pelo Premio MelhorPlano, com destaque recorrente em velocidade, estabilidade e satisfacao ao longo dos ultimos anos.",
+    "category": "Noticias",
+    "author": "Leste Telecom",
+    "date": "2026-01-01",
+    "readingTime": "2 min de leitura",
+    "imageKey": "post3",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "Velocidade e estabilidade dependem de infraestrutura, qualidade dos equipamentos, plano contratado e condicoes da rede dentro da casa.",
+      "A Leste se destaca em avaliacoes de velocidade e atendimento, reforcando o compromisso com uma experiencia consistente para os clientes.",
+      "Para aproveitar melhor a conexao, use equipamentos adequados, mantenha o roteador bem posicionado e teste a velocidade por cabo quando precisar validar o desempenho."
+    ]
+  }
+]

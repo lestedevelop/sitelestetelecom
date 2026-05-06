@@ -5,32 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/app/area-do-cliente/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/autoatendimento.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/central24.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/conexao.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/fatura.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/lojas.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/testevelocidade.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/upgrade.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/AppHighlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/CanaisAtendimentoClienteSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ChannelCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/WelcomeHelpSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/mail-contact.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/telefone-contact.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/whatsapp-contact.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mocks/blogPosts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmeHero.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlanCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlansSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlansSwiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/pmePlansData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/viabilidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viabilidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/area-do-cliente/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/area-do-cliente/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pme/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pme/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,29 +53,34 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/projetos/leste/sitelestetelecom/src/assets&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/icons/footer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Next.js: server-side.executor": "Run",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\icons\footer" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -161,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778073811701</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="++">
+      <option name="closed" value="true" />
+      <created>1778079377345</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778079377345</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
