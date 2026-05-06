@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/mail-contact.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/telefone-contact.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/footer/whatsapp-contact.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mocks/blogPosts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmeHero.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlanCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlansSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlansSwiper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/pme/pmePlansData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paginas.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/area-do-cliente/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/area-do-cliente/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pme/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pme/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cameras/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cameras/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/leste-clube/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/leste-clube/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/lesteup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/lesteup/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +154,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778079377345</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="++">
+      <option name="closed" value="true" />
+      <created>1778087117873</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778087117873</updated>
+    </task>
+    <task id="LOCAL-00009" summary="++">
+      <option name="closed" value="true" />
+      <created>1778088622036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1778088622036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

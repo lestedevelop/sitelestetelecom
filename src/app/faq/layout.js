@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function FaqLayout({ children,title,subtitle }) {
     return (
-        <div className="bg-white text-[#5F5F5F]">
+        <div className="bg-light text-[#5F5F5F] lg:pb-12 xl:pb-24">
             <section className="w-full">
                 <HomeHeroBanner
                     alt="Banner FAQ da Leste Telecom"

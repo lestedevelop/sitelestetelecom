@@ -8,7 +8,7 @@ import ParceirosClube from "@/pageComponents/clube/ParceirosClube";
 
 export default function LesteClube() {
     return (
-        <div className="min-h-full bg-light overflow-hidden">
+        <div className="min-h-full bg-light overflow-hidden py-8 pb-8 sm:pb-12 lg:pb-24 xl:pb-48">
             <BannerClube/>
             <MainClube />
             <CadastreSeuEstabelecimento />

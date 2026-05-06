@@ -7,7 +7,7 @@ import CamerasFaq from "@/pageComponents/cameras/CamerasFaq";
 
 export default function CamerasPage() {
   return (
-    <div className="min-h-full ">
+    <div className="min-h-full py-8 pb-8 sm:pb-12 lg:pb-24 xl:pb-48">
       <CamerasHero />
       <CamerasModels />
       <CamerasResources />
