@@ -4,7 +4,7 @@ import { getUtmFromReq } from "@/lib/utmServerRaw";
 
 export async function GET(req) {
     try {
-        const response = await coreApi.get("/api/sac/externo/faq");
+        const response = await coreApi.get("/api/sac/externo/home");
 
         return NextResponse.json(response.data, { status: 200 });
     } catch (error) {

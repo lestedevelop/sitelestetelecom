@@ -6,16 +6,25 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { getLesteServices } from "@/mocks/lesteServices";
+import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 function ServiceCard({ service }) {
+  const imageSrc = resolveImageSrc(service, service.image);
+
   return (
     <Link href={service.href} className="mx-auto block w-full max-w-[360px]">
       <article className="flex min-h-[450px] flex-col overflow-hidden rounded-2xl bg-light transition duration-200 hover:-translate-y-1 hover:shadow-xl">
         <div className="relative h-[200px] w-full">
-          <Image src={service.image} alt={service.title} fill className="object-cover" />
+          <Image
+            src={imageSrc}
+            alt={service.title}
+            fill
+            className="object-cover"
+            unoptimized={isDataImageSrc(imageSrc)}
+          />
         </div>
 
         <div className="flex flex-1 flex-col px-6 pb-4 pt-8">

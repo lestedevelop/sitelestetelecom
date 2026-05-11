@@ -9,13 +9,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import {getHomeBlogPosts} from "@/mocks/blogPosts";
+import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
 
 function NewsCard({ item }) {
+  const imageSrc = resolveImageSrc(item, item.image);
+
   return (
     <Link href={item.href} className="mx-auto block w-full max-w-[360px]">
       <article className="flex min-h-[550px] flex-col overflow-hidden rounded-2xl bg-light">
         <div className="relative h-[200px] w-full">
-          <Image src={item.image} alt={item.title} fill className="object-cover" />
+          <Image
+            src={imageSrc}
+            alt={item.title}
+            fill
+            className="object-cover"
+            unoptimized={isDataImageSrc(imageSrc)}
+          />
         </div>
 
         <div className="flex flex-1 flex-col px-9 pb-8 pt-8">

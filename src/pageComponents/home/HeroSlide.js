@@ -23,7 +23,11 @@ const heroSlides = [
 
 function HeroSlideItem({slide, priority = false}) {
     return (
-        <HomeHeroBanner href={slide.href} alt={slide.alt} priority={priority} />
+        <HomeHeroBanner
+            href={slide.href}
+            alt={slide.alt}
+            priority={priority}
+        />
     );
 }
 

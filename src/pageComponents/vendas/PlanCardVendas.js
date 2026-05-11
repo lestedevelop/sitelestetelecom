@@ -64,7 +64,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
 
                 <div className="mt-4 w-full flex gap-y-3 flex-col-reverse">
                     {plan?.SVAs?.map((sva) => (
-                        <PerkCard key={sva.codsimp} descri_simp={sva.descri_simp}/>
+                        <PerkCard key={sva.codsimp || sva.name} item={sva} descri_simp={sva.descri_simp}/>
                     ))}
                 </div>
 

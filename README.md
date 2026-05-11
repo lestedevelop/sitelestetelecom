@@ -22,6 +22,25 @@ npm run lint
 
 O ambiente de desenvolvimento roda com Turbopack via `next dev --turbopack`.
 
+## Deploy com PM2
+
+No servidor, instale dependencias, gere a build e suba o processo pelo arquivo `ecosystem.config.cjs`:
+
+```bash
+npm ci
+npm run build
+pm2 start ecosystem.config.cjs --env production
+pm2 save
+```
+
+Para manter o projeto ativo apos reboot, rode:
+
+```bash
+pm2 startup
+```
+
+O comando acima imprime uma linha com `sudo ...`; execute essa linha no servidor e depois rode `pm2 save` novamente. Por padrao, a aplicacao sobe em `http://localhost:3000`.
+
 ## Estrutura principal
 
 ```text
