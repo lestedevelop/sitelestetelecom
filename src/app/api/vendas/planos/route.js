@@ -17,7 +17,7 @@ export async function GET(req) {
             );
         }
 
-        const payload = {cidade: cidade, predio: Number(predio), ...utm};
+        const payload = {cidade: cidade, predio: Number(predio),utm};
 
         const response = await coreApi.post("/api/sac/externo/planosNew", payload);
 

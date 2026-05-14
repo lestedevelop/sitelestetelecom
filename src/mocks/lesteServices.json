@@ -1,0 +1,26 @@
+[
+  {
+    "id": "leste-up",
+    "title": "Leste UP",
+    "excerpt": "Energia extra para manter sua internet funcionando mesmo em momentos de queda de luz.",
+    "href": "/lesteup",
+    "imageKey": "lesteUp",
+    "cta": "Saiba mais >"
+  },
+  {
+    "id": "leste-movel",
+    "title": "Leste Movel",
+    "excerpt": "Internet movel para voce continuar conectado fora de casa com mais liberdade.",
+    "href": "/movel",
+    "imageKey": "lesteMovel",
+    "cta": "Saiba mais >"
+  },
+  {
+    "id": "leste-cameras",
+    "title": "Leste Cameras",
+    "excerpt": "Cameras inteligentes para acompanhar sua casa pelo celular, de forma simples.",
+    "href": "/cameras",
+    "imageKey": "lesteCameras",
+    "cta": "Saiba mais >"
+  }
+]

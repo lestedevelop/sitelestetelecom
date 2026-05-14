@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f0770eb1-06fe-4381-a755-293d9828c211" name="vendas-beta">
+        <fileTransfer rootFolder="/home" accessType="SFTP" host="186.211.32.108" port="22" sshConfigId="a07d4dd3-bcae-4194-960c-cd3f8e05ef31" sshConfig="vendas">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

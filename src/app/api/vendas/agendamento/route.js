@@ -21,7 +21,7 @@ export async function POST(req) {
 
         const payload = {
             ...body,
-            ...utm,
+            utm,
         };
 
         const form = new FormData();

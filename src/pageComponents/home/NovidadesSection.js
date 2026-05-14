@@ -8,38 +8,24 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import mockup from "@/assets/mockupcard.png"
-
-
-const newsCards = [
-  {
-    title: "Por que escolher o Leste Movel?",
-    description:
-      "O Wi-Fi funciona dentro de casa, mas fora dela voce depende da internet movel no celular. Com o Leste Movel 5G, voce continua conectado com mais estabilidade e sem depender de redes abertas.",
-    href: "/lesteup",
-    cta: "Saiba mais >",
-  },
-  {
-    title: "Voce ja pensou em ter cameras inteligentes em casa?",
-    description:
-      "Com o Leste Cameras, voce acompanha sua casa pelo celular em tempo real, de forma simples, sem precisar configurar tudo sozinho ou usar varios aplicativos diferentes.",
-    href: "/cameras",
-    cta: "Saiba mais >",
-  },
-  {
-    title: "Qual a internet mais rapida de Niteroi?",
-    description:
-      "A Leste e considerada a melhor internet de Niteroi pelo Premio MelhorPlano, com destaque recorrente em velocidade, estabilidade e satisfacao ao longo dos ultimos anos.",
-    href: "/planos",
-    cta: "Saiba mais >",
-  },
-];
+import {getHomeBlogPosts} from "@/mocks/blogPosts";
+import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
 
 function NewsCard({ item }) {
+  const imageSrc = resolveImageSrc(item, item.image);
+
   return (
     <Link href={item.href} className="mx-auto block w-full max-w-[360px]">
       <article className="flex min-h-[550px] flex-col overflow-hidden rounded-2xl bg-light">
-        <Image src={mockup} alt={`blog`} className={"max-h-[200px]"} />
+        <div className="relative h-[200px] w-full">
+          <Image
+            src={imageSrc}
+            alt={item.title}
+            fill
+            className="object-cover"
+            unoptimized={isDataImageSrc(imageSrc)}
+          />
+        </div>
 
         <div className="flex flex-1 flex-col px-9 pb-8 pt-8">
           <h3 className="text-[28px] font-bold leading-[0.95] tracking-[-0.05em] text-primary">
@@ -47,7 +33,7 @@ function NewsCard({ item }) {
           </h3>
 
           <p className="mt-8 text-[14px] leading-[1.15] text-corporate">
-            {item.description}
+            {item.excerpt}
           </p>
 
           <span className="mt-auto pt-10 text-base font-bold text-primary">
@@ -61,9 +47,10 @@ function NewsCard({ item }) {
 
 export default function NovidadesSection() {
   const swiperRef = useRef(null);
+  const newsCards = getHomeBlogPosts();
 
   return (
-    <section className="w-full bg-light">
+    <section className="w-full bg-light pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
       <div className="container py-8 md:py-16">
         <div className="overflow-hidden rounded-[2rem] bg-white px-6 py-8 md:px-10 md:py-12 lg:px-14 xl:px-16">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:items-center lg:gap-10 xl:grid-cols-[480px_minmax(0,1fr)]">

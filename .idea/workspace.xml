@@ -5,8 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/assets/arrowrightlight.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/leste-suporte/SectionApp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecosystem.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageComponents/faq/FaqImageSteps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/imageSrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/debug/core-test/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/debug/core-test/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/configurando-roteador/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/configurando-roteador/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/configurando-wifi-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/configurando-wifi-da-leste/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/identificando-equipamentos/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/identificando-equipamentos/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/led-vermelho-aceso/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/led-vermelho-aceso/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/procedimento-lentidao/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/procedimento-lentidao/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/retirando-boleto-na-central/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/retirando-boleto-na-central/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/retirando-boleto-pelo-app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/retirando-boleto-pelo-app/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/retirando-boleto-pelo-whatsapp/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/retirando-boleto-pelo-whatsapp/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/sem-internet/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/sem-internet/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/teste-de-velocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/teste-de-velocidade/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/CardBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/CardImageWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardImageWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PlanCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/PerkCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/PerkCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/PlanCardVendas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/PlanCardVendas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +40,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="592" />
+    <option name="cachedIndexableFilesCount" value="635" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +61,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.127.0.0.1:3000.executor": "Debug",
+    "JavaScript Debug.localhost:3000.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -45,19 +73,32 @@
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/wamp64/www/projetos/leste/sitelestetelecom/src/assets",
+    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
+    "settings.editor.selected.configurable": "web.server",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.Next.js: server-side">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom" />
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\icons\footer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.127.0.0.1:3000">
+    <configuration name="127.0.0.1:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:3000">
+      <method v="2" />
+    </configuration>
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
@@ -70,13 +111,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.127.0.0.1:3000" />
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\alessandro_mello\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -88,6 +138,8 @@
       <workItem from="1777292244136" duration="89000" />
       <workItem from="1777391091753" duration="7932000" />
       <workItem from="1777546929461" duration="15047000" />
+      <workItem from="1778501765658" duration="5519000" />
+      <workItem from="1778509694918" duration="11915000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -121,7 +173,55 @@
       <option name="project" value="LOCAL" />
       <updated>1777572652121</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="++">
+      <option name="closed" value="true" />
+      <created>1778071995704</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1778071995704</updated>
+    </task>
+    <task id="LOCAL-00006" summary="++">
+      <option name="closed" value="true" />
+      <created>1778073811701</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1778073811701</updated>
+    </task>
+    <task id="LOCAL-00007" summary="++">
+      <option name="closed" value="true" />
+      <created>1778079377345</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778079377345</updated>
+    </task>
+    <task id="LOCAL-00008" summary="++">
+      <option name="closed" value="true" />
+      <created>1778087117873</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778087117873</updated>
+    </task>
+    <task id="LOCAL-00009" summary="++">
+      <option name="closed" value="true" />
+      <created>1778088622036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1778088622036</updated>
+    </task>
+    <task id="LOCAL-00010" summary="++">
+      <option name="closed" value="true" />
+      <created>1778091757089</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1778091757089</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,5 +230,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="++" />
     <option name="LAST_COMMIT_MESSAGE" value="++" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

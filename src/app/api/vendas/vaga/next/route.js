@@ -18,7 +18,7 @@ export async function GET(req) {
             );
         }
 
-        const payloadNext = { cidade, data: date, ...utm };
+        const payloadNext = { cidade, data: date, utm };
         const nextResp = await coreApi.post("/api/sac/externo/vaga/nextNew", payloadNext);
         const slot = nextResp.data;
 

@@ -1,16 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
 
 
 const CardProduto = ({imageSrc, title = "Leste Móvel", description = "Chegou o chip da Leste!", buttonText = "Onde comprar", link}) => {
+
+  const resolvedImageSrc = resolveImageSrc(imageSrc, imageSrc);
 
   return (
     <div  className={`bg-white rounded-2xl overflow-hidden flex flex-col`}>
       <div className="w-full h-80 overflow-hidden">
         <Image
-          src={imageSrc}
+          src={resolvedImageSrc}
           alt={title}
+          width={640}
+          height={320}
           className="w-full h-full object-cover"
+          unoptimized={isDataImageSrc(resolvedImageSrc)}
         />
       </div>
       <div className="flex flex-col justify-between flex-1 p-5 text-center">

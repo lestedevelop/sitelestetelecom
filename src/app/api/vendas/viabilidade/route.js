@@ -13,7 +13,7 @@ export async function POST(req) {
         const payload = {
             cep: formatCep(cepDigits),
             numero,
-            ...utm,
+            utm,
         };
 
         const response = await coreApi.post("/api/sac/externo/viabilidadeNew", payload);

@@ -9,7 +9,7 @@ export async function POST(req) {
 
         const payload = {
             ...body,
-            ...utm,
+            utm,
         };
         console.log(payload);
         const resp = await coreApi.put("/api/sac/externo/precadastroNew", payload);

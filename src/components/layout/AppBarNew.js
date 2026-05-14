@@ -366,24 +366,24 @@ export default function AppBarNew() {
                     visible ? "translate-y-0" : "-translate-y-full"
                 }`}
             >
-                <div className="w-full bg-mediumgreen text-white">
+                <div className="w-full border-b border-graylighter bg-white text-darkgreen shadow-sm">
                     <div className="container">
-                        <div className="flex items-center justify-between py-5 lg:hidden">
+                        <div className="flex items-center justify-between py-3 lg:hidden">
                             <Link href="/" className="shrink-0">
                                 <Image
                                     src={logo}
                                     alt="Leste"
-                                    width={112}
-                                    height={40}
+                                    width={96}
+                                    height={34}
                                     priority
-                                    className="h-auto w-[112px] brightness-0 invert"
+                                    className="h-auto w-[96px]"
                                 />
                             </Link>
 
                             <div className="flex items-center gap-3">
                                 <button
                                     type="button"
-                                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white"
+                                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary"
                                     onClick={() => setMobileOpen(true)}
                                     aria-label="Abrir menu"
                                 >
@@ -392,41 +392,41 @@ export default function AppBarNew() {
                             </div>
                         </div>
 
-                        <div className="hidden py-4 lg:block">
-                            <div className="flex items-start justify-between gap-8">
-                                <Link href="/" className="shrink-0 pt-2">
+                        <div className="hidden py-3 lg:block">
+                            <div className="flex items-start justify-between gap-6">
+                                <Link href="/" className="shrink-0 pt-1">
                                     <Image
                                         src={logo}
                                         alt="Leste"
-                                        width={187}
-                                        height={67}
+                                        width={158}
+                                        height={57}
                                         priority
-                                        className="h-auto lg:w-[187px] brightness-0 invert"
+                                        className="h-auto lg:w-[158px]"
                                     />
                                 </Link>
 
-                                <div className="flex min-w-0 flex-1 flex-col items-end gap-4">
-                                    <div className="flex flex-wrap items-center justify-end gap-8 lg:gap-10">
+                                <div className="flex min-w-0 flex-1 flex-col items-end gap-3">
+                                    <div className="flex flex-wrap items-center justify-end gap-6 lg:gap-8">
                                         {TOP_LINKS.map((item) => (
                                             <Link
                                                 key={item.href}
                                                 href={item.href}
-                                                className="text-[22px] font-semibold tracking-[-0.01em] text-white transition-opacity hover:opacity-80"
+                                                className="text-[18px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                             >
                                                 {item.label}
                                             </Link>
                                         ))}
 
                                         <Link
-                                            href="https://portal.lestetelecom.com.br/login"
-                                            className="inline-flex min-h-11 items-center rounded-full border border-[#67ddcd] px-9 text-[22px] font-semibold text-white transition-colors hover:bg-white/8"
+                                            href="/area-do-cliente"
+                                            className="inline-flex min-h-10 items-center rounded-full border border-primary/35 px-7 text-[18px] font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
                                         >
                                             Ja sou Assinante
                                         </Link>
                                     </div>
 
-                                    <div className="flex w-full items-center justify-end gap-8 lg:gap-12">
-                                        <div className="flex items-center gap-8 lg:gap-12">
+                                    <div className="flex w-full items-center justify-end gap-6 lg:gap-9">
+                                        <div className="flex items-center gap-6 lg:gap-9">
                                             <div className="relative">
                                                 <button
                                                     type="button"
@@ -434,7 +434,7 @@ export default function AppBarNew() {
                                                         setServicesOpen((prev) => !prev);
                                                         setLearnOpen(false);
                                                     }}
-                                                    className="inline-flex items-center gap-2 text-[18px] font-semibold text-white transition-opacity hover:opacity-80"
+                                                    className="inline-flex items-center gap-2 text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                                     aria-expanded={servicesOpen}
                                                     aria-controls={`services-dd-${uid}`}
                                                 >
@@ -465,7 +465,7 @@ export default function AppBarNew() {
 
                                             <Link
                                                 href="/leste-suporte"
-                                                className="text-[18px] font-semibold text-white transition-opacity hover:opacity-80"
+                                                className="text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                             >
                                                 Baixe o App
                                             </Link>
@@ -477,7 +477,7 @@ export default function AppBarNew() {
                                                         setLearnOpen((prev) => !prev);
                                                         setServicesOpen(false);
                                                     }}
-                                                    className="inline-flex items-center gap-2 text-[18px] font-semibold text-white transition-opacity hover:opacity-80"
+                                                    className="inline-flex items-center gap-2 text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                                     aria-expanded={learnOpen}
                                                     aria-controls={`learn-dd-${uid}`}
                                                 >
@@ -502,7 +502,7 @@ export default function AppBarNew() {
 
                                             <Link
                                                 href="https://lestetelecom.vagas.solides.com.br/"
-                                                className="text-[18px] font-semibold text-white transition-opacity hover:opacity-80"
+                                                className="text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                             >
                                                 Trabalhe na Leste
                                             </Link>
@@ -512,7 +512,7 @@ export default function AppBarNew() {
                                             <button
                                                 type="button"
                                                 onClick={openCityModal}
-                                                className="inline-flex h-[40px] items-center gap-3 rounded-full bg-light px-8 text-base font-semibold text-primary transition-transform hover:-translate-y-px"
+                                                className="inline-flex h-9 items-center gap-2 rounded-full bg-light px-6 text-sm font-semibold text-primary ring-1 ring-primary/15 transition-transform hover:-translate-y-px"
                                             >
                                                 <Image src={pinIcon} alt="" className="h-4 w-4"/>
                                                 <span>{site?.city?.label || "Escolha sua cidade"}</span>
@@ -669,7 +669,7 @@ export default function AppBarNew() {
                             </Link>
 
                             <Link
-                                href="https://portal.lestetelecom.com.br/login"
+                                href="/area-do-cliente"
                                 onClick={closeMobile}
                                 className="flex min-h-11 items-center justify-center rounded-full bg-primary px-4 text-[15px] font-semibold text-white"
                             >
@@ -680,7 +680,7 @@ export default function AppBarNew() {
                 </div>
             </header>
 
-            <div className="h-[93px] lg:h-[132px]"/>
+            <div className="h-[74px] lg:h-[106px]"/>
 
             <SalesProviderNew>
                 <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen}/>

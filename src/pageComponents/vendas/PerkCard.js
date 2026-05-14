@@ -4,11 +4,25 @@ import Image from "next/image";
 import skeelo from "@/assets/icons/skelolivros.svg"
 import bebanca from "@/assets/icons/bebanca.svg"
 import lesteClub from "@/assets/icons/lesteclube-green.svg"
+import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
 
-export default function PerkCard({ descri_simp, onClick }) {
-    const label = getPerkByCodsimp(descri_simp);
+function getFallbackIcon(label = "") {
+    if (label.includes("eelo")) return skeelo;
+    if (label.includes("banca")) return bebanca;
+    if (label.includes("lube")) return lesteClub;
+    return null;
+}
 
-    if (!label) return null;
+function getIconClassName(label = "") {
+    if (label.includes("banca")) return "w-20 object-contain";
+    return "w-18 object-contain";
+}
+
+export default function PerkCard({ descri_simp, item, onClick }) {
+    const label = getPerkByCodsimp(descri_simp) || getPerkByCodsimp(item?.name) || item?.name;
+    const imageSrc = resolveImageSrc(item, getFallbackIcon(label));
+
+    if (!label || !imageSrc) return null;
 
     return (
         <button
@@ -16,9 +30,14 @@ export default function PerkCard({ descri_simp, onClick }) {
             onClick={() => onClick?.(label)}
             className="mx-auto flex h-9 w-44 items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:opacity-90"
         >
-            {label.includes("eelo") && <Image src={skeelo} alt={label} className={"w-18"}/>}
-            {label.includes("banca") && <Image src={bebanca} alt={label} className={"w-20"}/>}
-            {label.includes("lube") && <Image src={lesteClub} alt={label} className={"w-18"}/>}
+            <Image
+                src={imageSrc}
+                alt={label}
+                width={96}
+                height={36}
+                className={getIconClassName(label)}
+                unoptimized={isDataImageSrc(imageSrc)}
+            />
         </button>
     );
 }

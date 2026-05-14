@@ -5,9 +5,12 @@ import { getUtmFromReq } from "@/lib/utmServerRaw";
 export async function POST(req) {
     try {
         const body = await req.json();
+        const { utm } = getUtmFromReq();
+
 
         const payload = {
             ...body,
+            utm
         };
 
         const response = await coreApi.post("/api/sac/externo/viabilidadeNew/latlng", payload);

@@ -21,7 +21,6 @@ a.underline {
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
 }
 
 .nav-btn {
