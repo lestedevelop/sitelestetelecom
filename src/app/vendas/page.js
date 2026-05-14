@@ -4,7 +4,6 @@ import {SalesProviderNew, useSales} from "@/contexts/SalesContextNew";
 import VendasFlow from "@/pageComponents/vendas/VendasFlow";
 import Image from "next/image";
 import logo from "@/assets/lestelogocapabranco.png";
-import logoVerde from "@/assets/logo.png";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/toastify.css";
@@ -38,8 +37,7 @@ function VendasLayout() {
                 </div>
             )}
             <div className={`w-full ${!showLeft ? 'lg:w-1/2' : ''} md:pr-12 bg-light py-8`}>
-                <Image src={logoVerde} alt={""} className={"mx-auto w-40"}/>
-                <div className={"max-w-5xl mx-auto px-8"}>
+                <div className={"max-w-5xl mx-auto px-8 lg:mt-12"}>
                     <VendasFlow/>
                 </div>
             </div>
