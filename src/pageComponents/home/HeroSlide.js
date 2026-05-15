@@ -12,12 +12,12 @@ const heroSlides = [
     {
         id: "home-main",
         alt: "Banner principal da Leste Telecom",
-        href: "/fibra",
+        href: "/vendas",
     },
     {
         id: "home-offer",
         alt: "Banner de ofertas da Leste Telecom",
-        href: "/movel",
+        href: "/vendas",
     },
 ];
 

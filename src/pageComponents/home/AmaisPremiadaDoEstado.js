@@ -16,8 +16,8 @@ import selo28Premios from "@/assets/home/15-05-2026/selo28-premios.svg";
 const seals = [
     {
         description: "*Alta avaliação no atendimento (Reclame Aqui)",
-        title: "Melhor satisfacao 2026",
-        caption: "Destaque em satisfacao (Melhor Plano).",
+        title: "Melhor satisfação 2026",
+        caption: "Destaque em satisfação (Melhor Plano).",
         image: seloSatisfacao,
         alt: "Selo Melhor satisfacao 2026",
     },
@@ -31,14 +31,14 @@ const seals = [
     {
         description: "*Alta avaliação no atendimento (Reclame Aqui)",
         title: "RA1000",
-        caption: "*Alta avaliacao no atendimento (Reclame Aqui).",
+        caption: "*Alta avaliação no atendimento (Reclame Aqui).",
         image: seloReputacaoMaxima,
         alt: "Selo reputacao maxima RA1000",
     },
     {
         description: "*Destaque em velocidade, satisfação e qualidade (MelhorPlano)\n",
-        title: "28 premios em 2025",
-        caption: "*Destaque em velocidade, satisfacao e qualidade (Melhor Plano).",
+        title: "28 prêmios em 2025",
+        caption: "*Destaque em velocidade, satisfação e qualidade (Melhor Plano).",
         image: selo28Premios,
         alt: "Selo de 28 premios em 2025",
     },
