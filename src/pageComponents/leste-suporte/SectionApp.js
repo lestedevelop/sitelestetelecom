@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CardApp from "@/components/cards/CardApp";
 import arrow from "@/assets/arrowright.svg";
 import arrow2 from "@/assets/arrowrightlight.svg";
@@ -46,17 +47,19 @@ export default function SectionApp() {
 
           <div className="flex flex-col gap-y-6 md:gap-y-8">
             <div className="mx-auto w-full max-w-[640px]">
+            <Link href={"https://onelink.to/lestesuporte"}>
               <Image
-                alt="banner do app Leste Suporte"
-                src={bannerSuporteApp}
-                className="h-auto w-full"
+                  alt="banner do app Leste Suporte"
+                  src={bannerSuporteApp}
+                  className="h-auto w-full"
               />
+            </Link>
             </div>
-            <CardApp
-              download
-              link="https://onelink.to/lestesuporte"
-              className="mx-auto w-full max-w-[640px] bg-primary"
-            />
+            {/*<CardApp*/}
+            {/*  download*/}
+            {/*  link="https://onelink.to/lestesuporte"*/}
+            {/*  className="mx-auto w-full max-w-[640px] bg-primary"*/}
+            {/*/>*/}
           </div>
         </div>
       </section>
@@ -93,17 +96,19 @@ export default function SectionApp() {
           </div>
 
           <div className="order-1 flex flex-col gap-y-6 md:gap-y-8 lg:order-2">
-            <CardApp
-              download
-              link="https://onelink.to/lestecentral"
-              className="mx-auto w-full max-w-[640px] bg-light text-primary"
-            />
+            {/*<CardApp*/}
+            {/*  download*/}
+            {/*  link="https://onelink.to/lestecentral"*/}
+            {/*  className="mx-auto w-full max-w-[640px] bg-light text-primary"*/}
+            {/*/>*/}
             <div className="mx-auto w-full max-w-[640px]">
-              <Image
-                alt="banner do app Leste Central"
-                src={bannerSuporteApp2}
-                className="h-auto w-full"
-              />
+              <Link href={"https://onelink.to/lestecentral"}>
+                <Image
+                    alt="banner do app Leste Central"
+                    src={bannerSuporteApp2}
+                    className="h-auto w-full"
+                />
+              </Link>
             </div>
           </div>
         </div>

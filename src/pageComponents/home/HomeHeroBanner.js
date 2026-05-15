@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import bannerHomeDesktop from "@/assets/bannernovohome.png";
-import bannerHomeMobile from "@/assets/bannernovomobile.png";
+import bannerHomeDesktop from "@/assets/home/15-05-2026/BannerDesktop.png";
+import bannerHomeTablet from "@/assets/home/15-05-2026/BannerTablet.png";
+import bannerHomeMobile from "@/assets/home/15-05-2026/BannerMobile.png";
 
 export default function HomeHeroBanner({
     href,
@@ -30,7 +31,17 @@ export default function HomeHeroBanner({
                 alt={alt}
                 fill
                 priority={priority}
+                unoptimized
                 className="hidden object-cover object-center lg:block 2xl:object-contain"
+                sizes="100vw"
+            />
+            <Image
+                src={bannerHomeTablet}
+                alt={alt}
+                fill
+                priority={priority}
+                unoptimized
+                className="hidden object-cover object-center md:block lg:hidden"
                 sizes="100vw"
             />
             <Image
@@ -38,7 +49,8 @@ export default function HomeHeroBanner({
                 alt={alt}
                 fill
                 priority={priority}
-                className="object-cover lg:hidden"
+                unoptimized
+                className="object-cover md:hidden"
                 sizes="100vw"
             />
             {children ? (
