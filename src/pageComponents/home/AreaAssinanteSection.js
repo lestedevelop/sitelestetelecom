@@ -38,10 +38,10 @@ export default function AreaAssinanteSection() {
                     >
                         <div className="relative z-10 py-10 pl-12 pr-6 md:w-1/2">
                             <h2 className="text-[2.4rem] font-bold leading-tight text-white">
-                                Já faz parte<br />da Leste?
+                                Já é cliente <br/>Leste
                             </h2>
                             <p className="mt-3 max-w-[300px] text-[0.95rem] leading-6 text-white/80">
-                                Acesse a Área do Assinante, o ambiente exclusivo para você acompanhar seus serviços, consultar faturas e gerenciar sua conta com facilidade.
+                                Consulte faturas, serviços e tudo da sua conta em um só lugar.
                             </p>
                             <Link
                                 href="https://minhaarea.lestetelecom.com.br"

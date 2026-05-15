@@ -16,22 +16,28 @@ import {findCodCidByName} from "@/utils/cidade";
 import {getLocationByIP} from "@/utils/getLocationByIP";
 
 const TOP_LINKS = [
-    {href: "/", label: "Para Você"},
-    {href: "/pme", label: "Para empresas"},
+    {href: "/", label: "Para você"},
+];
+
+const BUSINESS_MENU = [
+    {href: "/pme", label: "PME (Pequenas e Medias Empresas)"},
+    {href: "/corporate", label: "Link Corporativo"},
 ];
 
 const SERVICES_MENU = [
-    {href: "/fibra", label: "Internet Fibra"},
-    {href: "/movel", label: "Leste Movel"},
-    {href: "/cameras", label: "Cameras"},
+    {href: "/", label: "Internet Fibra"},
+    {href: "/movel", label: "Leste Móvel"},
+    {href: "/cameras", label: "Câmeras"},
     {href: "/lesteup", label: "Leste Up"},
+    {label: "Link corporativo", children: BUSINESS_MENU},
 ];
 
 const LEARN_MENU = [
     {href: "/faq", label: "FAQ"},
-    {href: "/corporate", label: "Link corporativo"},
-    {href: "/faq/lojas", label: "Lojas"},
     {href: "/faq/teste-de-velocidade", label: "Teste de velocidade"},
+    {href: "/indique-e-ganhe-leste", label: "Indique e Ganhe"},
+    {href: "/faq/lojas", label: "Lojas"},
+    {href: "https://portal.lestetelecom.com.br", label: "Central do Assinante"},
 ];
 
 const MOBILE_LEARN_MENU = [
@@ -84,13 +90,36 @@ function splitItems(items = []) {
     return [items.slice(0, midpoint), items.slice(midpoint)];
 }
 
-function MegaMenu({id, title, description, items, onClose, action}) {
+function BusinessOptionsMenu({id, items, onClose, className = ""}) {
+    return (
+        <div
+            id={id}
+            className={`z-[90] w-[340px] rounded-2xl border border-graylighter bg-white p-3 text-darkgreen shadow-[0_18px_44px_rgba(0,0,0,.14)] ${className}`}
+            role="menu"
+        >
+            <div className="space-y-2">
+                {items.map((item) => (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={onClose}
+                        className="block rounded-xl bg-light px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                    >
+                        {item.label}
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function MegaMenu({id, title, description, items, onClose, action, businessOpen, onBusinessToggle, onBusinessClose}) {
     const columns = splitItems(items);
 
     return (
         <div
             id={id}
-            className="fixed left-0 right-0 top-[calc(100%)] z-50 overflow-hidden border-b border-white/20 bg-primary/10 text-white backdrop-blur-2xl"
+            className="fixed left-0 right-0 top-[calc(100%)] z-50 overflow-visible border-b border-white/20 bg-primary/10 text-white backdrop-blur-2xl"
             role="menu"
         >
             <div className="pointer-events-none absolute inset-0">
@@ -128,18 +157,47 @@ function MegaMenu({id, title, description, items, onClose, action}) {
                         ) : null}
                     </div>
 
-                    <div className="col-span-2 grid grid-cols-2 gap-x-12 gap-y-4 px-4 py-4 min-[1440px]:col-span-1">
+                    <div className="flex flex-wrap items-start pt-4 h-full justify-between">
                         {columns.map((column, index) => (
-                            <div key={index} className="space-y-3">
+                            <div key={index} className="flex">
                                 {column.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={onClose}
-                                        className="block rounded-2xl border border-transparent px-5 py-4 text-[2rem] font-semibold leading-none tracking-[-0.03em] text-white transition hover:border-white/12 hover:bg-white/8"
-                                    >
-                                        {item.label}
-                                    </Link>
+                                    item.children ? (
+                                        <div key={item.label} className="relative">
+                                            <button
+                                                type="button"
+                                                onClick={onBusinessToggle}
+                                                className="inline-flex items-center gap-2 rounded-2xl border border-transparent px-5 py-4 text-2xl font-semibold leading-none tracking-[-0.03em] text-white transition hover:border-white/12 hover:bg-white/8"
+                                                aria-expanded={businessOpen}
+                                            >
+                                                {item.label}
+                                                <ChevronDown
+                                                    className={`h-5 w-5 transition-transform ${
+                                                        businessOpen ? "rotate-180" : ""
+                                                    }`}
+                                                />
+                                            </button>
+
+                                            {businessOpen && (
+                                                <BusinessOptionsMenu
+                                                    items={item.children}
+                                                    onClose={() => {
+                                                        onBusinessClose();
+                                                        onClose();
+                                                    }}
+                                                    className="absolute left-0 top-full mt-2"
+                                                />
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={onClose}
+                                            className="block rounded-2xl border border-transparent px-5 py-4 text-2xl font-semibold leading-none tracking-[-0.03em] text-white transition hover:border-white/12 hover:bg-white/8"
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    )
                                 ))}
                             </div>
                         ))}
@@ -152,6 +210,7 @@ function MegaMenu({id, title, description, items, onClose, action}) {
 
 export default function AppBarNew() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [businessOpen, setBusinessOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
     const [learnOpen, setLearnOpen] = useState(false);
     const [visible, setVisible] = useState(true);
@@ -179,6 +238,7 @@ export default function AppBarNew() {
 
     useEffect(() => {
         setMobileOpen(false);
+        setBusinessOpen(false);
         setServicesOpen(false);
         setLearnOpen(false);
         closeSelectCity();
@@ -264,6 +324,7 @@ export default function AppBarNew() {
         function onKey(e) {
             if (e.key === "Escape") {
                 setMobileOpen(false);
+                setBusinessOpen(false);
                 setServicesOpen(false);
                 setLearnOpen(false);
             }
@@ -271,6 +332,7 @@ export default function AppBarNew() {
 
         function onClickOutside(e) {
             if (!navRef.current?.contains(e.target)) {
+                setBusinessOpen(false);
                 setServicesOpen(false);
                 setLearnOpen(false);
             }
@@ -336,15 +398,26 @@ export default function AppBarNew() {
         })();
     }, [hydrated, site?.city?.value, site?.city?.label, setCity, setCityConfirmed]);
 
-    const closeMobile = () => setMobileOpen(false);
+    const closeMobile = () => {
+        setMobileOpen(false);
+        setBusinessOpen(false);
+        setServicesOpen(false);
+        setLearnOpen(false);
+    };
 
     const openCityModal = () => {
+        setBusinessOpen(false);
+        setServicesOpen(false);
+        setLearnOpen(false);
         openConfirmCity();
         openSelectCity();
         setMobileOpen(false);
     };
 
     const openCityModalMobile = () => {
+        setBusinessOpen(false);
+        setServicesOpen(false);
+        setLearnOpen(false);
         openConfirmCity();
         openSelectCity();
     };
@@ -417,11 +490,41 @@ export default function AppBarNew() {
                                             </Link>
                                         ))}
 
+                                        <div className="relative">
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setBusinessOpen((prev) => !prev);
+                                                    setServicesOpen(false);
+                                                    setLearnOpen(false);
+                                                }}
+                                                className="inline-flex items-center gap-2 text-[18px] font-semibold text-darkgreen transition-colors hover:text-primary"
+                                                aria-expanded={businessOpen}
+                                                aria-controls={`business-dd-${uid}`}
+                                            >
+                                                Para empresas
+                                                <ChevronDown
+                                                    className={`h-4 w-4 transition-transform ${
+                                                        businessOpen ? "rotate-180" : ""
+                                                    }`}
+                                                />
+                                            </button>
+
+                                            {businessOpen && !servicesOpen && (
+                                                <BusinessOptionsMenu
+                                                    id={`business-dd-${uid}`}
+                                                    items={BUSINESS_MENU}
+                                                    onClose={() => setBusinessOpen(false)}
+                                                    className="absolute right-0 top-full mt-3"
+                                                />
+                                            )}
+                                        </div>
+
                                         <Link
                                             href="/area-do-cliente"
                                             className="inline-flex min-h-10 items-center rounded-full border border-primary/35 px-7 text-[18px] font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
                                         >
-                                            Ja sou Assinante
+                                            Já sou assinante
                                         </Link>
                                     </div>
 
@@ -432,13 +535,14 @@ export default function AppBarNew() {
                                                     type="button"
                                                     onClick={() => {
                                                         setServicesOpen((prev) => !prev);
+                                                        setBusinessOpen(false);
                                                         setLearnOpen(false);
                                                     }}
                                                     className="inline-flex items-center gap-2 text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
                                                     aria-expanded={servicesOpen}
                                                     aria-controls={`services-dd-${uid}`}
                                                 >
-                                                    Servicos
+                                                    Serviços
                                                     <ChevronDown
                                                         className={`h-4 w-4 transition-transform ${
                                                             servicesOpen ? "rotate-180" : ""
@@ -450,9 +554,15 @@ export default function AppBarNew() {
                                                     <MegaMenu
                                                         id={`services-dd-${uid}`}
                                                         title="Leste Telecom"
-                                                        description="Internet 100% fibra optica, alta velocidade, estabilidade e solucoes completas para sua casa ou empresa. Conheca os produtos da Leste Telecom."
+                                                        description="Internet 100% fibra ótica, alta velocidade, estabilidade e soluções completas para sua casa."
                                                         items={SERVICES_MENU}
                                                         onClose={() => setServicesOpen(false)}
+                                                        businessOpen={businessOpen}
+                                                        onBusinessToggle={() => {
+                                                            setBusinessOpen((prev) => !prev);
+                                                            setLearnOpen(false);
+                                                        }}
+                                                        onBusinessClose={() => setBusinessOpen(false)}
                                                         action={{
                                                             label: "Consultar viabilidade",
                                                             onClick: () => {
@@ -475,6 +585,7 @@ export default function AppBarNew() {
                                                     type="button"
                                                     onClick={() => {
                                                         setLearnOpen((prev) => !prev);
+                                                        setBusinessOpen(false);
                                                         setServicesOpen(false);
                                                     }}
                                                     className="inline-flex items-center gap-2 text-[16px] font-semibold text-darkgreen transition-colors hover:text-primary"
@@ -583,7 +694,44 @@ export default function AppBarNew() {
                                 <button
                                     type="button"
                                     onClick={() => {
+                                        setBusinessOpen((prev) => !prev);
+                                        setServicesOpen(false);
+                                        setLearnOpen(false);
+                                    }}
+                                    className={[
+                                        "flex min-h-11 w-full items-center justify-between rounded-xl border px-4 text-left text-[15px] font-semibold transition-colors",
+                                        businessOpen
+                                            ? "border-primary bg-primary text-white"
+                                            : "border-[#d1d5db] bg-[#f2f2f2] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,.7)]",
+                                    ].join(" ")}
+                                    aria-expanded={businessOpen}
+                                >
+                                    <span>Para empresas</span>
+                                    <ChevronDown className={`h-4 w-4 transition-transform ${businessOpen ? "rotate-180" : ""}`}/>
+                                </button>
+
+                                {businessOpen && (
+                                    <div className="space-y-2 px-3 pb-2">
+                                        {BUSINESS_MENU.map((item) => (
+                                            <Link
+                                                key={item.href}
+                                                href={item.href}
+                                                onClick={closeMobile}
+                                                className="block text-[15px] font-semibold text-primary"
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="space-y-2">
+                                <button
+                                    type="button"
+                                    onClick={() => {
                                         setServicesOpen((prev) => !prev);
+                                        setBusinessOpen(false);
                                         setLearnOpen(false);
                                     }}
                                     className={[
@@ -601,14 +749,34 @@ export default function AppBarNew() {
                                 {servicesOpen && (
                                     <div className="space-y-2 px-3 pb-2">
                                         {SERVICES_MENU.map((item) => (
-                                            <Link
-                                                key={item.href}
-                                                href={item.href}
-                                                onClick={closeMobile}
-                                                className="block text-[15px] font-semibold text-primary"
-                                            >
-                                                {item.label}
-                                            </Link>
+                                            item.children ? (
+                                                <div key={item.label} className="space-y-2">
+                                                    <div className="text-[15px] font-semibold text-primary">
+                                                        {item.label}
+                                                    </div>
+                                                    <div className="space-y-2 pl-3">
+                                                        {item.children.map((child) => (
+                                                            <Link
+                                                                key={child.href}
+                                                                href={child.href}
+                                                                onClick={closeMobile}
+                                                                className="block text-[15px] font-semibold text-primary"
+                                                            >
+                                                                {child.label}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <Link
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    onClick={closeMobile}
+                                                    className="block text-[15px] font-semibold text-primary"
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            )
                                         ))}
 
                                         <button
@@ -630,6 +798,7 @@ export default function AppBarNew() {
                                     type="button"
                                     onClick={() => {
                                         setLearnOpen((prev) => !prev);
+                                        setBusinessOpen(false);
                                         setServicesOpen(false);
                                     }}
                                     className={[

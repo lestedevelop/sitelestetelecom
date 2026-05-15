@@ -9,16 +9,16 @@
   },
   {
     "id": "leste-movel",
-    "title": "Leste Movel",
-    "excerpt": "Internet movel para voce continuar conectado fora de casa com mais liberdade.",
+    "title": "Leste Móvel",
+    "excerpt": "Internet móvel para você continuar conectado.",
     "href": "/movel",
     "imageKey": "lesteMovel",
     "cta": "Saiba mais >"
   },
   {
     "id": "leste-cameras",
-    "title": "Leste Cameras",
-    "excerpt": "Cameras inteligentes para acompanhar sua casa pelo celular, de forma simples.",
+    "title": "Leste Câmeras",
+    "excerpt": "Câmeras inteligentes para acompanhar sua casa pelo celular, de forma simples.",
     "href": "/cameras",
     "imageKey": "lesteCameras",
     "cta": "Saiba mais >"

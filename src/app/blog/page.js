@@ -43,7 +43,7 @@ export default function BlogPage() {
                   </h2>
                 </Link>
 
-                <p className="mt-4 text-base leading-7 text-dark">
+                <p className="mt-4 text-[19px] leading-7 text-dark">
                   {post.excerpt}
                 </p>
 

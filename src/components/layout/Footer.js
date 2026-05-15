@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import logoLeste from "@/assets/lestelogocapabranco.png";
@@ -8,6 +10,7 @@ import insta from "@/assets/icons/footer/insta.svg";
 import linkedin from "@/assets/icons/footer/linkedin.svg";
 import tiktok from "@/assets/icons/footer/tiktok.svg";
 import twitter from "@/assets/icons/footer/twitter.svg";
+import socialWhatsIcon from "@/assets/icons/footer/whatsapp.svg";
 import youtube from "@/assets/icons/footer/youtube.svg";
 import portalLeste from "@/assets/portalLeste.svg";
 import appLeste from "@/assets/appLeste.svg";
@@ -15,7 +18,7 @@ import reclameAqui from "@/assets/icons/footer/img.png";
 import topoFooter from "@/assets/icons/footer/topo.svg";
 
 const socialLinks = [
-    {href: "https://wa.me/552120201300", label: "WhatsApp", icon: whatsIcon},
+    {href: "https://wa.me/552120201300", label: "WhatsApp", icon: socialWhatsIcon},
     {href: "https://www.facebook.com/lestetelecom", label: "Facebook", icon: facebook},
     {href: "https://www.instagram.com/lestetelecom/", label: "Instagram", icon: insta},
     {href: "https://www.tiktok.com/", label: "TikTok", icon: tiktok},
@@ -43,15 +46,24 @@ const supportPhones = [
 ];
 
 export default function Footer() {
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
     return (
         <footer className="relative w-full bg-[#003B2E] text-white">
-            <div className="w-full absolute z-40 top-0 -translate-y-[50%]">
+            <button
+                type="button"
+                onClick={scrollToTop}
+                aria-label="Voltar ao topo"
+                className="absolute top-0 z-40 w-full -translate-y-[50%] cursor-pointer"
+            >
                 <Image
                     src={topoFooter}
                     alt=""
                     className="w-full xl:mb-24"
                 />
-            </div>
+            </button>
 
             <div className="container pt-14 z-50 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
                 <div className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
@@ -64,7 +76,7 @@ export default function Footer() {
                                     className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-transform hover:-translate-y-px"
                                     aria-label={item.label}
                                 >
-                                    <Image src={item.icon} alt="" className="h-6 w-6"/>
+                                    <Image src={item.icon} alt="" className="h-7 w-7"/>
                                 </Link>
                             ))}
                         </div>
@@ -172,9 +184,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="text-left text-[2.4rem] font-semibold leading-none tracking-[-0.04em] text-primary md:col-span-2 md:text-[2.8rem] lg:col-span-1 lg:text-right lg:text-[3rem]">
-                        FAQ
-                    </div>
                 </div>
             </div>
         </footer>

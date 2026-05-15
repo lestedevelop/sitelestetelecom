@@ -62,7 +62,7 @@ export default function NovidadesSection() {
                   da Leste
                 </h2>
                 <p className="mt-3 hidden pb-8 text-3xl leading-7 text-darkgreen md:text-[2rem] md:leading-none lg:block">
-                  Conteudos para te ajudar a escolher melhor e usar mais da sua conexao.
+                  Conteúdos para te ajudar a escolher melhor a sua conexão.
                 </p>
               </header>
 

@@ -32,7 +32,7 @@ function ServiceCard({ service }) {
             {service.title}
           </h3>
 
-          <p className="mt-8 text-[14px] leading-[1.15] text-corporate">
+          <p className="mt-8 text-[19px] leading-[1.15] text-corporate">
             {service.excerpt}
           </p>
 
@@ -57,11 +57,11 @@ export default function ConhecaNossosServicosSection() {
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <header>
                 <h2 className="text-3xl font-bold leading-[1.02] tracking-[-0.04em] text-primary md:text-[4rem] lg:text-6xl">
-                  Outros servicos
+                  Outros serviços
                   <br />
                   da Leste
                 </h2>
-                <p className="mt-3 hidden pb-8 text-3xl leading-7 text-darkgreen md:text-lg md:leading-none lg:block">
+                <p className="mt-3 hidden pb-8 text-[32px] leading-7 text-darkgreen md:text-lg md:leading-none lg:block">
                   Para diferentes necessidades.
                 </p>
               </header>

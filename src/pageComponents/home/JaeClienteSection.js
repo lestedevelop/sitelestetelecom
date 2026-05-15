@@ -13,8 +13,8 @@ const benefits = [
         icon: roteadorIcon,
     },
     {
-        title: "Suporte tecnico 24h",
-        description: "Atendimento por telefone, WhatsApp, Instagram, Messenger, Twitter e Telegram.",
+        title: "Suporte técnico 24h",
+        description: "Atendimento por telefone, WhatsApp, Instagram, Messenger, Telegram e X (antigo Twitter).",
         icon: suporteIcon,
     },
     {
@@ -40,7 +40,7 @@ function BenefitCard({item}) {
                 <h3 className="text-[1.85rem] font-semibold leading-none tracking-[-0.03em] text-primary">
                     {item.title}
                 </h3>
-                <p className="max-w-[320px] text-[1.05rem] leading-7 text-dark">
+                <p className="max-w-[320px] text-[19px] leading-7 text-dark">
                     {item.description}
                 </p>
                 {item.note ? (

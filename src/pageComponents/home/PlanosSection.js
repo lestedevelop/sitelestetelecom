@@ -15,7 +15,7 @@ export default function PlanosSection() {
         <Section>
             <section className="pt-8 pb-8">
                 <h2 className="planos-title text-center font-bold text-primary">
-                    Conheca nossos planos!
+                    Conheça nossos planos!
                 </h2>
                 <p className="planos-subtitle mt-2 text-center text-dark">
                     Internet 100% Fibra ótica na sua casa
@@ -35,7 +35,7 @@ export default function PlanosSection() {
 
             <div className="pt-8 pb-8">
                 <p className="planos-subtitle font-bold mt-2 text-xl text-center text-darkgreen">
-                    {`Planos disponiveis apenas para a cidade de ${site?.city?.label}`}
+                    {`Planos disponíveis apenas para a cidade de ${site?.city?.label}`}
                 </p>
                 <div className="text-center">
                     <p className="mx-2.5 mb-8  text-sm lg:text-base text-graylight">
