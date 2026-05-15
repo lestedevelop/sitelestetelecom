@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import bannerBg from "@/assets/home/banner-assinante.svg";
+import bannerBg from "@/assets/home/15-05-2026/clienteLeste.png";
 import bannerBgmobile from "@/assets/home/banner-assinantemobile.svg";
 
 export default function AreaAssinanteSection() {
@@ -44,10 +44,10 @@ export default function AreaAssinanteSection() {
                                 Consulte faturas, serviços e tudo da sua conta em um só lugar.
                             </p>
                             <Link
-                                href="https://minhaarea.lestetelecom.com.br"
+                                href="https://portal.lestetelecom.com.br/login"
                                 className="mt-7 inline-block rounded-full bg-darkgreen px-8 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-darkgreen/80"
                             >
-                                Área do Assinante
+                                Acessar minha conta.
                             </Link>
                         </div>
 

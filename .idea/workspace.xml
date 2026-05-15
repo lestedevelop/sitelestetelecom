@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/bannerSaibaMais.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/bannerServicos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/clienteLeste.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/selo-reputacao-maxima.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/selo-satisfacao.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/selo28-premios.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerDesktop.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerDesktop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerMobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerMobile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerTablet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/BannerTablet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/SELO-MAISPREMIADO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/SELO-RA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/home/selo-melhorvelocidade-2026.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/home/15-05-2026/selo-melhor-velocidade.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/blogPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/lesteServices.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/lesteServices.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pageComponents/home/AreaAssinanteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/AreaAssinanteSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/JaeClienteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/JaeClienteSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +60,7 @@
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/home",
+    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/home/15-05-2026",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,11 +74,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\area-do-cliente" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\movel" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
@@ -130,7 +134,7 @@
       <workItem from="1777546929461" duration="15047000" />
       <workItem from="1778501765658" duration="5519000" />
       <workItem from="1778509694918" duration="11915000" />
-      <workItem from="1778845992045" duration="9457000" />
+      <workItem from="1778845992045" duration="12382000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -220,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778857399488</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="++">
+      <option name="closed" value="true" />
+      <created>1778872657504</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778872657504</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

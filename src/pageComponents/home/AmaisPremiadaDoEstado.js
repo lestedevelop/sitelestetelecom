@@ -8,29 +8,39 @@ import {Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import seloRa1000 from "@/assets/home/SELO-RA.png";
-import seloMaisPremiado from "@/assets/home/SELO-MAISPREMIADO.png";
+import seloSatisfacao from "@/assets/home/15-05-2026/selo-satisfacao.svg";
+import seloMelhorVelocidade from "@/assets/home/15-05-2026/selo-melhor-velocidade.svg";
+import seloReputacaoMaxima from "@/assets/home/15-05-2026/selo-reputacao-maxima.svg";
+import selo28Premios from "@/assets/home/15-05-2026/selo28-premios.svg";
 
 const seals = [
     {
         description: "*Alta avaliação no atendimento (Reclame Aqui)",
-        image: seloRa1000,
-        alt: "Selo RA1000 de melhor atendimento de 2025",
+        title: "Melhor satisfacao 2026",
+        caption: "Destaque em satisfacao (Melhor Plano).",
+        image: seloSatisfacao,
+        alt: "Selo Melhor satisfacao 2026",
     },
     {
         description: "*Destaque em velocidade, satisfação e qualidade (MelhorPlano)\n",
-        image: seloMaisPremiado,
-        alt: "Selo de 28 premios em 2025 do MelhorPlano",
+        title: "Melhor velocidade",
+        caption: "Destaque em velocidade (Melhor Plano).",
+        image: seloMelhorVelocidade,
+        alt: "Selo melhor velocidade",
     },
     {
         description: "*Alta avaliação no atendimento (Reclame Aqui)",
-        image: seloRa1000,
-        alt: "Selo RA1000 de melhor atendimento de 20251",
+        title: "RA1000",
+        caption: "*Alta avaliacao no atendimento (Reclame Aqui).",
+        image: seloReputacaoMaxima,
+        alt: "Selo reputacao maxima RA1000",
     },
     {
         description: "*Destaque em velocidade, satisfação e qualidade (MelhorPlano)\n",
-        image: seloMaisPremiado,
-        alt: "Selo de 28 premios em 2025 do MelhorPlano1",
+        title: "28 premios em 2025",
+        caption: "*Destaque em velocidade, satisfacao e qualidade (Melhor Plano).",
+        image: selo28Premios,
+        alt: "Selo de 28 premios em 2025",
     },
 ];
 
@@ -45,8 +55,11 @@ function SealCard({seal}) {
                 />
             </div>
 
-            <p className="mt-4 min-h-10 text-sm leading-4 text-darkgreen md:text-[15px]">
-                {seal.description}
+            <h3 className="mt-3 text-lg font-semibold leading-5 text-darkgreen md:text-xl">
+                {seal.title}
+            </h3>
+            <p className="mt-3 min-h-10 text-sm leading-4 text-darkgreen md:text-[15px]">
+                {seal.caption}
             </p>
         </article>
     );
@@ -68,6 +81,9 @@ export default function AmaisPremiadaDoEstado() {
                                     e reconhecimento
                                 </h2>
                                 <p className="mt-3 hidden lg:block text-3xl leading-7 pb-8 text-darkgreen md:text-[2rem] md:leading-none">
+                                    Destaque em velocidade e satisfacao.
+                                </p>
+                                <p className="hidden">
                                     Destaque em atendimento, velocidade e satisfação.
                                 </p>
                             </header>

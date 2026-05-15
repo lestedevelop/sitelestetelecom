@@ -5,6 +5,8 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useEffect, useId, useRef, useState} from "react";
 import logo from "@/assets/logo.png";
+import bannerServicos from "@/assets/home/15-05-2026/bannerServicos.png";
+import bannerSaibaMais from "@/assets/home/15-05-2026/bannerSaibaMais.png";
 import pinIcon from "@/assets/icons/pin.svg";
 import ModalConfirmCity from "@/components/layout/ModalConfirmCity";
 import ModalViabilidade from "@/components/layout/ModalViabilidade";
@@ -113,7 +115,19 @@ function BusinessOptionsMenu({id, items, onClose, className = ""}) {
     );
 }
 
-function MegaMenu({id, title, description, items, onClose, action, businessOpen, onBusinessToggle, onBusinessClose}) {
+function MegaMenu({
+    id,
+    title,
+    description,
+    items,
+    onClose,
+    action,
+    bannerImage,
+    bannerAlt = "",
+    businessOpen,
+    onBusinessToggle,
+    onBusinessClose,
+}) {
     const columns = splitItems(items);
 
     return (
@@ -131,9 +145,13 @@ function MegaMenu({id, title, description, items, onClose, action, businessOpen,
 
             <div className="container relative py-4">
                 <div className="grid gap-8 p-8 min-[1440px]:grid-cols-[420px_320px_1fr] min-[1440px]:items-start min-[1440px]:gap-8 max-[1439px]:grid-cols-2">
-                    <div className="h-[188px] rounded-[1.75rem] bg-darkgreen/95"/>
+                    <Image
+                        src={bannerImage}
+                        alt={bannerAlt}
+                        className="h-[188px] w-full rounded-[1.75rem] bg-darkgreen/95 object-cover"
+                    />
 
-                    <div className="flex min-h-[188px] flex-col justify-between py-6">
+                    <div className="flex min-h-[188px] flex-col justify-between">
                         <div className="space-y-4">
                             <h3 className="text-[2.15rem] font-semibold leading-none tracking-[-0.03em]">
                                 {title}
@@ -557,6 +575,8 @@ export default function AppBarNew() {
                                                         description="Internet 100% fibra ótica, alta velocidade, estabilidade e soluções completas para sua casa."
                                                         items={SERVICES_MENU}
                                                         onClose={() => setServicesOpen(false)}
+                                                        bannerImage={bannerServicos}
+                                                        bannerAlt="Servicos da Leste Telecom"
                                                         businessOpen={businessOpen}
                                                         onBusinessToggle={() => {
                                                             setBusinessOpen((prev) => !prev);
@@ -607,6 +627,8 @@ export default function AppBarNew() {
                                                         description="Acesse suporte, lojas, informacoes tecnicas e conteudos para conhecer melhor os servicos e canais da Leste."
                                                         items={LEARN_MENU}
                                                         onClose={() => setLearnOpen(false)}
+                                                        bannerImage={bannerSaibaMais}
+                                                        bannerAlt="Saiba mais sobre a Leste Telecom"
                                                     />
                                                 )}
                                             </div>
