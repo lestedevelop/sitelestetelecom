@@ -95,7 +95,7 @@ export default function FormIndicate() {
 
         <SectionForm title="Dados do amigo">
           <Input
-            label="Nome completo do Amigo*"
+            label="Nome completo do(a) amigo(a)*:"
             register={register}
             name="nomeAmigo"
             error={errors.nomeAmigo?.message}
@@ -103,7 +103,7 @@ export default function FormIndicate() {
           />
 
           <Input
-            label="Endereco completo do Amigo*"
+            label="Endereço completo do(a) amigo(a) *:"
             register={register}
             name="enderecoAmigo"
             error={errors.enderecoAmigo?.message}
@@ -111,7 +111,7 @@ export default function FormIndicate() {
           />
 
           <Input
-            label="Cidade do Amigo*"
+            label="Cidade:"
             register={register}
             name="cidadeAmigo"
             error={errors.cidadeAmigo?.message}
@@ -120,7 +120,7 @@ export default function FormIndicate() {
 
           <div className="grid gap-4 md:grid-cols-2">
             <Input
-              label="Celular do Amigo*"
+              label="Celular:"
               name="celularAmigo"
               register={register}
               error={errors.celularAmigo?.message}
@@ -135,7 +135,7 @@ export default function FormIndicate() {
             />
 
             <Input
-              label="Telefone do Amigo*"
+              label="Telefone:"
               name="telefoneAmigo"
               register={register}
               error={errors.telefoneAmigo?.message}

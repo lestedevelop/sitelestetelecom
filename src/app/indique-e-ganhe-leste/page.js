@@ -2,25 +2,26 @@ import Image from "next/image";
 import { CircleAlert } from "lucide-react";
 import FormIndicate from "@/components/Form/FormIndicate";
 import indiqueImage from "@/assets/indique2.png";
-import HeroSlide from "@/pageComponents/home/HeroSlide";
+import bannerIndique from "@/assets/banner-indique.png";
+import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 const PARTICIPATION_STEPS = [
   {
     number: "01",
-    text: "Preencha o formulário acima com seus dados e do seu amigo.",
+    text: "Preencha o formulário acima com seus dados e do seu amigo(a).",
     accent: true,
   },
   {
     number: "02",
-    text: "Aguarde seu amigo assinar.",
+    text: "Aguarde ele(a) assinar.",
   },
   {
     number: "03",
-    text: "Após seu amigo realizar o pagamento da primeira mensalidade você ganhará a mensalidade grátis na próxima fatura.",
+    text: "Após o pagamento da primeira mensalidade do seu amigo(a), você ganha a próxima grátis.",
   },
   {
     number: "04",
-    text: "Pronto! No próximo mês você não pagará a mensalidade.",
+    text: "Tudo certo! Sua próxima mensalidade é por nossa conta.",
   },
 ];
 
@@ -40,18 +41,25 @@ const REGULATION_ITEMS = [
 export default function IndiqueEGanheLestePage() {
   return (
     <div className="min-h-full bg-light">
-      <HeroSlide />
+      <section className="w-full">
+        <HomeHeroBanner
+          alt="Banner da página Indique e Ganhe"
+          className="h-[182px] md:h-[350px]"
+          desktopImage={bannerIndique}
+          tabletImage={bannerIndique}
+          mobileImage={bannerIndique}
+        />
+      </section>
 
       <section className="w-full bg-light">
         <div className="container grid gap-8 py-10 md:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:py-16">
           <div className="px-2 md:px-0">
             <div className="mt-4 text-center lg:mt-8 lg:text-left">
               <h1 className="text-[2.8rem] font-bold leading-none text-primary md:text-[4rem]">
-                Indique e ganhe
+                Indique e Ganhe
               </h1>
               <p className="mx-auto mt-3 max-w-[24rem] text-base leading-tight text-darkgreen/85 md:text-[1.45rem] lg:mx-0 lg:max-w-[18rem] lg:text-[1.7rem]">
-                Ao indicar um amigo e ele assinar, você ganha a próxima
-                mensalidade grátis.
+                Indique um amigo e ganhe uma mensalidade grátis quando ele assinar.
               </p>
             </div>
 
@@ -133,27 +141,47 @@ export default function IndiqueEGanheLestePage() {
 
       <section className="pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
         <div className="container px-6 py-12 text-darkgreen md:px-10 md:py-16">
-          <div className="flex items-center gap-3">
-            <CircleAlert className="h-8 w-8 text-darkgreen" strokeWidth={2.2} />
-            <h2 className="text-[2.9rem] font-bold leading-none md:text-[4rem]">
-              Regulamento
-            </h2>
-          </div>
+          <details className="group rounded-[2rem] bg-white/60 px-6 py-5 md:px-8 md:py-6">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <CircleAlert className="h-8 w-8 text-darkgreen" strokeWidth={2.2} />
+                <h2 className="text-[2.9rem] font-bold leading-none md:text-[4rem]">
+                  Regulamento
+                </h2>
+              </div>
 
-          <div className="mt-8 space-y-1 text-base leading-7 text-darkgreen/85 md:text-[1.45rem] md:leading-8">
-            <p>Regras e condições</p>
-            <p>PROMOÇÃO INDIQUE E GANHE LESTE TELECOM 2024</p>
-            <p>Regras Gerais da Promoção</p>
-          </div>
+              <svg
+                className="h-6 w-6 shrink-0 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </summary>
 
-          <ol className="mt-8 space-y-3 text-base leading-7 text-darkgreen/90 md:text-[1.35rem] md:leading-8">
-            {REGULATION_ITEMS.map((item, index) => (
-              <li key={item}>
-                <span className="font-bold">{index + 1}. </span>
-                {item}
-              </li>
-            ))}
-          </ol>
+            <div className="mt-8 space-y-1 text-base leading-7 text-darkgreen/85 md:text-[1.45rem] md:leading-8">
+              <p>Regras e condições</p>
+              <p>PROMOÇÃO INDIQUE E GANHE LESTE TELECOM 2024</p>
+              <p>Regras Gerais da Promoção</p>
+            </div>
+
+            <ol className="mt-8 space-y-3 text-base leading-7 text-darkgreen/90 md:text-[1.35rem] md:leading-8">
+              {REGULATION_ITEMS.map((item, index) => (
+                <li key={item}>
+                  <span className="font-bold">{index + 1}. </span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </details>
         </div>
       </section>
     </div>

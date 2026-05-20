@@ -13,21 +13,32 @@ export default function HomeHeroBanner({
     priority = false,
     className = "",
     contentClassName = "",
+    desktopImage,
+    tabletImage,
+    mobileImage,
     children,
 }) {
+    const resolvedDesktopImage = desktopImage ?? bannerHomeDesktop;
+    const resolvedTabletImage = tabletImage ?? bannerHomeTablet;
+    const resolvedMobileImage = mobileImage ?? bannerHomeMobile;
+    const hasCustomBanner = Boolean(desktopImage || tabletImage || mobileImage);
+    const showDesktopGlow = !hasCustomBanner;
+
     const content = (
         <div className={`relative h-[calc(100dvh-93px)] overflow-hidden bg-primary md:h-[380px] lg:h-[460px] xl:h-[520px] ${className}`}>
+            {showDesktopGlow ? (
+                <Image
+                    src={bannerHomeDesktop}
+                    alt=""
+                    fill
+                    priority={priority}
+                    aria-hidden="true"
+                    className="pointer-events-none hidden scale-110 object-cover object-center opacity-45 blur-2xl lg:block 2xl:scale-[1.18]"
+                    sizes="100vw"
+                />
+            ) : null}
             <Image
-                src={bannerHomeDesktop}
-                alt=""
-                fill
-                priority={priority}
-                aria-hidden="true"
-                className="pointer-events-none hidden scale-110 object-cover object-center opacity-45 blur-2xl lg:block 2xl:scale-[1.18]"
-                sizes="100vw"
-            />
-            <Image
-                src={bannerHomeDesktop}
+                src={resolvedDesktopImage}
                 alt={alt}
                 fill
                 priority={priority}
@@ -36,7 +47,7 @@ export default function HomeHeroBanner({
                 sizes="100vw"
             />
             <Image
-                src={bannerHomeTablet}
+                src={resolvedTabletImage}
                 alt={alt}
                 fill
                 priority={priority}
@@ -45,7 +56,7 @@ export default function HomeHeroBanner({
                 sizes="100vw"
             />
             <Image
-                src={bannerHomeMobile}
+                src={resolvedMobileImage}
                 alt={alt}
                 fill
                 priority={priority}

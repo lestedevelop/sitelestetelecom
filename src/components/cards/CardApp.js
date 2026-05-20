@@ -1,9 +1,17 @@
 import Image from "next/image";
-import appSuporte from "@/assets/portalLeste.svg"
-import appCentral from "@/assets/appLeste.svg"
-import googlePlay from "@/assets/googleplay.svg"
-import appstore from "@/assets/appstore.svg"
-export default function CardApp({suporte,central,download,link,className}) {
+import appSuporte from "@/assets/portalLeste.svg";
+import appCentral from "@/assets/appLeste.svg";
+import googlePlay from "@/assets/googleplay.svg";
+import appstore from "@/assets/appstore.svg";
+
+export default function CardApp({
+    suporte,
+    central,
+    download,
+    link,
+    className,
+    downloadText = "Baixe agora!",
+}) {
 
     return (
       <>
@@ -19,7 +27,7 @@ export default function CardApp({suporte,central,download,link,className}) {
 
           {download&&
               <div className={`flex flex-col gap-4 rounded-xl p-4 text-light md:h-17 md:flex-row md:items-center md:justify-between ${className}`}>
-                  <p className={"max-w-full text-center text-[13px] font-bold md:max-w-1/3 md:text-left"}>Baixe agora na loja do seu dispositivo</p>
+                  <p className={"max-w-full text-center text-[13px] font-bold md:max-w-1/3 md:text-left"}>{downloadText}</p>
                      <div className={"flex items-center justify-center gap-2 md:gap-x-6"}>
                          <a href={link}>
                              <Image src={googlePlay} width={85} alt={"ICONE"}/>

@@ -1,5 +1,6 @@
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 import SectionApp from "@/pageComponents/leste-suporte/SectionApp";
+import bannerApps from "@/assets/app/banner-apps.png";
 
 export default function LesteSuporte() {
   return (
@@ -9,6 +10,9 @@ export default function LesteSuporte() {
           alt="Banner da pagina Leste Suporte"
           className="h-[182px] md:h-[350px]"
           contentClassName="container flex h-full flex-col justify-center text-light"
+          desktopImage={bannerApps}
+          tabletImage={bannerApps}
+          mobileImage={bannerApps}
         />
       </section>
 
