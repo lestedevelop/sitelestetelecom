@@ -15,7 +15,7 @@ const RESOURCES = [
     desktopImage: resource1,
     mobileImage: mobile1,
     alt: "Visao noturna",
-    title: "Visao noturna",
+    title: "Visão noturna",
     description: "Nitidez mesmo em ambientes escuros, de dia ou da noite.",
   },
   {
@@ -24,13 +24,13 @@ const RESOURCES = [
     alt: "Armazenamento",
     title: "Armazenamento",
     description:
-      "Gravacoes salvas em nuvem por ate 7 dias, com facil acesso pelo aplicativo.",
+      "Gravações salvas em nuvem por até 7 dias, com fácil acesso pelo aplicativo.\n",
   },
   {
     desktopImage: resource3,
     mobileImage: mobile3,
     alt: "Audio bidirecional",
-    title: "Audio bidirecional",
+    title: "Áudio bidirecional ",
     description: "Fale e escute em tempo real diretamente pelo aplicativo.",
   },
   {
@@ -45,7 +45,7 @@ const RESOURCES = [
     mobileImage: mobile5,
     alt: "Criptografia",
     title: "Criptografia",
-    description: "Videos protegidos com seguranca e privacidade.",
+    description: "Vídeos protegidos com segurança e privacidade.",
   },
 ];
 

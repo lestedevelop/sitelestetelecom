@@ -40,7 +40,7 @@ export default function CamerasPlans() {
             <span className="relative inline-block px-5 py-1 md:px-8">
               <span className="absolute -left-1 -top-1 h-4 w-4 border-l-4 border-t-4 border-lightgreen md:-left-2 md:-top-2 md:h-6 md:w-6" />
               <span className="absolute -bottom-1 -right-1 h-4 w-4 border-b-4 border-r-4 border-lightgreen md:-bottom-2 md:-right-2 md:h-6 md:w-6" />
-              Conheca nossos planos
+             Conheça nossos planos.
             </span>
           </h3>
 

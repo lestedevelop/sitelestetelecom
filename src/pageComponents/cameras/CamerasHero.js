@@ -37,7 +37,7 @@ export default function CamerasHero() {
                 <h1 className="mt-4 text-xl font-semibold leading-tight text-white md:mt-6 md:text-4xl">
                   Acompanhe
                   <br />
-                  quem voce ama
+                  quem você ama
                   <br />
                   em <span className="text-lightgreen">tempo real.</span>
                 </h1>

@@ -8,6 +8,7 @@ import { ChevronRight, IconBadge } from "@/utils/faqIcons";
 export default function FaqHelpCenter() {
   const [query, setQuery] = useState("");
   const [activeSection, setActiveSection] = useState("Todas");
+  const [openSection, setOpenSection] = useState(null);
 
   const normalizedText = (text) =>
     text
@@ -41,6 +42,7 @@ export default function FaqHelpCenter() {
   }, [activeSection, query]);
 
   const hasResults = filteredSections.length > 0;
+  const hasQuery = query.trim().length > 0;
 
   return (
     <section className="w-full py-8 md:py-10">
@@ -101,29 +103,54 @@ export default function FaqHelpCenter() {
                 key={section.title}
                 className="overflow-hidden rounded-md border border-[#dddddd] bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
               >
-                <div className="flex items-center gap-3 border-b border-[#e8e8e8] bg-light px-4 py-4">
-                  <IconBadge icon={section.icon} />
-                  <h3 className="text-lg font-bold text-darkgreen md:text-xl">
-                    {section.title}
-                  </h3>
-                </div>
-
-                {section.items.map((item, index) => (
-                  <Link
-                    key={`${section.title}-${item.href}-${index}`}
-                    href={item.href}
-                    className={`flex min-h-[44px] items-center justify-between gap-4 px-4 py-3 text-left transition-colors duration-150 hover:bg-[#f7f7f7] ${
-                      index === section.items.length - 1
-                        ? ""
-                        : "border-b border-[#e8e8e8]"
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenSection((current) =>
+                      current === section.title ? null : section.title
+                    )
+                  }
+                  aria-expanded={hasQuery || openSection === section.title}
+                  className="flex w-full items-center justify-between gap-3 bg-light px-4 py-4 text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <IconBadge icon={section.icon} />
+                    <div>
+                      <h3 className="text-lg font-bold text-darkgreen md:text-xl">
+                        {section.title}
+                      </h3>
+                      <p className="text-xs text-[#6f8d88] md:text-sm">
+                        {section.items.length} itens
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    className={`h-5 w-5 shrink-0 text-[#7a9a95] transition-transform ${
+                      hasQuery || openSection === section.title ? "rotate-90" : ""
                     }`}
-                  >
-                    <span className="pr-4 text-[12px] leading-[1.35] text-[#2b7c76] md:text-[13px]">
-                      {item.title}
-                    </span>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-[#c3c3c3]" />
-                  </Link>
-                ))}
+                  />
+                </button>
+
+                {hasQuery || openSection === section.title ? (
+                  <div className="border-t border-[#e8e8e8]">
+                    {section.items.map((item, index) => (
+                      <Link
+                        key={`${section.title}-${item.href}-${index}`}
+                        href={item.href}
+                        className={`flex min-h-[44px] items-center justify-between gap-4 px-4 py-3 text-left transition-colors duration-150 hover:bg-[#f7f7f7] ${
+                          index === section.items.length - 1
+                            ? ""
+                            : "border-b border-[#e8e8e8]"
+                        }`}
+                      >
+                        <span className="pr-4 text-[12px] leading-[1.35] text-[#2b7c76] md:text-[13px]">
+                          {item.title}
+                        </span>
+                        <ChevronRight className="h-4 w-4 shrink-0 text-[#c3c3c3]" />
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>

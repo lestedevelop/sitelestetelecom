@@ -15,8 +15,7 @@ export default function CamerasStorage() {
             </h3>
 
             <p className="mx-auto mt-8 max-w-[600px] text-xs leading-relaxed text-primary md:mx-0 md:text-2xl md:leading-[1.55]">
-              A gravacao em nuvem guarda seus dados com mais seguranca, sem
-              ocupar espaco no seu dispositivo ou depender de um local fisico.
+              A gravação em nuvem guarda seus dados com mais segurança, sem ocupar espaço no seu dispositivo ou depender de um local físico
             </p>
           </div>
 

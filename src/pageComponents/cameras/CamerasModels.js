@@ -15,39 +15,38 @@ const CAMERAS = [
     description: (
       <>
         <span className="font-bold">
-          Imagem em alta definicao e recursos inteligentes
+       Imagem em alta definição e recursos inteligentes
         </span>{" "}
-        para voce ver, ouvir e falar em tempo real. Compacta, leve e facil de
-        mover sempre que precisar.
+          para você ver, ouvir e falar em tempo real. Compacta, leve e fácil de mover sempre que precisar
       </>
     ),
     image: camerafixa,
     features: [
-      { icon: icon1080, title: "Resolucao 1080p" },
+      { icon: icon1080, title: "Resolução 1080p" },
       { icon: iconAngulo, title: "Lentes grande-angulares de 108 deg" },
-      { icon: iconDeteccao, title: "Deteccao de movimento" },
+      { icon: iconDeteccao, title: "Detecção de movimento" },
       { icon: iconChamadas, title: "Chamada bidirecional" },
-      { icon: iconVisao, title: "Visao Noturna infravermelho de ate 10 metros" },
+      { icon: iconVisao, title: "Visão noturna infravermelho de até 10 metros" },
     ],
   },
   {
     key: "360",
     description: (
       <>
-        Esse e o modelo <span className="font-bold">360 graus</span>, voce tem{" "}
+          Este é o modelo <span className="font-bold"> 360°</span>
         <span className="font-bold">
-          visao panoramica e rastreamento inteligente
+         , com visão panorâmica e rastreamento inteligente
         </span>{" "}
-        que segue movimentos e sons por todo o ambiente.
+          que acompanha movimentos e sons por todo o ambiente.
       </>
     ),
     image: camera360,
     features: [
-      { icon: icon1080, title: "Resolucao 1080p" },
-      { icon: iconPanoramica, title: "Rotacao 55 deg vertical" },
-      { icon: iconDeteccaoHumana, title: "Deteccao inteligente de forma humana" },
+      { icon: icon1080, title: "Resolução 1080p" },
+      { icon: iconPanoramica, title: "Rotação 55 deg vertical" },
+      { icon: iconDeteccaoHumana, title: "Detecção inteligente de forma humana" },
       { icon: iconChamadas, title: "Chamada bidirecional" },
-      { icon: iconVisao, title: "Visao Noturna infravermelho de ate 10 metros" },
+      { icon: iconVisao, title: "Visão noturna infravermelho de até 10 metros." },
     ],
   },
 ];

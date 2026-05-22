@@ -12,13 +12,13 @@ export default function LesteUpCta() {
           <Image
             src={ctaBanner}
             alt="Banner de chamada para o Leste Up"
-            className="h-[270px] w-full object-cover object-[32%_center] md:h-auto md:object-center"
+            className="h-[270px] w-full object-cover object-[82%_center] md:h-auto md:object-[92%_center] lg:object-right"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003934]/30 via-transparent to-[#001d1a]/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003934]/88 via-[#003934]/68 to-[#001d1a]/45" />
 
           <div className="absolute inset-0 flex items-center p-6 md:p-10">
-            <div className="max-w-[600px] text-white py-12">
+            <div className="max-w-[520px] text-white py-12 md:max-w-[560px]">
               <h2 className="text-3xl font-semibold leading-[1.04] md:text-[3rem]">
                 Esteja pronto antes da queda de luz: conte com Leste UP.
               </h2>
@@ -45,4 +45,3 @@ export default function LesteUpCta() {
     </section>
   );
 }
-
