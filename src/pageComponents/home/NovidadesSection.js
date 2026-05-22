@@ -8,8 +8,8 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import {getHomeBlogPosts} from "@/mocks/blogPosts";
-import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
+import { getClientAreaBlogPosts } from "@/mocks/blogPosts";
+import { isDataImageSrc, resolveImageSrc } from "@/utils/imageSrc";
 
 function NewsCard({ item }) {
   const imageSrc = resolveImageSrc(item, item.image);
@@ -47,7 +47,7 @@ function NewsCard({ item }) {
 
 export default function NovidadesSection() {
   const swiperRef = useRef(null);
-  const newsCards = getHomeBlogPosts();
+  const newsCards = getClientAreaBlogPosts();
 
   return (
     <section className="w-full bg-light pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
@@ -62,7 +62,7 @@ export default function NovidadesSection() {
                   da Leste
                 </h2>
                 <p className="mt-3 hidden pb-8 text-3xl leading-7 text-darkgreen md:text-[2rem] md:leading-none lg:block">
-                  Conteúdos para te ajudar a escolher melhor a sua conexão.
+                  Conteudos para te ajudar a escolher melhor a sua conexao.
                 </p>
               </header>
 

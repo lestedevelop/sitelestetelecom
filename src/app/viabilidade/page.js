@@ -20,11 +20,11 @@ const COVERAGE_ITEMS = [
 
 const COVERAGE_MAPS = [
   {
-    label: "Marica",
+    label: "Maricá",
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1FcFZ9oePcOtszHmhihToLnW0saEO8r1s&femb=1&ll=-22.914524096919607%2C-42.85194800000001&z=12",
   },
   {
-    label: "Itaborai",
+    label: "Itaboraí",
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=14OUplhRNgUhZstxc_RK3ajyhGZpbOT-4&femb=1&ll=-22.7545361234109%2C-42.8653985&z=13",
   },
   {
@@ -36,15 +36,15 @@ const COVERAGE_MAPS = [
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1gEwJkjND0VLHspPrXtOkGyKXx9qqQyxB&femb=1&ll=0%2C0&z=14",
   },
   {
-    label: "Tangua",
+    label: "Tanguá",
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=13CW59f8ouV2ffOlI8IneXPZGi-izkYvo&femb=1&ll=0%2C0&z=15",
   },
   {
-    label: "Niteroi Centro",
+    label: "Niterói",
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=14QJsM7vK0PXtCmd3wbJb6jRY8VzQuGQ&femb=1&ll=-22.904116925149697%2C-43.10506399999999&z=14",
   },
   {
-    label: "Niteroi Regiao Oceanica",
+    label: "Niterói | Região Oceânica",
     viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1vd6MVzgZ7BVKM6yA-_RwdAY_s1z2-o-o&femb=1",
   },
 ].map((item) => ({
@@ -67,10 +67,10 @@ export default function ViabilidadePage() {
         <div className="container relative">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-[3rem] font-bold leading-none tracking-[-0.04em] text-primary md:text-[5rem] lg:text-[5.6rem]">
-              Area de Cobertura
+              Área de cobertura
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-[1.35rem] leading-tight text-darkgreen md:text-2xl">
-              Consulte a disponibilidade da Leste no seu endereco.
+              Consulte a disponibilidade no seu endereço.
             </p>
           </div>
 
@@ -93,10 +93,10 @@ export default function ViabilidadePage() {
                 </div>
 
                 <h2 className="mt-7 text-[2.5rem] font-bold leading-none tracking-[-0.04em] md:text-[3.6rem]">
-                  Localizacao
+                  Localização
                 </h2>
                 <p className="mt-4 max-w-[27rem] text-[1.15rem] leading-7 text-white/92 md:text-[1.35rem]">
-                  Informe seu CEP e numero para verificar a disponibilidade tecnica da Leste no seu endereco.
+                  Informe seu CEP e número para verificar a disponibilidade técnica no seu endereço.
                 </p>
 
                 <button

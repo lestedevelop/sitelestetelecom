@@ -32,7 +32,7 @@ function VendasLayout() {
                     className="bg-[url('/background-vendas.png')] py-8 lg:py-24 flex flex-col pl-12 gap-8 bg-no-repeat bg-cover w-full lg:w-1/2">
                     <Image src={logo} alt="Leste" className="w-55 lg:mt-50"/>
                     <h2 className="text-white text-lg md:text-4xl md:w-120 w-full">
-                        Precisamos apenas de algumas informações para continuar
+                        Precisamos apenas de algumas informações para continuar.
                     </h2>
                 </div>
             )}

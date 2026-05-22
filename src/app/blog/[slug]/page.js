@@ -40,6 +40,10 @@ export default async function BlogPostPage({params}) {
   if (!post) return notFound();
 
   const recentPosts = getRecentBlogPosts(post.slug);
+  const isMovelPost = post.slug === "por-que-escolher-o-leste-movel";
+  const isCamerasPost = post.slug === "cameras-inteligentes-em-casa";
+  const isNiteroiPost = post.slug === "internet-mais-rapida-de-niteroi";
+  const lastParagraphIndex = post.content.length - 1;
 
   return (
     <main className="bg-light">
@@ -63,16 +67,51 @@ export default async function BlogPostPage({params}) {
           <span>{post.readingTime}</span>
         </div>
 
+        {post.excerpt ? (
+          <p className="mt-6 max-w-5xl text-lg leading-8 text-darkgreen md:text-xl md:leading-9">
+            {post.excerpt}
+          </p>
+        ) : null}
+
         <div className="mt-8 overflow-hidden rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
           <div className="relative aspect-[16/9] w-full">
             <Image src={post.image} alt={post.title} fill priority className="object-cover" />
           </div>
         </div>
 
-        <div className="mt-10 max-w-4xl text-base leading-8 text-dark md:text-lg md:leading-9">
-          {post.content.map((paragraph) => (
+        <div className="mt-10 max-w-6xl text-base leading-8 text-dark md:text-lg md:leading-9">
+          {post.content.map((paragraph, index) => (
             <p key={paragraph} className="mb-6">
-              {paragraph}
+              {isMovelPost && index === lastParagraphIndex ? (
+                <Link
+                  href="https://www.lestemovel.com.br/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-primary underline underline-offset-4"
+                >
+                  {paragraph}
+                </Link>
+              ) : isCamerasPost && index === lastParagraphIndex ? (
+                <Link
+                  href="https://www.lestetelecom.com.br/cameras"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-primary underline underline-offset-4"
+                >
+                  {paragraph}
+                </Link>
+              ) : isNiteroiPost && index === lastParagraphIndex ? (
+                <Link
+                  href="https://www.lestetelecom.com.br/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-primary underline underline-offset-4"
+                >
+                  {paragraph}
+                </Link>
+              ) : (
+                paragraph
+              )}
             </p>
           ))}
         </div>

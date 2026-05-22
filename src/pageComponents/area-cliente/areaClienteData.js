@@ -8,23 +8,23 @@ import centralIcon from "@/assets/area-do-cliente/central24.svg";
 
 export const CLIENT_ACTIONS = [
   {
-    title: "Gerar 2 via da fatura",
-    href: "https://portal.lestetelecom.com.br/login",
+    title: "Gerar 2° via da fatura",
+    href: "https://sitelestetelecom.vercel.app/leste-suporte",
     icon: boletoIcon,
   },
   {
-    title: "teste de velocidade",
-    href: "/testedevelocidade",
+    title: "Teste de velocidade",
+    href: "https://sitelestotelecom.vercel.app/testedevelocidade",
     icon: velocidadeIcon,
   },
   {
-    title: "Problemas de conexao",
-    href: "/leste-suporte",
+    title: "Problemas de conexão",
+    href: "https://sitelestotelecom.vercel.app/faq",
     icon: conexaoIcon,
   },
   {
     title: "Upgrade de plano",
-    href: "/vendas",
+    href: "https://api.whatsapp.com/send/?phone=552120201300&text&app_absent=0",
     icon: roteadorIcon,
   },
 ];

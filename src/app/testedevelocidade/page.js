@@ -1,23 +1,19 @@
-import AppBar from "@/components/layout/AppBar";
-import velocidadeBanner from "@/assets/testevelocidade.webp";
-import Footer from "@/components/layout/Footer";
 import Image from "next/image";
-import arrow from "@/assets/arrowright.svg";
-import BannerDownloadNow from "@/components/cards/BannerDownloadNow";
-
+import bannerTesteVelocidade from "@/assets/banner-testevelocidade.png";
+import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 const PREPARATION_STEPS = [
   {
     number: "01",
-    text: "Feche todos os programas e pause as atualizações",
+    text: "Feche todos os programas e pause as atualizacoes.",
   },
   {
     number: "02",
-    text: "Interrompa qualquer serviço que use a internet.",
+    text: "Interrompa qualquer servico que use a internet.",
   },
   {
     number: "03",
-    text: "Conecte o cabo de rede diretamente no seu computador",
+    text: "Conecte o cabo de rede diretamente no seu computador.",
   },
 ];
 
@@ -27,69 +23,51 @@ const METRICS = [
     description:
       "A velocidade de download mostra a rapidez com que os dados chegam ao seu dispositivo.",
     detail:
-      "Ela influencia atividades como acessar sites, assistir a vídeos e fazer downloads de arquivos.",
+      "Ela influencia atividades como acessar sites, assistir a videos e fazer downloads de arquivos.",
     conclusion:
-      "Quanto maior a taxa em Mbps, melhor tende a ser a sua navegação.",
+      "Quanto maior a taxa em Mbps, melhor tende a ser a sua navegacao.",
   },
   {
     title: "Upload",
     description:
-      "A velocidade de upload indica a rapidez com que você envia dados para a internet.",
+      "A velocidade de upload indica a rapidez com que voce envia dados para a internet.",
     detail:
-      "Ela influencia ações como videochamadas, envio de imagens e transferência de arquivos.",
+      "Ela influencia acoes como videochamadas, envio de imagens e transferencia de arquivos.",
     conclusion:
-      "Quanto maior o valor, mais estável tende a ser a sua conexão.",
+      "Quanto maior o valor, mais estavel tende a ser a sua conexao.",
   },
   {
     title: "Ping",
     description:
       "O ping mede o tempo de resposta entre o seu dispositivo e o servidor do teste.",
     detail:
-      "Ele impacta atividades em tempo real, como jogos online, chamadas e transmissões ao vivo.",
+      "Ele impacta atividades em tempo real, como jogos online, chamadas e transmissoes ao vivo.",
     conclusion:
-      "Quanto menor o valor em ms, melhor tende a ser a resposta da conexão.",
+      "Quanto menor o valor em ms, melhor tende a ser a resposta da conexao.",
   },
 ];
 
 export default function TesteDeVelocidade() {
   return (
     <div className="min-h-full bg-light">
-      <section className="w-full bg-darkgreen pt-8 md:pt-12">
-        <div className="container overflow-hidden  text-light">
-          <div className="flex flex-col gap-8 px-8 py-10 md:flex-row md:items-center md:justify-between md:px-14 md:py-16">
-            <div className="max-w-[28rem]">
-              <h1 className="max-w-sm text-5xl font-bold leading-[0.95] md:text-[5rem]">
-                Teste sua Velocidade
-              </h1>
-            </div>
-
-            <div className="flex md:justify-end">
-              <a
-                href="https://www.speedtest.net/pt"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-14 min-w-52 items-center justify-center rounded-full border border-[#1f8f79] bg-[#0f6f5f] px-8 text-2xl font-semibold text-light shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition-all duration-200 hover:scale-[1.02] hover:bg-[#137a68]"
-              >
-                Iniciar Teste
-              </a>
-            </div>
-          </div>
-
-          <div className="flex justify-center pb-3">
-            <span className="text-2xl tracking-[0.4em] text-light/80">....</span>
-          </div>
-        </div>
+      <section className="w-full">
+        <HomeHeroBanner
+          alt="Banner da pagina de teste de velocidade"
+          className="h-[182px] md:h-[350px]"
+          desktopImage={bannerTesteVelocidade}
+          tabletImage={bannerTesteVelocidade}
+          mobileImage={bannerTesteVelocidade}
+        />
       </section>
 
       <section className="w-full bg-light">
         <div className="container px-8 py-12 md:px-16 md:py-16">
           <div className="max-w-4xl">
             <h2 className="text-4xl font-bold leading-tight text-primary md:text-[3.25rem]">
-              Teste sua internet com precisão!
+              Teste sua internet com precisao!
             </h2>
             <p className="mt-4 max-w-3xl text-2xl leading-tight text-darkgreen md:text-[2rem]">
-              Mas antes de iniciar, para garantir a precisão dos testes,
-              recomendamos que siga os seguintes passos:
+              Antes de iniciar, para garantir precisao dos testes, recomendamos que siga os seguintes passos:
             </p>
           </div>
 
@@ -109,7 +87,7 @@ export default function TesteDeVelocidade() {
         </div>
       </section>
 
-      <section className="pb-8 sm:pb-12 lg:pb-24 xl:pb-36 bg-lightgreenBackground">
+      <section className="bg-lightgreenBackground pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
         <div className="container relative px-8 py-12 md:px-16 md:py-16">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold leading-tight text-primary md:text-[3.25rem]">
@@ -136,10 +114,10 @@ export default function TesteDeVelocidade() {
           </div>
 
           <p className="mt-10 max-w-6xl text-sm leading-6 text-darkgreen md:text-base">
-            O Speedtest permite testar a velocidade da sua internet em tempo real,
-            avaliando o desempenho da conexão e identificando possíveis lentidões.
-            Ao fazer o teste de velocidade, você vê se a internet que está
-            chegando para você está dentro do esperado para o seu plano.
+            *O Speedtest permite testar a velocidade da sua internet em tempo real,
+            avaliando o desempenho da conexao e identificando possiveis lentidoes.
+            Ao fazer o teste de velocidade, voce ve se a internet que esta
+            chegando para voce esta dentro do esperado para o seu plano.
           </p>
         </div>
       </section>

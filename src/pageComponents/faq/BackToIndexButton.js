@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function BackToIndexButton({
   href = "/",
-  label = "VOLTAR PARA O INDICE",
+  label = "VOLTAR PARA O ÍNDICE",
   className = "",
   variant = "link",
 }) {

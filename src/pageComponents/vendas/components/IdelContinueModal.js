@@ -19,12 +19,12 @@ export default function IdleContinueModal({ open, onClose, onContinue }) {
                         <div className="flex items-start justify-between gap-4">
                             <div>
                                 <h3 className="text-primary text-2xl md:text-3xl font-extrabold">
-                                    É rápido e fácil
+                                    É rápido e fácil!
                                 </h3>
 
                                 <p className="mt-2 text-dark text-base md:text-lg leading-relaxed">
-                                    Não perca a oportunidade de seguir pelo melhor caminho!<br/>
-                                    <span className="font-extrabold">Vamos concluir o seu pedido?</span>
+                                    Não perca a oportunidade de seguir para o melhor caminho.<br/>
+                                    <span className="font-extrabold"> Vamos concluir seu pedido?</span>
                                 </p>
                             </div>
 
