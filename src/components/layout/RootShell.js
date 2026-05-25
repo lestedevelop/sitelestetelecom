@@ -2,7 +2,6 @@
 
 import {usePathname} from "next/navigation";
 import {ToastContainer} from "react-toastify";
-import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 import AppBarNew from "@/components/layout/AppBarNew";
 import Footer from "@/components/layout/Footer";
 
@@ -33,7 +32,6 @@ export default function RootShell({children}) {
                 closeOnClick
                 pauseOnHover
             />
-            <WhatsAppFloating/>
             <Footer/>
         </>
     );
