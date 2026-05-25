@@ -1,6 +1,5 @@
 import StoresPage from "@/pageComponents/faq/StoresPage";
 import AppBar from "@/components/layout/AppBar";
-import Footer from "@/components/layout/Footer";
 
 export default function LojasPage() {
     const stores = [
@@ -89,7 +88,6 @@ export default function LojasPage() {
                 backHref="/faq"
                 stores={stores}
             />
-            <Footer/>
         </div>
     );
 }
