@@ -9,8 +9,8 @@ export default function FooterCorporate() {
         {href: "/corporate", label: "Sobre a Leste Corporate"},
         {href: "/corporate", label: " Conheça nossas soluções"},
         {href: "/corporate/cobertura", label: "Cobertura"},
-        {href: "/corporate#contrate", label: "Contrate"},
-        {href: "/corporate/contato", label: "Contato"},
+        {href: "/corporate#contrate", label: "Contato"},
+        {href: "/corporate/suporte", label: "Suporte"},
     ];
 
     return (
@@ -31,7 +31,7 @@ export default function FooterCorporate() {
                         <Image src={linkedin} width={42} alt="LinkedIn" />
                         <div className="flex flex-col items-center justify-center gap-2">
                             <p className="text-sm">Endereço: R. João Feliciano da Costa 207 - Centro - Itaboraí - RJ - 24.800-017</p>
-                            <p className="text-sm">Todos os direitos reservados. ©2025 por Leste Telecom</p>
+                            <p className="text-sm">Todos os direitos reservados. ©2026 por Leste Telecom</p>
                             <a className={"text-sm underline"} href="/docs/corporate/CONTRATO CORPORATE - LESTE TELECOM.pdf" target={"_blank"}>Contrato de prestação de serviço.</a>
                         </div>
 

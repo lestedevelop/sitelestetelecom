@@ -12,9 +12,9 @@ export default function CoporateCobertura() {
 
             <AppBarCorporate/>
             <section className={"mt-[120px] bg-light md:mt-[155px]"}>
-               <div className={"container py-20 mx-auto"}>
+               <div className={"container py-20 flex flex-col items-center"}>
                    <Image src={mapaImages} alt={""} />
-                   <div className="text-center text-xs py-8 text-graylight leading-relaxed mt-6">
+                   <div className="text-center max-w-192 text-xs py-8 text-graylight leading-relaxed mt-6">
                        <p>
                            <strong>Atenção:</strong> A unidade corporate trabalha com produtos de preço e composição
                            diferenciada.

@@ -26,7 +26,7 @@ export default function MidSectionCorporate() {
                         <div className={"flex flex-col gap-y-4 items-center  px-4 md:px-0 md:w-48"}>
                             <div className={"flex md:flex-col  items-center justify-start w-full gap-x-4"}>
                                 <Image src={suporteIcon} alt={""}/>
-                                <p className={"text-[17px] md:text-[18px] text-black font-bold"}>Suporte 24hr</p>
+                                <p className={"text-[17px] md:text-[18px] text-black font-bold"}>Suporte 24h</p>
                             </div>
                             <p className={"text-sm text-[13px] text-dark"}>Atendimento especializado disponível 24 horas
                                 por dia, com agilidade, qualidade e eficiência na solução de qualquer necessidade.</p>

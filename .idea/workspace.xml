@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/movel/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/movel/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/CardLesteMovel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/CardLesteMovel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/corporate/cobertura/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/corporate/cobertura/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/corporate/MidSectionCorporate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/corporate/MidSectionCorporate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/corporate/SectionSolutionsCorporate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/corporate/SectionSolutionsCorporate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +126,7 @@
       <workItem from="1778509694918" duration="11915000" />
       <workItem from="1778845992045" duration="12382000" />
       <workItem from="1779194515971" duration="37243000" />
-      <workItem from="1779707397398" duration="1730000" />
+      <workItem from="1779707397398" duration="3187000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -247,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779483287663</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="++">
+      <option name="closed" value="true" />
+      <created>1779709374582</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1779709374582</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
