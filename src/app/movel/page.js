@@ -11,6 +11,7 @@ import mais from "@/assets/icons/mais.svg";
 import shield from "@/assets/icons/shield.svg";
 import Image from "next/image";
 import FooterMovel from "@/pageComponents/movel/FooterMovel";
+import lestemovel from "@/assets/5g.png";
 
 export default function Movel() {
 
@@ -22,12 +23,13 @@ export default function Movel() {
             <BannerMovel/>
             <SectionMovelPlan/>
             <CardLesteMovel/>
-            <section className={"py-12 md:pt-24 md:bg-[url('/5g.png')] bg-no-repeat bg-bottom md:bg-right"}>
+            {/*md:bg-[url('/5g.png')] bg-no-repeat bg-bottom md:bg-right*/}
+            <section className={"pt-12 md:pt-24"}>
                 <div className={"container flex flex-col md:flex-row justify-between"}>
-                    <div className={"w-full md:w-[60%]"}>
+                    <div className={"w-full py-12 md:w-[60%]"}>
                         <div className={""}>
                             <h3 className={"text-darkgreen w-10/12 text-2xl md:text-[45px] font-bold"}>O controle na
-                                palma da sua mão!</h3>
+                                <br/>palma da sua mão!</h3>
                             <p className={"text-md md:text-[32px] text-primary"}>Baixe o <span className={"font-bold"}>App Leste Móvel</span>
                             </p>
                         </div>
@@ -53,7 +55,7 @@ export default function Movel() {
                                     <Image src={dollar} alt={""} width={16}/>
                                     <h4 className={"font-bold text-primary text-xl ml-2"}>Fatura</h4>
                                </span>
-                                    <p className={"text-xs pt-2"}>Faturas Com o aplicativo da Leste você consegue
+                                    <p className={"text-xs pt-2"}>Com o aplicativo da Leste você consegue
                                         renovar o seu plano com um só clique.</p>
                                 </div>
                             </div>
@@ -88,8 +90,8 @@ export default function Movel() {
                             </div>
                         </div>
                     </div>
-                    <div>
-
+                    <div className={"mt-14 hidden md:block"}>
+                        <Image src={lestemovel} alt={""} />
                     </div>
                 </div>
             </section>

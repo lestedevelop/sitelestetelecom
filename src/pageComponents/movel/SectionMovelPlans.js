@@ -81,7 +81,7 @@ export default function SectionMovelPlan() {
                     <h3 className={"font-bold text-[22px] md:text-[40px] text-darkgreen"}>Escolha o pré-pago mais adequado pra você</h3>
                     <p className={"font-light text-darkgreen text-[15px] md:text-[26px]"}>Aqui você não paga multa!</p>
                 </div>
-                <div className={"w-full flex flex-wrap items-center justify-center gap-8"}>
+                <div className={"w-full flex flex-wrap items-center justify-center gap-12"}>
                     {plans.map((elem,index) => <PlanCardMovel plan={elem} key={index}/>)}
                 </div>
                 <p className={"text-darkgreen text-[10px] text-center py-8"}><span className={"font-bold"}>Promoção Turbo</span>: Os planos de <span className={"font-bold"}>38GB | 58GB e 68GB</span>  estão com condições promocionais disponíveis para recargas feitas até 28/02/2026. Recargas após essa data não terão promoção. Consulte condições em <a className={"underline"} href={"www.lestetelecom.com.br/faq-suporte-plano-turbo"}>www.lestetelecom.com.br/faq-suporte-plano-turbo</a></p>

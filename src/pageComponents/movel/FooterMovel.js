@@ -67,7 +67,7 @@ export default function FooterMovel() {
 
                             <div className="flex flex-col justify-end gap-2 text-[15px]">
                                 <a href="https://privacidade.operadora.app.br/#/Leste" target={"_blank"} className="hover:underline">Política de Privacidade</a>
-                                <a href="https://privacidade.operadora.app.br/#/Leste" target={"_blank"} className="hover:underline">Termos e condições</a>
+                                <a href="https://privacidade.operadora.app.br/#/adesao/Leste" target={"_blank"} className="hover:underline">Termos e condições</a>
                             </div>
                         </div>
                     </div>

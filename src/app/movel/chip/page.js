@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AppBarMovel from "@/pageComponents/movel/AppBarMovel"
+import AppBarMovel from "@/pageComponents/movel/AppBarMovel";
 import image from "@/assets/lestemovelimagem.webp";
 import chip from "@/assets/icons/chip.svg";
 import whatsapp from "@/assets/icons/whatsapp.png";
@@ -9,33 +9,74 @@ import CardStoreLocations from "@/components/cards/CardStoreLocations";
 import FooterMovel from "@/pageComponents/movel/FooterMovel";
 
 export default function Chip() {
-
     const bancas = [
         {
-            cidade: "Niterói (Icaraí)",
-            endereco: "Rua Ator Paulo Gustavo, 323 - Icaraí, Niterói.",
+            cidade: "Niterói - Centro",
+            endereco: "Av. Amaral Peixoto, 363 - Centro, Niterói.",
             referencia: "",
-            link: "https://maps.app.goo.gl/mSjpsCq1m3AFVxb2A",
+            link: "",
         },
         {
-            cidade: "Niterói (Centro)",
-            endereco: "Rua São Pedro, 154 - Centro, Niterói.",
+            cidade: "Niterói - Centro",
+            endereco: "Av. Visconde do Rio Branco, 294 - Centro, Niterói.",
             referencia: "",
-            link: "https://maps.app.goo.gl/vEBSYXD6z359CYty9",
+            link: "",
         },
         {
-            cidade: "Niterói (Icaraí)",
-            endereco: "Rua Otávio Carneiro, 100 - Icaraí, Niterói.",
+            cidade: "Niterói - Icaraí",
+            endereco: "Rua Mem de Sá, 150 - Icaraí, Niterói.",
             referencia: "",
-            link: "https://maps.app.goo.gl/zb9jv99hagMeo5DB9",
+            link: "",
         },
         {
-            cidade: "Rio Bonito (Centro)",
-            endereco: "Rua Nilo Peçanha, S/N - Centro, Rio Bonito.",
+            cidade: "Niterói - Icaraí",
+            endereco: "Rua Tavares de Macedo, 415 - Icaraí, Niterói.",
             referencia: "",
-            link: "https://maps.app.goo.gl/uKpZpuDK45QoHSzo7",
+            link: "",
         },
-    ]
+        {
+            cidade: "Niterói - Icaraí",
+            endereco: "Rua Cel. Moreira César, 323 - Icaraí, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - Icaraí",
+            endereco: "Rua Mariz e Barros, 252 - Icaraí, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - Icaraí",
+            endereco: "Rua Lopes Trovão, 191, esquina com Rua Ator Paulo Gustavo - Icaraí, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - Santa Rosa",
+            endereco: "Rua Mário Viana - Santa Rosa, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - Largo da Batalha",
+            endereco: "Estr. Washington Luís, 1 - Largo da Batalha, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - São Francisco",
+            endereco: "Av. Rui Barbosa, 83 - São Francisco, Niterói.",
+            referencia: "",
+            link: "",
+        },
+        {
+            cidade: "Niterói - Itaipu",
+            endereco: "Av. Central Ewerton Xavier, 1469 - Itaipu, Niterói.",
+            referencia: "",
+            link: "",
+        },
+    ];
 
     const lojas = [
         {
@@ -51,7 +92,7 @@ export default function Chip() {
             link: "https://maps.app.goo.gl/GATy3Umv53A8WCTp6",
         },
         {
-            cidade: "Niterói (Stand)\n",
+            cidade: "Niterói (Stand)",
             endereco: "Rua Quinze de Novembro, 8 - Centro, Niterói - RJ, 24020-125",
             referencia: "Shopping Plaza Niterói - Piso L3",
             link: "https://maps.app.goo.gl/x5nyQmAwuUX9AYte7",
@@ -71,28 +112,36 @@ export default function Chip() {
         {
             cidade: "Magé",
             endereco: "Praça Nilo Peçanha - 45 - Loja 211 - Centro- Magé - RJ - 25900-088",
-            referencia: "No Shopping ​da praça.",
+            referencia: "No Shopping da praça.",
             link: "https://maps.app.goo.gl/CAa7CmtHmANHGsny5",
         },
-    ]
+    ];
 
     return (
         <div className="min-h-full bg-white!">
-
-            <AppBarMovel/>
+            <AppBarMovel />
 
             <section className="mt-[88px] md:mt-[123px] pt-6 bg-light w-full">
                 <div className={"flex flex-col md:flex-row justify-between items-center container text-light"}>
                     <div className="md:w-1/2 flex flex-col items-left justify-center gap-4 md:gap-8 ">
-                        <h3 className={"text-darkgreen md:text-[69px]/18 text-[33px]/10"}>Como conseguir<br/><span
-                            className={"font-bold"}> meu chip</span>?</h3>
-                        <p className={"text-base md:text-[25px] font-semibold text-darkgreen max-w-96"}>Compre seu chip diretamente em nossas lojas.</p>
+                        <h3 className={"text-darkgreen md:text-[69px]/18 text-[33px]/10"}>
+                            Como conseguir
+                            <br />
+                            <span className={"font-bold"}> meu chip</span>?
+                        </h3>
+                        <p className={"text-base md:text-[25px] font-semibold text-darkgreen max-w-96"}>
+                            Compre seu chip diretamente em nossas lojas.
+                        </p>
                     </div>
                     <div className={"relative w-[120%] md:w-1/2"}>
                         <Image src={image} alt={""} />
                         <Image src={whatsapp} alt={""} className={"absolute left-0 top-[30%] w-25 scale-65 lg:scale-100"} />
                         <Image src={rede5g} alt={""} className={"absolute right-0 top-[10%] w-36 scale-75 lg:scale-100"} />
-                        <Image src={redeicon} alt={""} className={"absolute right-[20%] bottom-[20%]  md:w-18 -rotate-16 scale-65 md:scale-100"} />
+                        <Image
+                            src={redeicon}
+                            alt={""}
+                            className={"absolute right-[20%] bottom-[20%]  md:w-18 -rotate-16 scale-65 md:scale-100"}
+                        />
                     </div>
                 </div>
             </section>
@@ -100,19 +149,39 @@ export default function Chip() {
             <section className={"py-12"}>
                 <div className={"container flex justify-center flex-col py-8 gap-y-8"}>
                     <div className={"flex flex-row-reverse md:justify-start justify-end md:flex-row md:items-center items-end gap-x-4 md:gap-x-8"}>
-                        <h3 className={"text-darkgreen text-[32px] md:text-[40px]"}>Nas <span className={"font-bold"}>Bancas</span></h3>
+                        <h3 className={"text-darkgreen text-[32px] md:text-[40px]"}>
+                            Nas <span className={"font-bold"}>Bancas</span>
+                        </h3>
                         <Image src={chip} alt={"Bancas"} className={"md:w-19 w-[38px]"} />
                     </div>
                     <div className={"flex flex-wrap gap-8"}>
-                        {bancas.map((banca,index) => (<CardStoreLocations cidade={banca.cidade} referencia={banca.referencia} endereco={banca.endereco} link={banca.link} key={index} />))}
+                        {bancas.map((banca, index) => (
+                            <CardStoreLocations
+                                cidade={banca.cidade}
+                                referencia={banca.referencia}
+                                endereco={banca.endereco}
+                                link={banca.link}
+                                key={index}
+                            />
+                        ))}
                     </div>
 
                     <div className={"flex flex-row-reverse md:justify-start justify-end md:flex-row md:items-center items-end gap-x-4 md:gap-x-8"}>
-                        <h3 className={"text-darkgreen text-[32px] md:text-[40px]"}>Nossas <span className={"font-bold"}>Lojas</span></h3>
+                        <h3 className={"text-darkgreen text-[32px] md:text-[40px]"}>
+                            Nossas <span className={"font-bold"}>Lojas</span>
+                        </h3>
                         <Image src={chip} alt={"Bancas"} className={"md:w-19 w-[38px]"} />
                     </div>
                     <div className={"flex flex-wrap gap-8"}>
-                        {lojas.map((loja,index) => (<CardStoreLocations cidade={loja.cidade} referencia={loja.referencia} endereco={loja.endereco} link={loja.link} key={index} />))}
+                        {lojas.map((loja, index) => (
+                            <CardStoreLocations
+                                cidade={loja.cidade}
+                                referencia={loja.referencia}
+                                endereco={loja.endereco}
+                                link={loja.link}
+                                key={index}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>
@@ -120,4 +189,3 @@ export default function Chip() {
         </div>
     );
 }
-

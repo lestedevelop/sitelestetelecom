@@ -12,17 +12,17 @@ export default function CardLesteMovel() {
         <section>
             <div className={``}>
                 <div
-                    className="relative container bg-primary px-8 py-12 md:min-h-70 md:rounded-3xl overflow-hidden flex flex-col md:flex-row">
+                    className="relative container bg-primary px-8 py-12 md:min-h-70 gap-x-6 md:rounded-3xl items-center overflow-hidden flex flex-col md:flex-row">
                     <div
                         className="relative z-10 flex flex-col justify-center md:items-start items-center max-w-full text-white md:max-w-[50%]">
                         <h1 className="text-center md:text-left text-[32px] font-bold mb-6">
-                            O Leste Móvel tem muito&nbsp;mais pra você!
+                            O Leste Móvel tem muito <br/> mais pra você!
                         </h1>
                         <ActionButton router={"movel/chip"} className={"hidden md:block"}>
                             Onde comprar!
                         </ActionButton>
                     </div>
-                    <div className={"flex flex-col-reverse md:flex-row items-center justify-between gap-y-4"}>
+                    <div className={"flex flex-col-reverse md:flex-row items-start justify-between gap-y-4"}>
                         <div
                             className={"flex md:block items-center gap-x-6 w-full min-h-16 px-4 bg-light md:bg-transparent py-2 rounded-xl"}>
                             <Image src={coracao} alt={""} className={"hidden md:block"}/>
