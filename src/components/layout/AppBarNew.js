@@ -127,6 +127,7 @@ function MegaMenu({
     businessOpen,
     onBusinessToggle,
     onBusinessClose,
+    businessMenuRef,
 }) {
     const columns = splitItems(items);
 
@@ -180,7 +181,7 @@ function MegaMenu({
                             <div key={index} className="flex">
                                 {column.map((item) => (
                                     item.children ? (
-                                        <div key={item.label} className="relative">
+                                        <div key={item.label} ref={businessMenuRef} className="relative">
                                             <button
                                                 type="button"
                                                 onClick={onBusinessToggle}
@@ -235,6 +236,7 @@ export default function AppBarNew() {
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
     const [ipChecked, setIpChecked] = useState(false);
     const navRef = useRef(null);
+    const businessMenuRef = useRef(null);
     const cityMenuRef = useRef(null);
     const mobileCityModalRef = useRef(null);
     const mobileCityInlineRef = useRef(null);
@@ -349,6 +351,14 @@ export default function AppBarNew() {
         }
 
         function onClickOutside(e) {
+            if (
+                businessOpen &&
+                businessMenuRef.current &&
+                !businessMenuRef.current.contains(e.target)
+            ) {
+                setBusinessOpen(false);
+            }
+
             if (!navRef.current?.contains(e.target)) {
                 setBusinessOpen(false);
                 setServicesOpen(false);
@@ -374,7 +384,7 @@ export default function AppBarNew() {
             document.removeEventListener("keydown", onKey);
             document.removeEventListener("mousedown", onClickOutside);
         };
-    }, [isConfirmCityOpen, closeConfirmCity, closeSelectCity]);
+    }, [businessOpen, isConfirmCityOpen, closeConfirmCity, closeSelectCity]);
 
     useEffect(() => {
         if (!mobileOpen) return;
@@ -578,6 +588,7 @@ export default function AppBarNew() {
                                                         bannerImage={bannerServicos}
                                                         bannerAlt="Servicos da Leste Telecom"
                                                         businessOpen={businessOpen}
+                                                        businessMenuRef={businessMenuRef}
                                                         onBusinessToggle={() => {
                                                             setBusinessOpen((prev) => !prev);
                                                             setLearnOpen(false);
