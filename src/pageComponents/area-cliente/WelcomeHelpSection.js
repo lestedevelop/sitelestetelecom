@@ -7,7 +7,7 @@ export default function WelcomeHelpSection() {
       <div className="container">
         <div className="max-w-[720px]">
           <h1 className="text-center text-[28px] font-bold leading-[0.98] tracking-[-0.04em] text-light md:text-left md:text-6xl md:text-primary">
-            Bem vindo à área de
+            Bem vindo à Área de
             <br />
             cliente da Leste.
           </h1>

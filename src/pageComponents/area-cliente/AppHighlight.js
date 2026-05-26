@@ -7,8 +7,8 @@ export default function AppHighlight({variant}) {
   const isCentral = variant === "central";
   const title = isCentral ? "Leste Central" : "Leste Suporte";
   const text = isCentral
-    ? "O Leste Central e um aplicativo que te auxilia na consulta de faturas, servicos e tudo da sua conta em um so lugar."
-    : "O Leste Suporte e um aplicativo que te auxilia em atendimentos relacionados a conexao com a internet.";
+    ? "O App Leste Telecom é um aplicativo que te auxilia na consulta de faturas, serviços e tudo da sua conta em um só lugar."
+    : "O Leste Suporte é um aplicativo que te auxilia em atendimentos relacionados a conexão com a internet.";
   const link = isCentral ? "https://onelink.to/lestecentral" : "https://onelink.to/lestesuporte";
   const mockup = isCentral ? centralMockup : suporteMockup;
 

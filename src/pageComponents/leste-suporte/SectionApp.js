@@ -39,7 +39,7 @@ export default function SectionApp() {
               <h4 className="text-base md:text-[25px]">
                 Conheça o <span className="font-bold">Leste Suporte!</span>
               </h4>
-              <p className="text-base font-bold md:text-xl">Resolva problemas como:</p>
+              {/*<p className="text-base font-bold md:text-xl">Resolva problemas como:</p>*/}
             </div>
 
             <ul className="mx-auto flex max-w-[420px] flex-col gap-y-4 md:gap-y-6 lg:mx-0">

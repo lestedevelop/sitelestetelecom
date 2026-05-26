@@ -64,7 +64,7 @@ export default function FormIndicate() {
       className="rounded-[1.9rem] bg-[#f4f1ed] p-6 text-primary md:p-8"
     >
       <h2 className="text-[2.6rem] font-bold leading-none text-darkgreen md:text-[3.35rem]">
-        Preencha o formulario
+        Preencha o formulário
       </h2>
 
       <div className="mt-5 space-y-8">

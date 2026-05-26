@@ -1,12 +1,14 @@
 import services from "@/mocks/lesteServices.json";
 import lesteUp from "@/assets/cardlesteup.png";
-import lesteMovel from "@/assets/bannermovel.webp";
-import lesteCameras from "@/assets/cameras/bannercameras.webp";
+import blogUp from "@/assets/blog/blog-lesteup.png";
+import lesteMovel from "@/assets/blog/blog-movel.png";
+import lesteCameras from "@/assets/blog/blog-cameras.png";
 
 const SERVICE_IMAGES = {
   lesteUp,
   lesteMovel,
   lesteCameras,
+  blogUp
 };
 
 export const LESTE_SERVICES = services.map((service) => ({

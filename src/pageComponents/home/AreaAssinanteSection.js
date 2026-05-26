@@ -38,7 +38,7 @@ export default function AreaAssinanteSection() {
                     >
                         <div className="relative z-10 py-10 pl-12 pr-6 md:w-1/2">
                             <h2 className="text-[2.4rem] font-bold leading-tight text-white">
-                                Já é cliente <br/>Leste
+                                Já é cliente <br/>Leste?
                             </h2>
                             <p className="mt-3 max-w-[300px] text-[0.95rem] leading-6 text-white/80">
                                 Consulte faturas, serviços e tudo da sua conta em um só lugar.
@@ -47,7 +47,7 @@ export default function AreaAssinanteSection() {
                                 href="https://portal.lestetelecom.com.br/login"
                                 className="mt-7 inline-block rounded-full bg-darkgreen px-8 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-darkgreen/80"
                             >
-                                Acessar minha conta.
+                                Acessar minha conta
                             </Link>
                         </div>
 
