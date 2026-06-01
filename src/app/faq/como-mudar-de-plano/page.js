@@ -1,46 +1,90 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como mudar de plano? | Leste",
-    description: "Como mudar de plano?.",
+  title: "Como mudar meu plano de internet? | Leste",
+  description: "Como solicitar mudança de plano de internet da Leste.",
 };
 
-export default function ComoMudarDePlano(props) {
-    return (
-        <main className="bg-light">
-            
+const channels = [
+  "Telefone e WhatsApp: (021) 2020-1300",
+  "Telegram: @leste_bot",
+  "Aplicativo: Leste - Central do Assinante",
+  "Redes sociais (Instagram e Facebook, por mensagem privada)",
+];
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como mudar de plano?</>}/>
+export default function ComoMudarDePlano() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como mudar meu plano de internet?</>} />
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        <span>A mudança de plano só pode ser realizada para os planos disponíveis no ano vigente. </span>A mudança de plano pode ser solicitada a cada 30 dias, ou seja, o contratante terá direito a 1 mudança de plano a cada mês, sendo que a diferença de migração (desconto/acréscimo) sempre virá para o próximo mês.
-                    </p><br/>
-                    <p>
-                        É necessário entrar em contato com nossa Central de Atendimento, pelo WhatsApp, Direct do Instagram, Messenger, Telegram ou Aplicativo. Será apresentado os planos e a condição de cada plano vigente no período.
-                    </p><br/>
-                   <p>Central Telefônica: <a href="tel:02120201300"></a>(021) 2020-1300​</p><br/>
-                   <p>WhatsApp: (021) 2020-1300<a href="https://wa.me/02120201300"></a>(021) 2020-1300​</p><br/>
-                   <p>Telegram: <a href="https://web.telegram.org/k/#@leste_bot"></a>@Leste_bot</p><br/>
-                   <p>App: <a href="https://www.lestetelecom.com.br/aplicativo-leste"></a>Leste - Central do Assinante</p><br/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Você pode solicitar a mudança do seu plano entrando em contato com
+              a central de atendimento.
+            </p>
 
-                </div>
-
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 20/05/16
-                </p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">
+                Canais de atendimento
+              </h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                {channels.map((channel) => (
+                  <li key={channel}>{channel}</li>
+                ))}
+              </ul>
             </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
-}
+            <p>
+              Durante o atendimento, serão apresentados os planos disponíveis e
+              as condições vigentes para a alteração.
+            </p>
 
+            <p>
+              A mudança pode ser feita para os planos disponíveis no período
+              vigente e pode ser solicitada a cada 30 dias. A diferença de valor
+              da migração, seja desconto ou acréscimo, é aplicada no próximo mês.
+            </p>
+
+            <p>
+              Ao mudar de plano, passam a valer as regras, condições e limites
+              do novo contrato de prestação de serviço vigente, disponível no
+              site da Leste. Caso existam pendências cadastrais, como documento
+              de identidade e CPF, será necessário regularizar o cadastro para
+              concluir a solicitação.
+            </p>
+
+            <p>
+              Em situações específicas, a Leste pode oferecer mudança automática
+              para planos superiores, sem aumento de mensalidade. Nesses casos,
+              você pode aceitar ou recusar a alteração dentro do prazo informado.
+              Se não houver manifestação nesse período, a mudança pode ser
+              considerada aceita. Também é possível solicitar o retorno ao plano
+              anterior em até 45 dias, conforme as condições vigentes.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>
+              A mudança de plano implica adesão ao contrato vigente, com
+              assinatura do termo digital. Em caso de aceite de mudança
+              automática, passa a valer um novo prazo para reajuste anual,
+              conforme as condições contratuais.
+            </p>
+            <p>
+              Para realizar a mudança, é necessário que o cliente esteja com as
+              obrigações financeiras em dia. Em caso de débitos vencidos em
+              aberto, será necessário quitá-los antes de prosseguir com a
+              solicitação.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
+}

@@ -1,36 +1,51 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "A oscilação elétrica pode afetar o meu acesso? | Leste",
-    description: "A oscilação elétrica pode afetar o meu acesso?.",
+  title: "Oscilação elétrica pode afetar minha internet? | Leste",
+  description:
+    "Informacoes sobre oscilacoes na rede eletrica, impacto na conexao e recomendacoes de protecao.",
 };
 
-export default function OcilacaoEletrica(props) {
-    return (
-        <main className="bg-light">
-            
+export default function OcilacaoEletrica() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Oscilação elétrica pode afetar minha internet?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>A oscilação elétrica pode afetar o meu acesso?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Sim, oscilações na rede elétrica podem afetar o funcionamento da
+              sua internet, impactando diretamente os equipamentos, como a ONU
+              e o roteador.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                <p>Roteadores wi-fi podem sofrer travamentos e até perderem as configurações por oscilações na rede elétrica. Recomendamos o uso de no-break (ou no mínimo um estabilizador de tensão) para manter tanto a ONU quanto o roteador protegidos de oscilações. A empresa fornece todos os dados necessários para a configuração dos roteadores por parte do usuário e ou técnicos de terceiros. A empresa também fornece esse serviço, sendo cobrada a visita para tal fim.</p>
-                </div>
+            <p>
+              Nessas situações, os dispositivos podem reiniciar, perder
+              configurações ou apresentar instabilidade na conexão.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 01/01/17
-                </p>
-            </div>
+            <p>
+              Para reduzir esse tipo de problema, é recomendado utilizar
+              no-break ou estabilizador de tensão e manter os equipamentos
+              protegidos.
+            </p>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              A Leste fornece os dados necessários para configuração dos
+              roteadores, que pode ser realizada pelo cliente ou por terceiros.
+              Caso a configuração seja solicitada à Leste, poderá haver cobrança
+              de visita técnica.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

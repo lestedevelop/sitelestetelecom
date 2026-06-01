@@ -1,47 +1,59 @@
-import BackToIndexButton from "@/pageComponents/faq/BackToIndexButton";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Denúncias de furto de cabos, equipamentos, sabotagens | Leste",
-    description: "Denúncias de furto de cabos, equipamentos, sabotagens.",
+  title: "Como denunciar furto de cabos ou sabotagem? | Leste",
+  description:
+    "Informacoes sobre como denunciar furto de cabos, sabotagem e outras ocorrencias que afetam a rede da Leste.",
 };
 
 export default function DenunciaFurtoPage() {
-    return (
-        <main className="bg-light">
-            
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como denunciar furto de cabos ou sabotagem?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Aviso legal sobre o atendimento<br/>WhatsApp em fase beta.</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Voce pode denunciar situacoes que afetem a rede da Leste, como
+              furto de cabos, danos a equipamentos, sabotagens ou outras acoes
+              suspeitas.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-graylight">
-                    <p>
-                        Denúncias de furto de cabos, equipamentos, sabotagens e outras ações criminosas contra a prestação de serviços de telecomunicações.
-                    </p>
-                    <br/>
-                    <p>
-                        Relatos, informações, fotos ou vídeos sobre atividades criminosas que possam causar paralisações nos serviços podem ser encaminhados para nosso SAC: <span className={"font-bold"}>sac@lestetelecom.com.br.</span>
-                    </p>
-                    <br/>
-                    <p>
-                        Além disso, o <span className={"font-bold"}>Disque Denúncia</span> recebe, de forma anônima, qualquer denúncia de crimes contra provedores:
-                    </p>
-                    <p>
-                        (21) 2253-1177 (ligação ou WhatsApp).<br/>
-                    </p>
-                    <p>O sigilo é garantido em todas as mensagens e ligações.</p>
-                </div>
+            <p>
+              Para enviar a denuncia a Leste, encaminhe relatos, fotos ou
+              videos para o e-mail
+              {" "}
+              <a className="text-primary underline underline-offset-2" href="mailto:sac@lestetelecom.com.br">
+                sac@lestetelecom.com.br
+              </a>
+              , informando o maximo de detalhes possivel.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 22/10/25
-                </p>
-            </div>
+            <p>
+              Tambem e possivel realizar denuncias por canais externos, como o
+              Disque Denuncia, pelo telefone ou WhatsApp (21) 2253-1177, com
+              opcao de anonimato.
+            </p>
 
-            <SupportFooter />
-            
-        </main>
-    );
+            <p>
+              As denuncias podem ser feitas de forma anonima, e o sigilo das
+              informacoes e garantido.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>
+              Relatos com fotos, videos e detalhes ajudam na apuracao, mas a
+              denuncia pode ser feita sem identificar o denunciante.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }

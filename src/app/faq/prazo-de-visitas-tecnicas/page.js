@@ -1,41 +1,47 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-  title: "Prazo de visitas tecnicas | Leste",
-  description: "Informacoes sobre prazo de visitas tecnicas.",
+  title: "Qual é o prazo da visita técnica? | Leste",
+  description:
+    "Informacoes sobre prazo de visita tecnica, situacoes de atraso e condicoes operacionais.",
 };
 
 export default function PrazoVisita() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
-        <TitleFaq title={<>Prazo de visitas tecnicas</>} />
+        <TitleFaq title={<>Qual é o prazo da visita técnica?</>} />
 
-        <article className="mt-8 max-w-5xl">
-          <div className="max-w-4xl space-y-8 text-lg leading-8 text-darkgreen md:text-[22px] md:leading-[1.55]">
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              O prazo para atendimento de visitas tecnicas e de ate 48 horas
-              uteis, podendo variar conforme a disponibilidade de agenda e a
-              regiao atendida.
+              O prazo para realização da visita técnica é de até 48 horas úteis
+              (sem contar domingos e feriados), conforme previsto em contrato.
             </p>
 
             <p>
-              As visitas sao realizadas em horario comercial. Caso seja
-              necessario reagendar, o assinante deve entrar em contato com a
-              Central de Atendimento.
+              Esse prazo pode sofrer alteração em algumas situações, como
+              condições climáticas adversas (chuvas ou ventanias), riscos na
+              rede elétrica, interferências de segurança pública que limitem o
+              acesso ou a atuação das equipes.
             </p>
 
             <p>
-              Em situacoes de grande demanda, fatores climaticos, seguranca
-              publica ou eventos externos que impactem a operacao, o prazo
-              podera sofrer alteracoes.
+              Nesses casos, podem ocorrer restrições de horário, impossibilidade
+              de atendimento em determinados períodos ou necessidade de
+              reprogramação.
             </p>
           </div>
 
-          <p className="mt-10 text-sm font-medium uppercase tracking-[0.18em] text-graylight">
-            Ultima revisao em 23/10/2019
-          </p>
+          <FaqNote>
+            <p>
+              As visitas técnicas são realizadas em horário comercial, das 8h
+              às 18h, conforme as condições operacionais e priorizando a
+              segurança das equipes.
+            </p>
+          </FaqNote>
         </article>
       </div>
 

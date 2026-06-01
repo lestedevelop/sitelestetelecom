@@ -1,50 +1,51 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Planos Prediais cidade de Niterói | Leste",
-    description: "Planos Prediais cidade de Niterói.",
+  title: "Preciso atualizar o boleto vencido? | Leste",
+  description: "Informações sobre pagamento de boleto vencido.",
 };
 
-export default function AtualizacaoDeBoleto(props) {
-    return (
-        <main className="bg-light">
-            
+export default function AtualizacaoDeBoleto() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Preciso atualizar o boleto vencido?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Planos Prediais cidade de Niterói</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Se o seu boleto venceu, na maioria dos casos você ainda pode pagar
+              sem atualizar.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Você sabia, que você agora pode efetuar o pagamento da sua fatura em qualquer agência bancária, após o vencimento?
-                    </p>
-                    <p>
-                        Após alteração das regras pela FEBRABAN, a partir de Novembro/2018, os boletos bancários devem ser registrados junto ao banco, antes da disponibilização aos clientes.
-                    </p>
-                    <p>
-                        Com essa ação, em até 45 dias após o vencimento escolhido da fatura, você pode efetuar o pagamento em qualquer agência bancária com o mesmo boleto sem precisar atualiza-lo.
-                    </p>
-                    <p>
-                        Após 45 dias, um novo boleto precisa ser confeccionado e registrado junto ao banco.
-                    </p><br/>
-                    <p>
-                        Boletos registrados pelo BANCO SANTANDER E ITAÚ atualmente tem prazo de validade de até 45 dias APÓS O VENCIMENTO.
-                    </p>
-                </div>
+            <p>Isso acontece por causa das regras de registro bancário.</p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 28/03/23
-                </p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">Para pagar:</h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>Use o mesmo boleto em qualquer banco</li>
+                <li>O pagamento pode ser feito mesmo após o vencimento</li>
+                <li>
+                  Essa condição é válida por até 45 dias após a data de
+                  vencimento
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              Desde novembro de 2018, os boletos são registrados antes da
+              emissão, permitindo o pagamento após o vencimento dentro desse
+              prazo. Após 45 dias, é necessário gerar um novo boleto.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

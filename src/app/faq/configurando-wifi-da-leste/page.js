@@ -1,67 +1,79 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 import FaqImageSteps, { FaqImageStep } from "@/pageComponents/faq/FaqImageSteps";
-import image1 from "@/assets/faq/configurando-wifi-da-leste6.webp";
-import image2 from "@/assets/faq/configurando-wifi-da-leste5.webp";
-import image3 from "@/assets/faq/configurando-wifi-da-leste4.webp";
-import image4 from "@/assets/faq/configurando-wifi-da-leste3.webp";
-import image5 from "@/assets/faq/configurando-wifi-da-leste7.webp";
-import image6 from "@/assets/faq/configurando-wifi-da-leste.webp";
-import image7 from "@/assets/faq/configurando-wifi-da-leste2.webp";
+import image1 from "@/assets/faq/configurando-wifi-da-leste.webp";
+import image2 from "@/assets/faq/configurando-wifi-da-leste2.webp";
+import image3 from "@/assets/faq/configurando-wifi-da-leste3.webp";
+import image4 from "@/assets/faq/configurando-wifi-da-leste4.webp";
+import image5 from "@/assets/faq/configurando-wifi-da-leste5.webp";
+import image6 from "@/assets/faq/configurando-wifi-da-leste6.webp";
+import image7 from "@/assets/faq/configurando-wifi-da-leste7.webp";
 
 export const metadata = {
-  title: "Configurando o Wi-Fi do conversor otico da Leste! | Leste",
-  description: "Configurando o Wi-Fi do conversor otico da Leste!.",
+  title: "Como mudar o nome ou senha do Wi-Fi? | Leste",
+  description:
+    "Veja como alterar o nome ou a senha da rede Wi-Fi pelo autoatendimento.",
 };
 
 export default function ConfigWIFIDaLeste() {
   return (
     <main className="bg-light">
-      <div className="container py-12">
-        <TitleFaq title={<>Configurando o Wi-Fi <br />do conversor otico da Leste!</>} />
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como mudar o nome ou senha do Wi-Fi?</>} />
 
-        <div className="mt-10 text-base leading-7 text-dark">
-          <p>
-            Agora voce pode trocar sozinho o nome da rede WI-FI e a senha para
-            conversores oticos (ONU com WIFI integrado) pelo autoatendimento no
-            WhatsApp e Telegram.
-          </p>
-          <p className="mt-6">Veja como e simples e rapido:</p>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Você pode alterar o nome ou a senha da sua rede Wi-Fi pelo
+              autoatendimento no WhatsApp, Telegram ou aplicativo, quando o
+              equipamento instalado for uma ONU com Wi-Fi.
+            </p>
+
+            <p>Siga os passos no atendimento automático:</p>
+          </div>
 
           <FaqImageSteps className="mt-8">
             <FaqImageStep image={image1}>
-              1º Inicie o atendimento mandando uma mensagem.
+              Inicie o atendimento enviando uma mensagem.
             </FaqImageStep>
             <FaqImageStep image={image2}>
-              2º Confirme que ja e assinante enviando "1".
+              Envie “1” para confirmar que já é assinante.
             </FaqImageStep>
             <FaqImageStep image={image3}>
-              3º Para identificacao, envie seu CPF, sem tracos. Assim que seu
-              nome for identificado, envie sua data de nascimento.
+              Informe seu CPF, sem traços, e depois sua data de nascimento.
             </FaqImageStep>
             <FaqImageStep image={image4}>
-              4º Nessa etapa voce vai confirmar que o numero que voce esta
-              utilizando e um numero seguro. Envie "2".
+              Confirme o número enviando “2”.
             </FaqImageStep>
             <FaqImageStep image={image5}>
-              5º Para iniciar a configuracao envie "6".
+              Envie “6” para iniciar a configuração.
             </FaqImageStep>
             <FaqImageStep image={image6}>
-              6º Escolha qual plano (ponto) voce deseja configurar enviando o
-              numero correspondente e, em seguida, qual configuracao deseja
-              alterar: nome da rede ou senha de acesso.
+              Escolha o plano, ou ponto, desejado e selecione o que deseja
+              alterar: nome da rede ou senha.
             </FaqImageStep>
             <FaqImageStep image={image7}>
-              7º Agora e so responder com sua nova senha e nome de rede,
-              aguardar a verificacao do sistema e pronto, sua rede foi
-              configurada!
+              Envie o novo nome ou a nova senha e aguarde a confirmação.
             </FaqImageStep>
           </FaqImageSteps>
-        </div>
 
-        <p className="mt-12 text-sm text-graylight">
-          Ultima revisao em: 22/10/25
-        </p>
+          <div className="mt-8 space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Após o envio das informações, o sistema realiza a verificação e a
+              rede é atualizada automaticamente.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>
+              Caso sua conexão utilize conversor, ONU e roteador próprio, a
+              alteração deve ser feita diretamente no roteador. Nesse caso,
+              consulte o conteúdo de configuração do roteador para realizar o
+              procedimento.
+            </p>
+          </FaqNote>
+        </article>
       </div>
 
       <SupportFooter />

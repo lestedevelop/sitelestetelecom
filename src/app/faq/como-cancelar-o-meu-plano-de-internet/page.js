@@ -1,50 +1,57 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como cancelar o meu plano de internet? | Leste",
-    description: "Como cancelar o meu plano de internet?.",
+  title: "Como cancelar meu plano de internet? | Leste",
+  description: "Orientações para cancelamento de plano de internet da Leste.",
 };
 
-export default function ComoCancelarOMeuPlano(props) {
-    return (
-        <main className="bg-light">
-            
+export default function ComoCancelarOMeuPlano() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como cancelar meu plano de internet?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como cancelar o meu plano de internet?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Para cancelar seu plano, entre em contato com a central de
+              atendimento pelo telefone ou WhatsApp{" "}
+              <strong className="font-bold text-darkgreen">
+                (021) 2020-1300
+              </strong>
+              .
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Basta entrar em contato com nossa conosco através da nossa Central de Atendimento para efetuar o cancelamento e agendar a retirada dos equipamentos.
-                    </p>
-                    <p>
-                        Como entrar em contato com a Leste Telecom:
-                    </p><br/>
-                    <p>
-                        Você pode entrar conosco pelo telefone através de nossa Central de Atendimento
-                    </p><br/>
-                    <p>
-                        Via Facebook através do Messenger (inbox).
-                    </p><br/>
-                    <p>
-                        Ou visitando um de nossas lojas.
-                    </p>
-                </div>
+            <p>
+              Após a solicitação, serão tratadas as informações necessárias para
+              o encerramento do contrato, incluindo questões financeiras e a
+              devolução dos equipamentos.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 28/03/23
-                </p>
-            </div>
+            <p>
+              A devolução pode ser realizada em uma das lojas da Leste ou,
+              quando aplicável, pode ser agendada a retirada no local, conforme
+              viabilidade de atendimento.
+            </p>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              Após o cancelamento (rescisão do contrato), o assinante tem até 30
+              dias para devolver os equipamentos. A devolução em loja é a forma
+              mais rápida de concluir o processo.
+            </p>
+            <p>
+              O cancelamento deve ser solicitado pelos canais de atendimento
+              disponíveis.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

@@ -1,72 +1,105 @@
-import AppBar from "@/components/layout/AppBar";
-import Footer from "@/components/layout/Footer";
-import logo from "@/assets/Leste_Institucionalpng.png"
-import logoAntiga from "@/assets/LogoAntigo.png"
-import Image from "next/image"
-import Link from "next/link";
+import SupportFooter from "@/pageComponents/faq/SupportFooter";
+import TitleFaq from "@/pageComponents/faq/TitleFaq";
+import FaqNote from "@/pageComponents/faq/FaqNote";
+
+export const metadata = {
+  title: "Quais são as informações legais da Leste? | Leste",
+  description:
+    "Dados cadastrais, contatos e documentos oficiais da Leste Telecom.",
+};
 
 export default function InfoLegal() {
-    return (
-        <div className="min-h-full">
-            <AppBar/>
-            <section className="w-full bg-light">
-                <div className="container py-10">
-                    <h1 className="text-2xl md:text-[40px] font-extrabold tracking-tight text-dark md:text-5xl">
-                        Informações legais.
-                    </h1>
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Quais são as informações legais da Leste?</>} />
 
-                    <p className="mt-10 text-sm text-dark/70">
-                        Leste® e Leste Telecom® são marcas registradas no INPI da empresa:
-                    </p>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              A Leste Telecom e uma empresa registrada e autorizada para
+              prestacao de servicos, com informacoes disponiveis para consulta.
+            </p>
 
-                    <div className="mt-14 flex flex-col items-center justify-center gap-10 md:flex-row md:gap-24">
-                        <Image
-                            src={logo}
-                            alt="Logo Leste"
-                            className="h-auto w-[260px] md:w-[320px]"
-                            priority
-                        />
-                        <Image
-                            src={logoAntiga}
-                            alt="Logo Leste Telecom"
-                            className="h-auto w-[220px] md:w-[280px]"
-                            priority
-                        />
-                    </div>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">
+                Dados da empresa
+              </h2>
+              <div className="mt-4 space-y-2">
+                <p>Leste® e Leste Telecom® sao marcas registradas no INPI da empresa</p>
+                <p>Leste Flu Servicos de Telecom LTDA (Leste Telecom)</p>
+                <p>CNPJ: 02.533.755/0001-87</p>
+                <p>
+                  Avenida Almirante Tamandare, 600
+                  <br />
+                  Piratininga - Niteroi - RJ
+                  <br />
+                  CEP: 24350-380
+                </p>
+              </div>
+            </div>
 
-                    <div className="mt-14 space-y-6 text-base text-dark/80">
-                        <p>Leste Flu Serviços de Telecom LTDA (Leste Telecom)</p>
-                        <p>CNPJ 02.533.755/0001-87</p>
-                        <p>Rua João Feliciano da Costa, 207 - Centro - Itaboraí - RJ - 24800-017</p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">
+                Canais de contato
+              </h2>
+              <div className="mt-4 space-y-2">
+                <p>
+                  E-mail:{" "}
+                  <a
+                    className="text-primary underline underline-offset-2"
+                    href="mailto:sac@lestetelecom.com.br"
+                  >
+                    sac@lestetelecom.com.br
+                  </a>
+                </p>
+                <p>Telefones &amp; WhatsApp:</p>
+                <p>(021) 2020-1300</p>
+                <p>(021) 3940-0130</p>
+              </div>
+            </div>
 
-                        <p>
-                            E-mail:{" "}
-                            <a href="mailto:sac@lestetelecom.com.br"  className="text-primary underline-offset-4 hover:underline">
-                                sac@lestetelecom.com.br
-                            </a>
-                        </p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">
+                Documentos oficiais
+              </h2>
+              <div className="mt-4 space-y-2">
+                <p>
+                  Contrato de prestacao de servicos:{" "}
+                  <a
+                    className="text-primary underline underline-offset-2"
+                    href="/docs/CONTRATO.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    clique para acessar
+                  </a>
+                </p>
+                <p>
+                  Outorga SCM:{" "}
+                  <a
+                    className="text-primary underline underline-offset-2"
+                    href="/docs/anatellestescm.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    clique para acessar
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
 
-                        <p>Telefones &amp; WhatsApp: (021) 2020-1300 / (021) 3940-0130</p>
-                    </div>
+          <FaqNote>
+            <p>
+              As informacoes legais podem ser atualizadas conforme mudancas
+              cadastrais, regulatórias ou documentais da empresa.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
 
-                    <div className="mt-12 space-y-6 text-base text-dark">
-                        <p>
-                            Para visualizar nosso contrato,{" "}
-                            <a href="/docs/CONTRATO.pdf" target={"_blank"} className="text-primary underline-offset-4 hover:underline">
-                                clique aqui
-                            </a>
-                        </p>
-
-                        <p>
-                            Para visualizar nossa outorga SCM,{" "}
-                            <a href="/docs/anatellestescm.pdf" target={"_blank"} className="text-primary underline-offset-4 hover:underline">
-                                clique aqui
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <Footer/>
-        </div>
-    );
+      <SupportFooter />
+    </main>
+  );
 }

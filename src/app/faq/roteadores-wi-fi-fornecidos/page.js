@@ -1,38 +1,56 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Roteadores Wi-Fi fornecidos | Leste",
-    description: "Roteadores Wi-Fi fornecidos.",
+  title: "Posso escolher a marca do roteador ou da ONU? | Leste",
+  description:
+    "Informações sobre escolha de marca, modelo e tecnologia dos equipamentos fornecidos pela Leste.",
 };
 
 export default function RoteadoresFornecidos() {
-    return (
-        <main className="bg-light">
-            
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Posso escolher a marca do roteador ou da ONU?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Roteadores Wi-Fi fornecidos</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>Não. A escolha dos equipamentos é feita pela Leste.</p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Todos os planos acompanham um roteador BGN para cobertura BÁSICA do serviço de WIFI (rede sem fio). Salvo oferta específica, todos os equipamentos de WIFI serão básicos BGN. Mesmo nos casos de roteadores especiais, fornecidos em planos determinados, conforme oferta específica, de tecnologia superior à BGN, como roteadores ABGN ou AC - NÃO HAVERÁ GARANTIA DE SERVIÇO E COBERTURA POR REDES WIFI. Todos os testes devem ser SEMPRE realizados via cabo pela porta ethernet direto na ONU (Optical Network Unit) utilizando os sites recomendados e uma placa de rede gigabit ethernet.
-                    </p>
-                </div>
+            <p>
+              Os equipamentos utilizados são definidos de acordo com a
+              disponibilidade em estoque, o padrão técnico e o plano contratado.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 04/09/19
-                </p>
-            </div>
+            <p>
+              Os planos podem incluir tecnologias específicas, como Wi-Fi AC ou
+              AX. Nesse caso, o equipamento fornecido será compatível com a
+              tecnologia prevista na oferta, podendo variar em marca, modelo e
+              características físicas.
+            </p>
 
-            <SupportFooter />
-            
-        </main>
-    );
+            <p>
+              Nos demais casos, os equipamentos são voltados para uso básico.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>
+              Todos os equipamentos fornecidos são homologados pela empresa,
+              porém não há garantia de marca, modelo ou série, que podem variar
+              conforme disponibilidade, fornecedores e cadeia de suprimentos.
+            </p>
+            <p>
+              A Leste não vincula suas ofertas a marcas específicas, garantindo
+              apenas o padrão técnico e, quando aplicável, a tecnologia prevista
+              no plano contratado.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

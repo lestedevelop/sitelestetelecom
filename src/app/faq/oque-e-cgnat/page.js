@@ -1,44 +1,59 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "O que é CGNAT? | Leste",
-    description: "O que é CGNAT?.",
+  title: "O que é CGNAT? | Leste",
+  description:
+    "Informacoes sobre CGNAT, IPv4 compartilhado e impacto em aplicacoes externas.",
 };
 
 export default function OqueECgnat() {
-    return (
-        <main className="bg-light">
-            
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>O que é CGNAT?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>O que é CGNAT?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Com o esgotamento do IPv4, todos os equipamentos conectados à
+              internet deveriam ser compatíveis com IPv6. No entanto, muitos
+              dispositivos ainda utilizam apenas o IPv4, como alguns roteadores
+              e sistemas de câmeras.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Com o fim do IPv4, todos os equipamentos que nós usamos conectados à rede deveriam ser compatíveis com IPv6, mas não é o que acontece. Ainda hoje, diversos roteadores e sistemas de câmeras, por exemplo, só possuem suporte para o antigo e esgotado IPv4.
-                    </p><br/>
-                    <p>
-                        Como a adesão total ao IPv6 pode demorar, nós não podemos simplesmente encerrar a entrega do IPv4, pois isso afetaria diretamente nossos clientes que ainda não atualizaram seus dispositivos. Para tentar aliviar a transição, optamos por trabalhar com o CGNAT (Carrier Grade NAT).
-                    </p><br/>
-                    <p>
-                        O CGNAT é um tradutor de endereço de internet. Ele permite o compartilhamento de um endereço público de IPv4 para mais de um usuário. Com isso, há mais tempo para os usuários se adequarem ao novo protocolo sem ter seu acesso afetado.
-                    </p><br/>
-                </div>
+            <p>
+              Como a migração completa para o IPv6 ainda pode levar tempo, não
+              é possível interromper o uso do IPv4, pois isso impactaria
+              diretamente clientes que utilizam equipamentos não compatíveis.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 20/05/16
-                </p>
-            </div>
+            <p>
+              Para viabilizar essa transição, é utilizado o CGNAT (Carrier Grade
+              NAT).
+            </p>
 
-            <SupportFooter />
-            
-        </main>
-    );
+            <p>
+              O CGNAT é um tradutor de endereços de internet que permite o
+              compartilhamento de um mesmo endereço público IPv4 entre vários
+              usuários. Dessa forma, é possível continuar utilizando a internet
+              normalmente enquanto ocorre a adaptação gradual ao IPv6.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>
+              Em conexões com CGNAT, algumas aplicações que dependem de acesso
+              externo direto, como redirecionamento de portas ou servidores
+              locais, podem não funcionar corretamente, especialmente quando
+              não há suporte a IPv6.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

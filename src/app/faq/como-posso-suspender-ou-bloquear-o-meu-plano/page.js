@@ -1,45 +1,62 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como posso suspender ou bloquear o meu plano? | Leste",
-    description: "Como posso suspender ou bloquear o meu plano?.",
+  title: "Posso suspender ou reativar meu plano? | Leste",
+  description: "Regras para suspensão temporária e reativação de plano da Leste.",
 };
 
-export default function ComoPossoBloquearMeuPlano(props) {
-    return (
-        <main className="bg-light">
-            
+export default function ComoPossoBloquearMeuPlano() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Posso suspender ou reativar meu plano?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como posso suspender ou bloquear o meu plano?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Sim, você pode solicitar a suspensão temporária ou a reativação do
+              seu plano pelos canais de atendimento, como telefone ou WhatsApp{" "}
+              <strong className="font-bold text-darkgreen">
+                (021) 2020-1300
+              </strong>
+              .
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        O contratante pode suspender o serviço, para reativação no mesmo endereço, sem ônus, uma vez a cada 12 meses, por prazo não inferior a 30 dias e não superior a 120 dias. Se for necessário realizar reparos ou trocas nos cabos e/ou equipamentos do ponto cliente, haverá cobrança destes itens em separado, não constituindo tal cobrança taxa de reativação, mas contraprestação pela troca destes itens.
-                    </p>
-                    <br/>
-                    <p>
-                        O pedido para suspensão tem de ser feito por e-mail, central de atendimento ou ponto de atendimento da contratada.
-                    </p>
-                    <p>
-                        Se for feito pedido de reativação fora do prazo de 120 dias, haverá necessidade de pagamento de taxa de religação, como se ocorresse uma novo pedido após um cancelamento.
-                    </p>
-                </div>
+            <p>
+              A suspensão pode ser feita uma vez a cada 12 meses, sem custo, por
+              um período mínimo de 30 dias e máximo de 120 dias.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 28/03/23
-                </p>
-            </div>
+            <p>
+              Para reativar, basta solicitar o retorno do serviço. Caso a
+              reativação seja solicitada após o período de suspensão, ou após
+              cancelamento do plano, poderão ser aplicadas as condições vigentes
+              no momento da solicitação.
+            </p>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              A suspensão não pode ocorrer fora do período permitido. Caso a
+              reativação ocorra após 120 dias, poderá ser cobrada taxa de
+              religação.
+            </p>
+            <p>
+              Para reativar o serviço, é necessário estar com os débitos
+              quitados, realizar a assinatura de novo contrato digital e aceitar
+              as condições dos planos disponíveis.
+            </p>
+            <p>
+              Eventuais custos com reparos ou substituição de equipamentos não
+              estão incluídos na suspensão ou reativação.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

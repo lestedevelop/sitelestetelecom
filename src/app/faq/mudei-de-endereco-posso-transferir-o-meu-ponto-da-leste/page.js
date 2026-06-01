@@ -1,42 +1,52 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Mudei de endereço. Posso transferir o meu ponto da Leste? | Leste",
-    description: "Mudei de endereço. Posso transferir o meu ponto da Leste?.",
+  title: "Posso transferir minha internet para outro endereço? | Leste",
+  description:
+    "Informações sobre transferência de internet da Leste para outro endereço.",
 };
 
-export default function MudeiDeEnderecoPossoTransferir(props) {
-    return (
-        <main className="bg-light">
-            
+export default function MudeiDeEnderecoPossoTransferir() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq
+          title={<>Posso transferir minha internet para outro endereço?</>}
+        />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Mudei de endereço. Posso transferir o meu ponto da Leste?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Sim, você pode solicitar a transferência do seu serviço para um
+              novo endereço.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Se tivermos rede de FTTH ativa (cobertura geográfica) e capacidade livre (portas vagas) no seu novo endereço - SIM, pode.
-                    </p>
-                    <br/>
-                    <p>
-                        Nesse caso, a instalação feita no atual ponto é perdida, e pode ocorrer cobrança pela nova instalação.
-                    </p>
-                </div>
+            <p>
+              A transferência está disponível quando há cobertura de rede no
+              local e disponibilidade de conexão. Para verificar essas condições
+              e solicitar o serviço, entre em contato com a central de
+              atendimento pelo telefone ou WhatsApp{" "}
+              <strong className="font-bold text-darkgreen">
+                (021) 2020-1300
+              </strong>
+              .
+            </p>
+          </div>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 28/03/23
-                </p>
-            </div>
+          <FaqNote>
+            <p>
+              A transferência depende da cobertura de rede FTTH e da
+              disponibilidade técnica no novo endereço. A instalação no endereço
+              anterior é encerrada e pode haver cobrança de nova instalação,
+              conforme as condições do contrato.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+      <SupportFooter />
+    </main>
+  );
 }
-

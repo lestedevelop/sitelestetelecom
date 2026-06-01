@@ -1,46 +1,64 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Canal oficial de atendimento - Email. | Leste",
-    description: "Canal oficial de atendimento - Email..",
+  title: "Qual é o canal oficial de atendimento? | Leste",
+  description: "Canais oficiais de atendimento da Leste Telecom.",
 };
 
-export default function CanalOficialDeatendimento() {
-    return (
-        <main className="bg-light">
-            
+export default function CanalOficialDeAtendimento() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Qual é o canal oficial de atendimento?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Canal oficial de atendimento - Email.</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Você pode entrar em contato com a central de atendimento pelos
+              telefones{" "}
+              <strong className="font-bold text-darkgreen">(021) 2020-1300</strong>,{" "}
+              <strong className="font-bold text-darkgreen">0800 053 1300</strong>{" "}
+              e{" "}
+              <strong className="font-bold text-darkgreen">(021) 3940-0130</strong>.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Conforme as Resoluções n° 632/2014 e 717/2019, § 10° da Anatel, a obrigação de constituir Ouvidoria não se aplica às PPPs.
-                    </p><br/>
-                    <p>
-                        No entanto, mantemos mecanismos de transparência e canais de comunicação com nossos clientes, e como consta em nosso contrato, o canal oficial de atendimento da empresa para respostas escritas é o e-mail SAC:
-                        <br/>
-                        <a href="mail:SAC@LESTETELECOM.COM.BR.">SAC@LESTETELECOM.COM.BR.</a>
-                    </p><br/>
-                    <p>
-                        Ressaltamos que chamados feitos pela central de atendimento (ligação telefônica) podem ter sua resposta por meio de ligação telefônica.
-                    </p>
-                </div>
+            <p>
+              O atendimento funciona nos seguintes horários: suporte técnico 24
+              horas por dia; financeiro de segunda a sexta, das 8h às 23h, e aos
+              sábados e feriados, das 8h às 20h.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 15/11/18
-                </p>
-            </div>
+            <p>
+              Para solicitações com resposta por escrito, utilize o e-mail{" "}
+              <a
+                href="mailto:sac@lestetelecom.com.br"
+                className="font-bold text-primary underline-offset-4 hover:underline"
+              >
+                sac@lestetelecom.com.br
+              </a>
+              , que é o canal oficial de atendimento.
+            </p>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              Como prestadora de pequeno porte (PPP), a Leste não possui
+              obrigação regulatória de manter ouvidoria, conforme a Resolução nº
+              765/2023 da Anatel (Regulamento Geral de Direitos do Consumidor -
+              RGC).
+            </p>
+            <p>
+              Ainda assim, a empresa mantém canais de atendimento e comunicação
+              conforme previsto em contrato. Chamados realizados por telefone
+              podem ter retorno pela mesma forma de contato.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

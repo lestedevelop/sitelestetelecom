@@ -3,6 +3,13 @@
   <component name="PublishConfigData" serverName="vendas-beta" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
+      <paths name="institucional">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/alessandro_mello" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="vendas-beta">
         <serverdata>
           <mappings>

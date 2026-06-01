@@ -1,44 +1,49 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como posso mudar a data de vencimento da minha mensalidade? | Leste",
-    description: "Como posso mudar a data de vencimento da minha mensalidade?.",
+  title: "Como mudar a data de vencimento? | Leste",
+  description: "Como mudar a data de vencimento?",
 };
 
-export default function ComoAlterarVencimento(props) {
-    return (
-        <main className="bg-light">
-            
+export default function ComoAlterarVencimento() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como mudar a data de vencimento?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como posso mudar a data de vencimento da minha mensalidade?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Se você quer alterar a data de vencimento, pode solicitar pela
+              central de atendimento.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        Você pode solicitar a mudança de vencimento a cada 30 dias. É necessário entrar em contato com nossa Central de Atendimento, pelo WhatsApp, Direct do Instagram, Messenger, Telegram ou Aplicativo.
+            <p>A mudança pode ser feita conforme sua necessidade.</p>
 
-                    </p><br/>
-                   <p>Central Telefônica: <a href="tel:02120201300"></a>(021) 2020-1300​</p>
-                   <p>WhatsApp: (021) 2020-1300<a href="https://wa.me/02120201300"></a>(021) 2020-1300​</p>
-                   <p>Telegram: <a href="https://web.telegram.org/k/#@leste_bot"></a>@Leste_bot</p>
-                   <p>App: <a href="https://www.lestetelecom.com.br/aplicativo-leste"></a>Leste - Central do Assinante</p>
-
-                </div>
-
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 20/05/16
-                </p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">Para solicitar:</h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>Entre em contato pela central telefônica ou WhatsApp (021) 2020-1300</li>
+                <li>Ou pelos canais digitais</li>
+                <li>Central telefônica ou WhatsApp: (021) 2020-1300</li>
+                <li>Pontos de atendimento presenciais</li>
+                <li>Redes sociais (mensagem privada)</li>
+              </ul>
             </div>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              A nova data de vencimento passa a valer a partir do próximo ciclo
+              em que a fatura ainda não tenha sido gerada.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

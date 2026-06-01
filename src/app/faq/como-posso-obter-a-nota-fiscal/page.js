@@ -1,53 +1,53 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como posso obter a nota fiscal? | Leste",
-    description: "Como posso obter a nota fiscal?.",
+  title: "Como posso obter a nota fiscal? | Leste",
+  description: "Como posso obter a nota fiscal?",
 };
 
-export default function ComoObterANotaFiscal(props) {
-    return (
-        <main className="bg-light">
-            
+export default function ComoObterANotaFiscal() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como posso obter a nota fiscal?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como posso obter a nota fiscal?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              Você pode emitir sua nota fiscal pela Central do Assinante.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        1° No nosso site, na menu superior, clique na aba "Central do Assinantes".
-                    </p>
-                    <p>
-                        2° Digite o CPF do titular da assinatura e como senha os 5 primeiros dígitos do CPF e o último dígito.
-                    </p>
-                    <p>
-                        3° Clique na aba "Nota Fiscal".
-                    </p>
-                    <p>
-                        4° Clique em "Ver Nota Fiscal" e gere sua nota em PDF.
-                    </p><br/>
-                    <p>
-                        Atenção: Não esqueça de desbloquear os pop-ups.
-                    </p>
-                    <p>
-                        Observação: Caso a nota fiscal não esteja disponível no site, poderá realizar o contato conosco a fim de realizar a solicitação, prazo de envio de até 5 dias úteis.
-                    </p>
-                </div>
-
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 28/03/23
-                </p>
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">Para acessar:</h2>
+              <ol className="mt-3 list-decimal space-y-2 pl-5">
+                <li>
+                  No site da Leste, clique em Central do Assinante
+                </li>
+                <li>Informe o CPF do titular</li>
+                <li>
+                  Use como senha os 5 primeiros dígitos do CPF + o último
+                  dígito ou a senha cadastrada por você no primeiro acesso
+                </li>
+                <li>Acesse a opção Nota Fiscal</li>
+                <li>Clique em Ver Nota Fiscal para gerar o PDF</li>
+              </ol>
             </div>
+          </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+          <FaqNote>
+            <p>
+              Pode ser necessário liberar pop-ups no navegador para gerar o
+              arquivo. Caso a nota não esteja disponível no site, é possível
+              solicitar pelo atendimento, com prazo de envio de até 5 dias
+              úteis.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }
-

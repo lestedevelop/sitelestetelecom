@@ -5,27 +5,29 @@ import { useMemo, useState } from "react";
 import { FAQ_HELP_CENTER_SECTIONS } from "@/mocks/faqHelpCenterSections";
 import { ChevronRight, IconBadge } from "@/utils/faqIcons";
 
+const ALL_CATEGORIES = "Todas";
+
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 export default function FaqHelpCenter() {
   const [query, setQuery] = useState("");
-  const [activeSection, setActiveSection] = useState("Todas");
-  const [openSection, setOpenSection] = useState(null);
-
-  const normalizedText = (text) =>
-    text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+  const [activeSection, setActiveSection] = useState(ALL_CATEGORIES);
 
   const filteredSections = useMemo(() => {
-    const queryNormalized = normalizedText(query.trim());
-    const activeSectionNormalized = normalizedText(activeSection);
+    const queryNormalized = normalizeText(query.trim());
+    const activeSectionNormalized = normalizeText(activeSection);
 
     return FAQ_HELP_CENTER_SECTIONS.map((section) => {
-      const matchesSection =
-        activeSectionNormalized === normalizedText("Todas") ||
-        normalizedText(section.title) === activeSectionNormalized;
+      const isActive =
+        activeSection === ALL_CATEGORIES ||
+        normalizeText(section.title) === activeSectionNormalized;
 
-      if (!matchesSection) {
+      if (!isActive) {
         return { ...section, items: [] };
       }
 
@@ -34,7 +36,9 @@ export default function FaqHelpCenter() {
           return true;
         }
 
-        return normalizedText(item.title).includes(queryNormalized);
+        return [item.title, section.title, section.description]
+          .map(normalizeText)
+          .some((value) => value.includes(queryNormalized));
       });
 
       return { ...section, items };
@@ -45,29 +49,42 @@ export default function FaqHelpCenter() {
   const hasQuery = query.trim().length > 0;
 
   return (
-    <section className="w-full py-8 md:py-10">
+    <section className="w-full bg-light py-8 md:py-16">
       <div className="container">
         <div className="mx-auto max-w-6xl">
-          <form
-            onSubmit={(event) => event.preventDefault()}
-            className="mb-4"
-          >
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase text-primary">
+              Central de ajuda
+            </p>
+            <div className="mt-3">
+              <div>
+                <h1 className="text-4xl font-bold text-darkgreen md:text-5xl">
+                  Como podemos ajudar?
+                </h1>
+                <p className="mt-3 max-w-2xl text-base text-graylight md:text-lg">
+                  Encontre respostas por categoria ou busque diretamente pela sua dúvida.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={(event) => event.preventDefault()} className="mb-6">
             <input
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Buscar no FAQ"
               aria-label="Buscar no FAQ"
-              className="h-11 w-full rounded-md border border-[#d9d9d9] bg-white px-4 text-sm text-[#2b6f69] placeholder:text-[#89a6a1] focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="h-12 w-full rounded-md border border-transparent bg-white px-4 text-base text-darkgreen outline-none placeholder:text-graylight focus:border-primary"
             />
           </form>
 
-          <div className="mb-4 flex flex-wrap gap-3">
+          <div className="mb-8 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => setActiveSection("Todas")}
+              onClick={() => setActiveSection(ALL_CATEGORIES)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                activeSection === "Todas"
+                activeSection === ALL_CATEGORIES
                   ? "border-primary bg-primary text-light"
                   : "border-graylighter bg-white text-darkgreen hover:border-primary hover:text-primary"
               }`}
@@ -91,68 +108,71 @@ export default function FaqHelpCenter() {
             ))}
           </div>
 
-          <div className="space-y-6">
+          <div className="mt-10">
+            <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-darkgreen">
+                  {hasQuery ? "Resultados da busca" : activeSection}
+                </h2>
+                <p className="text-sm text-graylight">
+                  {hasQuery
+                    ? "Resultados encontrados na estrutura atual do FAQ."
+                    : "Conteúdos disponíveis na categoria selecionada."}
+                </p>
+              </div>
+
+              {activeSection !== ALL_CATEGORIES ? (
+                <button
+                  type="button"
+                  onClick={() => setActiveSection(ALL_CATEGORIES)}
+                  className="text-left text-sm font-semibold text-primary hover:underline md:text-right"
+                >
+                  Ver todas as categorias
+                </button>
+              ) : null}
+            </div>
+
             {!hasResults ? (
-              <div className="px-4 py-5 text-sm text-[#6f8d88]">
+              <div className="rounded-lg border border-graylighter bg-white px-5 py-6 text-sm text-graylight">
                 Nenhum resultado encontrado.
               </div>
             ) : null}
 
-            {filteredSections.map((section) => (
-              <div
-                key={section.title}
-                className="overflow-hidden rounded-md border border-[#dddddd] bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenSection((current) =>
-                      current === section.title ? null : section.title
-                    )
-                  }
-                  aria-expanded={hasQuery || openSection === section.title}
-                  className="flex w-full items-center justify-between gap-3 bg-light px-4 py-4 text-left"
+            <div className="space-y-5">
+              {filteredSections.map((section) => (
+                <div
+                  key={section.title}
+                  className="overflow-hidden rounded-lg border border-graylighter bg-white"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 border-b border-graylighter bg-white px-5 py-4">
                     <IconBadge icon={section.icon} />
                     <div>
-                      <h3 className="text-lg font-bold text-darkgreen md:text-xl">
+                      <h3 className="text-lg font-bold text-darkgreen">
                         {section.title}
                       </h3>
-                      <p className="text-xs text-[#6f8d88] md:text-sm">
-                        {section.items.length} itens
+                      <p className="text-sm text-graylight">
+                        {section.description}
                       </p>
                     </div>
                   </div>
-                  <ChevronRight
-                    className={`h-5 w-5 shrink-0 text-[#7a9a95] transition-transform ${
-                      hasQuery || openSection === section.title ? "rotate-90" : ""
-                    }`}
-                  />
-                </button>
 
-                {hasQuery || openSection === section.title ? (
-                  <div className="border-t border-[#e8e8e8]">
-                    {section.items.map((item, index) => (
+                  <div className="divide-y divide-graylighter">
+                    {section.items.map((item) => (
                       <Link
-                        key={`${section.title}-${item.href}-${index}`}
+                        key={`${section.title}-${item.href}`}
                         href={item.href}
-                        className={`flex min-h-[44px] items-center justify-between gap-4 px-4 py-3 text-left transition-colors duration-150 hover:bg-[#f7f7f7] ${
-                          index === section.items.length - 1
-                            ? ""
-                            : "border-b border-[#e8e8e8]"
-                        }`}
+                        className="flex min-h-[52px] items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-light"
                       >
-                        <span className="pr-4 text-[12px] leading-[1.35] text-[#2b7c76] md:text-[13px]">
+                        <span className="text-sm font-medium leading-6 text-darkgreen">
                           {item.title}
                         </span>
-                        <ChevronRight className="h-4 w-4 shrink-0 text-[#c3c3c3]" />
+                        <ChevronRight className="h-5 w-5 shrink-0 text-graylight" />
                       </Link>
                     ))}
                   </div>
-                ) : null}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
