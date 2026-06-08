@@ -5,46 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
+      <change afterPath="$PROJECT_DIR$/public/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ExtraLightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-ExtraLightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_Condensed-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-ExtraLightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans_SemiCondensed-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitelestetelecom.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/a-leste-telecom-oferece-wi-fi-gratis/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/a-leste-telecom-oferece-wi-fi-gratis/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/a-oscilacao-eletrica-pode-afetar-o-meu-acesso/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/a-oscilacao-eletrica-pode-afetar-o-meu-acesso/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/atualizacao-de-boleto/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/atualizacao-de-boleto/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/canal-oficial-de-atendimento/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/canal-oficial-de-atendimento/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/cobranca-de-visitas-tecnicas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/cobranca-de-visitas-tecnicas/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-cancelar-o-meu-plano-de-internet/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-cancelar-o-meu-plano-de-internet/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-criar-o-discador-de-conexao-de-banda-larga/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-criar-o-discador-de-conexao-de-banda-larga/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-mudar-de-plano/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-mudar-de-plano/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-posso-fazer-uma-reclamacao/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-posso-fazer-uma-reclamacao/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-posso-mudar-a-data-de-vencimento-da-minha-mensalidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-posso-mudar-a-data-de-vencimento-da-minha-mensalidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-posso-obter-a-nota-fiscal/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-posso-obter-a-nota-fiscal/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-posso-suspender-ou-bloquear-o-meu-plano/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-posso-suspender-ou-bloquear-o-meu-plano/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/configurando-roteador/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/configurando-roteador/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/configurando-wifi-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/configurando-wifi-da-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/contratos-digitais-assinatura-digital/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/contratos-digitais-assinatura-digital/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/correcao-monetaria-dos-planos/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/correcao-monetaria-dos-planos/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/denuncias-de-furto-de-cabos/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/denuncias-de-furto-de-cabos/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/desligar-e-ligar-os-equipamentos-pode-resolver/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/desligar-e-ligar-os-equipamentos-pode-resolver/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/envio-documento-comprovante/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/envio-documento-comprovante/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/foi-solicitado-o-envio-de-documentos-no-ato-da-ativacao/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/foi-solicitado-o-envio-de-documentos-no-ato-da-ativacao/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/info-legal/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/info-legal/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/lojas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/lojas/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/mudei-de-endereco-posso-transferir-o-meu-ponto-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/mudei-de-endereco-posso-transferir-o-meu-ponto-da-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/oque-e-cgnat/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/oque-e-cgnat/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/prazo-de-visitas-tecnicas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/prazo-de-visitas-tecnicas/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/roteadores-wi-fi-fornecidos/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/roteadores-wi-fi-fornecidos/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/sem-internet/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/sem-internet/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/teste-de-velocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/teste-de-velocidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/uso-de-equipamentos-de-rede-particulares/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/uso-de-equipamentos-de-rede-particulares/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/SectionFaq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/SectionFaq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/viabilidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viabilidade/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PlanCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ModalViabilidade.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ModalViabilidade.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/new/MobileDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/new/MobileDrawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/pme/PmeHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmeHero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/pme/PmePlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/pme/PmePlanCard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +112,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
-    "settings.editor.selected.configurable": "ssh.settings",
+    "settings.editor.selected.configurable": "web.server",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -106,6 +126,7 @@
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\movel" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public\fonts" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\app" />
     </key>

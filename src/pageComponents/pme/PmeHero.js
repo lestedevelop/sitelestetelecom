@@ -27,7 +27,7 @@ export default function PmeHero() {
               Planos empresariais com fibra otica, estabilidade e suporte para sua operacao continuar conectada.
             </p>
             <Link
-              href="/vendas"
+              href="https://vendas.lestetelecom.com.br/"
               className="mt-8 inline-flex min-h-14 items-center justify-center rounded-full bg-white px-8 text-xl font-bold text-primary transition hover:-translate-y-px hover:bg-light"
             >
               Assine agora!

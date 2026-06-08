@@ -147,7 +147,7 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
 
             {available ? (
                 <Link
-                    href="/vendas"
+                    href="https://vendas.lestetelecom.com.br/"
                     className="mt-5 block rounded-xl bg-primary px-4 py-3 text-center text-[18px] font-semibold text-white shadow-[0_12px_20px_rgba(30,107,93,.22)]"
                 >
                     Finalizar Cadastro

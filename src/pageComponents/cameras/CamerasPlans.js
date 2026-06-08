@@ -113,7 +113,7 @@ export default function CamerasPlans() {
                     </p>
 
                     <Link
-                      href="/vendas"
+                      href="https://vendas.lestetelecom.com.br/"
                       className="mt-6 inline-flex items-center gap-2 rounded-[10px] bg-darkgreen px-5 py-3 text-sm font-semibold text-light transition hover:opacity-90 md:px-6 md:text-base"
                     >
                       Contrate agora!

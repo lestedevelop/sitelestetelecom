@@ -138,7 +138,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                 </div>
 
                     <Link
-                        href={"/vendas"}
+                        href={"https://vendas.lestetelecom.com.br/"}
                         className={"w-full -mx-6 rounded-2xl px-4 py-3 text-center font-semibold transition border border-darkgreen bg-primary text-white"}
                     >
                         Assine agora!

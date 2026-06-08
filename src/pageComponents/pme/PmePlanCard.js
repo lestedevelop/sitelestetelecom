@@ -34,7 +34,7 @@ export default function PmePlanCard({plan}) {
 
         <div className="w-full space-y-2">
           <Link
-            href="/vendas"
+            href="https://vendas.lestetelecom.com.br/"
             className="block w-full rounded-2xl border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition hover:bg-darkgreen"
           >
             Assine agora!

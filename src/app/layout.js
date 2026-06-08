@@ -1,13 +1,21 @@
 import "./globals.css";
 import { SiteProvider } from "@/contexts/SiteContext";
 import RootShell from "@/components/layout/RootShell";
-import { IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+const ibmPlexSans = localFont({
+  src: [
+    {
+      path: "../../public/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf",
+      style: "italic",
+    },
+  ],
   display: "swap",
+  variable: "--font-ibm-plex-sans",
 });
 
 export const metadata = {

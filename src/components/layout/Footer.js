@@ -28,7 +28,7 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-    {href: "/vendas", label: "Contratacao on-line"},
+    {href: "https://vendas.lestetelecom.com.br", label: "Contratacao on-line"},
     {href: "/leste-suporte", label: "Central de atendimento"},
     {href: "/viabilidade", label: "Mapa de cobertura"},
     {href: "https://portal.lestetelecom.com.br/login", label: "2a via da conta"},
@@ -66,7 +66,8 @@ export default function Footer() {
             </button>
 
             <div className="container pt-14 z-50 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
-                <div className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
+                <div
+                    className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
                     <div className="space-y-10">
                         <div className="flex flex-wrap items-center gap-3">
                             {socialLinks.map((item) => (
@@ -96,7 +97,8 @@ export default function Footer() {
                                 </Link>
 
                                 <Link href="/leste-suporte" className="flex items-center gap-3">
-                                    <Image src={portalLeste} alt="Leste Suporte" className="h-[52px] w-[52px] rounded-xl"/>
+                                    <Image src={portalLeste} alt="Leste Suporte"
+                                           className="h-[52px] w-[52px] rounded-xl"/>
                                     <div className="leading-tight">
                                         <div className="text-sm text-white/75">Baixar</div>
                                         <div className="text-2xl font-semibold">Leste Suporte</div>
@@ -110,7 +112,8 @@ export default function Footer() {
                                 Verificados pelo Reclame Aqui
                             </h2>
 
-                            <div className="max-w-[390px] overflow-hidden rounded-2xl bg-white md:max-w-full lg:max-w-[390px]">
+                            <div
+                                className="max-w-[390px] overflow-hidden rounded-2xl bg-white md:max-w-full lg:max-w-[390px]">
                                 <Image
                                     src={reclameAqui}
                                     alt="Reclame Aqui"
@@ -138,7 +141,8 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="space-y-8 md:col-span-2 md:grid md:grid-cols-2 md:gap-10 md:space-y-0 lg:col-span-1 lg:block lg:space-y-8">
+                    <div
+                        className="space-y-8 md:col-span-2 md:grid md:grid-cols-2 md:gap-10 md:space-y-0 lg:col-span-1 lg:block lg:space-y-8">
                         <div className="space-y-4">
                             <h2 className="text-[2.35rem] font-semibold leading-none tracking-[-0.03em] md:text-[2rem] lg:text-[2.6rem]">
                                 Suporte 24h
@@ -146,7 +150,8 @@ export default function Footer() {
 
                             <div className="space-y-3">
                                 {supportPhones.map((item) => (
-                                    <div key={item.label} className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
+                                    <div key={item.label}
+                                         className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
                                         <Image src={item.icon} alt="" className="h-6 w-6"/>
                                         <span>{item.label}</span>
                                     </div>
@@ -159,7 +164,8 @@ export default function Footer() {
                                 Leste Vendas
                             </h2>
 
-                            <div className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
+                            <div
+                                className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
                                 <Image src={whatsIcon} alt="" className="h-6 w-6"/>
                                 <span>021 2020-1303</span>
                             </div>
@@ -167,20 +173,23 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-14 grid gap-8 border-t border-white/15 pt-8 md:grid-cols-[220px_1fr] md:items-start lg:mt-16 lg:grid-cols-[320px_1fr_180px] lg:items-end lg:pt-10">
+                <div
+                    className="mt-14 grid gap-8 border-t border-white/15 pt-8 md:grid-cols-[220px_1fr] md:items-start lg:mt-16 lg:grid-cols-[320px_1fr_180px] lg:items-end lg:pt-10">
                     <div className="max-w-[220px] md:max-w-[200px] lg:max-w-[280px]">
                         <Image src={logoLeste} alt="Leste" className="h-auto w-full"/>
                     </div>
 
                     <div className="space-y-2">
-                        <div className="text-xl font-semibold leading-none tracking-[-0.03em] md:text-[1.45rem] lg:text-2xl">
+                        <div
+                            className="text-xl font-semibold leading-none tracking-[-0.03em] md:text-[1.45rem] lg:text-2xl">
                             LESTE FLU SERVICOS DE TELECOM LTDA
                         </div>
                         <div className="text-sm md:text-[0.95rem] lg:text-base">
                             Todos os direitos reservados. (c)Leste Telecom 2026
                         </div>
                         <div className="max-w-[680px] text-sm leading-6 md:text-[0.95rem] lg:text-base">
-                            02.533.755/0001-87 | Avenida Almirante Tamandare, 600 - Piratininga - Niteroi - RJ - 24350-380
+                            02.533.755/0001-87 | Avenida Almirante Tamandare, 600 - Piratininga - Niteroi - RJ -
+                            24350-380
                         </div>
                     </div>
 

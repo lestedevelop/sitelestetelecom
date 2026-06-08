@@ -191,7 +191,7 @@ export default function ViabilidadePage() {
         image={bannerAssineOnline}
         title="Vem para o melhor caminho!"
         buttonText="Assine Online"
-        link="/vendas"
+        link="https://vendas.lestetelecom.com.br/"
       />
 
       <SalesProviderNew>
