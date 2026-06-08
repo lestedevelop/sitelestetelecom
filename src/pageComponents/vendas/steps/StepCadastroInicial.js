@@ -70,16 +70,21 @@ export default function StepCadastroInicial({ onNext }) {
     }, [cepDebounced, numeroDebounced, checkViabilidade]);
 
     async function onSubmit(values) {
-        updateCadastro(values);
+        const cadastroPayload = {
+            ...data?.cadastro,
+            ...values,
+        };
+
+        updateCadastro(cadastroPayload);
 
         try {
             const resp = await sendPrecadastro({
-                ...values,
+                ...cadastroPayload,
                 id: data?.precadastroBody?.id,
             });
             setPrecadastroBody(resp);
 
-            if (data.cadastro.tipo_viabilidade !== "FTTH" || data.cadastro.risco) {
+            if (cadastroPayload.tipo_viabilidade !== "FTTH" || cadastroPayload.risco) {
                 setStep("semViabilidade");
                 return;
             }
