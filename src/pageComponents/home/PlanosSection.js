@@ -5,6 +5,7 @@ import PlanCardSkeleton from "@/components/skeletom/PlanCardSkeletom";
 import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
+import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 
 export default function PlanosSection() {
     const {planos, loading} = useHomeData();
@@ -13,10 +14,7 @@ export default function PlanosSection() {
     const showSkeleton = loading || plansData.length === 0;
 
     function renderPlanCard(plan) {
-        const isPromotionalPlan =
-            String(plan?.codser || "").trim().toUpperCase() === "EUVX0VOD9K";
-
-        if (isPromotionalPlan) {
+        if (isPromotionalPlan(plan)) {
             return (
                 <PromotionalPlanCard
                     plan={plan}

@@ -14,6 +14,7 @@ import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSectio
 import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
+import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -90,9 +91,7 @@ export default function StepPlans({ onNext, onBack }) {
     }
 
     function renderPlanCard(plan) {
-        const isPromotionalPlan =
-            String(plan?.codser || "").trim().toUpperCase() === "EUVX0VOD9K";
-        const Card = isPromotionalPlan ? PromotionalPlanCard : PlanCard;
+        const Card = isPromotionalPlan(plan) ? PromotionalPlanCard : PlanCard;
 
         return (
             <Card
