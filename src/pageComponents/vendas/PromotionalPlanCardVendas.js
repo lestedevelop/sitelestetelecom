@@ -67,14 +67,14 @@ export default function PromotionalPlanCardVendas({
                     3 MESES COM DESCONTO
                 </div>
 
-                <div className="text-[5.5rem] font-light leading-[0.82] tracking-[-0.06em]">
+                <div className="text-8xl font-semibold leading-none text-white">
                     {titleNumber}
                 </div>
-                <div className="mt-3 font-mono text-[2rem] font-light leading-none tracking-[0.04em]">
+                <div className="-mt-2 text-5xl font-semibold uppercase leading-none tracking-[0.15em]">
                     {titleUnit}
                 </div>
 
-                <div className="mt-4 flex min-h-[94px] items-center justify-center">
+                <div className="mt-2 flex min-h-[94px] items-center justify-center">
                     <Image
                         src={getWifiIcon(wifiText)}
                         alt={wifiText || "Wi-Fi incluso"}
