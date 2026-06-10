@@ -22,20 +22,23 @@ export default function PlansSwiperHome({
         : plans;
 
     return (
-        <div className="container flex items-center">
+        <div className="w-full min-w-0 overflow-x-clip">
             <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={32}
+                spaceBetween={24}
                 slidesPerView="auto"
                 centeredSlides={false}
                 pagination={{
                     clickable: true,
                     dynamicMainBullets: true,
                 }}
-                className="py-10"
+                className="overflow-visible! px-1 py-10 [&_.swiper-pagination]:!bottom-0"
             >
                 {items.map((plan) => (
-                    <SwiperSlide key={plan.id} className="flex justify-center min-h-[588px] md:w-[280px]!">
+                    <SwiperSlide
+                        key={plan.id}
+                        className="flex min-h-[588px] w-[calc(100vw-5rem)]! max-w-[280px] justify-center sm:w-[280px]!"
+                    >
                         {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
                     </SwiperSlide>
                 ))}

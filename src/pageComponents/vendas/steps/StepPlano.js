@@ -7,6 +7,7 @@ import { findCodCidByName } from "@/utils/cidade";
 import { getPlanosByCodCid } from "@/services/vendas/planos";
 
 import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
+import PromotionalPlanCard from "@/pageComponents/vendas/PromotionalPlanCardVendas";
 import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";
 import VencimentoSection from "@/pageComponents/vendas/components/VencimentoSection";
 import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSection";
@@ -88,6 +89,20 @@ export default function StepPlans({ onNext, onBack }) {
         });
     }
 
+    function renderPlanCard(plan) {
+        const isPromotionalPlan =
+            String(plan?.codser || "").trim().toUpperCase() === "EUVX0VOD9K";
+        const Card = isPromotionalPlan ? PromotionalPlanCard : PlanCard;
+
+        return (
+            <Card
+                plan={plan}
+                selected={data?.plano?.id === plan.id}
+                onSelect={handleSelect}
+            />
+        );
+    }
+
     return (
         <div className="max-w-5xl mx-auto space-y-6">
             {loading ? (
@@ -103,13 +118,7 @@ export default function StepPlans({ onNext, onBack }) {
             {!!plans.length && (
                 <PlansSwiper
                     plans={plans}
-                    renderPlan={(plan) => (
-                        <PlanCard
-                            plan={plan}
-                            selected={data?.plano?.id === plan.id}
-                            onSelect={handleSelect}
-                        />
-                    )}
+                    renderPlan={renderPlanCard}
                 />
             )}
 

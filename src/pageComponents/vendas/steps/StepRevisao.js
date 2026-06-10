@@ -21,6 +21,10 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
     const plano = data?.plano || data?.planos || {};
     const agendamento = data?.agendamento || {};
     const endereco = cadastro?.endereco || cadastro;
+    const planValue =
+        Number(plano?.valor_desconto) > 0
+            ? plano.valor_desconto
+            : plano?.valor ?? plano?.value;
 
     const periodo = useMemo(() => inferPeriod(agendamento?.title), [agendamento?.title]);
 
@@ -123,7 +127,10 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
 
                     <ReviewCard title="Informações de Cobrança" onEdit={() => onEditSection?.(2)}>
                         <ReviewField label="Plano" value={plano?.nome_exibicao}/>
-                        <ReviewField label="Valor" value={toBRL(plano?.valor || plano?.value)}/>
+                        <ReviewField
+                            label="Valor"
+                            value={toBRL(planValue)}
+                        />
                         <ReviewField
                             label="Vencimento"
                             value={plano?.vencimento ? `Dia ${plano.vencimento}` : "-"}

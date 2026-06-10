@@ -94,7 +94,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                         selected ? "bg-primary text-white" : "bg-[#8F8F8F] text-white hover:bg-gray-500",
                     ].join(" ")}
                 >
-                    Selecionar
+                    {isSelected ? "Selecionado" : "Selecionar"}
                 </button>
 
             </div>

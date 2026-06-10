@@ -1,5 +1,6 @@
 import Section from "@/components/layout/Section";
 import PlanCard from "@/components/cards/PlanCard";
+import PromotionalPlanCard from "@/pageComponents/vendas/PromotionalPlanCardVendas";
 import PlanCardSkeleton from "@/components/skeletom/PlanCardSkeletom";
 import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
 import {useSite} from "@/contexts/SiteContext";
@@ -10,6 +11,25 @@ export default function PlanosSection() {
     const {site} = useSite();
     const plansData = planos?.data || [];
     const showSkeleton = loading || plansData.length === 0;
+
+    function renderPlanCard(plan) {
+        const isPromotionalPlan =
+            String(plan?.codser || "").trim().toUpperCase() === "EUVX0VOD9K";
+
+        if (isPromotionalPlan) {
+            return (
+                <PromotionalPlanCard
+                    plan={plan}
+                    actionHref="https://vendas.lestetelecom.com.br/"
+                    actionLabel="Assine agora!"
+                    compactTop
+                    className="-mt-6"
+                />
+            );
+        }
+
+        return <PlanCard plan={plan}/>;
+    }
 
     return (
         <Section>
@@ -22,14 +42,12 @@ export default function PlanosSection() {
                 </p>
             </section>
 
-            <div className="flex flex-col flex-wrap place-items-center justify-center gap-6 md:flex-row lg:flex-nowrap lg:justify-between">
+            <div className="w-full min-w-0">
                 <PlansSwiperHome
                     loading={showSkeleton}
                     renderSkeleton={() => <PlanCardSkeleton/>}
                     plans={plansData}
-                    renderPlan={(plan) => (
-                        <PlanCard plan={plan}/>
-                    )}
+                    renderPlan={renderPlanCard}
                 />
             </div>
 
