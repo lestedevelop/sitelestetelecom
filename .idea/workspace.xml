@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/not-found.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.js" afterDir="false" />
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="commit teste jenkins 1">
+      <change beforePath="$PROJECT_DIR$/public/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/static/IBMPlexSans-ThinItalic.ttf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +140,7 @@
       <workItem from="1778509694918" duration="11915000" />
       <workItem from="1778845992045" duration="12382000" />
       <workItem from="1780316781806" duration="22231000" />
-      <workItem from="1781099238108" duration="1228000" />
+      <workItem from="1781099238108" duration="1574000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -230,7 +246,39 @@
       <option name="project" value="LOCAL" />
       <updated>1780928724968</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="++">
+      <option name="closed" value="true" />
+      <created>1781101679940</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1781101679940</updated>
+    </task>
+    <task id="LOCAL-00015" summary="++">
+      <option name="closed" value="true" />
+      <created>1781101709166</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1781101709166</updated>
+    </task>
+    <task id="LOCAL-00016" summary="commit teste jenkins 1">
+      <option name="closed" value="true" />
+      <created>1781101903892</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1781101903892</updated>
+    </task>
+    <task id="LOCAL-00017" summary="commit teste jenkins 1">
+      <option name="closed" value="true" />
+      <created>1781101954326</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1781101954326</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +297,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="++" />
-    <option name="LAST_COMMIT_MESSAGE" value="++" />
+    <MESSAGE value="commit teste jenkins 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit teste jenkins 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
