@@ -91,7 +91,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
     const badge = useMemo(() => getBadge(plan), [plan]);
     const wifiText = plan?.descri_ser_bot || plan?.descri_ser;
     const {titleNumber, titleUnit} = useMemo(() => getTitle(plan), [plan]);
-    const priceValue = plan?.valor - plan?.valor_desconto;
+    const priceValue = plan?.valor;
     const {inteiro, centavos} = formatPrice(priceValue);
     const isSelected = !!selected;
 
