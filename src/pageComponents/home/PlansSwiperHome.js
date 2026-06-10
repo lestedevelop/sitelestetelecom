@@ -20,24 +20,32 @@ export default function PlansSwiperHome({
               id: `plan-skeleton-${index}`,
           }))
         : plans;
+    const shouldCenterDesktop = items.length < 4;
 
     return (
         <div className="w-full min-w-0 overflow-x-clip">
             <Swiper
                 modules={[Navigation, Pagination]}
                 spaceBetween={24}
-                slidesPerView="auto"
+                slidesPerView={1.15}
                 centeredSlides={false}
+                breakpoints={{
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 4 },
+                }}
                 pagination={{
                     clickable: true,
                     dynamicMainBullets: true,
                 }}
-                className="overflow-visible! px-1 py-10 [&_.swiper-pagination]:!bottom-0"
+                className={[
+                    "overflow-visible! px-1 py-10 [&_.swiper-pagination]:!bottom-0",
+                    shouldCenterDesktop ? "lg:[&_.swiper-wrapper]:justify-center" : "",
+                ].join(" ")}
             >
                 {items.map((plan) => (
                     <SwiperSlide
                         key={plan.id}
-                        className="flex min-h-[588px] w-[calc(100vw-5rem)]! max-w-[280px] justify-center sm:w-[280px]!"
+                        className="flex min-h-[588px] justify-center"
                     >
                         {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
                     </SwiperSlide>
