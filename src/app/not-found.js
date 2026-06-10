@@ -42,7 +42,7 @@ export default function NotFound() {
 
                         <p className="mt-6 text-xs text-graylight">
                             Se você acha que isso é um erro, tente atualizar a página ou volte
-                            mais tarde.
+                            mais tarde. teste 1
                         </p>
                     </div>
 
