@@ -19,13 +19,13 @@ export default function Page() {
               chat, com atendimento via WhatsApp.
             </p>
             <p>
-              Por esse canal, é possível solicitar suporte, tirar dúvidas e
+              Por esse canal, é possível solicitar suporte, tirár dúvidas e
               realizar atendimentos relacionados ao serviço.
             </p>
           </div>
           <FaqNote>
             <p>
-              Problemas técnicos são tratados pela operadora parceira responsável
+              Problemas técnicos são tratados pela operadora parceirá responsável
               pelo funcionamento do serviço.
             </p>
           </FaqNote>

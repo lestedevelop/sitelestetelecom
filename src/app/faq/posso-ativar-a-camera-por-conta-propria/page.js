@@ -15,7 +15,7 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Sim. O equipamento pode ser retirado em uma loja da Leste e a
+              Sim. O equipamento pode ser retirádo em uma loja da Leste e a
               ativação pode ser realizada pelo próprio cliente.
             </p>
             <p>

@@ -11,13 +11,13 @@ export default function CamerasHero() {
         <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
           <Image
             src={bannerMobile}
-            alt="Banner de cameras"
+            alt="Banner de câmeras"
             className="h-auto w-full md:hidden"
             priority
           />
           <Image
             src={banner}
-            alt="Banner de cameras"
+            alt="Banner de câmeras"
             className="hidden h-auto w-full md:block"
             priority
           />
@@ -28,7 +28,7 @@ export default function CamerasHero() {
                 <div className="w-[140px] md:w-[200px]">
                   <Image
                     src={logo}
-                    alt="Leste Cameras"
+                    alt="Leste Câmeras"
                     className="h-auto w-full"
                     priority
                   />
@@ -57,7 +57,7 @@ export default function CamerasHero() {
           <div className="absolute left-[50%] -translate-x-1/2 bottom-0 md:hidden">
             <div className="flex flex-col min-w-50 h-[480px] gap-y-[128px] items-center justify-between py-12 w-screen px-12">
               <h1 className="text-2xl w-full font-semibold leading-tight text-white">
-                Acompanhe quem voce ama em <span className="text-lightgreen">tempo real.</span>
+                Acompanhe quem você ama em <span className="text-lightgreen">tempo real.</span>
               </h1>
               <a
                   href="https://wa.me/552120201300"

@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como funcionam planos acima de 600 Mbps? | Leste",
   description:
-    "Disponibilidade, testes tecnicos e condicoes para planos acima de 600 Mbps.",
+    "Disponibilidade, testes técnicos e condições para planos acima de 600 Mbps.",
 };
 
 export default function ComoFuncionamPlanosAcimaDe600Mbps() {
@@ -18,12 +18,12 @@ export default function ComoFuncionamPlanosAcimaDe600Mbps() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               A disponibilidade de planos acima de 600 Mbps depende de
-              condicoes tecnicas e da capacidade da rede no local.
+              condições técnicas e da capacidade da rede no local.
             </p>
 
             <p>
-              A ativacao esta sujeita a testes no momento da instalacao, e nem
-              todas as regioes possuem suporte para velocidades mais altas,
+              A ativação está sujeita a testes no momento da instalação, e nem
+              todas as regiões possuem suporte para velocidades mais altas,
               como 800 Mbps ou 1 Gbps.
             </p>
 
@@ -35,7 +35,7 @@ export default function ComoFuncionamPlanosAcimaDe600Mbps() {
               <ul className="mt-4 list-disc space-y-2 pl-5">
                 <li>A rede local deve suportar altas velocidades.</li>
                 <li>
-                  A estrutura interna precisa estar em padrao Gigabit Ethernet.
+                  A estrutura interna precisa estar em padrão Gigabit Ethernet.
                 </li>
                 <li>Os testes devem ser feitos por cabo, diretamente na ONU.</li>
               </ul>
@@ -53,8 +53,8 @@ export default function ComoFuncionamPlanosAcimaDe600Mbps() {
 
             <p>
               Alteracoes no sinal optico, como danos ou atenuacoes, podem
-              impactar a qualidade do servico. Nesses casos, pode ser
-              necessario migrar para um plano inferior, sem custo adicional.
+              impactar a qualidade do serviço. Nesses casos, pode ser
+              necessário migrar para um plano inferior, sem custo adicional.
             </p>
 
             <p>
@@ -65,9 +65,9 @@ export default function ComoFuncionamPlanosAcimaDe600Mbps() {
 
           <FaqNote>
             <p>
-              A contratacao de planos acima de 600 Mbps depende de viabilidade
-              tecnica, testes no local e aceite das condicoes no momento da
-              ativacao.
+              A contratação de planos acima de 600 Mbps depende de viabilidade
+              técnica, testes no local e aceite das condições no momento da
+              ativação.
             </p>
           </FaqNote>
         </article>

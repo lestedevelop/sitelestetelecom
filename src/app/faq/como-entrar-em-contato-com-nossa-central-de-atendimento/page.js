@@ -27,7 +27,7 @@ export default function ComoEntrarEmContatoComACentral(props) {
                         Nosso atendimento para suporte técnico é 24 horas.
                     </p><br/>
                     <p>
-                        O atendimento financeiro funciona de Segunda à Sexta-feira de 8 às 23h, Sábados e feriados de 8 às 20h.
+                        O atendimento financeiro funciona de Segunda à Sexta-feirá de 8 às 23h, Sábados e feriados de 8 às 20h.
                     </p><br/>
                 </div>
 

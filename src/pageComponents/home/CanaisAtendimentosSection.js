@@ -25,38 +25,38 @@ export default function CanaisAtendimentosSection() {
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Problemas de conexão"
-                                icon={<Image alt="icone de conexao" width={35} src={atendimentoIcon} />}
+                                icon={<Image alt="ícone de conexão" width={35} src={atendimentoIcon} />}
                             />
                             <ActionCard
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Teste sua velocidade!"
-                                icon={<Image alt="icone de velocidade" width={35} src={localicazao} />}
+                                icon={<Image alt="ícone de velocidade" width={35} src={localicazao} />}
                             />
                             <ActionCard
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Upgrade de plano"
-                                icon={<Image alt="icone de conexao" width={35} src={telefone} />}
+                                icon={<Image alt="ícone de conexão" width={35} src={telefone} />}
                             />
 
                             <ActionCard
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Problemas de conexão"
-                                icon={<Image alt="icone de conexao" width={35} src={atendimentoIcon} />}
+                                icon={<Image alt="ícone de conexão" width={35} src={atendimentoIcon} />}
                             />
                             <ActionCard
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Teste sua velocidade!"
-                                icon={<Image alt="icone de velocidade" width={35} src={faqImg} />}
+                                icon={<Image alt="ícone de velocidade" width={35} src={faqImg} />}
                             />
                             <ActionCard
                                 className={""}
                                 textStyle={{ color: "#045441" }}
                                 text="Upgrade de plano"
-                                icon={<Image alt="icone de conexao" width={35} src={atendimentoImg} />}
+                                icon={<Image alt="ícone de conexão" width={35} src={atendimentoImg} />}
                             />
                     </div>
                 </div>

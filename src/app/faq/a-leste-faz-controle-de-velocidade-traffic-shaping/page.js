@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "A Leste faz controle de velocidade (traffic shaping)? | Leste",
   description:
-    "Informacoes sobre controle de trafego, limitacoes contratuais e uso de CGNAT.",
+    "Informações sobre controle de trafego, limitacoes contratuais e uso de CGNAT.",
 };
 
 export default function ALesteFazControleDeVelocidadeTrafficShaping() {
@@ -21,17 +21,17 @@ export default function ALesteFazControleDeVelocidadeTrafficShaping() {
             </p>
 
             <p>
-              As unicas limitacoes seguem o que esta definido no contrato de
-              prestacao de servico.
+              As únicas limitacoes seguem o que está definido no contrato de
+              prestação de serviço.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A Leste nao aplica modelagem de trafego alem das condicoes
-              previstas em contrato, que esta disponivel no site. O IPv4 e
+              A Leste não aplica modelagem de trafego além das condições
+              previstas em contrato, que está disponível no site. O IPv4 e
               disponibilizado via CGNAT, o que pode impactar o funcionamento de
-              algumas aplicacoes que nao possuem suporte a IPv6.
+              algumas aplicacoes que não possuem suporte a IPv6.
             </p>
           </FaqNote>
         </article>

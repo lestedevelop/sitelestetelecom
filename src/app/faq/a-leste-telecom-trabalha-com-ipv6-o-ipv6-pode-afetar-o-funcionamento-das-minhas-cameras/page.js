@@ -6,7 +6,7 @@ export const metadata = {
   title:
     "A Leste Telecom trabalha com IPv6? O IPv6 pode afetar o funcionamento das minhas câmeras? | Leste",
   description:
-    "Informacoes sobre IPv6, CGNAT, cameras, DVRs e compatibilidade com ONVIF.",
+    "Informações sobre IPv6, CGNAT, câmeras, DVRs e compatibilidade com ONVIF.",
 };
 
 export default function ALesteTelecomTrabalhaComIPv6() {

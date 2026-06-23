@@ -36,7 +36,7 @@ export default function Chip() {
         },
         {
             cidade: "Niterói - Icaraí",
-            endereco: "Rua Cel. Moreira César, 323 - Icaraí, Niterói.",
+            endereco: "Rua Cel. Moreirá César, 323 - Icaraí, Niterói.",
             referencia: "",
             link: "",
         },

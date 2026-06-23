@@ -12,7 +12,7 @@ export const metadata = {
   description: "Como emitir seu boleto no app da Leste.",
 };
 
-export default function RetirandoBoletoPeloApp() {
+export default function RetirándoBoletoPeloApp() {
   return (
     <main className="bg-light">
       <div className="container py-12">
@@ -27,14 +27,14 @@ export default function RetirandoBoletoPeloApp() {
               2º Abra o app e faca login com seus dados cadastrais.
             </FaqImageStep>
             <FaqImageStep image={image3}>
-              3º Clique na opcao "Pagar fatura" na pagina principal do
+              3º Clique na opção "Pagar fatura" na página principal do
               aplicativo.
             </FaqImageStep>
             <FaqImageStep image={image4}>
-              4º Escolha a opcao de pagamento desejada: PIX ou boleto.
+              4º Escolha a opção de pagamento desejada: PIX ou boleto.
             </FaqImageStep>
             <FaqImageStep image={image5}>
-              5º Para a opcao boleto, voce pode copiar o codigo de barras para
+              5º Para a opção boleto, você pode copiar o código de barras para
               pagar no app do seu banco ou baixar a fatura no celular.
             </FaqImageStep>
           </FaqImageSteps>

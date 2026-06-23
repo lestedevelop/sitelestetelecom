@@ -11,46 +11,46 @@ import image7 from "@/assets/faq/boletowhatsapp7.webp";
 import image8 from "@/assets/faq/boletowhatsapp8.webp";
 
 export const metadata = {
-  title: "Como retirar seu boleto pelo WhatsApp? | Leste",
-  description: "Como retirar seu boleto pelo WhatsApp?.",
+  title: "Como retirár seu boleto pelo WhatsApp? | Leste",
+  description: "Como retirár seu boleto pelo WhatsApp?.",
 };
 
-export default function RetirandoBoletoPeloWhatsapp() {
+export default function RetirándoBoletoPeloWhatsapp() {
   return (
     <main className="bg-light">
       <div className="container py-12">
-        <TitleFaq title={<>Como retirar seu boleto pelo WhatsApp?</>} />
+        <TitleFaq title={<>Como retirár seu boleto pelo WhatsApp?</>} />
 
         <div className="mt-10 text-base leading-7 text-dark">
           <FaqImageSteps>
             <FaqImageStep image={image1}>
               1º Inicie uma conversa no WhatsApp mandando uma mensagem para o
-              nosso numero (21) 2020-1300.
+              nosso número (21) 2020-1300.
             </FaqImageStep>
             <FaqImageStep image={image2}>
-              2º Responda "1" para sinalizar que voce ja e um assinante da
+              2º Responda "1" para sinalizar que você já e um assinante da
               Leste.
             </FaqImageStep>
             <FaqImageStep image={image3}>
               3º Digite seu CPF ou CNPJ.
             </FaqImageStep>
             <FaqImageStep image={image4}>
-              4º Digite sua senha de acesso. Caso nao tenha uma, o chat ira
+              4º Digite sua senha de acesso. Caso não tenha uma, o chat irá
               solicitar a criacao da senha.
             </FaqImageStep>
             <FaqImageStep image={image5}>
-              5º Responda "1" para assegurar que o numero pertence a voce e
+              5º Responda "1" para assegurar que o número pertence a você e
               prosseguir o atendimento.
             </FaqImageStep>
             <FaqImageStep image={image6}>
               6º Responda "5" para consultar as faturas em aberto.
             </FaqImageStep>
             <FaqImageStep image={image7}>
-              7º Responda com o numero correspondente ao plano que voce deseja
+              7º Responda com o número correspondente ao plano que você deseja
               obter a fatura.
             </FaqImageStep>
             <FaqImageStep image={image8}>
-              8º Pronto. Agora voce pode copiar o codigo de barras, pagar pelo
+              8º Pronto. Agora você pode copiar o código de barras, pagar pelo
               PIX ou baixar o PDF da fatura.
             </FaqImageStep>
           </FaqImageSteps>

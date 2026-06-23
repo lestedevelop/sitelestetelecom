@@ -41,7 +41,7 @@ export default function ComoDenunciarCabosSoltosOuRompidos() {
             <p>
               Após o envio, uma equipe realiza a verificação para identificar se
               o cabo pertence à Leste e, se confirmado, realiza o reparo ou
-              retirada.
+              retiráda.
             </p>
           </div>
 

@@ -69,7 +69,7 @@ export default function ConhecaNossosServicosSection() {
               <div className="mt-6 hidden gap-3 lg:flex">
                 <button
                   type="button"
-                  aria-label="Ver servico anterior"
+                  aria-label="Ver serviço anterior"
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-graylighter text-darkgreen transition hover:bg-primary hover:text-light"
                   onClick={() => swiperRef.current?.slidePrev()}
                 >
@@ -85,7 +85,7 @@ export default function ConhecaNossosServicosSection() {
 
                 <button
                   type="button"
-                  aria-label="Ver proximo servico"
+                  aria-label="Ver proximo serviço"
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-graylighter text-darkgreen transition hover:bg-primary hover:text-light"
                   onClick={() => swiperRef.current?.slideNext()}
                 >

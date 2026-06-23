@@ -50,7 +50,7 @@ export default function CanalOficialDeAtendimento() {
               RGC).
             </p>
             <p>
-              Ainda assim, a empresa mantém canais de atendimento e comunicação
+              Ainda assim, a empresa mantém canais de atendimento e comúnicação
               conforme previsto em contrato. Chamados realizados por telefone
               podem ter retorno pela mesma forma de contato.
             </p>

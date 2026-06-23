@@ -6,7 +6,7 @@ const FAQ_ITEMS = [
     href: "/faq/sem-internet",
   },
   {
-    label: "Prazo de visitas tecnicas.",
+    label: "Prazo de visitas técnicas.",
     href: "/faq/prazo-de-visitas-tecnicas",
   },
   {
@@ -14,11 +14,11 @@ const FAQ_ITEMS = [
     href: "/faq/desligar-e-ligar-os-equipamentos-pode-resolver",
   },
   {
-    label: "Ha um LED vermelho piscando na ONU. O que devo fazer?",
+    label: "Há um LED vermelho piscando na ONU. O que devo fazer?",
     href: "/faq/led-vermelho-aceso",
   },
   {
-    label: "Como criar o discador de conexao Banda Larga?",
+    label: "Como criar o discador de conexão Banda Larga?",
     href: "/faq/como-criar-o-discador-de-conexao-de-banda-larga",
   },
 ];
@@ -56,7 +56,7 @@ export default function TireDuvidasSection() {
             type="button"
             className="mb-4 inline-flex items-center gap-2 text-left text-base lg:text-2xl font-light text-light"
           >
-            Principais duvidas
+            Principais dúvidas
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
               <path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>

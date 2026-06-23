@@ -18,7 +18,7 @@ export default function Page() {
             <ul className="list-disc space-y-2 pl-5">
               <li>Confirme se a câmera está ligada</li>
               <li>Verifique o LED do equipamento</li>
-              <li>Confira se o sinal de Wi-Fi está chegando corretamente</li>
+              <li>Confirá se o sinal de Wi-Fi está chegando corretamente</li>
               <li>Se persistir, entre em contato com o suporte da Leste</li>
             </ul>
           </div>

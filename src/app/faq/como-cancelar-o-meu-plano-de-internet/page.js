@@ -26,13 +26,13 @@ export default function ComoCancelarOMeuPlano() {
 
             <p>
               Após a solicitação, serão tratadas as informações necessárias para
-              o encerramento do contrato, incluindo questões financeiras e a
+              o encerramento do contrato, incluindo questões financeirás e a
               devolução dos equipamentos.
             </p>
 
             <p>
               A devolução pode ser realizada em uma das lojas da Leste ou,
-              quando aplicável, pode ser agendada a retirada no local, conforme
+              quando aplicável, pode ser agendada a retiráda no local, conforme
               viabilidade de atendimento.
             </p>
           </div>

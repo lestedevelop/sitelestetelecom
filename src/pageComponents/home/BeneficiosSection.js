@@ -44,7 +44,7 @@ export default function BeneficiosSection() {
         <Section className={"container"}>
             <TitleAndSubtitleSection
                 title={'Benefícios de ser Leste!'}
-                text={'Confira os nossos principais benefícios'}
+                text={'Confirá os nossos principais benefícios'}
                 styleText={{ color: 'rgb(0 32 25 / 98%)' }} />
 
             <div className="flex flex-col md:flex-row items-center">

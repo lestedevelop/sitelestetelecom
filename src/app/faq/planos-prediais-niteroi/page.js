@@ -11,7 +11,7 @@ export const metadata = {
     description: "Planos Prediais cidade de Niterói.",
 };
 
-export default function PlanosPrediaisNiteroi() {
+export default function PlanosPrediaisNiterói() {
     return (
         <main className="bg-light">
             

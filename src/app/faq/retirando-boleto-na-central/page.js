@@ -6,15 +6,15 @@ import image2 from "@/assets/faq/retiradaboleto2.webp";
 import image3 from "@/assets/faq/retiradaboleto3.webp";
 
 export const metadata = {
-  title: "Como retirar seu boleto pelo site? | Leste",
-  description: "Como retirar seu boleto pelo site?.",
+  title: "Como retirár seu boleto pelo site? | Leste",
+  description: "Como retirár seu boleto pelo site?.",
 };
 
-export default function RetiradoBoletoNaCentral() {
+export default function RetirádoBoletoNaCentral() {
   return (
     <main className="bg-light">
       <div className="container py-12">
-        <TitleFaq title={<>Como retirar seu boleto pelo site?</>} />
+        <TitleFaq title={<>Como retirár seu boleto pelo site?</>} />
 
         <div className="mt-10 text-base leading-7 text-dark">
           <p>
@@ -32,7 +32,7 @@ export default function RetiradoBoletoNaCentral() {
           <FaqImageSteps className="mt-8">
             <FaqImageStep image={image1} imageClassName="max-w-[485px]">
               2º Na aba <span className="font-bold">"Portal do Assinante"</span>,
-              insira suas informacoes de CPF/CNPJ e senha e clique em{" "}
+              insirá suas informações de CPF/CNPJ e senha e clique em{" "}
               <span className="font-bold">"Fazer Login"</span>.
             </FaqImageStep>
             <FaqImageStep image={image2} imageClassName="max-w-[485px]">
@@ -41,7 +41,7 @@ export default function RetiradoBoletoNaCentral() {
             </FaqImageStep>
             <FaqImageStep image={image3} imageClassName="max-w-[485px]">
               4º Clique em <span className="font-bold">"Pagar agora"</span> na
-              fatura em aberto e escolha a opcao{" "}
+              fatura em aberto e escolha a opção{" "}
               <span className="font-bold">"Boleto"</span> para fazer o download.
             </FaqImageStep>
           </FaqImageSteps>

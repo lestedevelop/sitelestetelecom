@@ -406,7 +406,7 @@ export default function AppBarNew() {
                 let codcid = findCodCidByName(cityName, cidadesMock);
 
                 if (!codcid) {
-                    const fallbackName = "Niteroi";
+                    const fallbackName = "Niterói";
                     codcid = findCodCidByName(fallbackName, cidadesMock);
 
                     if (codcid) {
@@ -586,7 +586,7 @@ export default function AppBarNew() {
                                                         items={SERVICES_MENU}
                                                         onClose={() => setServicesOpen(false)}
                                                         bannerImage={bannerServicos}
-                                                        bannerAlt="Servicos da Leste Telecom"
+                                                        bannerAlt="Serviços da Leste Telecom"
                                                         businessOpen={businessOpen}
                                                         businessMenuRef={businessMenuRef}
                                                         onBusinessToggle={() => {
@@ -635,7 +635,7 @@ export default function AppBarNew() {
                                                     <MegaMenu
                                                         id={`learn-dd-${uid}`}
                                                         title="Saiba Mais"
-                                                        description="Acesse suporte, lojas, informacoes tecnicas e conteudos para conhecer melhor os servicos e canais da Leste."
+                                                        description="Acesse suporte, lojas, informações técnicas e conteúdos para conhecer melhor os serviços e canais da Leste."
                                                         items={LEARN_MENU}
                                                         onClose={() => setLearnOpen(false)}
                                                         bannerImage={bannerSaibaMais}
@@ -775,7 +775,7 @@ export default function AppBarNew() {
                                     ].join(" ")}
                                     aria-expanded={servicesOpen}
                                 >
-                                    <span>Servicos</span>
+                                    <span>Serviços</span>
                                     <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}/>
                                 </button>
 

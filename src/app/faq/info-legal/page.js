@@ -18,7 +18,7 @@ export default function InfoLegal() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               A Leste Telecom e uma empresa registrada e autorizada para
-              prestacao de servicos, com informacoes disponiveis para consulta.
+              prestação de serviços, com informações disponíveis para consulta.
             </p>
 
             <div>
@@ -26,13 +26,13 @@ export default function InfoLegal() {
                 Dados da empresa
               </h2>
               <div className="mt-4 space-y-2">
-                <p>Leste® e Leste Telecom® sao marcas registradas no INPI da empresa</p>
-                <p>Leste Flu Servicos de Telecom LTDA (Leste Telecom)</p>
+                <p>Leste® e Leste Telecom® são marcas registradas no INPI da empresa</p>
+                <p>Leste Flu Serviços de Telecom LTDA (Leste Telecom)</p>
                 <p>CNPJ: 02.533.755/0001-87</p>
                 <p>
-                  Avenida Almirante Tamandare, 600
+                  Avenida Almiránte Tamandare, 600
                   <br />
-                  Piratininga - Niteroi - RJ
+                  Pirátininga - Niterói - RJ
                   <br />
                   CEP: 24350-380
                 </p>
@@ -65,7 +65,7 @@ export default function InfoLegal() {
               </h2>
               <div className="mt-4 space-y-2">
                 <p>
-                  Contrato de prestacao de servicos:{" "}
+                  Contrato de prestação de serviços:{" "}
                   <a
                     className="text-primary underline underline-offset-2"
                     href="/docs/CONTRATO.pdf"
@@ -92,7 +92,7 @@ export default function InfoLegal() {
 
           <FaqNote>
             <p>
-              As informacoes legais podem ser atualizadas conforme mudancas
+              As informações legais podem ser atualizadas conforme mudanças
               cadastrais, regulatórias ou documentais da empresa.
             </p>
           </FaqNote>

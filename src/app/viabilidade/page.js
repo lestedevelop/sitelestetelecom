@@ -15,7 +15,7 @@ import {SalesProviderNew} from "@/contexts/SalesContextNew";
 const COVERAGE_ITEMS = [
   "Internet 100% fibra optica",
   "Atendimento em cidades do Leste Fluminense",
-  "Consulta por CEP e numero",
+  "Consulta por CEP e número",
 ];
 
 const COVERAGE_MAPS = [
@@ -123,7 +123,7 @@ export default function ViabilidadePage() {
                   onClick={() => setModalViabilidadeOpen(true)}
                   className="mt-8 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-darkgreen px-8 text-xl font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.16)] transition hover:-translate-y-px hover:bg-[#004333] md:w-auto"
                 >
-                  Ver planos disponiveis
+                  Ver planos disponíveis
                 </button>
               </div>
             </aside>

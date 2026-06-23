@@ -29,7 +29,7 @@ export default function TesteDeVelocidadeFaq() {
               <li>Acesse o site http://www.minhaconexao.com.br/</li>
               <li>Acesse o site https://beta.simet.nic.br</li>
               <li>Verifique se o servidor da Leste Telecom está selecionado</li>
-              <li>Execute o teste e confira o resultado</li>
+              <li>Execute o teste e confirá o resultado</li>
             </ul>
 
             <p>Se necessário, antes de repetir o teste:</p>

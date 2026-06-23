@@ -28,7 +28,7 @@ export default function PmePlanCard({plan}) {
           <span className="text-7xl leading-none">{inteiro}</span>
           <span className="flex flex-col">
             <span className="text-lg">,{centavos}</span>
-            <span className="mb-2 ml-1 mt-2 text-sm">/Mes</span>
+            <span className="mb-2 ml-1 mt-2 text-sm">/Mês</span>
           </span>
         </div>
 

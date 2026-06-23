@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Os aplicativos da Leste são seguros? | Leste",
   description:
-    "Informacoes sobre seguranca dos aplicativos da Leste e links oficiais para instalacao.",
+    "Informações sobre segurança dos aplicativos da Leste e links oficiais para instalação.",
 };
 
 export default function OsAplicativosDaLesteSaoSeguros() {
@@ -28,7 +28,7 @@ export default function OsAplicativosDaLesteSaoSeguros() {
             </p>
 
             <p>
-              A empresa não solicita a retirada de proteções nativas do celular
+              A empresa não solicita a retiráda de proteções nativas do celular
               para instalação de aplicativos.
             </p>
 

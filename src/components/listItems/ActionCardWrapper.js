@@ -6,7 +6,7 @@ export default function ActionCardWrapper({ icon,primaryText,secondaryText,title
     return (
         <div className={twMerge("flex flex-col",className)}>
             <ActionCard className={'w-60'} textStyle={{ fontSize: 20 }} text={title}
-                icon={<Image alt="icone de conexao" width={width || 50} src={icon} />} />
+                icon={<Image alt="ícone de conexão" width={width || 50} src={icon} />} />
             <div className=" w-[290px] px-[24px]">
                 <p className="text-[#045442] font-light text-md">
                     {primaryText}

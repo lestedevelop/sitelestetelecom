@@ -21,7 +21,7 @@ export default function RegrasParaUsoRedes(props) {
 
                 <div className="mt-10 text-base leading-7 text-dark">
                     <p>
-                        O atendimento pelas redes sociais funciona de maneira simples. Você pode interagir conosco via comentário em nossas postagens ou, pelo método mais recomendável, enviando uma mensagem para nosso Inbox, direct ou mencionando nossa página. Responderemos sua solicitação no menor tempo possível.
+                        O atendimento pelas redes sociais funciona de maneirá simples. Você pode interagir conosco via comentário em nossas postagens ou, pelo método mais recomendável, enviando uma mensagem para nosso Inbox, direct ou mencionando nossa página. Responderemos sua solicitação no menor tempo possível.
                     </p><br/>
                     <p>
                         Nosso atendimento tem os seguintes horários: segunda a sexta de 6h às 00h e sábados, domingos e feriados de 8h às 20h.
@@ -50,7 +50,7 @@ export default function RegrasParaUsoRedes(props) {
                             Críticas e sugestões são sempre analisadas, mas pedimos para serem enviadas apenas por Inbox ou e-mail.
                         </li>
                         <li>
-                            Propagandas de empresas parceiras, institucionais, e referências a sites de terceiros só podem ser postados pelos administradores da página.
+                            Propagandas de empresas parceirás, institucionais, e referências a sites de terceiros só podem ser postados pelos administradores da página.
                         </li>
                         <li>
                             Palavrões e ofensas não são tolerados em hipótese alguma. O mesmo vale para qualquer imagem postada em comentário que tenha caráter ofensivo.

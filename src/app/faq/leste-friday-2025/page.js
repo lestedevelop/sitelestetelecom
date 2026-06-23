@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Leste Friday 2025 | Leste",
   description:
-    "Informacoes sobre a campanha Leste Friday 2025, fases, planos, valores e regras.",
+    "Informações sobre a campanha Leste Friday 2025, fases, planos, valores e regras.",
 };
 
 export default function LesteFriday2025() {
@@ -42,7 +42,7 @@ export default function LesteFriday2025() {
 
                 <section>
                   <h3 className="font-semibold text-darkgreen">
-                    Niteroi, Marica, Rio Bonito e Tangua
+                    Niterói, Maricá, Rio Bonito e Tanguá
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 74,99 nos 3 primeiros meses</p>
                   <p className="mt-2">Apos o periodo promocional: R$ 149,99</p>
@@ -58,29 +58,29 @@ export default function LesteFriday2025() {
             </p>
 
             <p>
-              A adesao foi exclusiva para novos clientes ou migracao de outro
+              A adesão foi exclusiva para novos clientes ou migração de outro
               provedor, mediante comprovacao e assinatura digital.
             </p>
 
             <p>
               Alteracoes de plano permitiam apenas upgrade. Em caso de
-              downgrade, aplicavam-se as condicoes contratuais.
+              downgrade, aplicavam-se as condições contratuais.
             </p>
 
             <p>
               Em situacoes de troca de equipamentos, o desconto era aplicado
-              apos a substituicao.
+              após a substituição.
             </p>
 
             <p>
               Os planos variavam conforme cidade, tipo de imovel e tecnologia
-              disponivel.
+              disponível.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A campanha seguiu condicoes comerciais, disponibilidade tecnica e
+              A campanha seguiu condições comerciais, disponibilidade técnica e
               regras contratuais vigentes.
             </p>
           </FaqNote>

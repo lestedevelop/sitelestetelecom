@@ -10,7 +10,7 @@ export default function PmePlansSection() {
           Conheca nossos planos empresariais!
         </h2>
         <p className="mt-2 text-center text-base leading-[1.3] text-dark md:text-2xl">
-          Internet 100% Fibra otica para o seu negocio
+          Internet 100% Fibra ótica para o seu negócio
         </p>
       </section>
 
@@ -18,11 +18,11 @@ export default function PmePlansSection() {
 
       <div className="pt-8 pb-8">
         <p className="mt-2 text-center text-xl font-bold leading-[1.3] text-darkgreen md:text-2xl">
-          Planos empresariais sujeitos a viabilidade tecnica.
+          Planos empresariais sujeitos a viabilidade técnica.
         </p>
         <div className="text-center">
           <p className="mx-2.5 mb-8 text-sm text-graylight lg:text-base">
-            Todos os planos e servicos estao sujeitos a viabilidade tecnica. Consulte nosso FAQ para conhecer regras, condicoes e servicos agregados a cada plano.
+            Todos os planos e serviços estão sujeitos a viabilidade técnica. Consulte nosso FAQ para conhecer regras, condições e serviços agregados a cada plano.
           </p>
         </div>
       </div>

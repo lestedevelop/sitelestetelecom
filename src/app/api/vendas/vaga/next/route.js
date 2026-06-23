@@ -13,7 +13,7 @@ export async function GET(req) {
 
         if (!cidade || !date) {
             return NextResponse.json(
-                { ok: false, message: "cidade e date sao obrigatorios" },
+                { ok: false, message: "cidade e date são obrigatórios" },
                 { status: 400 }
             );
         }
@@ -23,9 +23,9 @@ export async function GET(req) {
         const slot = nextResp.data;
 
         const slotObj = Array.isArray(slot) ? slot[0] : slot;
-        if (!slotObj?.start) {
+        if (!slotObjá.start) {
             return NextResponse.json(
-                { ok: false, message: "nao foi encontrada proxima vaga valida", slot: slotObj || null },
+                { ok: false, message: "não foi encontrada próxima vaga válida", slot: slotObj || null },
                 { status: 404 }
             );
         }
@@ -52,7 +52,7 @@ export async function GET(req) {
                     data?.message ||
                     data?.error ||
                     error?.message ||
-                    "Erro ao buscar proxima vaga",
+                    "Erro ao buscar próxima vaga",
                 data,
             },
             { status }

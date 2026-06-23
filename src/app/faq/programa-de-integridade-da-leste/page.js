@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "O que é o programa de integridade da Leste? | Leste",
   description:
-    "Informacoes sobre o programa de integridade, compliance, LGPD, canal de denuncias e governanca da Leste.",
+    "Informações sobre o programa de integridade, compliance, LGPD, canal de denúncias e governança da Leste.",
 };
 
 export default function ProgramaDeIntegridadeDaLeste() {
@@ -17,21 +17,21 @@ export default function ProgramaDeIntegridadeDaLeste() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              O Programa de Integridade da Leste reúne praticas de etica,
-              compliance e governanca que orientam a atuacao da empresa,
-              garantindo transparencia, seguranca e conformidade em todas as
+              O Programa de Integridade da Leste reúne práticas de etica,
+              compliance e governança que orientam a atuação da empresa,
+              garantindo transparência, segurança e conformidade em todas as
               relacoes.
             </p>
 
             <p>
               Ele foi estruturado para assegurar o cumprimento das legislacoes
-              vigentes e das normas do setor de telecomunicacoes, alem de
+              vigentes e das normas do setor de telecomúnicacoes, além de
               orientar processos internos, operacionais e estrategicos.
             </p>
 
             <p>
               A Leste atua com base em principios de responsabilidade, respeito
-              e confianca, adotando padroes alinhados as melhores praticas do
+              e confiança, adotando padrões alinhados as melhores práticas do
               mercado.
             </p>
 
@@ -41,25 +41,25 @@ export default function ProgramaDeIntegridadeDaLeste() {
               </h2>
               <p className="mt-4">
                 A empresa adota medidas continuas para prevencao de riscos e
-                condutas inadequadas, incluindo compliance anticorrupcao,
+                condutas inadequadas, incluindo compliance anticorrupção,
                 monitoramento de riscos, revisao de controles internos e due
                 diligence de fornecedores.
               </p>
               <p className="mt-4">
-                Sao repudiadas condutas como corrupcao, fraude, conflito de
+                São repudiadas condutas como corrupção, fraude, conflito de
                 interesses, suborno e favorecimento indevido.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Codigo de Etica e Conduta
+                Código de Ética e Conduta
               </h2>
               <p className="mt-4">
-                O Codigo de Etica e Conduta estabelece diretrizes para
+                O Código de Ética e Conduta estabelece diretrizes para
                 colaboradores, gestores, parceiros e prestadores, com foco em
                 respeito e honestidade, imparcialidade, cumprimento das leis,
-                sigilo profissional, uso responsavel de recursos, prevencao de
+                sigilo profissional, uso responsável de recursos, prevencao de
                 assedio e confidencialidade.
               </p>
             </div>
@@ -70,12 +70,12 @@ export default function ProgramaDeIntegridadeDaLeste() {
               </h2>
               <p className="mt-4">
                 A Leste cumpre integralmente a Lei Geral de Protecao de Dados
-                (LGPD), adotando medidas tecnicas e administrativas como
+                (LGPD), adotando medidas técnicas e administrativas como
                 criptografia, controle de acesso, monitoramento continuo e
                 retencao adequada de dados.
               </p>
               <p className="mt-4">
-                Os dados sao tratados com base legal, transparencia e garantia
+                Os dados são tratados com base legal, transparência e garantia
                 dos direitos dos titulares.
               </p>
             </div>
@@ -93,19 +93,19 @@ export default function ProgramaDeIntegridadeDaLeste() {
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Canal de denuncias
+                Canal de denúncias
               </h2>
               <p className="mt-4">
                 A Leste disponibiliza um canal seguro e confidencial para
-                denuncias, acessivel a colaboradores, clientes, fornecedores e
-                publico em geral.
+                denúncias, acessível a colaboradores, clientes, fornecedores e
+                público em geral.
               </p>
               <p className="mt-4">
                 O canal garante sigilo da identidade, proibicao de retaliacao e
-                analise tecnica e imparcial.
+                análise técnica e imparcial.
               </p>
               <p className="mt-4">
-                Todos os relatos sao investigados, podendo gerar medidas
+                Todos os relatos são investigados, podendo gerar medidas
                 corretivas e disciplinares.
               </p>
             </div>
@@ -113,8 +113,8 @@ export default function ProgramaDeIntegridadeDaLeste() {
 
           <FaqNote>
             <p>
-              O Programa de Integridade da Leste abrange todas as areas da
-              empresa e esta alinhado as legislacoes vigentes, incluindo a Lei
+              O Programa de Integridade da Leste abrange todas as Áreas da
+              empresa e está alinhado as legislacoes vigentes, incluindo a Lei
               no 14.133/2021 e a Lei Geral de Protecao de Dados (LGPD).
             </p>
           </FaqNote>

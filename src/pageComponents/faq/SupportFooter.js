@@ -41,10 +41,10 @@ export default function SupportFooter() {
 
               <div>
                 <h3 className="text-xl mt-2 md:text-[28px] font-extrabold text-primary md:text-[34px]">
-                  Ficou com duvidas?
+                  Ficou com dúvidas?
                 </h3>
                 <p className="mt-2 text-base text-darkgreen md:text-lg">
-                  Nosso atendimento esta disponivel 24h.
+                  Nosso atendimento está disponível 24h.
                 </p>
               </div>
             </div>

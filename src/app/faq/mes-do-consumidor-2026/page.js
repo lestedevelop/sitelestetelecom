@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como funciona a campanha Mês do Consumidor 2026? | Leste",
   description:
-    "Informacoes sobre a campanha Mes do Consumidor 2026, cidades atendidas, valores e condicoes promocionais.",
+    "Informações sobre a campanha Mês do Consumidor 2026, cidades atendidas, valores e condições promocionais.",
 };
 
 export default function MesDoConsumidor2026() {
@@ -17,14 +17,14 @@ export default function MesDoConsumidor2026() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A campanha Mês do Consumidor 2026 oferece planos com condicoes
+              A campanha Mês do Consumidor 2026 oferece planos com condições
               promocionais por tempo limitado, em comemoracao ao Dia do
               Consumidor (15 de marco).
             </p>
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Quais planos estao disponiveis?
+                Quais planos estão disponíveis?
               </h2>
 
               <div className="mt-4 space-y-4">
@@ -38,7 +38,7 @@ export default function MesDoConsumidor2026() {
 
                 <section>
                   <h3 className="font-semibold text-darkgreen">
-                    Niteroi, Marica, Rio Bonito, Tangua e Sao Goncalo
+                    Niterói, Maricá, Rio Bonito, Tanguá e São Goncalo
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 74,99 nos 3 primeiros meses</p>
                   <p className="mt-2">Apos o periodo promocional, o valor passa para R$ 149,99</p>
@@ -48,15 +48,15 @@ export default function MesDoConsumidor2026() {
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Condicoes da promocao
+                Condições da promoção
               </h2>
               <p className="mt-4">
                 Os planos promocionais oferecem desconto na assinatura por 3
                 meses, com contrato de fidelidade de 12 meses.
               </p>
               <p className="mt-4">
-                Alteracoes de plano sao permitidas apenas para planos de maior
-                valor, mantendo a fidelidade proporcional. Em caso de migracao
+                Alteracoes de plano são permitidas apenas para planos de maior
+                valor, mantendo a fidelidade proporcional. Em caso de migração
                 para plano inferior, pode ser aplicada multa conforme contrato.
               </p>
               <p className="mt-4">
@@ -64,17 +64,17 @@ export default function MesDoConsumidor2026() {
                 provedores, mediante comprovacao.
               </p>
               <p className="mt-4">
-                Os planos podem variar conforme a cidade (Niteroi, Marica,
-                Itaborai, Tangua, Rio Bonito, Mage e Guapimirim), de acordo com
-                disponibilidade tecnica e modelo de atendimento.
+                Os planos podem variar conforme a cidade (Niterói, Maricá,
+                Itaborai, Tanguá, Rio Bonito, Mage e Guapimirim), de acordo com
+                disponibilidade técnica e modelo de atendimento.
               </p>
               <p className="mt-4">
-                A adesao a promocao pode exigir assinatura digital de
-                documentos. Em alguns casos, a aplicacao do desconto depende da
+                A adesão a promoção pode exigir assinatura digital de
+                documentos. Em alguns casos, a aplicação do desconto depende da
                 troca de equipamentos.
               </p>
               <p className="mt-4">
-                As condicoes tambem podem variar conforme o tipo de instalacao
+                As condições também podem variar conforme o tipo de instalação
                 (casas/lojas ou predios/condominios), devido a tecnologia
                 utilizada.
               </p>
@@ -83,7 +83,7 @@ export default function MesDoConsumidor2026() {
 
           <FaqNote>
             <p>
-              A campanha segue condicoes comerciais, disponibilidade tecnica e
+              A campanha segue condições comerciais, disponibilidade técnica e
               regras contratuais vigentes.
             </p>
           </FaqNote>

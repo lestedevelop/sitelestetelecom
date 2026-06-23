@@ -76,7 +76,7 @@ export default function ComoMudarDePlano() {
             </p>
             <p>
               Para realizar a mudança, é necessário que o cliente esteja com as
-              obrigações financeiras em dia. Em caso de débitos vencidos em
+              obrigações financeirás em dia. Em caso de débitos vencidos em
               aberto, será necessário quitá-los antes de prosseguir com a
               solicitação.
             </p>

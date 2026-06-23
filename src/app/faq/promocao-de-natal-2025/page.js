@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como funcionou a promoção de Natal 2025? | Leste",
   description:
-    "Informacoes sobre a promocao de Natal 2025, sorteios, regras, entrega de premios e uso de dados.",
+    "Informações sobre a promoção de Natal 2025, sorteios, regras, entrega de prêmios e uso de dados.",
 };
 
 export default function PromocaoDeNatal2025() {
@@ -17,16 +17,16 @@ export default function PromocaoDeNatal2025() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A ativacao de Natal 2025 foi uma acao promocional gratuita da
-              Leste, realizada em parceria com o Plaza Niteroi, com
-              participacao por meio de cadastro online via QR Code.
+              A ativação de Natal 2025 foi uma acao promocional gratuita da
+              Leste, realizada em parceria com o Plaza Niterói, com
+              participação por meio de cadastro online via QR Code.
             </p>
 
             <p>
-              Para participar, era necessario preencher corretamente os dados,
-              sendo permitido apenas um cadastro por CPF. A participacao foi
-              restrita a maiores de 18 anos e implicava concordancia com todas
-              as regras da promocao.
+              Para participar, era necessário preencher corretamente os dados,
+              sendo permitido apenas um cadastro por CPF. A participação foi
+              restrita a maiores de 18 anos e implicava concordância com todas
+              as regras da promoção.
             </p>
 
             <div>
@@ -34,20 +34,20 @@ export default function PromocaoDeNatal2025() {
                 Sorteios e premiacao
               </h2>
               <p className="mt-4">
-                A promocao contou com sorteios periodicos de brindes a partir de
-                23/11/2025, incluindo todos os cadastrados ate a data de cada
+                A promoção contou com sorteios periódicos de brindes a partir de
+                23/11/2025, incluindo todos os cadastrados até a data de cada
                 sorteio.
               </p>
               <p className="mt-4">
-                Os contemplados foram comunicados pelos dados informados no
-                cadastro. Caso nao houvesse resposta em ate 48 horas, um novo
+                Os contemplados foram comúnicados pelos dados informados no
+                cadastro. Caso não houvesse resposta em até 48 horas, um novo
                 sorteio era realizado.
               </p>
               <p className="mt-4">
-                A entrega dos premios seguiu instrucoes enviadas ao
+                A entrega dos prêmios seguiu instruções enviadas ao
                 participante, podendo ser solicitada validacao com documento. Os
-                premios nao puderam ser convertidos em dinheiro, produtos ou
-                servicos diferentes.
+                prêmios não puderam ser convertidos em dinheiro, produtos ou
+                serviços diferentes.
               </p>
             </div>
 
@@ -56,8 +56,8 @@ export default function PromocaoDeNatal2025() {
                 Responsabilidades e regras
               </h2>
               <p className="mt-4">
-                A Leste foi responsavel pela realizacao da promocao, cadastro,
-                sorteios e entrega dos premios.
+                A Leste foi responsável pela realização da promoção, cadastro,
+                sorteios e entrega dos prêmios.
               </p>
               <p className="mt-4">
                 Nao se responsabilizou por fatores externos, como falhas de
@@ -66,11 +66,11 @@ export default function PromocaoDeNatal2025() {
               </p>
               <p className="mt-4">
                 Os participantes puderam ser desclassificados em casos de
-                fraude, multiplos cadastros, informacoes falsas ou
+                fraude, multiplos cadastros, informações falsas ou
                 descumprimento das regras.
               </p>
               <p className="mt-4">
-                A promocao foi valida enquanto houvesse premios disponiveis,
+                A promoção foi válida enquanto houvesse prêmios disponíveis,
                 podendo ser encerrada por motivos operacionais ou de forca
                 maior.
               </p>
@@ -79,18 +79,18 @@ export default function PromocaoDeNatal2025() {
             <div>
               <h2 className="text-xl font-bold text-darkgreen">Uso de dados</h2>
               <p className="mt-4">
-                Os dados informados foram utilizados para gestao da promocao,
-                contato com participantes e comunicacao da empresa, conforme a
+                Os dados informados foram utilizados para gestão da promoção,
+                contato com participantes e comúnicação da empresa, conforme a
                 LGPD.
               </p>
               <p className="mt-4">
                 Os participantes puderam solicitar a qualquer momento a
-                correcao, exclusao ou alteracao de seus dados pelos canais
+                correção, exclusão ou alteração de seus dados pelos canais
                 oficiais.
               </p>
               <p className="mt-4">
-                A participacao implicou concordancia com todas as condicoes
-                descritas neste conteudo. Casos nao previstos foram definidos
+                A participação implicou concordância com todas as condições
+                descritas neste conteúdo. Casos não previstos foram definidos
                 pela Leste.
               </p>
             </div>
@@ -98,8 +98,8 @@ export default function PromocaoDeNatal2025() {
 
           <FaqNote>
             <p>
-              A participacao na promocao implicou concordancia com todas as
-              condicoes descritas neste conteudo.
+              A participação na promoção implicou concordância com todas as
+              condições descritas neste conteúdo.
             </p>
           </FaqNote>
         </article>

@@ -29,7 +29,7 @@ export default function OsImpostosPodemAfetarOValorDoMeuPlano() {
 
             <p>
               Também podem ocorrer ajustes relacionados à composição dos
-              serviços, como alterações entre SCM (Serviço de Comunicação
+              serviços, como alterações entre SCM (Serviço de Comúnicação
               Multimídia) e SVA (Serviço de Valor Agregado), quando exigidas por
               regulamentação.
             </p>
@@ -42,8 +42,8 @@ export default function OsImpostosPodemAfetarOValorDoMeuPlano() {
 
           <FaqNote>
             <p>
-              Todas as alterações são comunicadas por e-mail, sendo o endereço
-              cadastrado o canal oficial de comunicação da empresa.
+              Todas as alterações são comúnicadas por e-mail, sendo o endereço
+              cadastrado o canal oficial de comúnicação da empresa.
             </p>
           </FaqNote>
         </article>

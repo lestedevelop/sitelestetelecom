@@ -84,7 +84,7 @@ export default function CamerasModels() {
                 <div className="w-1/2">
                   <Image
                     src={camera.image}
-                    alt="Camera"
+                    alt="Câmera"
                     className="max-w-24 md:max-w-[355px]"
                   />
                 </div>
@@ -114,7 +114,7 @@ export default function CamerasModels() {
                               <div className="w-1/2">
                                   <Image
                                       src={camera.image}
-                                      alt="Camera"
+                                      alt="Câmera"
                                       className="max-w-36 md:max-w-[355px]"
                                   />
                               </div>

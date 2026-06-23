@@ -10,7 +10,7 @@ export default function SectionSolutionsCorporate() {
     return (
         <section className={"bg-corporate"}>
             <div className={"container pt-24 pb-36  mx-auto flex flex-col items-center gap-y-4 pt-6"}>
-                <h3 className={"text-[18px] md:text-[35px] text-white py-8 text-center "}>Confira as <span
+                <h3 className={"text-[18px] md:text-[35px] text-white py-8 text-center "}>Confirá as <span
                     className={"font-bold"}>principais soluções de rede</span> <br/>desenvolvidas para impulsionar o seu
                     negócio no melhor caminho!</h3>
 

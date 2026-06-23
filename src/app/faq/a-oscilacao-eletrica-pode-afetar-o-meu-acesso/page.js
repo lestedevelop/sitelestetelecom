@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Oscilação elétrica pode afetar minha internet? | Leste",
   description:
-    "Informacoes sobre oscilacoes na rede eletrica, impacto na conexao e recomendacoes de protecao.",
+    "Informações sobre oscilacoes na rede elétrica, impacto na conexão e recomendacoes de protecao.",
 };
 
 export default function OcilacaoEletrica() {

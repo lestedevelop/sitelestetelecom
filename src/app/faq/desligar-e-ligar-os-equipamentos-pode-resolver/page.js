@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Desligar e ligar os equipamentos pode resolver problemas de conexão? | Leste",
   description:
-    "Orientacoes sobre reiniciar ONU e roteador quando a conexao apresenta instabilidade.",
+    "Orientacoes sobre reiniciar ONU e roteador quando a conexão apresenta instabilidade.",
 };
 
 export default function DesligarEligarPodeResolve() {

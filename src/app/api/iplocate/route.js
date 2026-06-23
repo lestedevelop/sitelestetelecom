@@ -12,14 +12,14 @@ export async function POST(req) {
 
         if (!process.env.IPLOCATE_API_KEY) {
             return NextResponse.json(
-                {message: "IPLOCATE_API_KEY nao configurada", status: 500},
+                {message: "IPLOCATE_API_KEY não configurada", status: 500},
                 {status: 500}
             );
         }
 
         if (!ip) {
             return NextResponse.json(
-                {message: "IP nao encontrado na requisicao", status: 400},
+                {message: "IP não encontrado na requisição", status: 400},
                 {status: 400}
             );
         }

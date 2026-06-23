@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "A Leste dá suporte a IPTV ou TV Box? | Leste",
   description:
-    "Informacoes sobre suporte a IPTV, TV Box, streaming e servicos oficiais.",
+    "Informações sobre suporte a IPTV, TV Box, streaming e serviços oficiais.",
 };
 
 export default function ALesteDaSuporteAIptvOuTvBox() {
@@ -17,18 +17,18 @@ export default function ALesteDaSuporteAIptvOuTvBox() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A Leste nao oferece, comercializa ou presta suporte a servicos de
+              A Leste não oferece, comercializa ou presta suporte a serviços de
               IPTV, TV Box ou aplicativos de streaming.
             </p>
 
             <p>
-              Esses servicos utilizam servidores externos e funcionam fora da
-              rede e do controle da operadora, por isso nao ha garantia de
-              funcionamento, estabilidade ou seguranca.
+              Esses serviços utilizam servidores externos e funcionam fora da
+              rede e do controle da operadora, por isso não ha garantia de
+              funcionamento, estabilidade ou segurança.
             </p>
 
             <p>
-              Alem disso, alguns servicos podem distribuir conteudo sem
+              Alem disso, alguns serviços podem distribuir conteúdo sem
               autorizacao, o que pode configurar irregularidade ou violacao de
               direitos autorais.
             </p>
@@ -41,20 +41,20 @@ export default function ALesteDaSuporteAIptvOuTvBox() {
 
             <p>
               Plataformas oficiais como Netflix, YouTube e Amazon Prime Video
-              nao se enquadram como IPTV e funcionam normalmente na conexao.
+              não se enquadram como IPTV e funcionam normalmente na conexão.
             </p>
 
             <p>
-              Para maior seguranca e qualidade, recomenda-se o uso de servicos
+              Para maior segurança e qualidade, recomenda-se o uso de serviços
               oficiais, licenciados e reconhecidos pelo mercado.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A Leste nao possui acesso ou controle sobre servicos de IPTV, TV
-              Box ou plataformas similares, nao oferecendo suporte tecnico para
-              esses sistemas. O uso de servicos irregulares pode acarretar
+              A Leste não possui acesso ou controle sobre serviços de IPTV, TV
+              Box ou plataformas similares, não oferecendo suporte tecnico para
+              esses sistemas. O uso de serviços irregulares pode acarretar
               bloqueios, apreensao de equipamentos ou outros impactos ao
               usuario.
             </p>

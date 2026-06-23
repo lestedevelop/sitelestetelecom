@@ -24,7 +24,7 @@ O ambiente de desenvolvimento roda com Turbopack via `next dev --turbopack`.
 
 ## Deploy com PM2
 
-No servidor, instale dependencias, gere a build e suba o processo pelo arquivo `ecosystem.config.cjs`:
+No servidor, instale dependências, gere a build e suba o processo pelo arquivo `ecosystem.config.cjs`:
 
 ```bash
 npm ci
@@ -33,57 +33,57 @@ pm2 start ecosystem.config.cjs --env production
 pm2 save
 ```
 
-Para manter o projeto ativo apos reboot, rode:
+Para manter o projeto ativo após reboot, rode:
 
 ```bash
 pm2 startup
 ```
 
-O comando acima imprime uma linha com `sudo ...`; execute essa linha no servidor e depois rode `pm2 save` novamente. Por padrao, a aplicacao sobe em `http://localhost:3000`.
+O comando acima imprime uma linha com `sudo ...`; execute essa linha no servidor e depois rode `pm2 save` novamente. Por padrão, a aplicação sobe em `http://localhost:3000`.
 
 ## Estrutura principal
 
 ```text
 src/
   app/               rotas, layouts e endpoints API
-  components/        componentes reutilizaveis
-  pageComponents/    composicao das paginas por dominio
+  components/        componentes reutilizáveis
+  pageComponents/    composição das páginas por domínio
   contexts/          providers globais
-  services/          integracoes e chamadas de servico
+  services/          integrações e chamadas de serviço
   hooks/             hooks compartilhados
-  lib/               utilitarios de infraestrutura e regra de negocio
+  lib/               utilitários de infraestrutura e regra de negócio
   models/            modelos de dados
-  schemas/           validacoes
+  schemas/           validações
   store/             estado global
-  assets/            imagens e icones
+  assets/            imagens e ícones
 ```
 
 ## Layout e UI
 
-Os padroes visuais do projeto estao documentados em [layout.md](./layout.md). Esse arquivo deve ser tratado como referencia para:
+Os padrões visuais do projeto estão documentados em [layout.md](./layout.md). Esse arquivo deve ser tratado como referencia para:
 
 - containers, espacamentos e responsividade
 - cores e tokens de interface
-- padroes de inputs, botoes, cards e modais
-- organizacao de componentes e convencoes de implementacao
+- padrões de inputs, botões, cards e modais
+- organização de componentes e convenções de implementação
 
-Antes de criar ou alterar componentes, consulte `layout.md` para manter consistencia com o que ja existe no codigo.
+Antes de criar ou alterar componentes, consulte `layout.md` para manter consistência com o que já existe no código.
 
-## Rotas e areas do projeto
+## Rotas e Áreas do projeto
 
-Algumas areas relevantes:
+Algumas Áreas relevantes:
 
 - `/` home institucional
 - `/vendas` fluxo comercial
-- `/corporate` area corporativa
-- `/movel` Leste Movel
+- `/corporate` Área corporativa
+- `/movel` Leste Móvel
 - `/faq` central de ajuda
 - `/cameras`, `/lesteup`, `/leste-clube`, `/leste-suporte`
 - `/api/*` endpoints internos consumidos pelo frontend
 
-## Observacoes de arquitetura
+## Observações de arquitetura
 
 - O layout global fica em [`src/app/layout.js`](./src/app/layout.js).
-- O shell padrao fica em [`src/components/layout/RootShell.js`](./src/components/layout/RootShell.js) e remove header/footer em rotas com layout proprio, como `vendas`, `movel` e `corporate`.
+- O shell padrão fica em [`src/components/layout/RootShell.js`](./src/components/layout/RootShell.js) e remove header/footer em rotas com layout próprio, como `vendas`, `móvel` e `corporate`.
 - Imports internos usam alias `@/`.
 - Estilos globais ficam concentrados em `src/app/globals.css` e arquivos pontuais em `src/styles/`.

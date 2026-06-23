@@ -2,13 +2,13 @@
   "total": 34,
   "pages": [
     {
-      "title": "Qual Ã© o canal oficial de atendimento?",
+      "title": "Qual é o canal oficial de atendimento?",
       "href": "/faq/canal-oficial-de-atendimento",
       "category": "Canais de Atendimento",
       "active": true
     },
     {
-      "title": "Como fazer uma reclamaÃ§Ã£o?",
+      "title": "Como fazer uma reclamação?",
       "href": "/faq/como-posso-fazer-uma-reclamacao",
       "category": "Canais de Atendimento",
       "active": true
@@ -26,31 +26,31 @@
       "active": true
     },
     {
-      "title": "Como pedir a gravaÃ§Ã£o do meu atendimento?",
+      "title": "Como pedir a gravação do meu atendimento?",
       "href": "/faq/como-pedir-a-gravacao-do-meu-atendimento",
       "category": "Canais de Atendimento",
       "active": true
     },
     {
-      "title": "A Leste pode enviar comunicados?",
-      "href": "/faq/a-leste-pode-enviar-comunicados",
+      "title": "A Leste pode enviar comúnicados?",
+      "href": "/faq/a-leste-pode-enviar-comúnicados",
       "category": "Contrato",
       "active": true
     },
     {
       "title": "Por que meu plano teve reajuste?",
-      "href": "/faq/correcao-monetaria-dos-planos",
+      "href": "/faq/correção-monetaria-dos-planos",
       "category": "Contrato",
       "active": true
     },
     {
-      "title": "Como enviar documentos para contrataÃ§Ã£o do serviÃ§o?",
+      "title": "Como enviar documentos para contratação do serviço?",
       "href": "/faq/foi-solicitado-o-envio-de-documentos-no-ato-da-ativacao",
       "category": "Contrato",
       "active": true
     },
     {
-      "title": "Posso transferir minha internet para outro endereÃ§o?",
+      "title": "Posso transferir minha internet para outro endereço?",
       "href": "/faq/mudei-de-endereco-posso-transferir-o-meu-ponto-da-leste",
       "category": "Contrato",
       "active": true
@@ -110,7 +110,7 @@
       "active": true
     },
     {
-      "title": "Posso usar meu prÃ³prio roteador?",
+      "title": "Posso usar meu próprio roteador?",
       "href": "/faq/posso-usar-meu-proprio-roteador",
       "category": "Equipamentos",
       "active": true
@@ -122,33 +122,33 @@
       "active": true
     },
     {
-      "title": "Minha instalaÃ§Ã£o estÃ¡ garantida?",
+      "title": "Minha instalação está garantida?",
       "href": "/faq/minha-instalacao-esta-garantida",
-      "category": "InstalaÃ§Ã£o",
+      "category": "Instalação",
       "active": true
     },
     {
       "title": "Como funciona o agendamento pelo site?",
       "href": "/faq/como-funciona-o-agendamento-pelo-site",
-      "category": "InstalaÃ§Ã£o",
+      "category": "Instalação",
       "active": true
     },
     {
-      "title": "Por que meu vizinho tem internet e eu nÃ£o?",
+      "title": "Por que meu vizinho tem internet e eu não?",
       "href": "/faq/por-que-meu-vizinho-tem-internet-e-eu-nao",
-      "category": "InstalaÃ§Ã£o",
+      "category": "Instalação",
       "active": true
     },
     {
       "title": "O envio de documentos pode ser solicitado?",
       "href": "/faq/o-envio-de-documentos-pode-ser-solicitado",
-      "category": "InstalaÃ§Ã£o",
+      "category": "Instalação",
       "active": true
     },
     {
-      "title": "Como funciona a instalaÃ§Ã£o da Leste?",
+      "title": "Como funciona a instalação da Leste?",
       "href": "/faq/como-funciona-a-instalacao-da-leste",
-      "category": "InstalaÃ§Ã£o",
+      "category": "Instalação",
       "active": true
     },
     {
@@ -158,7 +158,7 @@
       "active": true
     },
     {
-      "title": "Como acompanhar minha conexÃ£o?",
+      "title": "Como acompanhar minha conexão?",
       "href": "/faq/como-acompanhar-minha-conexao",
       "category": "Minha Conta",
       "active": true
@@ -266,57 +266,57 @@
       "active": true
     },
     {
-      "title": "A Leste oferece planos empresariais (sÃ­ncronos)?",
+      "title": "A Leste oferece planos empresariais (síncronos)?",
       "href": "/faq/a-leste-oferece-planos-empresariais-sincronos",
       "category": "Planos",
       "active": true
     },
     {
-      "title": "AtivaÃ§Ã£o de PÃ¡scoa 2026",
+      "title": "Ativação de Páscoa 2026",
       "href": "/faq/ativacao-de-pascoa-2026",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
       "title": "Leste Friday 2025",
       "href": "/faq/leste-friday-2025",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
-      "title": "Como funcionou a promoÃ§Ã£o de Natal 2025?",
+      "title": "Como funcionou a promoção de Natal 2025?",
       "href": "/faq/promocao-de-natal-2025",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
-      "title": "Como funciona a campanha MÃªs do Consumidor 2026?",
+      "title": "Como funciona a campanha Mês do Consumidor 2026?",
       "href": "/faq/mes-do-consumidor-2026",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
       "title": "Oferta limitada de 1GB - 2025",
       "href": "/faq/oferta-limitada-de-1gb-2025",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
       "title": "Campanha Promocional 2026 - Maricá",
       "href": "/faq/campanha-promocional-2026-marica",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
       "title": "Campanha Promocional 2026 - Niterói Predial",
       "href": "/faq/campanha-promocional-2026-niteroi-predial",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
-      "title": "Como funciona a promoÃ§Ã£o MigraÃ§Ã£o GrÃ¡tis?",
+      "title": "Como funciona a promoção Migração Grátis?",
       "href": "/faq/promocao-migracao-gratis",
-      "category": "PromoÃ§Ãµes",
+      "category": "Promoções",
       "active": true
     },
     {
@@ -332,7 +332,7 @@
       "active": true
     },
     {
-      "title": "Recebi duas notas fiscais, isso estÃ¡ correto?",
+      "title": "Recebi duas notas fiscais, isso está correto?",
       "href": "/faq/recebi-duas-notas-fiscais-isso-esta-correto",
       "category": "Pagamentos",
       "active": true
@@ -580,7 +580,7 @@
     },
     {
       "title": "Onde o Leste Ultra está disponível?",
-      "href": "/faq/onde-o-leste-ultra-esta-disponivel",
+      "href": "/faq/onde-o-leste-ultra-esta-disponível",
       "category": "Leste Ultra",
       "active": true
     },
@@ -646,7 +646,7 @@
     },
     {
       "title": "Onde o Leste UP está disponível?",
-      "href": "/faq/onde-o-leste-up-esta-disponivel",
+      "href": "/faq/onde-o-leste-up-esta-disponível",
       "category": "Leste Up",
       "active": true
     },

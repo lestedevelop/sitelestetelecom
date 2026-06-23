@@ -28,7 +28,7 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-    {href: "https://vendas.lestetelecom.com.br", label: "Contratacao on-line"},
+    {href: "https://vendas.lestetelecom.com.br", label: "Contratação on-line"},
     {href: "/leste-suporte", label: "Central de atendimento"},
     {href: "/viabilidade", label: "Mapa de cobertura"},
     {href: "https://portal.lestetelecom.com.br/login", label: "2a via da conta"},
@@ -125,7 +125,7 @@ export default function Footer() {
 
                     <div className="space-y-5 md:col-span-1">
                         <h2 className="text-[2.35rem] font-semibold leading-none tracking-[-0.03em] md:text-[2rem] lg:text-[2.6rem]">
-                            Pra voce
+                            Pra você
                         </h2>
 
                         <div className="space-y-1 text-base leading-8 md:text-[1.02rem] lg:text-[1.08rem]">
@@ -188,7 +188,7 @@ export default function Footer() {
                             Todos os direitos reservados. (c)Leste Telecom 2026
                         </div>
                         <div className="max-w-[680px] text-sm leading-6 md:text-[0.95rem] lg:text-base">
-                            02.533.755/0001-87 | Avenida Almirante Tamandare, 600 - Piratininga - Niteroi - RJ -
+                            02.533.755/0001-87 | Avenida Almiránte Tamandare, 600 - Pirátininga - Niterói - RJ -
                             24350-380
                         </div>
                     </div>

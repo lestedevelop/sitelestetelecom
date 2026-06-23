@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como denunciar furto de cabos ou sabotagem? | Leste",
   description:
-    "Informacoes sobre como denunciar furto de cabos, sabotagem e outras ocorrencias que afetam a rede da Leste.",
+    "Informações sobre como denunciar furto de cabos, sabotagem e outras ocorrências que afetam a rede da Leste.",
 };
 
 export default function DenunciaFurtoPage() {
@@ -29,18 +29,18 @@ export default function DenunciaFurtoPage() {
               <a className="text-primary underline underline-offset-2" href="mailto:sac@lestetelecom.com.br">
                 sac@lestetelecom.com.br
               </a>
-              , informando o maximo de detalhes possivel.
+              , informando o máximo de detalhes possível.
             </p>
 
             <p>
-              Tambem e possivel realizar denuncias por canais externos, como o
+              Também e possível realizar denúncias por canais externos, como o
               Disque Denuncia, pelo telefone ou WhatsApp (21) 2253-1177, com
-              opcao de anonimato.
+              opção de anônimato.
             </p>
 
             <p>
-              As denuncias podem ser feitas de forma anonima, e o sigilo das
-              informacoes e garantido.
+              As denúncias podem ser feitas de forma anônima, e o sigilo das
+              informações e garantido.
             </p>
           </div>
 

@@ -9,7 +9,7 @@ const PREPARATION_STEPS = [
   },
   {
     number: "02",
-    text: "Interrompa qualquer servico que use a internet.",
+    text: "Interrompa qualquer serviço que use a internet.",
   },
   {
     number: "03",
@@ -30,11 +30,11 @@ const METRICS = [
   {
     title: "Upload",
     description:
-      "A velocidade de upload indica a rapidez com que voce envia dados para a internet.",
+      "A velocidade de upload indica a rapidez com que você envia dados para a internet.",
     detail:
       "Ela influencia acoes como videochamadas, envio de imagens e transferencia de arquivos.",
     conclusion:
-      "Quanto maior o valor, mais estavel tende a ser a sua conexao.",
+      "Quanto maior o valor, mais estável tende a ser a sua conexão.",
   },
   {
     title: "Ping",
@@ -43,7 +43,7 @@ const METRICS = [
     detail:
       "Ele impacta atividades em tempo real, como jogos online, chamadas e transmissoes ao vivo.",
     conclusion:
-      "Quanto menor o valor em ms, melhor tende a ser a resposta da conexao.",
+      "Quanto menor o valor em ms, melhor tende a ser a resposta da conexão.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function TesteDeVelocidade() {
     <div className="min-h-full bg-light">
       <section className="w-full">
         <HomeHeroBanner
-          alt="Banner da pagina de teste de velocidade"
+          alt="Banner da página de teste de velocidade"
           className="h-[182px] md:h-[350px]"
           desktopImage={bannerTesteVelocidade}
           tabletImage={bannerTesteVelocidade}
@@ -64,10 +64,10 @@ export default function TesteDeVelocidade() {
         <div className="container px-8 py-12 md:px-16 md:py-16">
           <div className="max-w-4xl">
             <h2 className="text-4xl font-bold leading-tight text-primary md:text-[3.25rem]">
-              Teste sua internet com precisao!
+              Teste sua internet com precisão!
             </h2>
             <p className="mt-4 max-w-3xl text-2xl leading-tight text-darkgreen md:text-[2rem]">
-              Antes de iniciar, para garantir precisao dos testes, recomendamos que siga os seguintes passos:
+              Antes de iniciar, para garantir precisão dos testes, recomendamos que siga os seguintes passos:
             </p>
           </div>
 
@@ -115,9 +115,9 @@ export default function TesteDeVelocidade() {
 
           <p className="mt-10 max-w-6xl text-sm leading-6 text-darkgreen md:text-base">
             *O Speedtest permite testar a velocidade da sua internet em tempo real,
-            avaliando o desempenho da conexao e identificando possiveis lentidoes.
-            Ao fazer o teste de velocidade, voce ve se a internet que esta
-            chegando para voce esta dentro do esperado para o seu plano.
+            avaliando o desempenho da conexão e identificando possíveis lentidões.
+            Ao fazer o teste de velocidade, você ve se a internet que está
+            chegando para você está dentro do esperado para o seu plano.
           </p>
         </div>
       </section>

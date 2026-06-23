@@ -68,7 +68,7 @@ export default function WiFiNaoCobreCasa() {
             </h2>
             <ul className="list-disc space-y-2 pl-5">
               <li>Posicione o roteador em local central e aberto</li>
-              <li>Evite barreiras físicas próximas ao equipamento</li>
+              <li>Evite barreirás físicas próximas ao equipamento</li>
               <li>Afaste de fontes de interferência</li>
               <li>Sempre que possível, utilize conexão via cabo Ethernet</li>
               <li>Utilize cabos Cat5e ou superior, principalmente em alto consumo</li>

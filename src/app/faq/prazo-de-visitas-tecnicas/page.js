@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Qual é o prazo da visita técnica? | Leste",
   description:
-    "Informacoes sobre prazo de visita tecnica, situacoes de atraso e condicoes operacionais.",
+    "Informações sobre prazo de visita técnica, situacoes de atraso e condições operacionais.",
 };
 
 export default function PrazoVisita() {

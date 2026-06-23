@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Oferta limitada de 1GB - 2025 | Leste",
   description:
-    "Informacoes sobre a campanha Oferta limitada de 1GB - 2025, planos, valores e condicoes.",
+    "Informações sobre a campanha Oferta limitada de 1GB - 2025, planos, valores e condições.",
 };
 
 export default function OfertaLimitadaDe1GB2025() {
@@ -18,13 +18,13 @@ export default function OfertaLimitadaDe1GB2025() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               A oferta limitada de 1GB foi uma campanha promocional com
-              condicoes especificas, valida por tempo determinado e disponivel
-              para a cidade de Niteroi.
+              condições especificas, válida por tempo determinado e disponível
+              para a cidade de Niterói.
             </p>
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Quais planos estavam disponiveis?
+                Quais planos estavam disponíveis?
               </h2>
 
               <div className="mt-4 space-y-4">
@@ -44,7 +44,7 @@ export default function OfertaLimitadaDe1GB2025() {
               </div>
             </div>
 
-            <p>A oferta foi valida ate 30/09/2025, conforme as condicoes da campanha.</p>
+            <p>A oferta foi válida até 30/09/2025, conforme as condições da campanha.</p>
 
             <p>
               O plano com Super Wi-Fi 6 AX + Mesh possuia contrato com
@@ -54,7 +54,7 @@ export default function OfertaLimitadaDe1GB2025() {
 
           <FaqNote>
             <p>
-              A oferta esteve sujeita a disponibilidade tecnica, condicoes
+              A oferta esteve sujeita a disponibilidade técnica, condições
               comerciais e regras vigentes durante o periodo da campanha.
             </p>
           </FaqNote>

@@ -1,10 +1,10 @@
 # Monitoramento (Next.js App Router)
 
-Este documento descreve tudo que foi implementado na area de monitoramento, onde editar e como estender.
+Este documento descreve tudo que foi implementado na Área de monitoramento, onde editar e como estender.
 
 ## Visao geral
 - Client SDK captura erros JS, unhandledrejection, warnings, falhas de fetch, navegacoes e tela branca.
-- Ingest API valida/sanitiza e grava eventos no MongoDB de monitoramento.
+- Ingest API válida/sanitiza e grava eventos no MongoDB de monitoramento.
 - Painel /monitoramento com filtros, lista e detalhe por evento (tabs com request/payload/response/etc).
 - Auth interna simples por cookie assinado usando MONITOR_INGEST_SECRET ou MONITOR_ADMIN_PASSWORD.
 - JSON Viewer usa react-json-view-lite + parser tolerante (jsonic).
@@ -20,20 +20,20 @@ Este documento descreve tudo que foi implementado na area de monitoramento, onde
   - Onde editar: render da tabela, filtros e query de Mongo.
 
 - Overview: src/app/(admin)/monitoramento/overview/page.js
-  - Cards de resumo + grafico de volume por hora + listas por tipo/nivel/rotas + ultimos erros.
+  - Cards de resumo + grafico de volume por hora + listas por tipo/nível/rotas + ultimos erros.
   - Onde editar: layout e cards.
 
 - Detalhe: src/app/(admin)/monitoramento/[id]/page.js
   - Carrega evento pelo _id do Mongo.
   - Mostra resumo + tabs de dados da request + eventos relacionados.
-  - Onde editar: estrutura da tela e secoes do resumo.
+  - Onde editar: estrutura da tela e seções do resumo.
 
 - Layout do painel: src/app/(admin)/monitoramento/layout.js
   - Sidebar, header e visual geral do painel.
 
-- Tabs da requisicao: src/app/(admin)/monitoramento/RequestTabs.js
+- Tabs da requisição: src/app/(admin)/monitoramento/RequestTabs.js
   - Tabs: Request, Payload, Response, Headers, Detalhes.
-  - Onde editar: labels/ordem/tabs e conteudo.
+  - Onde editar: labels/ordem/tabs e conteúdo.
 
 ### Componentes de UI (monitoramento)
 - SummaryCard: src/pageComponents/monitoramento/SummaryCard.js
@@ -61,9 +61,9 @@ O que faz
 - Intercepta console.error e console.warn
 - Intercepta fetch para capturar falhas (4xx/5xx e exceptions)
 - Navegacoes (pushState/replaceState/popstate)
-- Tela branca: heuristica apos timeout
+- Tela branca: heurística após timeout
 - Web Vitals basicos (LCP/CLS/FID) + long tasks
-- Envia request.bodySnippet (payload) quando possivel
+- Envia request.bodySnippet (payload) quando possível
 - Fila local + retry + rate limit + dedup
 
 Ponto de inicializacao
@@ -97,7 +97,7 @@ Endpoint de token
 
 ## MongoDB (monitoramento)
 
-Conexao
+Conexão
 - src/lib/mongoMonitor.js
   - Reutiliza client
   - Cria indices: timestamp, (type+level+timestamp), correlationId
@@ -177,7 +177,7 @@ Recomendadas:
 
 ---
 
-## Como testar localmente (rapido)
+## Como testar localmente (rápido)
 
 1) Configure .env.local com:
    - MONGODB_MONITOR_URI
@@ -187,11 +187,11 @@ Recomendadas:
 2) Abra o app e acesse /monitoramento.
 3) Gere um erro no console:
    - throw new Error("Monitor test");
-4) Faca uma requisicao falha (ex: fetch para 404).
+4) Faca uma requisição falha (ex: fetch para 404).
 5) Volte ao painel e confirme os eventos na lista.
 
 Teste de tela branca
 - Remova temporariamente a renderizacao do root, recarregue e aguarde o timeout.
 
 Teste de web vitals
-- Recarregue a pagina e verifique eventos web_vital (LCP/CLS/FID).
+- Recarregue a página e verifique eventos web_vital (LCP/CLS/FID).

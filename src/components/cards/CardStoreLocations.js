@@ -16,7 +16,7 @@ export default  function CardStoreLocations({cidade,endereco,referencia,link}){
                 </p>
             </div>
             {referencia && <div className={"text-sm py-2"}>
-                <p className={"font-semibold"}>Referencia</p>
+                <p className={"font-semibold"}>Referência</p>
                 <p>
                     {referencia}
                 </p>

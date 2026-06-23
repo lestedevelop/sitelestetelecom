@@ -45,7 +45,7 @@ export default function ComoFuncionaOAgendamentoPeloSite() {
             </p>
             <p>
               Os dados informados na página são utilizados internamente pela
-              empresa e podem ser usados para comunicação com o cliente,
+              empresa e podem ser usados para comúnicação com o cliente,
               incluindo campanhas, informes técnicos e contatos por telefone,
               SMS ou aplicativos de mensagem.
             </p>

@@ -28,8 +28,8 @@ export default function PrivacyPolicyPage() {
                     </li>
                     <li>
                         A empresa utilizará os dados coletados/informados para promoções, eventos,
-                        divulgações, comunicações, informes técnicos, avisos técnicos, etc., utilizando
-                        e-mail, aplicativos, programas, redes sociais, sistemas de mensagens e comunicações
+                        divulgações, comúnicações, informes técnicos, avisos técnicos, etc., utilizando
+                        e-mail, aplicativos, programas, redes sociais, sistemas de mensagens e comúnicações
                         (SMS, Whatsapp, Messenger, etc) — todos ligados à sua operação ou prestação do
                         serviço de provimento à internet e cobertura de sinal WI-FI — ou em casos de amplo
                         interesse público. A base de dados NÃO SERÁ VENDIDA.
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
                     <li>
                         Todo o conteúdo do site, da fan page no Facebook, assim como de todas as plataformas
                         digitais utilizadas pertence a Leste Telecom — não podendo ser copiado, reproduzido,
-                        distribuído, apresentado, anunciado ou transmitido de nenhuma maneira ou por nenhum meio,
+                        distribuído, apresentado, anunciado ou transmitido de nenhuma maneirá ou por nenhum meio,
                         salvo por expressa autorização da empresa ou do titular dos direitos autorais (se for o caso).
                     </li>
                 </ol>

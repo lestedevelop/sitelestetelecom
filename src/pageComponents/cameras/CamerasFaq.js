@@ -10,7 +10,7 @@ const FAQ_ITEMS = [
   {
     question: "Como funciona o processo de ativação?",
     answer:
-      "A instalação pode ser realizada de duas formas: autônoma, seguindo o passo a passo fornecido na retirada do produto, ou mediante visita técnica (serviço pago, sujeito a cobranças adicionais).",
+      "A instalação pode ser realizada de duas formas: autônoma, seguindo o passo a passo fornecido na retiráda do produto, ou mediante visita técnica (serviço pago, sujeito a cobranças adicionais).",
   },
   {
     question: "A Leste consegue acessar meus vídeos?",

@@ -22,7 +22,7 @@ export default function ComoConferirCabos() {
             </p>
 
             <ul className="list-disc space-y-2 pl-5">
-              <li>Confira se os cabos estão bem encaixados</li>
+              <li>Confirá se os cabos estão bem encaixados</li>
               <li>Verifique se não há cabos soltos ou desconectados</li>
             </ul>
 
@@ -34,7 +34,7 @@ export default function ComoConferirCabos() {
 
           <FaqNote>
             <p>
-              Conferir os cabos é uma das primeiras etapas de diagnóstico em
+              Conferir os cabos é uma das primeirás etapas de diagnóstico em
               casos de instabilidade ou ausência de conexão.
             </p>
           </FaqNote>

@@ -48,7 +48,7 @@ export default function CamerasPlans() {
             {PLANS.map((plan) => (
               <div key={plan.key} className="flex w-full max-w-[320px] flex-col items-center">
                 <h4 className="text-center text-[1.95rem] leading-none text-darkgreen md:text-[2.2rem]">
-                  Camera{" "}
+                  Câmera{" "}
                   <span className="font-semibold italic">
                     {plan.titleHighlight}
                     {plan.showDegree ? <>&deg;</> : null}
@@ -58,7 +58,7 @@ export default function CamerasPlans() {
                 {SHOW_IMAGE_CARDS_ONLY ? (
                   <Image
                     src={plan.cardImage}
-                    alt={`Card do plano camera ${plan.titleHighlight}`}
+                    alt={`Card do plano câmera ${plan.titleHighlight}`}
                     className="mt-5 h-auto w-[296px]"
                   />
                 ) : (
@@ -66,7 +66,7 @@ export default function CamerasPlans() {
                     <div className="absolute -top-10 flex w-full justify-center md:-top-12">
                       <Image
                         src={plan.image}
-                        alt={`Plano camera ${plan.titleHighlight}`}
+                        alt={`Plano câmera ${plan.titleHighlight}`}
                         className={`h-auto ${plan.imageClassName}`}
                       />
                     </div>
@@ -105,7 +105,7 @@ export default function CamerasPlans() {
                         <path d="M7 18a4 4 0 1 1 .9-7.9A5.5 5.5 0 0 1 18 12a3 3 0 0 1-.4 6H7Z" />
                         <path d="M9.5 14.5 12 12l2.5 2.5" />
                       </svg>
-                      Nuvem por 7 dias gratis
+                      Nuvem por 7 dias grátis
                     </div>
 
                     <p className="mt-4 text-center text-lg font-semibold text-primary">
@@ -132,14 +132,14 @@ export default function CamerasPlans() {
           </div>
 
           <p className="mx-auto mt-10 max-w-[940px] text-center text-[10px] font-medium leading-relaxed text-primary/75 md:mt-12 md:text-xs">
-            O servico de armazenamento em nuvem e exclusivo para clientes ativos da
-            Leste. A camera e locada e funciona apenas com a rede da Leste. A
+            O serviço de armazenamento em nuvem e exclusivo para clientes ativos da
+            Leste. A câmera e locada e funciona apenas com a rede da Leste. A
             qualidade e o acesso as imagens dependem da estabilidade do plano de
-            internet contratado. O servico nao substitui sistemas profissionais de
-            seguranca e nao garante prevencao contra furtos, roubos ou danos ao
-            imovel. Contrato de fidelidade de 12 meses. Disponivel para clientes
-            das cidades de Niteroi/RJ e Marica/RJ. Oferta valida ate 30/04/2026.
-            Para consultar o regulamento, termos e condicoes de uso acesse o FAQ em
+            internet contratado. O serviço não substitui sistemas profissionais de
+            segurança e não garante prevencao contra furtos, roubos ou danos ao
+            imovel. Contrato de fidelidade de 12 meses. Disponível para clientes
+            das cidades de Niterói/RJ e Maricá/RJ. Oferta válida até 30/04/2026.
+            Para consultar o regulamento, termos e condições de uso acesse o FAQ em
             nosso site:{" "}
             <a
               href={FAQ_URL}

@@ -21,10 +21,10 @@ export default function PmeHero() {
               Para empresas
             </p>
             <h1 className="text-[3rem] font-bold leading-[0.98] tracking-[-0.05em] md:text-[5.5rem]">
-              Mais que internet, parceria para o seu negocio.
+              Mais que internet, parceria para o seu negócio.
             </h1>
             <p className="mt-5 max-w-[520px] text-xl leading-7 text-white/88 md:text-2xl">
-              Planos empresariais com fibra otica, estabilidade e suporte para sua operacao continuar conectada.
+              Planos empresariais com fibra ótica, estabilidade e suporte para sua operacao continuar conectada.
             </p>
             <Link
               href="https://vendas.lestetelecom.com.br/"

@@ -20,7 +20,7 @@ export default function RecebiDuasNotasFiscaisIssoEstaCorreto() {
 
             <p>
               Isso acontece porque a cobrança pode ser separada por tipo de
-              serviço, como parte referente ao SCM (Serviço de Comunicação
+              serviço, como parte referente ao SCM (Serviço de Comúnicação
               Multimídia) e parte ao SVA (Serviço de Valor Agregado).
             </p>
           </div>

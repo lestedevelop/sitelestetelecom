@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Eu preciso devolver os equipamentos? | Leste",
   description:
-    "Informacoes sobre devolucao de equipamentos fornecidos pela Leste.",
+    "Informações sobre devolução de equipamentos fornecidos pela Leste.",
 };
 
 export default function EuPrecisoDevolverOsEquipamentos() {
@@ -17,12 +17,12 @@ export default function EuPrecisoDevolverOsEquipamentos() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Sim. Os equipamentos fornecidos pela Leste sao disponibilizados
-              em regime de comodato durante a prestacao do servico.
+              Sim. Os equipamentos fornecidos pela Leste são disponibilizados
+              em regime de comodato durante a prestação do serviço.
             </p>
 
             <p>
-              Isso significa que os equipamentos nao sao vendidos nem doados e
+              Isso significa que os equipamentos não são vendidos nem doados e
               devem ser devolvidos em caso de cancelamento ou encerramento do
               contrato.
             </p>
@@ -39,14 +39,14 @@ export default function EuPrecisoDevolverOsEquipamentos() {
             </div>
 
             <p>
-              A devolucao deve seguir as orientacoes da empresa para cada tipo
+              A devolução deve seguir as orientações da empresa para cada tipo
               de encerramento.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A nao devolucao ou a devolucao com danos pode gerar cobranca de
+              A não devolução ou a devolução com danos pode gerar cobrança de
               multa, conforme previsto em contrato.
             </p>
           </FaqNote>

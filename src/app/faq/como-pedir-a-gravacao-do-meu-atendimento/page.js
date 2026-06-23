@@ -43,7 +43,7 @@ export default function ComoPedirAGravacaoDoMeuAtendimento() {
               As gravações ficam armazenadas por até 90 dias corridos. Após a
               solicitação, o envio pode ocorrer em até 10 dias, sem custo,
               conforme a forma escolhida: meio eletrônico, correspondência ou
-              retirada presencial.
+              retiráda presencial.
             </p>
             <p>
               Como prestadora de pequeno porte (PPP), a Leste segue esse prazo

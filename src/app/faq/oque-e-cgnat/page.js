@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "O que é CGNAT? | Leste",
   description:
-    "Informacoes sobre CGNAT, IPv4 compartilhado e impacto em aplicacoes externas.",
+    "Informações sobre CGNAT, IPv4 compartilhado e impacto em aplicacoes externas.",
 };
 
 export default function OqueECgnat() {

@@ -21,7 +21,7 @@ export default function PossoCadastrarOutraPessoa(prop) {
 
                 <div className="mt-10 text-base leading-7 text-dark">
                     <p>
-                        Sim. O segundo responsável tem os mesmos poderes que o titular em questões financeiras, inclusive cancelamento e reativação de planos e serviços.
+                        Sim. O segundo responsável tem os mesmos poderes que o titular em questões financeirás, inclusive cancelamento e reativação de planos e serviços.
                     </p>
                 </div>
 

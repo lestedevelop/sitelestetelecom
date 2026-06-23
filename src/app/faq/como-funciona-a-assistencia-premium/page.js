@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como funciona a Assistência Premium? | Leste",
   description:
-    "Informacoes sobre niveis de atendimento, visitas tecnicas, prazos e condicoes da Assistencia Premium.",
+    "Informações sobre niveis de atendimento, visitas técnicas, prazos e condições da Assistencia Premium.",
 };
 
 export default function ComoFuncionaAAssistenciaPremium() {

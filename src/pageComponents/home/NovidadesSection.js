@@ -80,7 +80,7 @@ export default function NovidadesSection() {
 
                 <button
                   type="button"
-                  aria-label="Ver proxima novidade"
+                  aria-label="Ver próxima novidade"
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-graylighter text-darkgreen transition hover:bg-primary hover:text-light"
                   onClick={() => swiperRef.current?.slideNext()}
                 >

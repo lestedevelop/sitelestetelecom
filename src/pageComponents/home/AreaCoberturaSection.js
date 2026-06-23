@@ -20,7 +20,7 @@ export default function AreaCoberturaSection() {
           Área de Cobertura
         </h2>
         <p className="hidden md:block text-base text-[20px] mb-6">
-          Selecione sua cidade e confira <br /> se sua região é atendida.
+          Selecione sua cidade e confirá <br /> se sua região é atendida.
         </p>
         <Link href="/viabilidade" className="w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition">
           Consultar!

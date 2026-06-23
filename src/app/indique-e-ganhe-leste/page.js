@@ -17,7 +17,7 @@ const PARTICIPATION_STEPS = [
   },
   {
     number: "03",
-    text: "Após o pagamento da primeira mensalidade do seu amigo(a), você ganha a próxima grátis.",
+    text: "Após o pagamento da primeirá mensalidade do seu amigo(a), você ganha a próxima grátis.",
   },
   {
     number: "04",
@@ -27,8 +27,8 @@ const PARTICIPATION_STEPS = [
 
 const REGULATION_ITEMS = [
   "O cliente ganhará um desconto de uma mensalidade por cada amigo que este indicar e assinar, qualquer plano.",
-  "Se indicar mais amigos, os valores serão descontados na fatura imediatamente subsequente. Não há limite para o número de pessoas indicadas. Quanto mais amigos assinarem e quitarem as primeiras mensalidades mais descontos sucessivamente.",
-  "Só serão computados como amigos indicados clientes devidamente instalados e com a primeira mensalidade em dia. Ou seja, apenas após o pagamento da primeira mensalidade de valor cheio será computado o amigo indicado.",
+  "Se indicar mais amigos, os valores serão descontados na fatura imediatamente subsequente. Não há limite para o número de pessoas indicadas. Quanto mais amigos assinarem e quitarem as primeirás mensalidades mais descontos sucessivamente.",
+  "Só serão computados como amigos indicados clientes devidamente instalados e com a primeirá mensalidade em dia. Ou seja, apenas após o pagamento da primeirá mensalidade de valor cheio será computado o amigo indicado.",
   "Somente serão considerados como amigo indicado novas contratações. Outros planos ou acesso para quem já é assinante não serão contabilizados. Consideramos já assinante todo CPF em nossa base.",
   "A promoção não depende de sorteio, concurso ou operação semelhante.",
   "O cliente garante ter obtido autorização da pessoa indicada para fornecer seus dados pessoais e de contato à Leste Telecom. Caso haja qualquer reclamação, seja em âmbito judicial ou extrajudicial da pessoa indicada, o cliente responderá por eventuais perdas e danos suportados pela empresa.",

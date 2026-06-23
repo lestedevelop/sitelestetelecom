@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "O que são serviços adicionais (SVA)? | Leste",
   description:
-    "Informacoes sobre Servicos de Valor Agregado (SVA), composicao do plano e cobranca.",
+    "Informações sobre Serviços de Valor Agregado (SVA), composição do plano e cobrança.",
 };
 
 export default function OQueSaoServicosAdicionaisSVA() {
@@ -17,13 +17,13 @@ export default function OQueSaoServicosAdicionaisSVA() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Os Servicos de Valor Agregado (SVA) sao recursos extras incluidos
-              no plano, como aplicativos, conteudos digitais, seguranca e
-              outros beneficios.
+              Os Serviços de Valor Agregado (SVA) são recursos extras incluídos
+              no plano, como aplicativos, conteúdos digitais, segurança e
+              outros benefícios.
             </p>
 
             <p>
-              Eles fazem parte da composicao do servico contratado e tem como
+              Eles fazem parte da composição do serviço contratado e tem como
               objetivo complementar o uso da internet, sem alterar o valor final
               pago.
             </p>
@@ -32,7 +32,7 @@ export default function OQueSaoServicosAdicionaisSVA() {
           <FaqNote>
             <p>
               Os SVA podem aparecer discriminados na fatura como parte da
-              composicao do servico, sem custo adicional.
+              composição do serviço, sem custo adicional.
             </p>
           </FaqNote>
         </article>

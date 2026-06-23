@@ -29,7 +29,7 @@ export default function PossoPassarOPlanoParaOutraPessoa(props) {
                     <p>
                         Caso não seja possível comparecer no escritório, pode realizar a solicitação por e-mail para sac@lestetelecom.com.br com os dados do novo e do atual assinante além dos documentos acima solicitados em anexo, telefones para contato. Tal solicitação por e-mail está sujeito a análise do setor jurídico.
                     </p><br/>
-                    <p>Para dar inicio na troca de titularidade a mensalidade do mês deve estar paga.</p>
+                    <p>Para dar início na troca de titularidade a mensalidade do mês deve estar paga.</p>
                 </div>
 
                 <p className="mt-12 text-sm text-graylight">

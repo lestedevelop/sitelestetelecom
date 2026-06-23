@@ -93,7 +93,7 @@ export default function StepAssinatura({ onNext, onBack, onAssinar }) {
 
                             {isExpired ? (
                                 <div className="text-[#d65a4a] text-sm">
-                                    Tempo expirado. Gere um novo link.
+                                    Tempo expirádo. Gere um novo link.
                                 </div>
                             ) : null}
                         </div>

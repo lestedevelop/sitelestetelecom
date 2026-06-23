@@ -40,7 +40,7 @@ const seals = [
         title: "28 prêmios em 2025",
         caption: "*Destaque em velocidade, satisfação e qualidade (Melhor Plano).",
         image: selo28Premios,
-        alt: "Selo de 28 premios em 2025",
+        alt: "Selo de 28 prêmios em 2025",
     },
 ];
 

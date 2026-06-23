@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Alguns sites não abrem, o que faço? | Leste",
   description:
-    "Informacoes sobre verificacoes quando alguns sites nao abrem e orientacoes de suporte.",
+    "Informações sobre verificacoes quando alguns sites não abrem e orientações de suporte.",
 };
 
 export default function AlgunsSitesNaoAbremOQueFaco() {

@@ -17,27 +17,27 @@ export default function ALesteOferecePlanosEmpresariaisSincronos() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Os planos disponiveis no site sao voltados para uso residencial e
+              Os planos disponíveis no site são voltados para uso residencial e
               possuem velocidades diferentes de download e upload
               (assimetricas).
             </p>
 
             <p>
-              Os planos residenciais nao sao indicados para servidores ou
-              aplicacoes criticas e possuem restricoes, como bloqueio de portas
+              Os planos residenciais não são indicados para servidores ou
+              aplicacoes críticas e possuem restricoes, como bloqueio de portas
               de entrada abaixo de 1024.
             </p>
 
             <p>
               Para esse tipo de uso empresarial, a Leste oferece planos
-              sincronos por meio da unidade Corporate.
+              síncronos por meio da unidade Corporate.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              Para mais detalhes sobre as condicoes do servico, consulte o
-              contrato de prestacao disponivel no site.
+              Para mais detalhes sobre as condições do serviço, consulte o
+              contrato de prestação disponível no site.
             </p>
           </FaqNote>
         </article>

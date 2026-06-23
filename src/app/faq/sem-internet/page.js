@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Estou sem internet, o que fazer? | Leste",
   description:
-    "Orientacoes basicas quando a internet nao funciona ou a ONU apresenta luz vermelha.",
+    "Orientacoes básicas quando a internet não funciona ou a ONU apresenta luz vermelha.",
 };
 
 export default function SemInternet() {

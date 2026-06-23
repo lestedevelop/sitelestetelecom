@@ -15,7 +15,7 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Para ativar o chip, é necessário realizar a primeira recarga com o
+              Para ativar o chip, é necessário realizar a primeirá recarga com o
               plano escolhido.
             </p>
             <p>

@@ -17,7 +17,7 @@ export default function ComoPossoFazerUmaReclamacao() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               Você pode registrar sua reclamação pelos canais de atendimento da
-              Leste, com acompanhamento da equipe responsável.
+              Leste, com acompanhamento da equipe responsavel.
             </p>
 
             <p>

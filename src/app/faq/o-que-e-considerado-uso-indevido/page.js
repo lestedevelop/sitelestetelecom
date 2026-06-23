@@ -26,7 +26,7 @@ export default function Page() {
           <FaqNote>
             <p>
               Para mais informações sobre as regras de uso, consulte o termo
-              disponível no link oficial da operadora parceira.
+              disponível no link oficial da operadora parceirá.
             </p>
           </FaqNote>
         </article>

@@ -12,7 +12,7 @@ export async function GET(req) {
 
         if (!cidade || !date) {
             return NextResponse.json(
-                { ok: false, message: "cidade e date sao obrigatorios" },
+                { ok: false, message: "cidade e date são obrigatórios" },
                 { status: 400 }
             );
         }

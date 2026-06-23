@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Como funciona a tecnologia Leste Ultra (XGS-PON)? | Leste",
   description:
-    "Informacoes sobre cobertura, instalacao, rede interna e condicoes de uso da tecnologia Leste Ultra (XGS-PON).",
+    "Informações sobre cobertura, instalação, rede interna e condições de uso da tecnologia Leste Ultra (XGS-PON).",
 };
 
 export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
@@ -17,35 +17,35 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A tecnologia Leste Ultra (XGS-PON) esta em fase piloto e possui
-              disponibilidade limitada, sendo liberada apenas apos analise
-              tecnica de viabilidade no endereco.
+              A tecnologia Leste Ultra (XGS-PON) está em fase piloto e possui
+              disponibilidade limitada, sendo liberada apenas após análise
+              técnica de viabilidade no endereço.
             </p>
 
             <p>
-              Atualmente, a cobertura esta disponivel apenas em algumas areas de
-              Niteroi-RJ e Marica-RJ, estando sujeita a limitacoes tecnicas e
+              Atualmente, a cobertura está disponível apenas em algumas Áreas de
+              Niterói-RJ e Maricá-RJ, estando sujeita a limitacoes técnicas e
               de infraestrutura.
             </p>
 
             <p>
-              A contratacao exige pre-cadastro e validacao no local, nao
-              havendo garantia de instalacao ate a aprovacao final. Mesmo apos o
-              pedido, podem existir limitacoes tecnicas que impecam a ativacao
-              do servico.
+              A contratação exige pre-cadastro e validacao no local, não
+              havendo garantia de instalação até a aprovacao final. Mesmo após o
+              pedido, podem existir limitacoes técnicas que impecam a ativação
+              do serviço.
             </p>
 
             <p>
-              O servico e voltado para uso profissional ou entusiasta e exige
-              estrutura adequada. A rede interna, a distribuicao da conexao e os
-              equipamentos utilizados no imovel sao de responsabilidade do
+              O serviço e voltado para uso profissional ou entusiasta e exige
+              estrutura adequada. A rede interna, a distribuicao da conexão e os
+              equipamentos utilizados no imovel são de responsabilidade do
               cliente.
             </p>
 
             <p>
               O plano e fornecido, em geral, sem roteador Wi-Fi, com entrega de
               ONU com saida de alta capacidade (10Gbps). A rede interna deve
-              suportar velocidades como 2.5G, 5G, 7.5G ou 10G, nos padroes
+              suportar velocidades como 2.5G, 5G, 7.5G ou 10G, nos padrões
               ethernet correspondentes.
             </p>
 
@@ -62,12 +62,12 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
               </h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5">
-                <li>Cat 5: ate 100 Mb/s (sem blindagem)</li>
-                <li>Cat 5e: ate 1 Gb/s (sem blindagem)</li>
-                <li>Cat 6: ate 10 Gb/s (sem blindagem)</li>
-                <li>Cat 6a: ate 10 Gb/s (com blindagem)</li>
-                <li>Cat 7: ate 10 Gb/s (com blindagem)</li>
-                <li>Cat 8: ate 40 Gb/s (com blindagem)</li>
+                <li>Cat 5: até 100 Mb/s (sem blindagem)</li>
+                <li>Cat 5e: até 1 Gb/s (sem blindagem)</li>
+                <li>Cat 6: até 10 Gb/s (sem blindagem)</li>
+                <li>Cat 6a: até 10 Gb/s (com blindagem)</li>
+                <li>Cat 7: até 10 Gb/s (com blindagem)</li>
+                <li>Cat 8: até 40 Gb/s (com blindagem)</li>
               </ul>
             </div>
 
@@ -80,14 +80,14 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
             </p>
 
             <p>
-              A instalacao possui custo, que pode variar conforme o plano, o
-              tipo de rede e as condicoes do endereco. Planos com roteador Wi-Fi
+              A instalação possui custo, que pode variar conforme o plano, o
+              tipo de rede e as condições do endereço. Planos com roteador Wi-Fi
               podem ter valores diferentes.
             </p>
 
             <p>
-              Todos os planos sao de uso individual, sendo proibida a divisao ou
-              revenda do servico entre pessoas ou enderecos distintos.
+              Todos os planos são de uso individual, sendo proibida a divisao ou
+              revenda do serviço entre pessoas ou enderecos distintos.
             </p>
 
             <p>
@@ -96,7 +96,7 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Valores de referencia para reposicao
+                Valores de referencia para reposição
               </h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5">
@@ -126,8 +126,8 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
 
           <FaqNote>
             <p>
-              A tecnologia esta em fase piloto, com disponibilidade, condicoes,
-              custos e ativacao sujeitos a analise tecnica e as regras
+              A tecnologia está em fase piloto, com disponibilidade, condições,
+              custos e ativação sujeitos a análise técnica e as regras
               contratuais vigentes.
             </p>
           </FaqNote>

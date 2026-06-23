@@ -42,7 +42,7 @@ export default async function BlogPostPage({params}) {
   const recentPosts = getRecentBlogPosts(post.slug);
   const isMovelPost = post.slug === "por-que-escolher-o-leste-movel";
   const isCamerasPost = post.slug === "cameras-inteligentes-em-casa";
-  const isNiteroiPost = post.slug === "internet-mais-rapida-de-niteroi";
+  const isNiteróiPost = post.slug === "internet-mais-rapida-de-niteroi";
   const lastParagraphIndex = post.content.length - 1;
 
   return (
@@ -100,7 +100,7 @@ export default async function BlogPostPage({params}) {
                 >
                   {paragraph}
                 </Link>
-              ) : isNiteroiPost && index === lastParagraphIndex ? (
+              ) : isNiteróiPost && index === lastParagraphIndex ? (
                 <Link
                   href="https://www.lestetelecom.com.br/"
                   target="_blank"

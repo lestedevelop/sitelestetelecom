@@ -26,7 +26,7 @@ export default function ComoReceboMeusBoletos() {
               </h2>
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 <li>Verifique seu e-mail cadastrado</li>
-                <li>Confira também a caixa de spam</li>
+                <li>Confirá também a caixa de spam</li>
                 <li>No WhatsApp, aceite o envio (opt-in)</li>
                 <li>Adicione o número (21) 3940-0130 aos seus contatos</li>
               </ul>

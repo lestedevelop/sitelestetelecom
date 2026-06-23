@@ -28,8 +28,8 @@ export default function ModalConfirmCity({className = ""}) {
             <div className="px-5 py-4 bg-white">
                 <div className="flex flex-col gap-4">
                     {!isSelectCityOpen && <p className="text-sm text-graylight">
-                        Verificamos que voce esta em <span className={"font-bold text-base"}>{cityLabel} </span> Quer
-                        conferir as ofertas para essa regiao?
+                        Verificamos que você está em <span className={"font-bold text-base"}>{cityLabel} </span> Quer
+                        conferir as ofertas para essa região?
                     </p>}
                     {isSelectCityOpen && <p className="text-sm text-graylight font-bold ">
                         Selecione a Sua Cidade:

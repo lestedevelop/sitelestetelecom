@@ -134,7 +134,7 @@ export default function FormConsultores() {
                         />
 
                         <Input
-                            label="Numero *"
+                            label="Número *"
                             name="numero"
                             register={register}
                             error={errors.numero?.message}
@@ -143,7 +143,7 @@ export default function FormConsultores() {
                     </div>
 
                     <Input
-                        label="Cnpj *"
+                        label="CNPJ *"
                         name="cnpj"
                         register={register}
                         error={errors.cnpj?.message}

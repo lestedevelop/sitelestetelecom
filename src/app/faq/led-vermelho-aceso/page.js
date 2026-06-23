@@ -6,14 +6,14 @@ import image2 from "@/assets/faq/seminternet2.webp";
 
 export const metadata = {
   title: "LED vermelho piscando na ONU. O que devo fazer? | Leste",
-  description: "Ha um LED vermelho piscando na ONU. O que devo fazer?.",
+  description: "Há um LED vermelho piscando na ONU. O que devo fazer?.",
 };
 
 export default function LedVermelho() {
   return (
     <main className="bg-light">
       <div className="container py-12">
-        <TitleFaq title={<>Ha um LED vermelho piscando na ONU. O que devo fazer?</>} />
+        <TitleFaq title={<>Há um LED vermelho piscando na ONU. O que devo fazer?</>} />
 
         <div className="mt-10 text-base leading-7 text-dark">
           <FaqImageSteps columns="md:grid-cols-2">
@@ -21,7 +21,7 @@ export default function LedVermelho() {
               1º Reinicie o Conversor Optico (ONU) e o roteador.
             </FaqImageStep>
             <FaqImageStep image={image2} imageClassName="max-w-[890px]">
-              2º Confira se todos cabos estao conectados corretamente.
+              2º Confirá se todos cabos estão conectados corretamente.
             </FaqImageStep>
           </FaqImageSteps>
 

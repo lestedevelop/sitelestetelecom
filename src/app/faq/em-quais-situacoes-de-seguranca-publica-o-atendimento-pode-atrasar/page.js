@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Em quais situações de segurança pública o atendimento pode atrasar? | Leste",
   description:
-    "Informacoes sobre atrasos de atendimento por situacoes de seguranca publica e criterios operacionais.",
+    "Informações sobre atrasos de atendimento por situacoes de segurança pública e critérios operacionais.",
 };
 
 export default function EmQuaisSituacoesDeSegurancaPublicaOAtendimentoPodeAtrasar() {

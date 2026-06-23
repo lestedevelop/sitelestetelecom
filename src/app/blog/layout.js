@@ -16,7 +16,7 @@ export default function BlogLayout({children}) {
       {/*  >*/}
       {/*    <div className="max-w-48 md:max-w-66">*/}
       {/*      <h1 className="mb-6 text-2xl font-bold md:text-[50px]">Blog</h1>*/}
-      {/*      <p className="text-[13px] md:text-[26px]">Dicas e novidades para voce ficar conectado.</p>*/}
+      {/*      <p className="text-[13px] md:text-[26px]">Dicas e novidades para você ficar conectado.</p>*/}
       {/*    </div>*/}
       {/*  </HomeHeroBanner>*/}
       {/*</section>*/}

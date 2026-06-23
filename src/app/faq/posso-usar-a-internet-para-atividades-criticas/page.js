@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Posso usar a internet para atividades críticas? | Leste",
   description:
-    "Informacoes sobre uso da internet em atividades criticas, SLA e disponibilidade.",
+    "Informações sobre uso da internet em atividades críticas, SLA e disponibilidade.",
 };
 
 export default function PossoUsarAInternetParaAtividadesCriticas() {
@@ -17,20 +17,20 @@ export default function PossoUsarAInternetParaAtividadesCriticas() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A conexao por fibra e segura e confiavel, mas nao e indicada como
-              unica solucao para atividades criticas.
+              A conexão por fibra e segura e confiável, mas não e indicada como
+              única solução para atividades críticas.
             </p>
 
             <p>
-              O servico nao possui SLA alem do previsto em contrato e pode
+              O serviço não possui SLA além do previsto em contrato e pode
               sofrer interrupcoes, especialmente por fatores externos como
               danos, interferencias ou situacoes na rede.
             </p>
 
             <p>
-              Por isso, nao deve ser utilizado como solucao exclusiva para
+              Por isso, não deve ser utilizado como solução exclusiva para
               aplicacoes como sistemas de venda, alarmes, monitoramento
-              (incluindo home care) ou sistemas de seguranca.
+              (incluindo home care) ou sistemas de segurança.
             </p>
 
             <p>
@@ -41,8 +41,8 @@ export default function PossoUsarAInternetParaAtividadesCriticas() {
 
           <FaqNote>
             <p>
-              O servico e prestado conforme as condicoes contratuais e nao e
-              destinado a aplicacoes criticas que exijam alta disponibilidade
+              O serviço e prestado conforme as condições contratuais e não e
+              destinado a aplicacoes críticas que exijam alta disponibilidade
               continua.
             </p>
           </FaqNote>

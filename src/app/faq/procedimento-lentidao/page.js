@@ -6,7 +6,7 @@ import image2 from "@/assets/faq/lentidao2.webp";
 import image3 from "@/assets/faq/lentidao3.webp";
 
 export const metadata = {
-  title: "Minha internet esta lenta | Leste",
+  title: "Minha internet está lenta | Leste",
   description: "Em caso de lentidao, o que fazer?.",
 };
 
@@ -18,7 +18,7 @@ export default function ProcedimentoLentidaoFaq() {
 
         <div className="py-4 text-dark">
           <p>
-            Para realizar o teste de velocidade com precisao voce precisa estar
+            Para realizar o teste de velocidade com precisão você precisa estar
             conectado com o cabo de rede direto no computador.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function ProcedimentoLentidaoFaq() {
               1º Continue seguindo a sequencia exibida na tela.
             </FaqImageStep>
             <FaqImageStep image={image3} imageClassName="max-w-[600px]">
-              1º Finalize a limpeza e feche as abas que nao estiver usando.
+              1º Finalize a limpeza e feche as abas que não estiver usando.
             </FaqImageStep>
           </FaqImageSteps>
 

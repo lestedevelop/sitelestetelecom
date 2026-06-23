@@ -5,10 +5,10 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Campanha Promocional 2026 - Niterói Predial | Leste",
   description:
-    "Informacoes sobre a campanha promocional 2026 para Niteroi Predial, planos, valores e condicoes.",
+    "Informações sobre a campanha promocional 2026 para Niterói Predial, planos, valores e condições.",
 };
 
-export default function CampanhaPromocional2026NiteroiPredial() {
+export default function CampanhaPromocional2026NiteróiPredial() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
@@ -17,8 +17,8 @@ export default function CampanhaPromocional2026NiteroiPredial() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Esta oferta promocional possui condicoes especiais para novos
-              assinantes em migracao de outro provedor.
+              Esta oferta promocional possui condições especiais para novos
+              assinantes em migração de outro provedor.
             </p>
 
             <div>
@@ -34,27 +34,27 @@ export default function CampanhaPromocional2026NiteroiPredial() {
 
             <p>
               A oferta e destinada exclusivamente para clientes da cidade de
-              Niteroi em instalacoes prediais e valida apenas para novos
-              assinantes em processo de migracao de outro provedor, mediante
+              Niterói em instalacoes prediais e válida apenas para novos
+              assinantes em processo de migração de outro provedor, mediante
               comprovacao.
             </p>
 
             <p>
-              A contratacao possui fidelidade de 12 meses e esta sujeita a
-              analise e disponibilidade tecnica no endereco.
+              A contratação possui fidelidade de 12 meses e está sujeita a
+              análise e disponibilidade técnica no endereço.
             </p>
 
             <p>
-              Imoveis com instalacao horizontal (casas/rua) e demais cidades
-              atendidas pela Leste nao participam desta campanha e permanecem
-              com suas ofertas e condicoes especificas vigentes.
+              Imoveis com instalação horizontal (casas/rua) e demais cidades
+              atendidas pela Leste não participam desta campanha e permanecem
+              com suas ofertas e condições especificas vigentes.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A oferta e valida ate 30/06/2026 e segue as condicoes comerciais,
-              disponibilidade tecnica e regras contratuais vigentes.
+              A oferta e válida até 30/06/2026 e segue as condições comerciais,
+              disponibilidade técnica e regras contratuais vigentes.
             </p>
           </FaqNote>
         </article>

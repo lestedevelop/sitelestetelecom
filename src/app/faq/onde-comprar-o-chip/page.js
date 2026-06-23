@@ -27,7 +27,7 @@ export default function Page() {
           </div>
           <FaqNote>
             <p>
-              Após a compra, o chip deve ser ativado por meio da primeira recarga
+              Após a compra, o chip deve ser ativado por meio da primeirá recarga
               para começar a funcionar.
             </p>
           </FaqNote>

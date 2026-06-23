@@ -15,7 +15,7 @@ const CATEGORIES = [
     { key: "all", label: "Todos os posts" },
     { key: "noticias", label: "Notícias" },
     { key: "dicas", label: "Dicas" },
-    { key: "seguranca", label: "Segurança" },
+    { key: "segurança", label: "Segurança" },
     { key: "solucoes", label: "Soluções" },
 ];
 
@@ -77,7 +77,7 @@ const POSTS = [
         slug: "conheça-a-leste-corporate",
         title: "Conheça a Leste Corporate!",
         excerpt:
-            "A melhor solução de internet empresarial para sua empresa. Somos uma das maiores empresas de telecomunicações do Leste Fluminense e...",
+            "A melhor solução de internet empresarial para sua empresa. Somos uma das maiores empresas de telecomúnicações do Leste Fluminense e...",
         category: "dicas",
         author: "Talita Carvalho",
         date: "2023-04-12",

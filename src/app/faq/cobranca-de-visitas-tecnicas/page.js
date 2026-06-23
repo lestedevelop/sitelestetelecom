@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "Quando a visita técnica é cobrada? | Leste",
   description:
-    "Informacoes sobre cobranca de visita tecnica, casos de cobranca e valores de reposicao.",
+    "Informações sobre cobrança de visita técnica, casos de cobrança e valores de reposição.",
 };
 
 export default function CobrancaDeVisitas() {

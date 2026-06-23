@@ -7,7 +7,7 @@ export default function LesteSuporte() {
     <div className="min-h-full ">
       <section className="w-full">
         <HomeHeroBanner
-          alt="Banner da pagina Leste Suporte"
+          alt="Banner da página Leste Suporte"
           className="h-[182px] md:h-[350px]"
           contentClassName="container flex h-full flex-col justify-center text-light"
           desktopImage={bannerApps}
