@@ -67,7 +67,10 @@ export default function ProRataSection() {
     const {data, updateStep} = useSales();
 
     const startISO = data?.agendamento.start;
-    const planValue = data?.plano.valor;
+    const planValue =
+        Number(data?.plano?.valor_desconto) > 0
+            ? data.plano.valor_desconto
+            : data?.plano?.valor;
 
     const {usedDays, prorata, nextInvoice, startDate, endDate} = useMemo(
         () => calcProRataUTC(Number(planValue), startISO),
