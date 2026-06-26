@@ -17,7 +17,7 @@ export default function PromocaoDeNatal2025() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A ativação de Natal 2025 foi uma acao promocional gratuita da
+              A ativação de Natal 2025 foi uma ação promocional gratuita da
               Leste, realizada em parceria com o Plaza Niterói, com
               participação por meio de cadastro online via QR Code.
             </p>
@@ -31,7 +31,7 @@ export default function PromocaoDeNatal2025() {
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Sorteios e premiacao
+                Sorteios e premiação
               </h2>
               <p className="mt-4">
                 A promoção contou com sorteios periódicos de brindes a partir de
@@ -45,7 +45,7 @@ export default function PromocaoDeNatal2025() {
               </p>
               <p className="mt-4">
                 A entrega dos prêmios seguiu instruções enviadas ao
-                participante, podendo ser solicitada validacao com documento. Os
+                participante, podendo ser solicitada validação com documento. Os
                 prêmios não puderam ser convertidos em dinheiro, produtos ou
                 serviços diferentes.
               </p>
@@ -60,18 +60,18 @@ export default function PromocaoDeNatal2025() {
                 sorteios e entrega dos prêmios.
               </p>
               <p className="mt-4">
-                Nao se responsabilizou por fatores externos, como falhas de
+                Não se responsabilizou por fatores externos, como falhas de
                 internet, problemas em dispositivos, funcionamento de terceiros
                 ou dados informados incorretamente.
               </p>
               <p className="mt-4">
                 Os participantes puderam ser desclassificados em casos de
-                fraude, multiplos cadastros, informações falsas ou
+                fraude, múltiplos cadastros, informações falsas ou
                 descumprimento das regras.
               </p>
               <p className="mt-4">
                 A promoção foi válida enquanto houvesse prêmios disponíveis,
-                podendo ser encerrada por motivos operacionais ou de forca
+                podendo ser encerrada por motivos operacionais ou de força
                 maior.
               </p>
             </div>

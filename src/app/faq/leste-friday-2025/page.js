@@ -34,10 +34,10 @@ export default function LesteFriday2025() {
               <div className="mt-4 space-y-4">
                 <section>
                   <h3 className="font-semibold text-darkgreen">
-                    Itaborai, Mage e Guapimirim
+                    Itaboraí, Magé e Guapimirim
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 99,99 nos 3 primeiros meses</p>
-                  <p className="mt-2">Apos o periodo promocional: R$ 199,99</p>
+                  <p className="mt-2">Após o período promocional: R$ 199,99</p>
                 </section>
 
                 <section>
@@ -45,35 +45,35 @@ export default function LesteFriday2025() {
                     Niterói, Maricá, Rio Bonito e Tanguá
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 74,99 nos 3 primeiros meses</p>
-                  <p className="mt-2">Apos o periodo promocional: R$ 149,99</p>
+                  <p className="mt-2">Após o período promocional: R$ 149,99</p>
                   <p className="mt-2">1GB + Wi-Fi 6 AX MESH por R$ 99,99 nos 3 primeiros meses</p>
-                  <p className="mt-2">Apos o periodo promocional: R$ 199,99</p>
+                  <p className="mt-2">Após o período promocional: R$ 199,99</p>
                 </section>
               </div>
             </div>
 
             <p>
-              Os descontos foram validos por 3 meses, com contrato de fidelidade
+              Os descontos foram válidos por 3 meses, com contrato de fidelidade
               de 12 meses.
             </p>
 
             <p>
               A adesão foi exclusiva para novos clientes ou migração de outro
-              provedor, mediante comprovacao e assinatura digital.
+              provedor, mediante comprovação e assinatura digital.
             </p>
 
             <p>
-              Alteracoes de plano permitiam apenas upgrade. Em caso de
+              Alterações de plano permitiam apenas upgrade. Em caso de
               downgrade, aplicavam-se as condições contratuais.
             </p>
 
             <p>
-              Em situacoes de troca de equipamentos, o desconto era aplicado
+              Em situações de troca de equipamentos, o desconto era aplicado
               após a substituição.
             </p>
 
             <p>
-              Os planos variavam conforme cidade, tipo de imovel e tecnologia
+              Os planos variavam conforme cidade, tipo de imóvel e tecnologia
               disponível.
             </p>
           </div>

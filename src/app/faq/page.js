@@ -1,5 +1,6 @@
 import imageFaq from "@/assets/imagefaq.jpg";
 import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
+import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 import Image from "next/image";
 import autoatendimento from "@/assets/autoatendimento.svg";
 import nossaloja from "@/assets/nossaloja.svg";
@@ -8,6 +9,21 @@ import central from "@/assets/central24.svg";
 export default function Faq() {
   return (
     <div className="min-h-full">
+      <section className="w-full">
+        <HomeHeroBanner
+          alt="Banner FAQ da Leste Telecom"
+          className="h-[182px] md:h-[350px]"
+          contentClassName="container flex flex-col justify-center text-light"
+        >
+          <div className="max-w-48 md:max-w-66">
+            <h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>
+            <p className="text-[13px] md:text-[26px]">
+              Encontre respostas para suas dúvidas.
+            </p>
+          </div>
+        </HomeHeroBanner>
+      </section>
+
       <FaqHelpCenter />
 
       <section className="bg-primary py-16 md:py-0">

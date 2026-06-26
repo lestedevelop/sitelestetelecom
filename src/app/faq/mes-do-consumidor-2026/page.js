@@ -18,8 +18,8 @@ export default function MesDoConsumidor2026() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               A campanha Mês do Consumidor 2026 oferece planos com condições
-              promocionais por tempo limitado, em comemoracao ao Dia do
-              Consumidor (15 de marco).
+              promocionais por tempo limitado, em comemoração ao Dia do
+              Consumidor (15 de março).
             </p>
 
             <div>
@@ -30,18 +30,18 @@ export default function MesDoConsumidor2026() {
               <div className="mt-4 space-y-4">
                 <section>
                   <h3 className="font-semibold text-darkgreen">
-                    Itaborai, Mage e Guapimirim
+                    Itaboraí, Magé e Guapimirim
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 99,99 nos 3 primeiros meses</p>
-                  <p className="mt-2">Apos o periodo promocional, o valor passa para R$ 199,99</p>
+                  <p className="mt-2">Após o período promocional, o valor passa para R$ 199,99</p>
                 </section>
 
                 <section>
                   <h3 className="font-semibold text-darkgreen">
-                    Niterói, Maricá, Rio Bonito, Tanguá e São Goncalo
+                    Niterói, Maricá, Rio Bonito, Tanguá e São Gonçalo
                   </h3>
                   <p className="mt-2">1GB + Wi-Fi 6 AX por R$ 74,99 nos 3 primeiros meses</p>
-                  <p className="mt-2">Apos o periodo promocional, o valor passa para R$ 149,99</p>
+                  <p className="mt-2">Após o período promocional, o valor passa para R$ 149,99</p>
                 </section>
               </div>
             </div>
@@ -55,17 +55,17 @@ export default function MesDoConsumidor2026() {
                 meses, com contrato de fidelidade de 12 meses.
               </p>
               <p className="mt-4">
-                Alteracoes de plano são permitidas apenas para planos de maior
+                Alterações de plano são permitidas apenas para planos de maior
                 valor, mantendo a fidelidade proporcional. Em caso de migração
                 para plano inferior, pode ser aplicada multa conforme contrato.
               </p>
               <p className="mt-4">
-                A oferta e exclusiva para novos clientes que migram de outros
-                provedores, mediante comprovacao.
+                A oferta é exclusiva para novos clientes que migram de outros
+                provedores, mediante comprovação.
               </p>
               <p className="mt-4">
                 Os planos podem variar conforme a cidade (Niterói, Maricá,
-                Itaborai, Tanguá, Rio Bonito, Mage e Guapimirim), de acordo com
+                Itaboraí, Tanguá, Rio Bonito, Magé e Guapimirim), de acordo com
                 disponibilidade técnica e modelo de atendimento.
               </p>
               <p className="mt-4">
@@ -75,7 +75,7 @@ export default function MesDoConsumidor2026() {
               </p>
               <p className="mt-4">
                 As condições também podem variar conforme o tipo de instalação
-                (casas/lojas ou predios/condominios), devido a tecnologia
+                (casas/lojas ou prédios/condomínios), devido à tecnologia
                 utilizada.
               </p>
             </div>

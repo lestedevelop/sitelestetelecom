@@ -18,7 +18,7 @@ export default function OfertaLimitadaDe1GB2025() {
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               A oferta limitada de 1GB foi uma campanha promocional com
-              condições especificas, válida por tempo determinado e disponível
+              condições específicas, válida por tempo determinado e disponível
               para a cidade de Niterói.
             </p>
 
@@ -47,7 +47,7 @@ export default function OfertaLimitadaDe1GB2025() {
             <p>A oferta foi válida até 30/09/2025, conforme as condições da campanha.</p>
 
             <p>
-              O plano com Super Wi-Fi 6 AX + Mesh possuia contrato com
+              O plano com Super Wi-Fi 6 AX + Mesh possuía contrato com
               fidelidade de 12 meses.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function OfertaLimitadaDe1GB2025() {
           <FaqNote>
             <p>
               A oferta esteve sujeita a disponibilidade técnica, condições
-              comerciais e regras vigentes durante o periodo da campanha.
+              comerciais e regras vigentes durante o período da campanha.
             </p>
           </FaqNote>
         </article>

@@ -28,14 +28,14 @@ export default function CampanhaPromocional2026Maricá() {
               <div className="mt-4 space-y-2">
                 <p>1GB + Wi-Fi 6</p>
                 <p>R$ 99,99 durante os 3 primeiros meses</p>
-                <p>Apos o periodo promocional: R$ 149,99</p>
+                <p>Após o período promocional: R$ 149,99</p>
               </div>
             </div>
 
             <p>
-              A oferta e destinada exclusivamente para clientes da cidade de
+              A oferta é destinada exclusivamente para clientes da cidade de
               Maricá e válida apenas para novos assinantes em processo de
-              migração de outro provedor, mediante comprovacao.
+              migração de outro provedor, mediante comprovação.
             </p>
 
             <p>
@@ -45,13 +45,13 @@ export default function CampanhaPromocional2026Maricá() {
 
             <p>
               Demais cidades atendidas pela Leste não participam desta campanha
-              e permanecem com suas ofertas e condições especificas vigentes.
+              e permanecem com suas ofertas e condições específicas vigentes.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A oferta e válida até 30/06/2026 e segue as condições comerciais,
+              A oferta é válida até 30/06/2026 e segue as condições comerciais,
               disponibilidade técnica e regras contratuais vigentes.
             </p>
           </FaqNote>

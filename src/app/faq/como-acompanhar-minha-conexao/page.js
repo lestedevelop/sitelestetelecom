@@ -1,6 +1,10 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import Image from "next/image";
+import acompanhe1 from "@/assets/faq/faq-acompanhe1.png";
+import acompanhe2 from "@/assets/faq/faq-acompanhe2.png";
+import acompanhe3 from "@/assets/faq/faq-acompanhe3.png";
 
 export const metadata = {
   title: "Como acompanhar minha conexão? | Leste",
@@ -38,6 +42,24 @@ export default function ComoAcompanharMinhaConexao() {
                 <li>Faça login com seu CPF/CNPJ e senha</li>
                 <li>Acesse o menu “Conexão”</li>
               </ol>
+            </div>
+
+            <div className="grid gap-5 pt-2">
+              <Image
+                src={acompanhe1}
+                alt="Tela de login do portal do assinante da Leste"
+                className="h-auto w-full rounded-2xl border border-graylighter"
+              />
+              <Image
+                src={acompanhe2}
+                alt="Tela inicial do portal do assinante da Leste"
+                className="h-auto w-full rounded-2xl border border-graylighter"
+              />
+              <Image
+                src={acompanhe3}
+                alt="Tela de conexão com extrato de autenticações no portal do assinante"
+                className="h-auto w-full rounded-2xl border border-graylighter"
+              />
             </div>
 
             <p>

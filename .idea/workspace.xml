@@ -5,41 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/plans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/lesteup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/lesteup/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/viabilidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viabilidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/PlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PlanCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/links/LinkLeste.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/links/LinkLeste.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/blogPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/faq/faq-acompanhe1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/faq/faq-acompanhe2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/faq/faq-acompanhe3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/faq/quais-planos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/ativacao-de-pascoa-2026/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/ativacao-de-pascoa-2026/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/campanha-promocional-2026-marica/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/campanha-promocional-2026-marica/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/campanha-promocional-2026-niteroi-predial/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/campanha-promocional-2026-niteroi-predial/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/canal-oficial-de-atendimento/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/canal-oficial-de-atendimento/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/como-acompanhar-minha-conexao/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-acompanhar-minha-conexao/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/como-emitir-meu-boleto/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-emitir-meu-boleto/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/como-funciona-a-forma-de-cobranca-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-funciona-a-forma-de-cobranca-da-leste/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/leste-friday-2025/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/leste-friday-2025/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/lojas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/lojas/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/mes-do-consumidor-2026/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/mes-do-consumidor-2026/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/oferta-limitada-de-1gb-2025/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/oferta-limitada-de-1gb-2025/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/promocao-de-natal-2025/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/promocao-de-natal-2025/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/promocao-migracao-gratis/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/promocao-migracao-gratis/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/movel/chip/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/movel/chip/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mocks/faqActivePages.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqActivePages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/ContactPill.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/ContactPill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpCta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpCta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpFaq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpFaq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepCadastroInicial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepCadastroInicial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepRevisao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepRevisao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +157,7 @@
       <workItem from="1781698282401" duration="575000" />
       <workItem from="1782127931677" duration="641000" />
       <workItem from="1782214861979" duration="1251000" />
-      <workItem from="1782309506160" duration="17298000" />
+      <workItem from="1782309506160" duration="27412000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -304,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781101954326</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="++">
+      <option name="closed" value="true" />
+      <created>1782442606743</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1782442606743</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,9 +321,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="++" />
     <MESSAGE value="commit teste jenkins 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit teste jenkins 1" />
+    <MESSAGE value="++" />
+    <option name="LAST_COMMIT_MESSAGE" value="++" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

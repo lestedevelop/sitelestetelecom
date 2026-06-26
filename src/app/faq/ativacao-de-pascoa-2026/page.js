@@ -17,7 +17,7 @@ export default function AtivacaoDePascoa2026() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A ativação de Páscoa 2026 foi uma acao promocional gratuita da
+              A ativação de Páscoa 2026 foi uma ação promocional gratuita da
               Leste, realizada em parceria com o Plaza Niterói, com
               participação por meio de cadastro online via QR Code.
             </p>
@@ -32,11 +32,11 @@ export default function AtivacaoDePascoa2026() {
 
             <div>
               <h2 className="text-xl font-bold text-darkgreen">
-                Sorteios e premiacao
+                Sorteios e premiação
               </h2>
               <p className="mt-4">
                 Os sorteios ocorreram a partir de 08/04/2026, incluindo todos os
-                cadastrados até cada data. A quantidade, descricao e entrega
+                cadastrados até cada data. A quantidade, descrição e entrega
                 dos brindes variaram conforme disponibilidade e foram
                 divulgadas nos canais da Leste.
               </p>
@@ -53,7 +53,7 @@ export default function AtivacaoDePascoa2026() {
               </h2>
               <p className="mt-4">
                 A entrega seguiu instruções enviadas ao contemplado, podendo ser
-                solicitada a apresentacao de documento oficial com foto e CPF.
+                solicitada a apresentação de documento oficial com foto e CPF.
                 Os prêmios não puderam ser convertidos em dinheiro ou outros
                 produtos.
               </p>
@@ -65,19 +65,19 @@ export default function AtivacaoDePascoa2026() {
               </h2>
               <p className="mt-4">
                 A Leste foi responsável pela realização da ativação, cadastro,
-                sorteios e entrega dos prêmios. Nao se responsabiliza por
-                cancelamentos ou alteracoes realizadas por terceiros, problemas
+                sorteios e entrega dos prêmios. Não se responsabiliza por
+                cancelamentos ou alterações realizadas por terceiros, problemas
                 de acesso a internet, falhas no dispositivo do participante ou
                 dados incorretos informados no cadastro.
               </p>
               <p className="mt-4">
                 Podem ser desclassificados participantes que informarem dados
-                falsos, realizarem multiplos cadastros, tentarem fraudar a
+                falsos, realizarem múltiplos cadastros, tentarem fraudar a
                 promoção ou descumprirem as regras.
               </p>
               <p className="mt-4">
                 A promoção foi válida enquanto houve prêmios disponíveis,
-                podendo ser encerrada por motivos operacionais, forca maior ou
+                podendo ser encerrada por motivos operacionais, força maior ou
                 ajustes necessários.
               </p>
             </div>
@@ -87,12 +87,12 @@ export default function AtivacaoDePascoa2026() {
               <p className="mt-4">
                 Os dados foram utilizados para gestão da promoção, contato com
                 participantes e comúnicação relacionada a marca. Também podem
-                ser utilizados para acoes de marketing, publicidade e ofertas,
+                ser utilizados para ações de marketing, publicidade e ofertas,
                 conforme a LGPD.
               </p>
               <p className="mt-4">
                 O participante pode solicitar a qualquer momento: correção,
-                exclusão, portabilidade ou limitacao dos dados por meio dos
+                exclusão, portabilidade ou limitação dos dados por meio dos
                 canais oficiais da Leste.
               </p>
               <p className="mt-4">
@@ -105,7 +105,7 @@ export default function AtivacaoDePascoa2026() {
           <FaqNote>
             <p>
               O regulamento completo esteve disponível na página da promoção
-              durante o periodo da campanha.
+              durante o período da campanha.
             </p>
           </FaqNote>
         </article>

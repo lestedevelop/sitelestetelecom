@@ -2,7 +2,7 @@
   "total": 34,
   "pages": [
     {
-      "title": "Qual é o canal oficial de atendimento?",
+      "title": "Quais são os canais oficiais de atendimento?",
       "href": "/faq/canal-oficial-de-atendimento",
       "category": "Canais de Atendimento",
       "active": true
@@ -164,7 +164,7 @@
       "active": true
     },
     {
-      "title": "Como funciona o atendimento pelo WhatsApp da Leste?",
+      "title": "Canais de Atendimento",
       "href": "/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste",
       "category": "Minha Conta",
       "active": true
@@ -405,7 +405,7 @@
       "active": true
     },
     {
-      "title": "Mudei a senha do Wi-Fi e a internet caiu. O que fazer?",
+      "title": "Suporte Técnico",
       "href": "/faq/mudei-minha-senha-na-central-do-assinante",
       "category": "Suporte Técnico",
       "active": true

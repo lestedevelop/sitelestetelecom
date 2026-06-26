@@ -28,15 +28,15 @@ export default function CampanhaPromocional2026NiteróiPredial() {
               <div className="mt-4 space-y-2">
                 <p>600MB + Wi-Fi 5</p>
                 <p>R$ 69,99 durante os 3 primeiros meses</p>
-                <p>Apos o periodo promocional: R$ 99,99</p>
+                <p>Após o período promocional: R$ 99,99</p>
               </div>
             </div>
 
             <p>
-              A oferta e destinada exclusivamente para clientes da cidade de
-              Niterói em instalacoes prediais e válida apenas para novos
+              A oferta é destinada exclusivamente para clientes da cidade de
+              Niterói em instalações prediais e válida apenas para novos
               assinantes em processo de migração de outro provedor, mediante
-              comprovacao.
+              comprovação.
             </p>
 
             <p>
@@ -45,15 +45,15 @@ export default function CampanhaPromocional2026NiteróiPredial() {
             </p>
 
             <p>
-              Imoveis com instalação horizontal (casas/rua) e demais cidades
+              Imóveis com instalação horizontal (casas/rua) e demais cidades
               atendidas pela Leste não participam desta campanha e permanecem
-              com suas ofertas e condições especificas vigentes.
+              com suas ofertas e condições específicas vigentes.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              A oferta e válida até 30/06/2026 e segue as condições comerciais,
+              A oferta é válida até 30/06/2026 e segue as condições comerciais,
               disponibilidade técnica e regras contratuais vigentes.
             </p>
           </FaqNote>

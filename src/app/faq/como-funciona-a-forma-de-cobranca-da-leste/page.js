@@ -1,42 +1,46 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import image1 from "@/assets/faq/seminternet1.png"
-import image2 from "@/assets/faq/seminternet2.webp"
-import Image from "next/image";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Como funciona a forma de cobrança da Leste? | Leste",
-    description: "Como funciona a forma de cobrança da Leste?.",
+  title: "Como funciona a forma de cobrança da Leste? | Leste",
+  description: "Como funciona a forma de cobrança da Leste?",
 };
 
-export default function ComoFuncionaAFormaDeCobranca(props) {
-    return (
-        <main className="bg-light">
-            
+export default function ComoFuncionaAFormaDeCobranca() {
+  return (
+    <main className="bg-light">
+      <div className="container py-12 md:py-16">
+        <TitleFaq title={<>Como funciona a forma de cobrança da Leste?</>} />
 
-            <div className="container py-12">
-                <TitleFaq title={<>Como funciona a forma de cobrança da Leste?</>}/>
+        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              A cobrança é feita com base no mês corrente de utilização do
+              serviço, considerando um período de 30 dias.
+            </p>
 
-                <div className="mt-10 text-base leading-7 text-dark">
-                    <p>
-                        As mensalidades são referentes ao mês corrente (trinta dias), o mês de referência e vencimento é sempre o mês de utilização do serviço, sendo efetuados os pagamentos ao início de cada mês, na data escolhida pelo CONTRATANTE.
-                    </p>
-                    <br/>
-                    <p>
-                        Ex.: O vencimento escolhido foi dia 5, então pagará pelos 5 dias utilizados e os 25 dias que irá utilizar.
-                    </p>
-                </div>
+            <p>
+              O pagamento é realizado na data de vencimento escolhida pelo
+              cliente e corresponde ao uso do mês corrente.
+            </p>
+          </div>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 20/05/16
-                </p>
-            </div>
+          <FaqNote>
+            <p>
+              O mês de referência e o vencimento correspondem ao próprio período
+              de utilização.
+            </p>
+            <p>
+              Por exemplo, o vencimento no dia 5 inclui os dias já utilizados e
+              os dias que ainda serão utilizados até completar os 30 dias.
+            </p>
+          </FaqNote>
+        </article>
+      </div>
 
-            <SupportFooter />
-            
-        </main>
-    );
+      <SupportFooter />
+    </main>
+  );
 }
 

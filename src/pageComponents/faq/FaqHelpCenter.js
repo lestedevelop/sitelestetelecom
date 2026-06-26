@@ -6,6 +6,7 @@ import { FAQ_HELP_CENTER_SECTIONS } from "@/mocks/faqHelpCenterSections";
 import { ChevronRight, IconBadge } from "@/utils/faqIcons";
 
 const ALL_CATEGORIES = "Todas";
+const INITIAL_VISIBLE_ITEMS = 4;
 
 function normalizeText(text) {
   return text
@@ -17,6 +18,7 @@ function normalizeText(text) {
 export default function FaqHelpCenter() {
   const [query, setQuery] = useState("");
   const [activeSection, setActiveSection] = useState(ALL_CATEGORIES);
+  const [expandedSections, setExpandedSections] = useState({});
 
   const filteredSections = useMemo(() => {
     const queryNormalized = normalizeText(query.trim());
@@ -24,6 +26,7 @@ export default function FaqHelpCenter() {
 
     return FAQ_HELP_CENTER_SECTIONS.map((section) => {
       const isActive =
+        queryNormalized ||
         activeSection === ALL_CATEGORIES ||
         normalizeText(section.title) === activeSectionNormalized;
 
@@ -36,7 +39,7 @@ export default function FaqHelpCenter() {
           return true;
         }
 
-        return [item.title, section.title, section.description]
+        return [item.title, item.href]
           .map(normalizeText)
           .some((value) => value.includes(queryNormalized));
       });
@@ -47,6 +50,13 @@ export default function FaqHelpCenter() {
 
   const hasResults = filteredSections.length > 0;
   const hasQuery = query.trim().length > 0;
+
+  function toggleSection(sectionTitle) {
+    setExpandedSections((current) => ({
+      ...current,
+      [sectionTitle]: !current[sectionTitle],
+    }));
+  }
 
   return (
     <section className="w-full bg-light py-8 md:py-16">
@@ -139,39 +149,66 @@ export default function FaqHelpCenter() {
             ) : null}
 
             <div className="space-y-5">
-              {filteredSections.map((section) => (
-                <div
-                  key={section.title}
-                  className="overflow-hidden rounded-lg border border-graylighter bg-white"
-                >
-                  <div className="flex items-center gap-3 border-b border-graylighter bg-white px-5 py-4">
-                    <IconBadge icon={section.icon} />
-                    <div>
-                      <h3 className="text-lg font-bold text-darkgreen">
-                        {section.title}
-                      </h3>
-                      <p className="text-sm text-graylight">
-                        {section.description}
-                      </p>
-                    </div>
-                  </div>
+              {filteredSections.map((section) => {
+                const isExpanded = hasQuery || expandedSections[section.title];
+                const visibleItems = isExpanded
+                  ? section.items
+                  : section.items.slice(0, INITIAL_VISIBLE_ITEMS);
+                const hiddenItemsCount = section.items.length - visibleItems.length;
+                const canToggle = !hasQuery && section.items.length > INITIAL_VISIBLE_ITEMS;
 
-                  <div className="divide-y divide-graylighter">
-                    {section.items.map((item) => (
-                      <Link
-                        key={`${section.title}-${item.href}`}
-                        href={item.href}
-                        className="flex min-h-[52px] items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-light"
+                return (
+                  <div
+                    key={section.title}
+                    className="overflow-hidden rounded-lg border border-graylighter bg-white"
+                  >
+                    <div className="flex items-center gap-3 border-b border-graylighter bg-white px-5 py-4">
+                      <IconBadge icon={section.icon} />
+                      <div>
+                        <h3 className="text-lg font-bold text-darkgreen">
+                          {section.title}
+                        </h3>
+                        <p className="text-sm text-graylight">
+                          {section.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="divide-y divide-graylighter">
+                      {visibleItems.map((item) => (
+                        <Link
+                          key={`${section.title}-${item.href}`}
+                          href={item.href}
+                          className="flex min-h-[52px] items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-light"
+                        >
+                          <span className="text-sm font-medium leading-6 text-darkgreen">
+                            {item.title}
+                          </span>
+                          <ChevronRight className="h-5 w-5 shrink-0 text-graylight" />
+                        </Link>
+                      ))}
+                    </div>
+
+                    {canToggle ? (
+                      <button
+                        type="button"
+                        onClick={() => toggleSection(section.title)}
+                        className="flex min-h-[48px] w-full items-center justify-center gap-2 border-t border-graylighter px-5 text-sm font-semibold text-primary transition-colors hover:bg-light"
+                        aria-expanded={isExpanded}
                       >
-                        <span className="text-sm font-medium leading-6 text-darkgreen">
-                          {item.title}
-                        </span>
-                        <ChevronRight className="h-5 w-5 shrink-0 text-graylight" />
-                      </Link>
-                    ))}
+                        {isExpanded
+                          ? "Exibir menos"
+                          : `Exibir mais ${hiddenItemsCount}`}
+                        <ChevronRight
+                          className={`h-5 w-5 transition-transform ${
+                            isExpanded ? "-rotate-90" : "rotate-90"
+                          }`}
+                        />
+                      </button>
+                    ) : null}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

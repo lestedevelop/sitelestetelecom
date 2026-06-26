@@ -17,7 +17,7 @@ export default function PromocaoMigracaoGratis() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A promoção “Migração Grátis” e uma condicao especial, com
+              A promoção “Migração Grátis” é uma condição especial, com
               disponibilidade limitada por região e sujeita a prazo de
               validade.
             </p>
@@ -32,7 +32,7 @@ export default function PromocaoMigracaoGratis() {
             </p>
 
             <p>
-              Os agendamentos realizados com essa condicao são identificados no
+              Os agendamentos realizados com essa condição são identificados no
               momento da contratação e no e-mail de boas-vindas.
             </p>
           </div>

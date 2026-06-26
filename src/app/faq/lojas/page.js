@@ -22,14 +22,6 @@ const stores = [
     hours: "Segunda a sexta, das 9h às 18h | Sábado, das 9h às 13h",
   },
   {
-    city: "Tanguá",
-    address: "Rua Manoel João Gonçalves, Qd C Lt 02 - Centro",
-    reference: "Ao lado da Drogarias Alexandre e da lotérica",
-    hours:
-      "Segunda a sexta, das 9h às 18h (almoço das 13h às 14h) | Sábado, das 9h às 13h",
-    note: "As atividades desta unidade serão encerradas em 31/05/2026.",
-  },
-  {
     city: "Rio Bonito",
     address: "Av. Sete de Maio, 50 - Loja 06 - Centro",
     reference: "Edifício Henry Ford",
