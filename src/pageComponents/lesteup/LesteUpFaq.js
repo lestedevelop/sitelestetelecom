@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   {
     question: "Quais são os valores e a forma de pagamento?",
     answer:
-      "Atualmente, a mensalidade referente a um equipamento Leste UP é de R$35,00, independentemente do plano contratado.",
+      "Atualmente, a mensalidade referente a um equipamento Leste UP é de R$39,90, independentemente do plano contratado.",
   },
 ];
 

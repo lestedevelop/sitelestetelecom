@@ -6,11 +6,13 @@ import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
 import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {sortPlansByLowestPrice} from "@/utils/plans";
 
 export default function PlanosSection() {
     const {planos, loading} = useHomeData();
     const {site} = useSite();
     const plansData = planos?.data || [];
+    const sortedPlansData = sortPlansByLowestPrice(plansData);
     const showSkeleton = loading || plansData.length === 0;
 
     function renderPlanCard(plan) {
@@ -36,7 +38,7 @@ export default function PlanosSection() {
                     Conheça nossos planos!
                 </h2>
                 <p className="planos-subtitle mt-2 text-center text-dark">
-                    Internet 100% Fibra ótica na sua casa
+                    100% Fibra Ótica
                 </p>
             </section>
 
@@ -44,7 +46,7 @@ export default function PlanosSection() {
                 <PlansSwiperHome
                     loading={showSkeleton}
                     renderSkeleton={() => <PlanCardSkeleton/>}
-                    plans={plansData}
+                    plans={sortedPlansData}
                     renderPlan={renderPlanCard}
                 />
             </div>

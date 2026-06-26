@@ -13,7 +13,7 @@ import checkIcon from "@/assets/check.svg";
 import {SalesProviderNew} from "@/contexts/SalesContextNew";
 
 const COVERAGE_ITEMS = [
-  "Internet 100% fibra optica",
+  "Internet 100% fibra ótica",
   "Atendimento em cidades do Leste Fluminense",
   "Consulta por CEP e número",
 ];
@@ -21,35 +21,43 @@ const COVERAGE_ITEMS = [
 const COVERAGE_MAPS = [
   {
     label: "Maricá",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1FcFZ9oePcOtszHmhihToLnW0saEO8r1s&femb=1&ll=-22.914524096919607%2C-42.85194800000001&z=12",
+    query: "Maricá, RJ",
+    zoom: 12,
   },
   {
     label: "Itaboraí",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=14OUplhRNgUhZstxc_RK3ajyhGZpbOT-4&femb=1&ll=-22.7545361234109%2C-42.8653985&z=13",
+    query: "Itaboraí, RJ",
+    zoom: 13,
   },
   {
     label: "Mage / Guapimirim",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1t-ue4h-PF9FXfIYRZxwYVGUh0Kk_ErXp&femb=1",
+    query: "Magé e Guapimirim, RJ",
+    zoom: 11,
   },
   {
     label: "Rio Bonito",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1gEwJkjND0VLHspPrXtOkGyKXx9qqQyxB&femb=1&ll=0%2C0&z=14",
+    query: "Rio Bonito, RJ",
+    zoom: 13,
   },
   {
     label: "Tanguá",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=13CW59f8ouV2ffOlI8IneXPZGi-izkYvo&femb=1&ll=0%2C0&z=15",
+    query: "Tanguá, RJ",
+    zoom: 13,
   },
   {
     label: "Niterói",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=14QJsM7vK0PXtCmd3wbJb6jRY8VzQuGQ&femb=1&ll=-22.904116925149697%2C-43.10506399999999&z=14",
+    query: "Niterói, RJ",
+    zoom: 13,
   },
   {
     label: "Niterói | Região Oceânica",
-    viewerUrl: "https://www.google.com/maps/d/u/0/viewer?mid=1vd6MVzgZ7BVKM6yA-_RwdAY_s1z2-o-o&femb=1",
+    query: "Região Oceânica, Niterói, RJ",
+    zoom: 13,
   },
 ].map((item) => ({
   ...item,
-  embedUrl: item.viewerUrl.replace("/viewer?", "/embed?"),
+  viewerUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.query)}`,
+  embedUrl: `https://www.google.com/maps?q=${encodeURIComponent(item.query)}&z=${item.zoom}&output=embed`,
 }));
 
 export default function ViabilidadePage() {
@@ -123,7 +131,7 @@ export default function ViabilidadePage() {
                   onClick={() => setModalViabilidadeOpen(true)}
                   className="mt-8 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-darkgreen px-8 text-xl font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.16)] transition hover:-translate-y-px hover:bg-[#004333] md:w-auto"
                 >
-                  Ver planos disponíveis
+                  planos disponíveis
                 </button>
               </div>
             </aside>

@@ -28,7 +28,15 @@ export default function FooterCorporate() {
                                 </LinkLeste>
                             ))}
                         </div>
-                        <Image src={linkedin} width={42} alt="LinkedIn" />
+                        <a
+                            href="https://www.linkedin.com/company/lestetelecom/posts"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-0"
+                            aria-label="LinkedIn"
+                        >
+                            <Image src={linkedin} width={42} alt="LinkedIn" />
+                        </a>
                         <div className="flex flex-col items-center justify-center gap-2">
                             <p className="text-sm">Endereço: R. João Feliciano da Costa 207 - Centro - Itaboraí - RJ - 24.800-017</p>
                             <p className="text-sm">Todos os direitos reservados. ©2026 por Leste Telecom</p>

@@ -83,14 +83,14 @@ export default async function BlogPostPage({params}) {
           {post.content.map((paragraph, index) => (
             <p key={paragraph} className="mb-6">
               {isMovelPost && index === lastParagraphIndex ? (
-                <Link
-                  href="https://www.lestemovel.com.br/"
+                <a
+                  href="https://www.lestemovel.com.br"
                   target="_blank"
                   rel="noreferrer"
                   className="font-semibold text-primary underline underline-offset-4"
                 >
                   {paragraph}
-                </Link>
+                </a>
               ) : isCamerasPost && index === lastParagraphIndex ? (
                 <Link
                   href="https://www.lestetelecom.com.br/cameras"

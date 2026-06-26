@@ -3,11 +3,12 @@ import Link from "next/link";
 import { twMerge } from 'tailwind-merge'
 
 
-export default function LinkLeste({children,href,className}) {
+export default function LinkLeste({children, href, className, ...props}) {
   return (
     <Link
       href={href}
       className={twMerge(`relative text-[#00997b] transition-colors px-1 duration-300`, className)}
+      {...props}
     >
       {children}
     </Link>

@@ -5,11 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/plans.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/components/ProRataSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/components/ProRataSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/lesteup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/lesteup/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/viabilidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viabilidade/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PlanCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/links/LinkLeste.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/links/LinkLeste.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mocks/blogPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/ClientActionCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/TireDuvidasSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasPlans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasStorage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/corporate/FooterCorporate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/ContactPill.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/ContactPill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/SupportFooter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/AmaisPremiadaDoEstado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpCta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpCta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpFaq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpFaq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepCadastroInicial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepCadastroInicial.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepRevisao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepRevisao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +47,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="800" />
+    <option name="cachedIndexableFilesCount" value="801" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -136,6 +166,7 @@
       <workItem from="1781698282401" duration="575000" />
       <workItem from="1782127931677" duration="641000" />
       <workItem from="1782214861979" duration="1251000" />
+      <workItem from="1782309506160" duration="17298000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />

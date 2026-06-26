@@ -204,7 +204,7 @@ export default function StepRevisao({onNext, onBack, onEditSection}) {
                         Aceitar{" "}
                         <a
                             className="text-primary underline"
-                            href="/faq/politica-privacidade"
+                            href="https://www.lestetelecom.com.br/faq-suporte/politica-de-privacidade-uso-de-dados"
                             target="_blank"
                             rel="noreferrer"
                         >

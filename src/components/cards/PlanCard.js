@@ -147,7 +147,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                     <button
                         type="button"
                         onClick={() => setDetailsOpen(true)}
-                        className={"mt-2 w-full -mx-6 rounded-2xl px-4 py-2 text-center font-semibold  border border-darkgreen transition bg-light text-darkgreen"}
+                        className="mt-3 text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
                     >
                         Mais Detalhes
                     </button>

@@ -16,7 +16,7 @@ module.exports = {
         graylighter:"#E8EBEA",
         darkgreen: "#045441",
         mediumgreen: "#005542CC",
-        lightgreen: "#8fff85",
+        lightgreen: "#00ffb4",
         lightgreenBackground: "#D5EFE9",
         corporate: "#002019",
         corporateDark: "#121212",

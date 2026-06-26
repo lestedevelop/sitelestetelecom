@@ -56,7 +56,7 @@ export default function SupportFooter() {
 
               <div className="mt-5 gap-3 flex flex-col md:flex-row lg:justify-between items-center">
                 <ContactPill
-                  href="https://wa.me/552120201300"
+                  href="https://api.whatsapp.com/send/?phone=552120201300"
                   label="021 2020-1300"
                   className="min-w-full md:min-w-[190px]"
                   icon={

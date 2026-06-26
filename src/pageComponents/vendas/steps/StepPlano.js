@@ -15,6 +15,7 @@ import ResponsaveisSection from "@/pageComponents/vendas/components/Responsaveis
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
 import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {sortPlansByLowestPrice} from "@/utils/plans";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -31,6 +32,7 @@ export default function StepPlans({ onNext, onBack }) {
 
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [addRespOpen, setAddRespOpen] = useState(false);
+    const sortedPlans = useMemo(() => sortPlansByLowestPrice(plans), [plans]);
 
 
     function handleContinue() {
@@ -114,10 +116,10 @@ export default function StepPlans({ onNext, onBack }) {
 
             <h3 className={"text-3xl text-dark font-bold pb-8"}>Selecione o seu Plano</h3>
 
-            {!!plans.length && (
+            {!!sortedPlans.length && (
                 <>
                     <PlansSwiper
-                        plans={plans}
+                        plans={sortedPlans}
                         renderPlan={renderPlanCard}
                     />
                     <p className="mx-2.5 text-center text-sm text-graylight lg:text-base">

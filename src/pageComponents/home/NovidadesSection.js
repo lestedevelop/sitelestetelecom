@@ -15,8 +15,8 @@ function NewsCard({ item }) {
   const imageSrc = resolveImageSrc(item, item.image);
 
   return (
-    <Link href={item.href} className="mx-auto block w-full max-w-[360px]">
-      <article className="flex min-h-[550px] flex-col overflow-hidden rounded-2xl bg-light">
+    <Link href={item.href} className="mx-auto block h-[550px] w-full max-w-[360px]">
+      <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-light">
         <div className="relative h-[200px] w-full">
           <Image
             src={imageSrc}
@@ -32,7 +32,7 @@ function NewsCard({ item }) {
             {item.title}
           </h3>
 
-          <p className="mt-8 text-[14px] leading-[1.15] text-corporate">
+          <p className="mt-8 overflow-hidden text-[14px] leading-[1.15] text-corporate [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5]">
             {item.excerpt}
           </p>
 
@@ -117,7 +117,7 @@ export default function NovidadesSection() {
                 className="overflow-visible pb-8 md:pb-0 [&_.swiper-pagination]:!bottom-0 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 lg:[&_.swiper-pagination]:hidden [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
               >
                 {newsCards.map((item) => (
-                  <SwiperSlide key={item.title} className="max-h-[550px]">
+                  <SwiperSlide key={item.title} className="h-auto">
                     <NewsCard item={item} />
                   </SwiperSlide>
                 ))}

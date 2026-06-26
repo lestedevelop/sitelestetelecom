@@ -64,7 +64,7 @@ export default function CamerasStorage() {
 
               <div className="mb-2 ml-2 flex flex-col leading-none">
                 <span className="text-[2.4rem] md:text-[3.6rem]">,90</span>
-                <span className="mt-1 text-[1.7rem] md:text-[3rem]">/mes</span>
+                <span className="mt-1 text-[1.7rem] md:text-[3rem]">/mês</span>
               </div>
             </div>
           </div>

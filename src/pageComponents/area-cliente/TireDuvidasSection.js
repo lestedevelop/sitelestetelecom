@@ -6,11 +6,11 @@ const FAQ_ITEMS = [
     href: "/faq/sem-internet",
   },
   {
-    label: "Prazo de visitas técnicas.",
+    label: "Qual é o prazo da visita técnica?",
     href: "/faq/prazo-de-visitas-tecnicas",
   },
   {
-    label: "Desligar e ligar os equipamentos pode resolver o problema?",
+    label: "Desligar e ligar os equipamentos pode resolver problemas de conexão?",
     href: "/faq/desligar-e-ligar-os-equipamentos-pode-resolver",
   },
   {
@@ -18,7 +18,7 @@ const FAQ_ITEMS = [
     href: "/faq/led-vermelho-aceso",
   },
   {
-    label: "Como criar o discador de conexão Banda Larga?",
+    label: "Como criar o discador de conexão de banda larga?",
     href: "/faq/como-criar-o-discador-de-conexao-de-banda-larga",
   },
 ];

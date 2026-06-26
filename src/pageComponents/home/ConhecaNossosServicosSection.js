@@ -61,7 +61,7 @@ export default function ConhecaNossosServicosSection() {
                   <br />
                   da Leste
                 </h2>
-                <p className="mt-3 hidden pb-8 text-[32px] leading-7 text-darkgreen md:text-lg md:leading-none lg:block">
+                <p className="mt-3 hidden pb-8 text-3xl leading-7 text-darkgreen md:text-[2rem] md:leading-none lg:block">
                   Para diferentes necessidades.
                 </p>
               </header>

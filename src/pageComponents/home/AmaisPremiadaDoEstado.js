@@ -81,7 +81,7 @@ export default function AmaisPremiadaDoEstado() {
                                     e reconhecimento
                                 </h2>
                                 <p className="mt-3 hidden lg:block text-3xl leading-7 pb-8 text-darkgreen md:text-[2rem] md:leading-none">
-                                    Destaque em velocidade e satisfacao.
+                                    Destaque em atendimento, velocidade e satisfação.
                                 </p>
                                 <p className="hidden">
                                     Destaque em atendimento, velocidade e satisfação.

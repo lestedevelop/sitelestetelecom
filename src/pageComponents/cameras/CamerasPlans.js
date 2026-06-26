@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import camera360 from "@/assets/cameras/camera360.webp";
 import camerafixa from "@/assets/cameras/camerafixa.webp";
 import plano360 from "@/assets/cameras/plano360.webp";
@@ -15,6 +14,7 @@ const PLANS = [
     imageClassName: "w-[142px] md:w-[164px]",
     price: "39",
     cents: "90",
+    whatsappHref: "https://bit.ly/3NSTaOz",
   },
   {
     key: "360",
@@ -25,6 +25,7 @@ const PLANS = [
     imageClassName: "w-[164px] md:w-[186px]",
     price: "49",
     cents: "90",
+    whatsappHref: "https://bit.ly/4k93dec",
   },
 ];
 
@@ -56,11 +57,29 @@ export default function CamerasPlans() {
                 </h4>
 
                 {SHOW_IMAGE_CARDS_ONLY ? (
-                  <Image
-                    src={plan.cardImage}
-                    alt={`Card do plano câmera ${plan.titleHighlight}`}
-                    className="mt-5 h-auto w-[296px]"
-                  />
+                  <div className="relative mt-5 w-[296px]">
+                    <Image
+                      src={plan.cardImage}
+                      alt={`Card do plano câmera ${plan.titleHighlight}`}
+                      className="h-auto w-full"
+                    />
+
+                    <a
+                      href={plan.whatsappHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute bottom-5 left-1/2 inline-flex min-w-[210px] -translate-x-1/2 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] bg-darkgreen px-5 py-2.5 text-sm font-semibold text-light shadow-lg transition hover:opacity-90 md:min-w-[230px] md:px-6 md:py-3 md:text-base"
+                    >
+                      Contrate agora!
+                      <Image
+                        src={whatsIcon}
+                        alt=""
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </div>
                 ) : (
                   <div className="relative mt-5 flex w-full flex-col items-center rounded-[28px] border border-primary/70 bg-light px-6 pb-7 pt-28 md:rounded-[30px] md:px-7 md:pb-8 md:pt-32">
                     <div className="absolute -top-10 flex w-full justify-center md:-top-12">
@@ -86,7 +105,7 @@ export default function CamerasPlans() {
                           ,{plan.cents}
                         </span>
                         <span className="mt-1 text-[1.15rem] md:text-[1.35rem]">
-                          /mes
+                          /mês
                         </span>
                       </div>
                     </div>
@@ -112,8 +131,10 @@ export default function CamerasPlans() {
                       Fidelidade de 12 meses
                     </p>
 
-                    <Link
-                      href="https://vendas.lestetelecom.com.br/"
+                    <a
+                      href={plan.whatsappHref}
+                      target="_blank"
+                      rel="noreferrer"
                       className="mt-6 inline-flex items-center gap-2 rounded-[10px] bg-darkgreen px-5 py-3 text-sm font-semibold text-light transition hover:opacity-90 md:px-6 md:text-base"
                     >
                       Contrate agora!
@@ -124,7 +145,7 @@ export default function CamerasPlans() {
                         height={16}
                         aria-hidden="true"
                       />
-                    </Link>
+                    </a>
                   </div>
                 )}
               </div>
@@ -132,13 +153,13 @@ export default function CamerasPlans() {
           </div>
 
           <p className="mx-auto mt-10 max-w-[940px] text-center text-[10px] font-medium leading-relaxed text-primary/75 md:mt-12 md:text-xs">
-            O serviço de armazenamento em nuvem e exclusivo para clientes ativos da
-            Leste. A câmera e locada e funciona apenas com a rede da Leste. A
+            O serviço de armazenamento em nuvem é exclusivo para clientes ativos da
+            Leste. A câmera é locada e funciona apenas com a rede da Leste. A
             qualidade e o acesso as imagens dependem da estabilidade do plano de
             internet contratado. O serviço não substitui sistemas profissionais de
-            segurança e não garante prevencao contra furtos, roubos ou danos ao
-            imovel. Contrato de fidelidade de 12 meses. Disponível para clientes
-            das cidades de Niterói/RJ e Maricá/RJ. Oferta válida até 30/04/2026.
+            segurança e não garante prevenção contra furtos, roubos ou danos ao
+            imóvel. Contrato de fidelidade de 12 meses. Disponível para clientes
+            das cidades de Niterói/RJ e Maricá/RJ. Oferta válida até 30/09/2026.
             Para consultar o regulamento, termos e condições de uso acesse o FAQ em
             nosso site:{" "}
             <a

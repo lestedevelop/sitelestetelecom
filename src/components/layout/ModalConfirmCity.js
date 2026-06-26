@@ -40,7 +40,7 @@ export default function ModalConfirmCity({className = ""}) {
                             className="rounded-lg border cursor-pointer border-graylight px-4 py-2 text-sm font-semibold text-darkgreen hover:bg-gray-50"
                             onClick={handleChange}
                         >
-                            Trocar localizacao
+                            Trocar localização
                         </button>
                         <button
                             type="button"

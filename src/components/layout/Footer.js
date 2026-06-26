@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import logoLeste from "@/assets/lestelogocapabranco.png";
 import telIcon from "@/assets/telIcon.svg";
 import whatsIcon from "@/assets/whatsIcon.svg";
@@ -14,17 +15,16 @@ import socialWhatsIcon from "@/assets/icons/footer/whatsapp.svg";
 import youtube from "@/assets/icons/footer/youtube.svg";
 import portalLeste from "@/assets/portalLeste.svg";
 import appLeste from "@/assets/appLeste.svg";
-import reclameAqui from "@/assets/icons/footer/img.png";
 import topoFooter from "@/assets/icons/footer/topo.svg";
 
 const socialLinks = [
-    {href: "https://wa.me/552120201300", label: "WhatsApp", icon: socialWhatsIcon},
-    {href: "https://www.facebook.com/lestetelecom", label: "Facebook", icon: facebook},
+    {href: "https://api.whatsapp.com/send/?phone=552120201300", label: "WhatsApp", icon: socialWhatsIcon},
+    {href: "https://www.facebook.com/LesteTelecom/", label: "Facebook", icon: facebook},
     {href: "https://www.instagram.com/lestetelecom/", label: "Instagram", icon: insta},
-    {href: "https://www.tiktok.com/", label: "TikTok", icon: tiktok},
-    {href: "https://x.com/", label: "X", icon: twitter},
-    {href: "https://www.linkedin.com/", label: "LinkedIn", icon: linkedin},
-    {href: "https://www.youtube.com/", label: "YouTube", icon: youtube},
+    {href: "https://www.tiktok.com/@leste.oficial", label: "TikTok", icon: tiktok},
+    {href: "https://x.com/lestetelecom", label: "X", icon: twitter},
+    {href: "https://www.linkedin.com/company/lestetelecom/posts", label: "LinkedIn", icon: linkedin},
+    {href: "https://www.youtube.com/@LesteTelecom", label: "YouTube", icon: youtube},
 ];
 
 const footerLinks = [
@@ -46,6 +46,8 @@ const supportPhones = [
 ];
 
 export default function Footer() {
+    const isExternalLink = (href) => href.startsWith("http");
+
     function scrollToTop() {
         window.scrollTo({top: 0, behavior: "smooth"});
     }
@@ -65,20 +67,22 @@ export default function Footer() {
                 />
             </button>
 
-            <div className="container pt-14 z-50 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
+            <div className="container relative z-50 pt-14 pb-16 md:pt-18 md:pb-20 lg:pt-24 lg:pb-24">
                 <div
                     className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-[1.35fr_.9fr_.8fr] lg:gap-12">
                     <div className="space-y-10">
                         <div className="flex flex-wrap items-center gap-3">
                             {socialLinks.map((item) => (
-                                <Link
+                                <a
                                     key={item.label}
                                     href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-transform hover:-translate-y-px"
                                     aria-label={item.label}
                                 >
                                     <Image src={item.icon} alt="" className="h-7 w-7"/>
-                                </Link>
+                                </a>
                             ))}
                         </div>
 
@@ -112,12 +116,18 @@ export default function Footer() {
                                 Verificados pelo Reclame Aqui
                             </h2>
 
-                            <div
-                                className="max-w-[390px] overflow-hidden rounded-2xl bg-white md:max-w-full lg:max-w-[390px]">
-                                <Image
-                                    src={reclameAqui}
-                                    alt="Reclame Aqui"
-                                    className="h-25 w-full object-cover"
+                            <div className="flex h-[118px] max-w-[390px] items-center justify-start overflow-hidden md:max-w-full lg:max-w-[390px]">
+                                <div
+                                    id="ra-verified-seal"
+                                    className="flex h-full w-full items-center justify-start [&_iframe]:!h-full [&_iframe]:!max-h-full [&_iframe]:!w-full [&_img]:!h-auto [&_img]:!max-h-full [&_img]:!max-w-full"
+                                />
+                                <Script
+                                    id="ra-embed-verified-seal"
+                                    src="https://s3.amazonaws.com/raichu-beta/ra-verified/bundle.js"
+                                    data-id="MTA0Nzk5Omxlc3RlLXRlbGVjb20="
+                                    data-target="ra-verified-seal"
+                                    data-model="2"
+                                    strategy="afterInteractive"
                                 />
                             </div>
                         </div>
@@ -130,13 +140,25 @@ export default function Footer() {
 
                         <div className="space-y-1 text-base leading-8 md:text-[1.02rem] lg:text-[1.08rem]">
                             {footerLinks.map((item) => (
-                                <Link
-                                    key={item.label}
-                                    href={item.href}
-                                    className="block transition-opacity hover:opacity-80"
-                                >
-                                    {item.label}
-                                </Link>
+                                isExternalLink(item.href) ? (
+                                    <a
+                                        key={item.label}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block transition-opacity hover:opacity-80"
+                                    >
+                                        {item.label}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={item.label}
+                                        href={item.href}
+                                        className="block transition-opacity hover:opacity-80"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </div>
@@ -182,14 +204,13 @@ export default function Footer() {
                     <div className="space-y-2">
                         <div
                             className="text-xl font-semibold leading-none tracking-[-0.03em] md:text-[1.45rem] lg:text-2xl">
-                            LESTE FLU SERVICOS DE TELECOM LTDA
+                            LESTE FLU SERVIÇOS DE TELECOM LTDA
                         </div>
                         <div className="text-sm md:text-[0.95rem] lg:text-base">
                             Todos os direitos reservados. (c)Leste Telecom 2026
                         </div>
                         <div className="max-w-[680px] text-sm leading-6 md:text-[0.95rem] lg:text-base">
-                            02.533.755/0001-87 | Avenida Almiránte Tamandare, 600 - Pirátininga - Niterói - RJ -
-                            24350-380
+                            Avenida Almirante Tamandaré, 600 - Piratininga - Niterói - RJ - 24350-380
                         </div>
                     </div>
 

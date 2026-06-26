@@ -16,6 +16,7 @@ export default function HomeHeroBanner({
     desktopImage,
     tabletImage,
     mobileImage,
+    desktopImageClassName = "",
     children,
 }) {
     const resolvedDesktopImage = desktopImage ?? bannerHomeDesktop;
@@ -43,7 +44,7 @@ export default function HomeHeroBanner({
                 fill
                 priority={priority}
                 unoptimized
-                className="hidden object-cover object-center lg:block 2xl:object-contain"
+                className={`hidden object-cover object-center lg:block ${desktopImageClassName || "2xl:object-contain"}`}
                 sizes="100vw"
             />
             <Image

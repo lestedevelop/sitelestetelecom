@@ -5,7 +5,7 @@ import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 const PREPARATION_STEPS = [
   {
     number: "01",
-    text: "Feche todos os programas e pause as atualizacoes.",
+    text: "Feche todos os programas e pause as atualizações.",
   },
   {
     number: "02",
@@ -21,29 +21,29 @@ const METRICS = [
   {
     title: "Download",
     description:
-      "A velocidade de download mostra a rapidez com que os dados chegam ao seu dispositivo.",
+      "A velocidade de download mostra a rapidez com que os dados chegam no seu dispositivo.",
     detail:
-      "Ela influencia atividades como acessar sites, assistir a videos e fazer downloads de arquivos.",
+      "Ela influencia atividades como acessar sites, assistir vídeos e fazer downloads de arquivos.",
     conclusion:
-      "Quanto maior a taxa em Mbps, melhor tende a ser a sua navegacao.",
+      "Quanto maior a taxa em Mbps, melhor tende a ser sua navegação.",
   },
   {
     title: "Upload",
     description:
       "A velocidade de upload indica a rapidez com que você envia dados para a internet.",
     detail:
-      "Ela influencia acoes como videochamadas, envio de imagens e transferencia de arquivos.",
+      "Ela influencia ações como videochamadas, envio de imagens e transferência de arquivos.",
     conclusion:
-      "Quanto maior o valor, mais estável tende a ser a sua conexão.",
+      "Quanto maior o valor, mais estável tende a ser sua conexão.",
   },
   {
     title: "Ping",
     description:
       "O ping mede o tempo de resposta entre o seu dispositivo e o servidor do teste.",
     detail:
-      "Ele impacta atividades em tempo real, como jogos online, chamadas e transmissoes ao vivo.",
+      "Ele impacta atividades em tempo real, como jogos online, chamadas e transmissões ao vivo.",
     conclusion:
-      "Quanto menor o valor em ms, melhor tende a ser a resposta da conexão.",
+      "Quanto menor o valor em ms, melhor tende ser a resposta da conexão.",
   },
 ];
 
@@ -54,10 +54,30 @@ export default function TesteDeVelocidade() {
         <HomeHeroBanner
           alt="Banner da página de teste de velocidade"
           className="h-[182px] md:h-[350px]"
+          contentClassName="flex items-center"
           desktopImage={bannerTesteVelocidade}
           tabletImage={bannerTesteVelocidade}
           mobileImage={bannerTesteVelocidade}
-        />
+        >
+          <div className="container px-8 md:px-16">
+            <div className="max-w-[260px] md:max-w-md">
+              <h1 className="text-2xl font-bold leading-tight text-light md:text-5xl">
+                Teste sua velocidade
+              </h1>
+              <p className="mt-2 text-sm font-medium leading-tight text-light/90 md:mt-3 md:text-xl">
+                Confira agora o desempenho da sua internet em tempo real.
+              </p>
+            </div>
+            <a
+              href="https://www.speedtest.net/pt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex w-44 items-center justify-center rounded-xl bg-darkgreen px-4 py-3 text-center text-base font-semibold text-light transition hover:bg-primary md:mt-6 md:w-60 md:text-2xl"
+            >
+              Iniciar teste
+            </a>
+          </div>
+        </HomeHeroBanner>
       </section>
 
       <section className="w-full bg-light">
@@ -116,8 +136,8 @@ export default function TesteDeVelocidade() {
           <p className="mt-10 max-w-6xl text-sm leading-6 text-darkgreen md:text-base">
             *O Speedtest permite testar a velocidade da sua internet em tempo real,
             avaliando o desempenho da conexão e identificando possíveis lentidões.
-            Ao fazer o teste de velocidade, você ve se a internet que está
-            chegando para você está dentro do esperado para o seu plano.
+            Ao fazer o teste de velocidade, você observa se a internet que chega é a
+            que está dentro do esperado para o seu plano.
           </p>
         </div>
       </section>

@@ -9,12 +9,12 @@ import centralIcon from "@/assets/area-do-cliente/central24.svg";
 export const CLIENT_ACTIONS = [
   {
     title: "Gerar 2° via da fatura",
-    href: "https://sitelestetelecom.vercel.app/leste-suporte",
+    href: "https://onelink.to/lestecentral",
     icon: boletoIcon,
   },
   {
     title: "Teste de velocidade",
-    href: "https://sitelestotelecom.vercel.app/testedevelocidade",
+    href: "https://www.speedtest.net/pt",
     icon: velocidadeIcon,
   },
   {

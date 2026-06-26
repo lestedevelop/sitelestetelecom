@@ -31,7 +31,7 @@ const SERVICES_MENU = [
     {href: "/movel", label: "Leste Móvel"},
     {href: "/cameras", label: "Câmeras"},
     {href: "/lesteup", label: "Leste Up"},
-    {label: "Link corporativo", children: BUSINESS_MENU},
+    {label: "Empresas", children: BUSINESS_MENU},
 ];
 
 const LEARN_MENU = [
