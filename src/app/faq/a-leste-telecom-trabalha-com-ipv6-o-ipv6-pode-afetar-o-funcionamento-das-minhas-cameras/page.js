@@ -4,7 +4,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
   title:
-    "A Leste Telecom trabalha com IPv6? O IPv6 pode afetar o funcionamento das minhas câmeras? | Leste",
+    "A Leste oferece IPv6? Entenda o impacto em câmeras e DVRs | Leste",
   description:
     "Informações sobre IPv6, CGNAT, câmeras, DVRs e compatibilidade com ONVIF.",
 };
@@ -16,8 +16,7 @@ export default function ALesteTelecomTrabalhaComIPv6() {
         <TitleFaq
           title={
             <>
-              A Leste Telecom trabalha com IPv6? O IPv6 pode afetar o
-              funcionamento das minhas câmeras?
+              A Leste oferece IPv6? Entenda o impacto em câmeras e DVRs
             </>
           }
         />

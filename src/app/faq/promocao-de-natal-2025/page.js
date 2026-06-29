@@ -39,7 +39,7 @@ export default function PromocaoDeNatal2025() {
                 sorteio.
               </p>
               <p className="mt-4">
-                Os contemplados foram comúnicados pelos dados informados no
+                Os contemplados foram comunicados pelos dados informados no
                 cadastro. Caso não houvesse resposta em até 48 horas, um novo
                 sorteio era realizado.
               </p>
@@ -80,7 +80,7 @@ export default function PromocaoDeNatal2025() {
               <h2 className="text-xl font-bold text-darkgreen">Uso de dados</h2>
               <p className="mt-4">
                 Os dados informados foram utilizados para gestão da promoção,
-                contato com participantes e comúnicação da empresa, conforme a
+                contato com participantes e comunicação da empresa, conforme a
                 LGPD.
               </p>
               <p className="mt-4">

@@ -24,7 +24,7 @@ export default function PmeHero() {
               Mais que internet, parceria para o seu negócio.
             </h1>
             <p className="mt-5 max-w-[520px] text-xl leading-7 text-white/88 md:text-2xl">
-              Planos empresariais com fibra ótica, estabilidade e suporte para sua operacao continuar conectada.
+              Planos empresariais com Fibra Ótica, estabilidade e suporte para sua operação continuar conectada.
             </p>
             <Link
               href="https://vendas.lestetelecom.com.br/"

@@ -23,7 +23,7 @@ export default function OQueSaoServicosAdicionaisSVA() {
             </p>
 
             <p>
-              Eles fazem parte da composição do serviço contratado e tem como
+              Eles fazem parte da composição do serviço contratado e têm como
               objetivo complementar o uso da internet, sem alterar o valor final
               pago.
             </p>

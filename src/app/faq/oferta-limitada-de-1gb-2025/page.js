@@ -1,6 +1,8 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import Image from "next/image";
+import tabelaLimitado1 from "@/assets/faq/tabela-limitado1.png";
 
 export const metadata = {
   title: "Oferta limitada de 1GB - 2025 | Leste",
@@ -26,6 +28,15 @@ export default function OfertaLimitadaDe1GB2025() {
               <h2 className="text-xl font-bold text-darkgreen">
                 Quais planos estavam disponíveis?
               </h2>
+
+              <div className="mt-4 overflow-x-auto rounded-xl border border-primary">
+                <Image
+                  src={tabelaLimitado1}
+                  alt="Tabela com ofertas disponíveis da campanha Oferta limitada de 1GB"
+                  className="h-auto min-w-[720px] w-full"
+                  priority
+                />
+              </div>
 
               <div className="mt-4 space-y-4">
                 <section>
@@ -54,7 +65,7 @@ export default function OfertaLimitadaDe1GB2025() {
 
           <FaqNote>
             <p>
-              A oferta esteve sujeita a disponibilidade técnica, condições
+              A oferta esteve sujeita à disponibilidade técnica, condições
               comerciais e regras vigentes durante o período da campanha.
             </p>
           </FaqNote>

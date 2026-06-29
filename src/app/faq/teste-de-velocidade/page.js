@@ -1,6 +1,13 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import FaqImageSteps, { FaqImageStep } from "@/pageComponents/faq/FaqImageSteps";
+import testeVelocidade1 from "@/assets/faq/teste-velocidade-1.png";
+import testeVelocidade2 from "@/assets/faq/teste-velocidade-2.png";
+import testeVelocidade3 from "@/assets/faq/teste-velocidade-3.png";
+import testeVelocidade4 from "@/assets/faq/teste-velocidade-4.png";
+import testeVelocidade5 from "@/assets/faq/teste-velocidade-5.png";
+import testeVelocidade6 from "@/assets/faq/teste-velocidade-6.png";
 
 export const metadata = {
   title: "Como testar a velocidade da minha internet? | Leste",
@@ -14,7 +21,7 @@ export default function TesteDeVelocidadeFaq() {
       <div className="container py-12 md:py-16">
         <TitleFaq title={<>Como testar a velocidade da minha internet?</>} />
 
-        <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+        <article className="mt-10 max-w-6xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
               Para realizar um teste de velocidade correto, siga estas
@@ -29,8 +36,34 @@ export default function TesteDeVelocidadeFaq() {
               <li>Acesse o site http://www.minhaconexao.com.br/</li>
               <li>Acesse o site https://beta.simet.nic.br</li>
               <li>Verifique se o servidor da Leste Telecom está selecionado</li>
-              <li>Execute o teste e confirá o resultado</li>
+              <li>Execute o teste e confira o resultado</li>
             </ul>
+
+            <FaqImageSteps className="pt-2" columns="md:grid-cols-2">
+              <FaqImageStep
+                image={testeVelocidade1}
+                alt="Tela inicial para teste de velocidade"
+                imageClassName="max-w-full"
+              >
+                Abra a ferramenta de teste de velocidade.
+              </FaqImageStep>
+
+              <FaqImageStep
+                image={testeVelocidade2}
+                alt="Tela de seleção do servidor Leste Telecom"
+                imageClassName="max-w-full"
+              >
+                Selecione o servidor da Leste Telecom quando disponível.
+              </FaqImageStep>
+
+              <FaqImageStep
+                image={testeVelocidade3}
+                alt="Tela com resultado de teste de velocidade"
+                imageClassName="max-w-full"
+              >
+                Confira o resultado final do teste.
+              </FaqImageStep>
+            </FaqImageSteps>
 
             <p>Se necessário, antes de repetir o teste:</p>
 
@@ -58,6 +91,32 @@ export default function TesteDeVelocidadeFaq() {
               Os equipamentos fornecidos pela Leste possuem portas gigabit, ou
               seja, são compatíveis com até 1 Gbps de velocidade.
             </p>
+
+            <FaqImageSteps className="pt-2" columns="md:grid-cols-2">
+              <FaqImageStep
+                image={testeVelocidade4}
+                alt="Exemplo de cabo de rede conectado ao equipamento"
+                imageClassName="max-w-full"
+              >
+                Verifique se o cabo de rede está conectado corretamente.
+              </FaqImageStep>
+
+              <FaqImageStep
+                image={testeVelocidade5}
+                alt="Exemplo de configuração de rede gigabit"
+                imageClassName="max-w-full"
+              >
+                Confirme se a placa de rede negocia velocidade gigabit.
+              </FaqImageStep>
+
+              <FaqImageStep
+                image={testeVelocidade6}
+                alt="Exemplo de resultado em rede compatível com alta velocidade"
+                imageClassName="max-w-full"
+              >
+                Repita o teste após validar cabos e equipamentos.
+              </FaqImageStep>
+            </FaqImageSteps>
 
             <p>
               Para velocidades acima de 800 Mbps, alguns navegadores podem

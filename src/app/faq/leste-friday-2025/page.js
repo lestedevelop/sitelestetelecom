@@ -1,6 +1,8 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import Image from "next/image";
+import tabelaLesteFriday from "@/assets/faq/tabela-leste-friday.png";
 
 export const metadata = {
   title: "Leste Friday 2025 | Leste",
@@ -30,6 +32,15 @@ export default function LesteFriday2025() {
               <h2 className="text-xl font-bold text-darkgreen">
                 Planos e valores da campanha
               </h2>
+
+              <div className="mt-4 overflow-x-auto rounded-xl border border-primary">
+                <Image
+                  src={tabelaLesteFriday}
+                  alt="Tabela com planos e valores da campanha Leste Friday 2025 por cidade"
+                  className="h-auto min-w-[720px] w-full"
+                  priority
+                />
+              </div>
 
               <div className="mt-4 space-y-4">
                 <section>

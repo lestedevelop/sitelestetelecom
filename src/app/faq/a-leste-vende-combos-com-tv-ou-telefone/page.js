@@ -27,14 +27,14 @@ export default function ALesteVendeCombosComTVOuTelefone() {
               <ul className="mt-4 list-disc space-y-2 pl-5">
                 <li>Internet fixa</li>
                 <li>Internet móvel</li>
-                <li>Solucoes de casa conectada, como Leste UP e Leste Câmeras</li>
+                <li>Soluções de casa conectada, como Leste UP e Leste Câmeras</li>
               </ul>
             </div>
           </div>
 
           <FaqNote>
             <p>
-              A Leste atua com serviços voltados a conectividade e solucoes
+              A Leste atua com serviços voltados à conectividade e soluções
               digitais, não oferecendo pacotes combinados com TV ou telefonia
               fixa.
             </p>

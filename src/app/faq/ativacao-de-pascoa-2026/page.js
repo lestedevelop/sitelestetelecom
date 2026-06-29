@@ -41,7 +41,7 @@ export default function AtivacaoDePascoa2026() {
                 divulgadas nos canais da Leste.
               </p>
               <p className="mt-4">
-                Os ganhadores foram comúnicados por e-mail, telefone ou
+                Os ganhadores foram comunicados por e-mail, telefone ou
                 WhatsApp e, caso não respondessem em até 48 horas, um novo
                 sorteio era realizado.
               </p>
@@ -67,7 +67,7 @@ export default function AtivacaoDePascoa2026() {
                 A Leste foi responsável pela realização da ativação, cadastro,
                 sorteios e entrega dos prêmios. Não se responsabiliza por
                 cancelamentos ou alterações realizadas por terceiros, problemas
-                de acesso a internet, falhas no dispositivo do participante ou
+                de acesso à internet, falhas no dispositivo do participante ou
                 dados incorretos informados no cadastro.
               </p>
               <p className="mt-4">
@@ -86,7 +86,7 @@ export default function AtivacaoDePascoa2026() {
               <h2 className="text-xl font-bold text-darkgreen">Uso de dados</h2>
               <p className="mt-4">
                 Os dados foram utilizados para gestão da promoção, contato com
-                participantes e comúnicação relacionada a marca. Também podem
+                participantes e comunicação relacionada à marca. Também podem
                 ser utilizados para ações de marketing, publicidade e ofertas,
                 conforme a LGPD.
               </p>

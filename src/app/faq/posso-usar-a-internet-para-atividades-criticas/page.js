@@ -17,33 +17,33 @@ export default function PossoUsarAInternetParaAtividadesCriticas() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A conexão por fibra e segura e confiável, mas não e indicada como
+              A conexão por fibra é segura e confiável, mas não é indicada como
               única solução para atividades críticas.
             </p>
 
             <p>
               O serviço não possui SLA além do previsto em contrato e pode
-              sofrer interrupcoes, especialmente por fatores externos como
-              danos, interferencias ou situacoes na rede.
+              sofrer interrupções, especialmente por fatores externos como
+              danos, interferências ou situações na rede.
             </p>
 
             <p>
               Por isso, não deve ser utilizado como solução exclusiva para
-              aplicacoes como sistemas de venda, alarmes, monitoramento
+              aplicações como sistemas de venda, alarmes, monitoramento
               (incluindo home care) ou sistemas de segurança.
             </p>
 
             <p>
-              Para esses casos, e recomendado utilizar conexoes de backup ou
-              solucoes redundantes para garantir maior disponibilidade.
+              Para esses casos, é recomendado utilizar conexões de backup ou
+              soluções redundantes para garantir maior disponibilidade.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              O serviço e prestado conforme as condições contratuais e não e
-              destinado a aplicacoes críticas que exijam alta disponibilidade
-              continua.
+              O serviço é prestado conforme as condições contratuais e não é
+              destinado a aplicações críticas que exijam alta disponibilidade
+              contínua.
             </p>
           </FaqNote>
         </article>

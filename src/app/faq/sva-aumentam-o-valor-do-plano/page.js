@@ -5,7 +5,7 @@ import FaqNote from "@/pageComponents/faq/FaqNote";
 export const metadata = {
   title: "SVA aumentam o valor do plano? | Leste",
   description:
-    "Informações sobre impacto dos SVA no valor do plano e discriminacao em fatura.",
+    "Informações sobre impacto dos SVA no valor do plano e discriminação em fatura.",
 };
 
 export default function SVAAumentamOValorDoPlano() {
@@ -17,7 +17,7 @@ export default function SVAAumentamOValorDoPlano() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Nao. Os SVA não aumentam o valor do plano e não possuem cobrança
+              Não. Os SVA não aumentam o valor do plano e não possuem cobrança
               adicional.
             </p>
 
@@ -35,7 +35,7 @@ export default function SVAAumentamOValorDoPlano() {
 
           <FaqNote>
             <p>
-              A discriminacao dos SVA na fatura não representa cobrança extra,
+              A discriminação dos SVA na fatura não representa cobrança extra,
               apenas a composição contratual do serviço.
             </p>
           </FaqNote>

@@ -17,14 +17,14 @@ export default function DenunciaFurtoPage() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Voce pode denunciar situacoes que afetem a rede da Leste, como
-              furto de cabos, danos a equipamentos, sabotagens ou outras acoes
+              Você pode denunciar situações que afetem a rede da Leste, como
+              furto de cabos, danos a equipamentos, sabotagens ou outras ações
               suspeitas.
             </p>
 
             <p>
-              Para enviar a denuncia a Leste, encaminhe relatos, fotos ou
-              videos para o e-mail
+              Para enviar a denúncia à Leste, encaminhe relatos, fotos ou
+              vídeos para o e-mail
               {" "}
               <a className="text-primary underline underline-offset-2" href="mailto:sac@lestetelecom.com.br">
                 sac@lestetelecom.com.br
@@ -33,21 +33,21 @@ export default function DenunciaFurtoPage() {
             </p>
 
             <p>
-              Também e possível realizar denúncias por canais externos, como o
-              Disque Denuncia, pelo telefone ou WhatsApp (21) 2253-1177, com
-              opção de anônimato.
+              Também é possível realizar denúncias por canais externos, como o
+              Disque Denúncia, pelo telefone ou WhatsApp (21) 2253-1177, com
+              opção de anonimato.
             </p>
 
             <p>
               As denúncias podem ser feitas de forma anônima, e o sigilo das
-              informações e garantido.
+              informações é garantido.
             </p>
           </div>
 
           <FaqNote>
             <p>
-              Relatos com fotos, videos e detalhes ajudam na apuracao, mas a
-              denuncia pode ser feita sem identificar o denunciante.
+              Relatos com fotos, vídeos e detalhes ajudam na apuração, mas a
+              denúncia pode ser feita sem identificar o denunciante.
             </p>
           </FaqNote>
         </article>

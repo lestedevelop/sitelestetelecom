@@ -1,6 +1,9 @@
+import Image from "next/image";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import logoAtual from "@/assets/Logo.svg";
+import logoAntigo from "@/assets/LogoAntigo.png";
 
 export const metadata = {
   title: "Quais são as informações legais da Leste? | Leste",
@@ -17,7 +20,7 @@ export default function InfoLegal() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A Leste Telecom e uma empresa registrada e autorizada para
+              A Leste Telecom é uma empresa registrada e autorizada para
               prestação de serviços, com informações disponíveis para consulta.
             </p>
 
@@ -30,12 +33,39 @@ export default function InfoLegal() {
                 <p>Leste Flu Serviços de Telecom LTDA (Leste Telecom)</p>
                 <p>CNPJ: 02.533.755/0001-87</p>
                 <p>
-                  Avenida Almiránte Tamandare, 600
+                  Avenida Almirante Tamandaré, 600
                   <br />
-                  Pirátininga - Niterói - RJ
+                  Piratininga - Niterói - RJ
                   <br />
                   CEP: 24350-380
                 </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-darkgreen">
+                Marcas registradas
+              </h2>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-graylighter bg-light px-6 py-5">
+                  <div className="flex min-h-24 items-center justify-center">
+                    <Image
+                      src={logoAtual}
+                      alt="Logo atual da Leste Telecom"
+                      className="h-auto w-full max-w-52"
+                    />
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-graylighter bg-light px-6 py-5">
+                  <div className="flex min-h-24 items-center justify-center">
+                    <Image
+                      src={logoAntigo}
+                      alt="Logo antigo da Leste Telecom"
+                      className="h-auto w-full max-w-52"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

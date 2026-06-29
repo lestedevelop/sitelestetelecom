@@ -3,16 +3,16 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-  title: "Campanha Promocional 2026 - Maricá | Leste",
+  title: "Oferta em Campo - Maricá | Leste",
   description:
-    "Informações sobre a campanha promocional 2026 para Maricá, planos, valores e condições.",
+    "Informações sobre a oferta promocional em campo para Maricá, valores, condições e regras da campanha.",
 };
 
-export default function CampanhaPromocional2026Marica() {
+export default function OfertaEmCampoMarica() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
-        <TitleFaq title={<>Campanha Promocional 2026 - Maricá</>} />
+        <TitleFaq title={<>Oferta em Campo - Maricá</>} />
 
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
@@ -46,6 +46,10 @@ export default function CampanhaPromocional2026Marica() {
             <p>
               Demais cidades atendidas pela Leste não participam desta campanha
               e permanecem com suas ofertas e condições específicas vigentes.
+            </p>
+
+            <p className="text-sm text-graylight">
+              Última revisão em: 09/06/2026
             </p>
           </div>
 

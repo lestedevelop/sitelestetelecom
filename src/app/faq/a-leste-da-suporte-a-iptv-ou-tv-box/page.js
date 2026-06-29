@@ -23,19 +23,19 @@ export default function ALesteDaSuporteAIptvOuTvBox() {
 
             <p>
               Esses serviços utilizam servidores externos e funcionam fora da
-              rede e do controle da operadora, por isso não ha garantia de
+              rede e do controle da operadora, por isso não há garantia de
               funcionamento, estabilidade ou segurança.
             </p>
 
             <p>
-              Alem disso, alguns serviços podem distribuir conteúdo sem
-              autorizacao, o que pode configurar irregularidade ou violacao de
+              Além disso, alguns serviços podem distribuir conteúdo sem
+              autorização, o que pode configurar irregularidade ou violação de
               direitos autorais.
             </p>
 
             <p>
               O uso desses sistemas pode envolver riscos como instabilidade,
-              interrupcoes, exposicao a virus, invasoes ou risco de vazamento de
+              interrupções, exposição a vírus, invasões ou risco de vazamento de
               dados.
             </p>
 
@@ -53,10 +53,10 @@ export default function ALesteDaSuporteAIptvOuTvBox() {
           <FaqNote>
             <p>
               A Leste não possui acesso ou controle sobre serviços de IPTV, TV
-              Box ou plataformas similares, não oferecendo suporte tecnico para
+              Box ou plataformas similares, não oferecendo suporte técnico para
               esses sistemas. O uso de serviços irregulares pode acarretar
-              bloqueios, apreensao de equipamentos ou outros impactos ao
-              usuario.
+              bloqueios, apreensão de equipamentos ou outros impactos ao
+              usuário.
             </p>
           </FaqNote>
         </article>

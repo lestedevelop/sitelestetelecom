@@ -8,7 +8,7 @@ export const metadata = {
     "Informações sobre a campanha promocional 2026 para Niterói Predial, planos, valores e condições.",
 };
 
-export default function CampanhaPromocional2026NiteróiPredial() {
+export default function CampanhaPromocional2026NiteroiPredial() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
@@ -40,7 +40,7 @@ export default function CampanhaPromocional2026NiteróiPredial() {
             </p>
 
             <p>
-              A contratação possui fidelidade de 12 meses e está sujeita a
+              A contratação possui fidelidade de 12 meses e está sujeita à
               análise e disponibilidade técnica no endereço.
             </p>
 

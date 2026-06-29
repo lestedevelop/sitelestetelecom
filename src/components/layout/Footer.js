@@ -29,20 +29,20 @@ const socialLinks = [
 
 const footerLinks = [
     {href: "https://vendas.lestetelecom.com.br", label: "Contratação on-line"},
-    {href: "/leste-suporte", label: "Central de atendimento"},
+    {href: "/faq/canal-oficial-de-atendimento", label: "Central de atendimento"},
     {href: "/viabilidade", label: "Mapa de cobertura"},
-    {href: "https://portal.lestetelecom.com.br/login", label: "2a via da conta"},
+    {href: "https://portal.lestetelecom.com.br/login", label: "2ª via da conta"},
     {href: "/faq", label: "Precisa de ajuda? FAQ"},
     {href: "/faq/lojas", label: "Nossas lojas"},
     {href: "https://lestetelecom.vagas.solides.com.br/", label: "Trabalhe na Leste"},
-    {href: "/faq/contratos", label: "Contrato e regulamentos"},
-    {href: "/leste-suporte", label: "Conheca os aplicativos"},
+    {href: "/info-legal", label: "Contrato e regulamentos"},
+    {href: "/leste-suporte", label: "Conheça os aplicativos"},
 ];
 
 const supportPhones = [
-    {icon: whatsIcon, label: "021 2020-1300"},
-    {icon: telIcon, label: "021 0800 053 1300"},
-    {icon: telIcon, label: "021 3940-0130"},
+    {icon: whatsIcon, label: "(021) 2020-1300"},
+    {icon: telIcon, label: "(021) 0800 053 1300"},
+    {icon: telIcon, label: "(021) 3940-0130"},
 ];
 
 export default function Footer() {
@@ -92,22 +92,32 @@ export default function Footer() {
                             </h2>
 
                             <div className="grid gap-4 sm:grid-cols-2 lg:flex lg:flex-row">
-                                <Link href="/leste-suporte" className="flex items-center gap-3">
+                                <a
+                                    href="https://onelink.to/lestecentral"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3"
+                                >
                                     <Image src={appLeste} alt="Leste Central" className="h-[52px] w-[52px] rounded-xl"/>
                                     <div className="leading-tight">
                                         <div className="text-sm text-white/75">Baixar</div>
                                         <div className="text-2xl font-semibold">Leste Central</div>
                                     </div>
-                                </Link>
+                                </a>
 
-                                <Link href="/leste-suporte" className="flex items-center gap-3">
+                                <a
+                                    href="https://onelink.to/lestesuporte"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3"
+                                >
                                     <Image src={portalLeste} alt="Leste Suporte"
                                            className="h-[52px] w-[52px] rounded-xl"/>
                                     <div className="leading-tight">
                                         <div className="text-sm text-white/75">Baixar</div>
                                         <div className="text-2xl font-semibold">Leste Suporte</div>
                                     </div>
-                                </Link>
+                                </a>
                             </div>
                         </div>
 
@@ -135,7 +145,7 @@ export default function Footer() {
 
                     <div className="space-y-5 md:col-span-1">
                         <h2 className="text-[2.35rem] font-semibold leading-none tracking-[-0.03em] md:text-[2rem] lg:text-[2.6rem]">
-                            Pra você
+                            Para você
                         </h2>
 
                         <div className="space-y-1 text-base leading-8 md:text-[1.02rem] lg:text-[1.08rem]">
@@ -189,7 +199,7 @@ export default function Footer() {
                             <div
                                 className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
                                 <Image src={whatsIcon} alt="" className="h-6 w-6"/>
-                                <span>021 2020-1303</span>
+                                <span>(021) 2020-1303</span>
                             </div>
                         </div>
                     </div>

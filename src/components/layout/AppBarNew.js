@@ -36,7 +36,7 @@ const SERVICES_MENU = [
 
 const LEARN_MENU = [
     {href: "/faq", label: "FAQ"},
-    {href: "/faq/teste-de-velocidade", label: "Teste de velocidade"},
+    {href: "/testedevelocidade", label: "Teste de Velocidade"},
     {href: "/indique-e-ganhe-leste", label: "Indique e Ganhe"},
     {href: "/faq/lojas", label: "Lojas"},
     {href: "https://portal.lestetelecom.com.br", label: "Central do Assinante"},

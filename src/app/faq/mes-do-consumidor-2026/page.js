@@ -1,6 +1,8 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import Image from "next/image";
+import tabelaConsumidor from "@/assets/faq/tabela-consumidor.png";
 
 export const metadata = {
   title: "Como funciona a campanha Mês do Consumidor 2026? | Leste",
@@ -26,6 +28,15 @@ export default function MesDoConsumidor2026() {
               <h2 className="text-xl font-bold text-darkgreen">
                 Quais planos estão disponíveis?
               </h2>
+
+              <div className="mt-4 overflow-x-auto rounded-xl border border-primary">
+                <Image
+                  src={tabelaConsumidor}
+                  alt="Tabela com planos disponíveis na campanha Mês do Consumidor 2026 por cidade"
+                  className="h-auto min-w-[720px] w-full"
+                  priority
+                />
+              </div>
 
               <div className="mt-4 space-y-4">
                 <section>
@@ -69,7 +80,7 @@ export default function MesDoConsumidor2026() {
                 disponibilidade técnica e modelo de atendimento.
               </p>
               <p className="mt-4">
-                A adesão a promoção pode exigir assinatura digital de
+                A adesão à promoção pode exigir assinatura digital de
                 documentos. Em alguns casos, a aplicação do desconto depende da
                 troca de equipamentos.
               </p>

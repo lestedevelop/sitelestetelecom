@@ -1,11 +1,14 @@
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
+import FaqImageSteps, { FaqImageStep } from "@/pageComponents/faq/FaqImageSteps";
+import image1 from "@/assets/faq/estousemintenet1.png";
+import image2 from "@/assets/faq/estousemintenet2.png";
 
 export const metadata = {
   title: "Estou sem internet, o que fazer? | Leste",
   description:
-    "Orientacoes básicas quando a internet não funciona ou a ONU apresenta luz vermelha.",
+    "Orientações básicas quando a internet não funciona ou a ONU apresenta luz vermelha.",
 };
 
 export default function SemInternet() {
@@ -30,6 +33,24 @@ export default function SemInternet() {
               <li>Verifique se todos os cabos estão conectados corretamente</li>
               <li>Teste a conexão em outro dispositivo, se possível</li>
             </ul>
+
+            <FaqImageSteps className="pt-2" columns="md:grid-cols-1">
+              <FaqImageStep
+                image={image1}
+                alt="Mapa de conexão entre TOA, conversor óptico, roteador e computador"
+                imageClassName="max-w-full"
+              >
+                Confira onde cada cabo deve estar conectado nos equipamentos.
+              </FaqImageStep>
+
+              <FaqImageStep
+                image={image2}
+                alt="Ilustração da conexão entre TOA, ONU, roteador e notebook"
+                imageClassName="max-w-full"
+              >
+                Verifique a ligação entre TOA, ONU, roteador e dispositivo.
+              </FaqImageStep>
+            </FaqImageSteps>
 
             <p>
               Se o problema continuar, entre em contato com a central de

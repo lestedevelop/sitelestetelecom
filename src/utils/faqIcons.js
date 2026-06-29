@@ -21,6 +21,7 @@ export const FAQ_ICON_NAMES = [
   "document",
   "warning",
   "payment",
+  "camera",
 ];
 
 export function FaqIcon({ name, className }) {
@@ -184,6 +185,15 @@ export function FaqIcon({ name, className }) {
       return (
         <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
           <path fill="currentColor" d="M4 6h16v12H4V6Zm2 2v2h12V8H6Zm0 4v4h6v-4H6Z" />
+        </svg>
+      );
+    case "camera":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+          <path
+            fill="currentColor"
+            d="M4 7h11v3l5-3v10l-5-3v3H4V7Zm2 2v6h7V9H6Z"
+          />
         </svg>
       );
     default:
