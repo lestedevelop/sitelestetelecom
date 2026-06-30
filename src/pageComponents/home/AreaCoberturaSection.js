@@ -1,8 +1,14 @@
+"use client";
+
 import Section from "@/components/layout/Section";
-import Link from "next/link";
-import areaCobertura from "@/assets/areaCobertura.png"
+import {useState} from "react";
+import areaCobertura from "@/assets/areaCobertura.png";
+import ModalViabilidade from "@/components/layout/ModalViabilidade";
+import {SalesProviderNew} from "@/contexts/SalesContextNew";
 
 export default function AreaCoberturaSection() {
+  const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
+
   return (
   <div className="relative h-[293px] bg-primary">
     <div
@@ -22,12 +28,19 @@ export default function AreaCoberturaSection() {
         <p className="hidden md:block text-base text-[20px] mb-6">
           Selecione sua cidade e confirá <br /> se sua região é atendida.
         </p>
-        <Link href="/viabilidade" className="w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition">
+        <button
+          type="button"
+          onClick={() => setModalViabilidadeOpen(true)}
+          className="w-60 py-3 font-semibold text-2xl text-center rounded-xl bg-[#045441] hover:opacity-90 transition"
+        >
           Consultar!
-        </Link>
+        </button>
       </div>
 
     </Section>
+    <SalesProviderNew>
+      <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen} />
+    </SalesProviderNew>
   </div>
   )
 }

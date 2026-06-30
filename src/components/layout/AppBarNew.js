@@ -640,6 +640,12 @@ export default function AppBarNew() {
                                                         onClose={() => setLearnOpen(false)}
                                                         bannerImage={bannerSaibaMais}
                                                         bannerAlt="Saiba mais sobre a Leste Telecom"
+                                                        action={{
+                                                            label: "Consultar viabilidade",
+                                                            onClick: () => {
+                                                                setModalViabilidadeOpen(true);
+                                                            },
+                                                        }}
                                                     />
                                                 )}
                                             </div>

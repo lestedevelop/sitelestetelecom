@@ -119,7 +119,7 @@ export default function ConhecaNossosServicosSection() {
                     spaceBetween: 16,
                   },
                   1280: {
-                    slidesPerView: 2.1,
+                    slidesPerView: 2.4,
                     centeredSlides: false,
                     spaceBetween: 16,
                   },

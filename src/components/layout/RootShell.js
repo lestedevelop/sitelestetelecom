@@ -4,6 +4,7 @@ import {usePathname} from "next/navigation";
 import {ToastContainer} from "react-toastify";
 import AppBarNew from "@/components/layout/AppBarNew";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 
 function isVendasPathname(pathname = "") {
     return pathname === "/vendas" || pathname.startsWith("/vendas/") || pathname.startsWith("/vendas-");
@@ -25,6 +26,7 @@ export default function RootShell({children}) {
         <>
             <AppBarNew/>
             {children}
+            <WhatsAppFloating/>
             <ToastContainer
                 position="top-right"
                 autoClose={4000}

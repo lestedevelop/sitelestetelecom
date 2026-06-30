@@ -3,12 +3,17 @@ import PlanCard from "@/components/cards/PlanCard";
 import PromotionalPlanCard from "@/pageComponents/vendas/PromotionalPlanCardVendas";
 import PlanCardSkeleton from "@/components/skeletom/PlanCardSkeletom";
 import PlansSwiperHome from "@/pageComponents/home/PlansSwiperHome";
+import ModalViabilidade from "@/components/layout/ModalViabilidade";
+import {SalesProviderNew} from "@/contexts/SalesContextNew";
+import Link from "next/link";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
 import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
+import {useState} from "react";
 
 export default function PlanosSection() {
+    const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
     const {planos, loading} = useHomeData();
     const {site} = useSite();
     const plansData = planos?.data || [];
@@ -57,10 +62,25 @@ export default function PlanosSection() {
                 </p>
                 <div className="text-center">
                     <p className="mx-2.5 mb-8  text-sm lg:text-base text-graylight">
-                        Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso FAQ para conhecer as regras que complementam o contrato de prestação de serviço, bem como os serviços agregados a cada plano.
+                        Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso{" "}
+                        <Link href="/faq" className="font-semibold text-primary underline underline-offset-2">
+                            FAQ
+                        </Link>{" "}
+                        para conhecer as regras que complementam o contrato de prestação de serviço, bem como os serviços agregados a cada plano.
                     </p>
+                    <button
+                        type="button"
+                        onClick={() => setModalViabilidadeOpen(true)}
+                        className="inline-flex min-h-12 items-center justify-center rounded-xl bg-primary px-8 py-3 text-base font-semibold text-white transition-transform hover:-translate-y-px"
+                    >
+                        Consultar viabilidade
+                    </button>
                 </div>
             </div>
+
+            <SalesProviderNew>
+                <ModalViabilidade open={modalViabilidadeOpen} onClose={setModalViabilidadeOpen}/>
+            </SalesProviderNew>
 
 
 

@@ -9,7 +9,7 @@ import centralIcon from "@/assets/area-do-cliente/central24.svg";
 export const CLIENT_ACTIONS = [
   {
     title: "Gerar 2° via da fatura",
-    href: "https://onelink.to/lestecentral",
+    href: "https://portal.lestetelecom.com.br/login",
     icon: boletoIcon,
   },
   {

@@ -1,16 +1,17 @@
 import Section from "@/components/layout/Section";
 import PmePlansSwiper from "@/pageComponents/pme/PmePlansSwiper";
 import {PME_PLANS} from "@/pageComponents/pme/pmePlansData";
+import Link from "next/link";
 
 export default function PmePlansSection() {
   return (
     <Section>
       <section className="pt-8 pb-8">
         <h2 className="text-center text-[28px] font-bold leading-[1.05] text-primary md:text-[64px]">
-          Conheca nossos planos empresariais!
+          Conheça nossos planos empresariais!
         </h2>
         <p className="mt-2 text-center text-base leading-[1.3] text-dark md:text-2xl">
-          Internet 100% Fibra ótica para o seu negócio
+          Internet 100% Fibra Ótica para o seu negócio
         </p>
       </section>
 
@@ -18,11 +19,15 @@ export default function PmePlansSection() {
 
       <div className="pt-8 pb-8">
         <p className="mt-2 text-center text-xl font-bold leading-[1.3] text-darkgreen md:text-2xl">
-          Planos empresariais sujeitos a viabilidade técnica.
+          Planos empresariais sujeitos à viabilidade técnica.
         </p>
         <div className="text-center">
           <p className="mx-2.5 mb-8 text-sm text-graylight lg:text-base">
-            Todos os planos e serviços estão sujeitos a viabilidade técnica. Consulte nosso FAQ para conhecer regras, condições e serviços agregados a cada plano.
+            Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso{" "}
+            <Link href="/faq" className="font-semibold text-primary underline underline-offset-2">
+              FAQ
+            </Link>{" "}
+            para conhecer regras, condições e serviços agregados a cada plano.
           </p>
         </div>
       </div>

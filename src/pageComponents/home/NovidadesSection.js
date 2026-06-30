@@ -17,12 +17,13 @@ function NewsCard({ item }) {
   return (
     <Link href={item.href} className="mx-auto block h-[550px] w-full max-w-[360px]">
       <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-light">
-        <div className="relative h-[200px] w-full">
+        <div className="relative h-[220px] w-full shrink-0">
           <Image
             src={imageSrc}
             alt={item.title}
             fill
-            className="object-cover"
+            sizes="(min-width: 1280px) 360px, (min-width: 768px) 50vw, 100vw"
+            className="h-full w-full object-cover"
             unoptimized={isDataImageSrc(imageSrc)}
           />
         </div>
@@ -109,7 +110,7 @@ export default function NovidadesSection() {
                     spaceBetween: 16,
                   },
                   1280: {
-                    slidesPerView: 2.1,
+                    slidesPerView: 2.4,
                     centeredSlides: false,
                     spaceBetween: 16,
                   },
