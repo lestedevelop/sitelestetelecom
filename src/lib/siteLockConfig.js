@@ -36,6 +36,7 @@ function buildMatchers(paths = []) {
 
 export const siteLockConfig = {
     enabled: process.env.SITE_LOCK_ENABLED !== "false",
+    vendasLockEnabled: process.env.VENDAS_LOCK_ENABLED === "true",
     redirectPath: normalizePath(process.env.SITE_LOCK_REDIRECT_PATH) || DEFAULT_REDIRECT_PATH,
     allowedRoutes: buildMatchers([
         "/vendas",
@@ -44,26 +45,42 @@ export const siteLockConfig = {
         "/api/vendas/*",
         ...parseEnvList(process.env.SITE_LOCK_ALLOWED_ROUTES),
     ]),
+    vendasLockedRoutes: buildMatchers([
+        "/vendas",
+        "/vendas/*",
+        "/vendas-*",
+        ...parseEnvList(process.env.VENDAS_LOCK_ROUTES),
+    ]),
 };
+
+function matchesRoute(route, pathname) {
+    if (route.path === "/") {
+        return pathname === "/";
+    }
+
+    if (route.type === "exact") {
+        return pathname === route.path;
+    }
+
+    if (route.boundary === "/") {
+        return pathname === route.path || pathname.startsWith(`${route.path}/`);
+    }
+
+    return pathname === route.path || pathname.startsWith(route.path);
+}
 
 export function isRouteAllowed(pathname = "") {
     const normalizedPathname = normalizePath(pathname);
 
     if (!normalizedPathname) return false;
 
-    return siteLockConfig.allowedRoutes.some((route) => {
-        if (route.path === "/") {
-            return normalizedPathname === "/";
-        }
+    return siteLockConfig.allowedRoutes.some((route) => matchesRoute(route, normalizedPathname));
+}
 
-        if (route.type === "exact") {
-            return normalizedPathname === route.path;
-        }
+export function isVendasRouteLocked(pathname = "") {
+    const normalizedPathname = normalizePath(pathname);
 
-        if (route.boundary === "/") {
-            return normalizedPathname === route.path || normalizedPathname.startsWith(`${route.path}/`);
-        }
+    if (!siteLockConfig.vendasLockEnabled || !normalizedPathname) return false;
 
-        return normalizedPathname === route.path || normalizedPathname.startsWith(route.path);
-    });
+    return siteLockConfig.vendasLockedRoutes.some((route) => matchesRoute(route, normalizedPathname));
 }

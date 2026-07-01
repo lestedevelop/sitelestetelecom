@@ -19,7 +19,7 @@ export const CLIENT_ACTIONS = [
   },
   {
     title: "Problemas de conexão",
-    href: "https://sitelestotelecom.vercel.app/faq",
+    href: "/faq",
     icon: conexaoIcon,
   },
   {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { isRouteAllowed, siteLockConfig } from "@/lib/siteLockConfig";
+import { isRouteAllowed, isVendasRouteLocked, siteLockConfig } from "@/lib/siteLockConfig";
 
 function isStaticAsset(pathname = "") {
     return /\.[^/]+$/.test(pathname);
@@ -28,6 +28,19 @@ export function middleware(request) {
     const requestId = request.headers.get("x-request-id") || crypto.randomUUID();
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-request-id", requestId);
+
+    if (siteLockConfig.vendasLockEnabled) {
+        if (isVendasRouteLocked(pathname)) {
+            return new NextResponse(null, { status: 404 });
+        }
+
+        const response = NextResponse.next({
+            request: { headers: requestHeaders },
+        });
+
+        response.headers.set("x-request-id", requestId);
+        return response;
+    }
 
     if (siteLockConfig.enabled && !isAllowedPath(pathname)) {
         const redirectUrl = new URL(siteLockConfig.redirectPath, request.url);
