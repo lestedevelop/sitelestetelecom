@@ -17,6 +17,8 @@ export default function HomeHeroBanner({
     tabletImage,
     mobileImage,
     desktopImageClassName = "",
+    tabletImageClassName = "",
+    mobileImageClassName = "",
     children,
 }) {
     const resolvedDesktopImage = desktopImage ?? bannerHomeDesktop;
@@ -53,7 +55,7 @@ export default function HomeHeroBanner({
                 fill
                 priority={priority}
                 unoptimized
-                className="hidden object-cover object-center md:block lg:hidden"
+                className={`hidden object-cover object-center md:block lg:hidden ${tabletImageClassName}`}
                 sizes="100vw"
             />
             <Image
@@ -62,7 +64,7 @@ export default function HomeHeroBanner({
                 fill
                 priority={priority}
                 unoptimized
-                className="object-contain object-center md:hidden"
+                className={`object-contain object-center md:hidden ${mobileImageClassName}`}
                 sizes="100vw"
             />
             {children ? (

@@ -12,13 +12,16 @@ export default function Faq() {
       <section className="w-full">
         <HomeHeroBanner
           alt="Banner FAQ da Leste Telecom"
-          className="h-[182px] md:h-[350px]"
-          contentClassName="container flex flex-col justify-center text-light"
+          className="!aspect-[390/608] !h-auto !w-full md:!aspect-auto md:!h-[608px]"
+          desktopImageClassName="!object-cover"
+          tabletImageClassName="!object-cover"
+          mobileImageClassName="!object-contain"
+          contentClassName="flex flex-col justify-center text-light md:container"
         >
           <div className="max-w-48 md:max-w-66">
-            <h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>
+            {/*<h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>*/}
             <p className="text-[13px] md:text-[26px]">
-              Encontre respostas para suas dúvidas.
+              {/*Encontre respostas para suas dúvidas.*/}
             </p>
           </div>
         </HomeHeroBanner>
