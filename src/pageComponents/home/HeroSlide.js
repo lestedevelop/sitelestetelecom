@@ -7,8 +7,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import bannerLesteCameras from "@/assets/home/01-07-2026/banner-leste-cameras.png";
+import bannerLesteCamerasMobile from "@/assets/home/01-07-2026/banner-leste-cameras-mobile.png";
 import bannerLesteUp from "@/assets/home/01-07-2026/banner-leste-up.png";
+import bannerLesteUpMobile from "@/assets/home/01-07-2026/banner-leste-up-mobile.png";
 import bannerOfertaEmCampo from "@/assets/home/01-07-2026/banner-oferta-em-campo.png";
+import bannerOfertaEmCampoMobile from "@/assets/home/01-07-2026/banner-oferta-em-campo-mobile.png";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 const heroSlides = [
@@ -17,18 +20,21 @@ const heroSlides = [
         alt: "Banner Leste Câmeras",
         href: "/cameras",
         image: bannerLesteCameras,
+        mobileImage: bannerLesteCamerasMobile,
     },
     {
         id: "home-leste-up",
         alt: "Banner Leste Up",
         href: "/lesteup",
         image: bannerLesteUp,
+        mobileImage: bannerLesteUpMobile,
     },
     {
         id: "home-oferta-em-campo",
         alt: "Banner Oferta em Campo da Leste Telecom",
         href: "https://vendas.lestetelecom.com.br/",
         image: bannerOfertaEmCampo,
+        mobileImage: bannerOfertaEmCampoMobile,
     },
 ];
 
@@ -40,7 +46,7 @@ function HeroSlideItem({slide, priority = false}) {
             priority={priority}
             desktopImage={slide.image}
             tabletImage={slide.image}
-            mobileImage={slide.image}
+            mobileImage={slide.mobileImage}
         />
     );
 }

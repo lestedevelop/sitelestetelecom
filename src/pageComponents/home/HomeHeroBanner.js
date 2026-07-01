@@ -26,7 +26,7 @@ export default function HomeHeroBanner({
     const showDesktopGlow = !hasCustomBanner;
 
     const content = (
-        <div className={`relative h-[calc(100dvh-93px)] overflow-hidden bg-primary md:h-[380px] lg:h-[460px] xl:h-[520px] ${className}`}>
+        <div className={`relative aspect-[640/388] max-h-[388px] overflow-hidden bg-primary md:aspect-auto md:h-[380px] lg:h-[460px] xl:h-[520px] ${className}`}>
             {showDesktopGlow ? (
                 <Image
                     src={bannerHomeDesktop}
@@ -62,7 +62,7 @@ export default function HomeHeroBanner({
                 fill
                 priority={priority}
                 unoptimized
-                className="object-cover md:hidden"
+                className="object-contain object-center md:hidden"
                 sizes="100vw"
             />
             {children ? (
