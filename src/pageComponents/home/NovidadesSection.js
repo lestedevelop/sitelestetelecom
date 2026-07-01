@@ -29,7 +29,7 @@ function NewsCard({ item }) {
         </div>
 
         <div className="flex flex-1 flex-col px-9 pb-8 pt-8">
-          <h3 className="text-[28px] font-bold leading-[0.95] tracking-[-0.05em] text-primary">
+          <h3 className="text-[25px] font-bold leading-[0.98] tracking-[-0.04em] text-primary">
             {item.title}
           </h3>
 
