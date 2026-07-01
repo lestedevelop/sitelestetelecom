@@ -12,7 +12,7 @@ export default function Faq() {
       <section className="w-full">
         <HomeHeroBanner
           alt="Banner FAQ da Leste Telecom"
-          className="!aspect-[390/608] !h-auto !w-full md:!aspect-auto md:!h-[608px]"
+          className="!aspect-[390/608] !h-auto !max-h-none !w-full md:!aspect-auto md:!h-[608px] md:!max-h-[608px]"
           desktopImageClassName="!object-cover"
           tabletImageClassName="!object-cover"
           mobileImageClassName="!object-contain"

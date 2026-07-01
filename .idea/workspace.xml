@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/assets/home/01-07-2026/banner-leste-cameras.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/01-07-2026/banner-leste-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/01-07-2026/banner-oferta-em-campo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +24,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="384f8c83-d548-4823-bf66-a62e6d95ee82" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -299,7 +301,47 @@
       <option name="project" value="LOCAL" />
       <updated>1782755884766</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="++">
+      <option name="closed" value="true" />
+      <created>1782910102649</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1782910102649</updated>
+    </task>
+    <task id="LOCAL-00022" summary="++">
+      <option name="closed" value="true" />
+      <created>1782911621021</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1782911621021</updated>
+    </task>
+    <task id="LOCAL-00023" summary="++">
+      <option name="closed" value="true" />
+      <created>1782913185377</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1782913185377</updated>
+    </task>
+    <task id="LOCAL-00024" summary="++">
+      <option name="closed" value="true" />
+      <created>1782914714030</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1782914714030</updated>
+    </task>
+    <task id="LOCAL-00025" summary="++">
+      <option name="closed" value="true" />
+      <created>1782914805760</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1782914805760</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
