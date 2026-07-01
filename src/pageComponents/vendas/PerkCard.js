@@ -18,7 +18,7 @@ function getIconClassName(label = "") {
     return "w-18 object-contain";
 }
 
-export default function PerkCard({ descri_simp, item, onClick }) {
+export default function PerkCard({ descri_simp, item, onClick, fullWidth = false }) {
     const label = getPerkByCodsimp(descri_simp) || getPerkByCodsimp(item?.name) || item?.name;
     const imageSrc = resolveImageSrc(item, getFallbackIcon(label));
 
@@ -28,7 +28,7 @@ export default function PerkCard({ descri_simp, item, onClick }) {
         <button
             type="button"
             onClick={() => onClick?.(label)}
-            className="mx-auto flex h-9 w-44 items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:opacity-90"
+            className={`${fullWidth ? "w-full" : "w-44"} mx-auto flex h-9 items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:opacity-90`}
         >
             <Image
                 src={imageSrc}

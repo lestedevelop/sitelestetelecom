@@ -1,5 +1,6 @@
 "use client";
 import React, {useEffect, useMemo, useState} from "react";
+import {createPortal} from "react-dom";
 import {formatPrice} from "@/utils/Format";
 import Image from "next/image";
 import addIcon from "@/assets/icons/addIconVendas.svg"
@@ -10,6 +11,7 @@ import alertIcon from "@/assets/vendas/icons/alert.svg"
 import wifi5icon from "@/assets/vendas/icons/wifi-5.svg"
 import wifi6axicon from "@/assets/vendas/icons/wifi-6ax.svg"
 import wifi6axmeshicon from "@/assets/vendas/icons/wifi-6axmesh.svg"
+import {getPerkByCodsimp} from "@/utils/getPerkByCodsimp";
 
 function getWifiIcon(label = "") {
     const normalized = String(label).toLowerCase();
@@ -19,7 +21,96 @@ function getWifiIcon(label = "") {
     return wifi5icon;
 }
 
+function hasValue(value) {
+    return value !== null && value !== undefined && value !== "";
+}
+
+function formatPlanSpeed(value) {
+    if (!hasValue(value)) return "";
+
+    const speed = Number(value);
+    if (!Number.isFinite(speed) || speed <= 0) return "";
+
+    if (speed >= 1024) {
+        const giga = speed / 1024;
+        return `${String(giga).replace(".0", "")} GIGA`;
+    }
+
+    return `${speed} MEGA`;
+}
+
+function formatMoney(value) {
+    if (!hasValue(value)) return "";
+
+    const {inteiro, centavos} = formatPrice(value);
+    return `R$ ${inteiro},${centavos}`;
+}
+
+function formatPromoMoney(value) {
+    const price = Number(value);
+    if (!Number.isFinite(price) || price <= 0) return "";
+
+    return formatMoney(price);
+}
+
+function getSvaLabel(sva) {
+    return getPerkByCodsimp(sva?.descri_simp) ||
+        getPerkByCodsimp(sva?.name) ||
+        sva?.name ||
+        sva?.descri_simp ||
+        "";
+}
+
+function normalizeSvaKey(value) {
+    return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+}
+
+function getPlanBenefitItems(svas = []) {
+    const seen = new Set();
+
+    return svas.filter((sva) => {
+        const label = getSvaLabel(sva);
+        const key = normalizeSvaKey(label);
+
+        if (!key || seen.has(key)) return false;
+
+        seen.add(key);
+        return true;
+    });
+}
+
+function getPlanRows(plan, wifiText, badge) {
+    const rows = [
+        ["Plano", plan?.nome_exibicao || plan?.descri_ser],
+        ["Download", formatPlanSpeed(plan?.down)],
+        ["Upload", formatPlanSpeed(plan?.up || plan?.upload)],
+        ["Wi-Fi", wifiText],
+        ["Mensalidade", formatMoney(plan?.valor)],
+        ["Preco promocional", formatPromoMoney(plan?.valor_desconto)],
+        ["Fidelidade", plan?.fidelidade ? `${plan.fidelidade} meses` : ""],
+    ];
+
+    return rows.filter(([, value]) => hasValue(value));
+}
+
+function getPlanDescription({titleNumber, titleUnit, wifiText}) {
+    const planName = `${titleNumber} ${titleUnit}`.trim();
+
+    return `Plano ${[planName, wifiText].filter(Boolean).join(" ")}.`;
+}
+
 function SimplePlanModal({open, title, onClose, children}) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     useEffect(() => {
         if (!open) return;
 
@@ -31,20 +122,20 @@ function SimplePlanModal({open, title, onClose, children}) {
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [open, onClose]);
 
-    if (!open) return null;
+    if (!open || !mounted) return null;
 
-    return (
-        <div className="fixed inset-0 z-[80]  flex items-center justify-center p-4">
+    return createPortal(
+        <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
             <button
                 type="button"
                 aria-label="Fechar modal"
                 onClick={onClose}
-                className="absolute inset-0 bg-black/50 rounded-3xl"
+                className="absolute inset-0 bg-black/55"
                 style={{animation: "plan-modal-fade 180ms ease-out"}}
             />
 
             <div
-                className="relative z-10 w-full max-w-lg rounded-2xl bg-white shadow-2xl ring-1 ring-black/10"
+                className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10"
                 style={{animation: "plan-modal-pop 220ms ease-out"}}
             >
                 <div className="flex items-center justify-between border-b border-black/10 px-5 py-4">
@@ -59,7 +150,7 @@ function SimplePlanModal({open, title, onClose, children}) {
                     </button>
                 </div>
 
-                <div className="px-5 py-5 text-dark">
+                <div className="overflow-y-auto px-5 py-5 text-dark md:px-7">
                     {children}
                 </div>
             </div>
@@ -81,19 +172,25 @@ function SimplePlanModal({open, title, onClose, children}) {
                     }
                 }
             `}</style>
-        </div>
+        </div>,
+        document.body
     );
 }
 
 export default function PlanCardVendas({plan, selected, onSelect}) {
     const [detailsOpen, setDetailsOpen] = useState(false);
-    const [selectedSva, setSelectedSva] = useState("");
     const badge = useMemo(() => getBadge(plan), [plan]);
     const wifiText = plan?.descri_ser_bot || plan?.descri_ser;
     const {titleNumber, titleUnit} = useMemo(() => getTitle(plan), [plan]);
     const priceValue = plan?.valor;
     const {inteiro, centavos} = formatPrice(priceValue);
     const isSelected = !!selected;
+    const benefitItems = useMemo(() => getPlanBenefitItems(plan?.SVAs || []), [plan]);
+    const detailRows = useMemo(() => getPlanRows(plan, wifiText, badge), [plan, wifiText, badge]);
+    const planDescription = useMemo(
+        () => getPlanDescription({titleNumber, titleUnit, wifiText}),
+        [titleNumber, titleUnit, wifiText]
+    );
 
     return (
         <div className={"relative py-12 -mt-12"}>
@@ -112,12 +209,11 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                 </div>
 
                 <div className="mt-4 w-full flex gap-y-3 flex-col-reverse">
-                    {plan?.SVAs?.map((sva) => (
+                    {benefitItems.map((sva) => (
                         <PerkCard
-                            key={sva.codsimp || sva.name}
+                            key={normalizeSvaKey(getSvaLabel(sva))}
                             item={sva}
                             descri_simp={sva.descri_simp}
-                            onClick={(label) => setSelectedSva(label)}
                         />
                     ))}
                 </div>
@@ -170,20 +266,46 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                 title="Mais detalhes do plano"
                 onClose={() => setDetailsOpen(false)}
             >
-                <p className="text-base">
-                    Modal basico de detalhes para teste.
+                <p className="text-sm leading-relaxed text-darkgreen">
+                    {planDescription}
                 </p>
+
+                {benefitItems.length ? (
+                    <div className="mt-5">
+                        <h4 className="text-sm font-bold uppercase tracking-wide text-darkgreen">
+                            Beneficios inclusos
+                        </h4>
+                        <div className="mt-4 flex w-full flex-col-reverse gap-y-3">
+                            {benefitItems.map((sva) => (
+                                <PerkCard
+                                    key={normalizeSvaKey(getSvaLabel(sva))}
+                                    item={sva}
+                                    descri_simp={sva.descri_simp}
+                                    fullWidth
+                                />
+                            ))}
+                        </div>
+                    </div>
+                ) : null}
+
+                <div className="mt-5 overflow-hidden rounded-xl border border-primary/15">
+                    <table className="w-full border-collapse text-left text-sm">
+                        <tbody>
+                        {detailRows.map(([label, value]) => (
+                            <tr key={label} className="border-b border-primary/10 last:border-b-0">
+                                <th className="w-2/5 bg-light px-4 py-3 font-semibold text-darkgreen">
+                                    {label}
+                                </th>
+                                <td className="px-4 py-3 text-dark">
+                                    {value}
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
             </SimplePlanModal>
 
-            <SimplePlanModal
-                open={!!selectedSva}
-                title={selectedSva || "Beneficio do plano"}
-                onClose={() => setSelectedSva("")}
-            >
-                <p className="text-base">
-                    Modal basico do beneficio para teste.
-                </p>
-            </SimplePlanModal>
         </div>
     );
 }
