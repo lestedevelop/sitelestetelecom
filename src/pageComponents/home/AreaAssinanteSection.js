@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
 import bannerBg from "@/assets/home/15-05-2026/clienteLeste.png";
-import bannerBgmobile from "@/assets/home/banner-assinantemobile.svg";
 
 export default function AreaAssinanteSection() {
     return (
@@ -11,7 +9,7 @@ export default function AreaAssinanteSection() {
 
                     <div
                         className="flex flex-col md:hidden"
-                        style={{ backgroundImage: `url(${bannerBgmobile.src})`, backgroundSize: "cover", backgroundPosition: "center" }}
+                        style={{ backgroundImage: `url(${bannerBg.src})`, backgroundSize: "cover", backgroundPosition: "center" }}
                     >
                         <div className="relative h-72 w-full">
                         </div>
