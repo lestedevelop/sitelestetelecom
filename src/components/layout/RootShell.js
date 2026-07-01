@@ -12,7 +12,7 @@ function isVendasPathname(pathname = "") {
 
 export default function RootShell({children}) {
     const pathname = usePathname();
-    const layoutOverrideRoutes = ["/movel","/corporate","/vendas"];
+    const layoutOverrideRoutes = ["/movel","/corporate","/vendas", "/ultra"];
     const isBaseOverrideRoute = layoutOverrideRoutes.some(
         (route) => pathname === route || pathname.startsWith(`${route}/`)
     );

@@ -103,3 +103,19 @@ export const formCoporateSchema = yup.object({
         .required("CNPJ obrigatório")
         .test("cnpj-len", "CNPJ incompleto", (v) => onlyDigits(v || "").length === 14),
 });
+
+export const formUltraSchema = yup.object({
+    name: yup.string().required("Nome obrigatório").min(2, "Nome muito curto"),
+    email: yup.string().required("Email obrigatório").email("Email inválido"),
+    endereco: yup.string().required("Endereço obrigatório").min(3, "Endereço muito curto"),
+    cep: yup
+        .string()
+        .required("CEP obrigatório")
+        .test("cep-len", "CEP incompleto", (v) => onlyDigits(v || "").length === 8),
+    numero: yup.string().required("Número obrigatório"),
+    cel: yup
+        .string()
+        .required("Telefone obrigatório")
+        .test("cel-len", "Telefone incompleto", (v) => onlyDigits(v || "").length >= 10),
+    checkInfo: yup.boolean().oneOf([true], "Confirme a ciência sobre os requisitos técnicos"),
+});
