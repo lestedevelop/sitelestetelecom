@@ -6,18 +6,29 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import bannerLesteCameras from "@/assets/home/01-07-2026/banner-leste-cameras.png";
+import bannerLesteUp from "@/assets/home/01-07-2026/banner-leste-up.png";
+import bannerOfertaEmCampo from "@/assets/home/01-07-2026/banner-oferta-em-campo.png";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 const heroSlides = [
     {
-        id: "home-main",
-        alt: "Banner principal da Leste Telecom",
-        href: "https://vendas.lestetelecom.com.br/",
+        id: "home-leste-cameras",
+        alt: "Banner Leste Câmeras",
+        href: "/cameras",
+        image: bannerLesteCameras,
     },
     {
-        id: "home-offer",
-        alt: "Banner de ofertas da Leste Telecom",
+        id: "home-leste-up",
+        alt: "Banner Leste Up",
+        href: "/lesteup",
+        image: bannerLesteUp,
+    },
+    {
+        id: "home-oferta-em-campo",
+        alt: "Banner Oferta em Campo da Leste Telecom",
         href: "https://vendas.lestetelecom.com.br/",
+        image: bannerOfertaEmCampo,
     },
 ];
 
@@ -27,6 +38,9 @@ function HeroSlideItem({slide, priority = false}) {
             href={slide.href}
             alt={slide.alt}
             priority={priority}
+            desktopImage={slide.image}
+            tabletImage={slide.image}
+            mobileImage={slide.image}
         />
     );
 }
