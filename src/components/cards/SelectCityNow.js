@@ -6,7 +6,7 @@ import {useSite} from "@/contexts/SiteContext";
 import pinIcon from "@/assets/icons/pin.svg";
 import {getLocation} from "@/utils/getLocation";
 import {cidadesMock} from "@/mocks/cidadesMock";
-import {findCodCidByName} from "@/utils/cidade";
+import {findCityByName} from "@/utils/cidade";
 
 export default function SelectCityNow({visible, setVisible, confirm}) {
     const {
@@ -51,9 +51,9 @@ export default function SelectCityNow({visible, setVisible, confirm}) {
             const location = await getLocation();
             const payload = location.data[0];
             const cityName = payload?.cidade;
-            const cityCode = findCodCidByName(cityName, cidadesMock);
+            const city = findCityByName(cityName, cidadesMock);
 
-            if (cityCode && cityName) setCity({value: cityCode, label: cityName});
+            if (city) setCity({value: city.codcid, label: city.nome_cid});
             confirm();
         } catch (err) {
             return null;
@@ -123,7 +123,7 @@ export default function SelectCityNow({visible, setVisible, confirm}) {
                     onClick={() => handleSearchCity()}
                     className="mt-3 w-full rounded-full border border-white/20 bg-white/12 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/18"
                 >
-                    Usar localizacao automatica
+                    Usar localização automática
                 </button>
             </div>
 

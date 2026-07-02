@@ -14,7 +14,7 @@ import {SalesProviderNew} from "@/contexts/SalesContextNew";
 import {useSite} from "@/contexts/SiteContext";
 import {cidadesMock} from "@/mocks/cidadesMock";
 import {useUiStore} from "@/store/useUiStore";
-import {findCodCidByName} from "@/utils/cidade";
+import {findCityByName} from "@/utils/cidade";
 import {getLocationByIP} from "@/utils/getLocationByIP";
 
 const TOP_LINKS = [
@@ -404,21 +404,21 @@ export default function AppBarNew() {
             try {
                 const cidade = await getLocationByIP();
                 const cityName = cidade?.cidade || cidade?.city || cidade || "";
-                let codcid = findCodCidByName(cityName, cidadesMock);
+                let city = findCityByName(cityName, cidadesMock);
 
-                if (!codcid) {
+                if (!city) {
                     const fallbackName = "Niterói";
-                    codcid = findCodCidByName(fallbackName, cidadesMock);
+                    city = findCityByName(fallbackName, cidadesMock);
 
-                    if (codcid) {
-                        setCity({value: codcid, label: fallbackName});
+                    if (city) {
+                        setCity({value: city.codcid, label: city.nome_cid});
                         setCityConfirmed(false);
                         return;
                     }
                 }
 
-                if (codcid && cityName) {
-                    setCity({value: codcid, label: cityName});
+                if (city) {
+                    setCity({value: city.codcid, label: city.nome_cid});
                     setCityConfirmed(false);
                 }
             } finally {
@@ -707,7 +707,7 @@ export default function AppBarNew() {
                         >
                             <span className="inline-flex items-center gap-2 text-base font-semibold">
                                 <Image src={pinIcon} alt="" className="h-4 w-4"/>
-                                {site?.city?.label || "Sua Localizacao"}
+                                {site?.city?.label || "Sua Localização"}
                             </span>
                             <ChevronDown className="h-4 w-4"/>
                         </button>

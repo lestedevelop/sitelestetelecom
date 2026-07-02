@@ -32,7 +32,7 @@ export default function ModalConfirmCity({className = ""}) {
                         conferir as ofertas para essa região?
                     </p>}
                     {isSelectCityOpen && <p className="text-sm text-graylight font-bold ">
-                        Selecione a Sua Cidade:
+                        Selecione sua cidade:
                     </p>}
                     {!isSelectCityOpen && <div className="flex items-center justify-end gap-3">
                         <button

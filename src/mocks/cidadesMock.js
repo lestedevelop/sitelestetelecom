@@ -1,7 +1,7 @@
 export const cidadesMock = [
     { codcid: 3301850, nome_cid: "Guapimirim" },
-    { codcid: 3301900, nome_cid: "Itaborai" },
-    { codcid: 3302502, nome_cid: "Mage" },
+    { codcid: 3301900, nome_cid: "Itaboraí" },
+    { codcid: 3302502, nome_cid: "Magé" },
     { codcid: 3302700, nome_cid: "Maricá" },
     { codcid: 3303302, nome_cid: "Niterói" },
     { codcid: 3304300, nome_cid: "Rio Bonito" },

@@ -13,3 +13,10 @@ export function findCodCidByName(cidadeNome, cidades = []) {
     const found = cidades.find((c) => normalizeCityName(c.nome_cid) === key);
     return found?.codcid ?? null;
 }
+
+export function findCityByName(cidadeNome, cidades = []) {
+    const key = normalizeCityName(cidadeNome);
+    if (!key) return null;
+
+    return cidades.find((c) => normalizeCityName(c.nome_cid) === key) || null;
+}

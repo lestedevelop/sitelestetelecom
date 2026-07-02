@@ -5,6 +5,8 @@ export function buildAgendamentoModel(data) {
     const plano = data?.plano || data?.planos || {};
     const agendamento = data?.agendamento || {};
     const precadastroBody = data?.precadastroBody || {};
+    const txadesao = plano?.taxaTotal ?? plano?.taxa_desconto ?? plano?.taxa;
+    const pgtotxadesao = plano?.formaDePagamento || "Pix na Instalação";
 
     const responsaveis = Array.isArray(data?.responsaveis)
         ? data.responsaveis.map((responsavel) => mapResponsavel(responsavel,cadastro?.cpf)).filter(Boolean)
@@ -44,8 +46,8 @@ export function buildAgendamentoModel(data) {
         },
         codser: plano.codser,
         vencimento: plano?.vencimento,
-        txadesao: plano?.taxaTotal,
-        pgtotxadesao: plano?.formaDePagamento,
+        txadesao,
+        pgtotxadesao,
         event_id:agendamento?.slotId,
     };
 }

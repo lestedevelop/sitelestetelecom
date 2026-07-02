@@ -23,7 +23,7 @@ export async function GET(req) {
         const slot = nextResp.data;
 
         const slotObj = Array.isArray(slot) ? slot[0] : slot;
-        if (!slotObjá.start) {
+        if (!slotObj.start) {
             return NextResponse.json(
                 { ok: false, message: "não foi encontrada próxima vaga válida", slot: slotObj || null },
                 { status: 404 }

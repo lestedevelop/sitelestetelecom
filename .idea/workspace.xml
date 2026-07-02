@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/siteLockConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/siteLockConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/area-cliente/areaClienteData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/vendas/vaga/next/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/vendas/vaga/next/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/SelectCityNow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/SelectCityNow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AppBarNew.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ModalConfirmCity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mocks/cidadesMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/cidadesMock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cidade.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cidade.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +30,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="384f8c83-d548-4823-bf66-a62e6d95ee82" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -57,7 +59,7 @@
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/home/15-05-2026&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/projetos/leste/sitelestetelecom/src/assets/ultra&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,14 +73,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\projetos\leste\sitelestetelecom\src\assets\ultra" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\area-do-cliente" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\movel" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public\fonts" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\app" />
@@ -140,7 +141,7 @@
       <workItem from="1782127931677" duration="641000" />
       <workItem from="1782214861979" duration="1251000" />
       <workItem from="1782309506160" duration="28894000" />
-      <workItem from="1782742094765" duration="11195000" />
+      <workItem from="1782742094765" duration="20323000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -304,61 +305,21 @@
     </task>
     <task id="LOCAL-00021" summary="++">
       <option name="closed" value="true" />
-      <created>1782910102649</created>
+      <created>1782825692595</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1782910102649</updated>
+      <updated>1782825692595</updated>
     </task>
     <task id="LOCAL-00022" summary="++">
       <option name="closed" value="true" />
-      <created>1782911621021</created>
+      <created>1782995536016</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1782911621021</updated>
+      <updated>1782995536016</updated>
     </task>
-    <task id="LOCAL-00023" summary="++">
-      <option name="closed" value="true" />
-      <created>1782913185377</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1782913185377</updated>
-    </task>
-    <task id="LOCAL-00024" summary="++">
-      <option name="closed" value="true" />
-      <created>1782914714030</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1782914714030</updated>
-    </task>
-    <task id="LOCAL-00025" summary="++">
-      <option name="closed" value="true" />
-      <created>1782914805760</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1782914805760</updated>
-    </task>
-    <task id="LOCAL-00026" summary="++">
-      <option name="closed" value="true" />
-      <created>1782915461967</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1782915461967</updated>
-    </task>
-    <task id="LOCAL-00027" summary="++">
-      <option name="closed" value="true" />
-      <created>1782915793244</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1782915793244</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
