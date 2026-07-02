@@ -39,9 +39,13 @@ const footerLinks = [
 ];
 
 const supportPhones = [
-    {icon: whatsIcon, label: "(021) 2020-1300"},
-    {icon: telIcon, label: "(021) 0800 053 1300"},
-    {icon: telIcon, label: "(021) 3940-0130"},
+    {
+        href: "https://api.whatsapp.com/send/?phone=552120201300&text&app_absent=0",
+        icon: whatsIcon,
+        label: "(021) 2020-1300",
+    },
+    {href: "tel:+552108000531300", icon: telIcon, label: "(021) 0800 053 1300"},
+    {href: "tel:+552139400130", icon: telIcon, label: "(021) 3940-0130"},
 ];
 
 export default function Footer() {
@@ -181,11 +185,16 @@ export default function Footer() {
 
                             <div className="space-y-3">
                                 {supportPhones.map((item) => (
-                                    <div key={item.label}
-                                         className="flex items-center gap-3 text-[1.05rem] font-semibold md:text-[1rem] lg:text-[1.15rem]">
+                                    <a
+                                        key={item.label}
+                                        href={item.href}
+                                        target={isExternalLink(item.href) ? "_blank" : undefined}
+                                        rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
+                                        className="flex items-center gap-3 text-[1.05rem] font-semibold transition-opacity hover:opacity-80 md:text-[1rem] lg:text-[1.15rem]"
+                                    >
                                         <Image src={item.icon} alt="" className="h-6 w-6"/>
                                         <span>{item.label}</span>
-                                    </div>
+                                    </a>
                                 ))}
                             </div>
                         </div>

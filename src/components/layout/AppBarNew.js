@@ -22,7 +22,7 @@ const TOP_LINKS = [
 ];
 
 const BUSINESS_MENU = [
-    {href: "/pme", label: "PME (Pequenas e Medias Empresas)"},
+    {href: "/pme", label: "PME (Pequenas e Médias Empresas)"},
     {href: "/corporate", label: "Link Corporativo"},
 ];
 
