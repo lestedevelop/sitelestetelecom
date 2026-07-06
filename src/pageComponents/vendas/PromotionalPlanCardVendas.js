@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import bebanca from "@/assets/icons/bebanca.svg";
 import lesteClube from "@/assets/lesteclube.svg";
 import skeelo from "@/assets/icons/skelolivros.svg";
@@ -12,6 +11,7 @@ import dourado from "@/assets/dourado.png";
 import { getPlanoButtonId } from "@/lib/gtm/vendas";
 import { formatPrice } from "@/utils/Format";
 import { getTitle } from "@/utils/utils";
+import TrackedLink from "@/components/links/TrackedLink";
 
 function getWifiIcon(label = "") {
     const normalized = String(label).toLowerCase();
@@ -135,7 +135,7 @@ export default function PromotionalPlanCardVendas({
                 <p className="mt-4 text-center text-sm">*Fidelidade de 12 meses</p>
 
                 {actionHref ? (
-                    <Link
+                    <TrackedLink
                         id={getPlanoButtonId(plan)}
                         href={actionHref}
                         data-gtm-plan-codser={plan?.codser || ""}
@@ -144,7 +144,7 @@ export default function PromotionalPlanCardVendas({
                         style={{ backgroundImage: `url(${dourado.src})` }}
                     >
                         {actionLabel}
-                    </Link>
+                    </TrackedLink>
                 ) : (
                     <button
                         id={getPlanoButtonId(plan)}

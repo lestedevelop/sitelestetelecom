@@ -5,7 +5,7 @@ import {formatPrice} from "@/utils/Format";
 import Image from "next/image";
 import addIcon from "@/assets/icons/addIconVendas.svg"
 import PerkCard from "@/pageComponents/vendas/PerkCard";
-import Link from "next/link"
+import TrackedLink from "@/components/links/TrackedLink";
 import {getBadge, getTitle} from "@/utils/utils";
 import alertIcon from "@/assets/vendas/icons/alert.svg"
 import wifi5icon from "@/assets/vendas/icons/wifi-5.svg"
@@ -233,12 +233,12 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                 </span>
                 </div>
 
-                    <Link
-                        href={"https://vendas.lestetelecom.com.br/"}
+                    <TrackedLink
+                        href={"https://vendas.lestetelecom.com.br/vendas"}
                         className={"w-full -mx-6 rounded-2xl px-4 py-3 text-center font-semibold transition border border-darkgreen bg-primary text-white"}
                     >
                         Assine agora!
-                    </Link>
+                    </TrackedLink>
 
                     <button
                         type="button"

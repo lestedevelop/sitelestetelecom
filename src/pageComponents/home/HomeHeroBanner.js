@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import TrackedLink from "@/components/links/TrackedLink";
 
 import bannerHomeDesktop from "@/assets/home/15-05-2026/BannerDesktop.png";
 import bannerHomeTablet from "@/assets/home/15-05-2026/BannerTablet.png";
@@ -80,8 +80,8 @@ export default function HomeHeroBanner({
     }
 
     return (
-        <Link href={href} className="block h-full w-full" aria-label={alt}>
+        <TrackedLink href={href} className="block h-full w-full" aria-label={alt}>
             {content}
-        </Link>
+        </TrackedLink>
     );
 }

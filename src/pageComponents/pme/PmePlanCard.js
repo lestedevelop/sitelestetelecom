@@ -3,6 +3,7 @@ import Link from "next/link";
 import {formatPrice} from "@/utils/Format";
 import alertIcon from "@/assets/vendas/icons/alert.svg";
 import wifi6axIcon from "@/assets/vendas/icons/wifi-6ax.svg";
+import TrackedLink from "@/components/links/TrackedLink";
 
 export default function PmePlanCard({plan}) {
   const {inteiro, centavos} = formatPrice(plan?.price);
@@ -33,12 +34,12 @@ export default function PmePlanCard({plan}) {
         </div>
 
         <div className="w-full space-y-2">
-          <Link
+          <TrackedLink
             href="https://vendas.lestetelecom.com.br/"
             className="block w-full rounded-2xl border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition hover:bg-darkgreen"
           >
             Assine agora!
-          </Link>
+          </TrackedLink>
 
           <Link
             href="/faq"

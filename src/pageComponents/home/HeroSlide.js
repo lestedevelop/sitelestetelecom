@@ -32,7 +32,7 @@ const heroSlides = [
     {
         id: "home-oferta-em-campo",
         alt: "Banner Oferta em Campo da Leste Telecom",
-        href: "https://vendas.lestetelecom.com.br/",
+        href: "https://vendas.lestetelecom.com.br/vendas",
         image: bannerOfertaEmCampo,
         mobileImage: bannerOfertaEmCampoMobile,
     },

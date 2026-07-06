@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import bannerCorporate from "@/assets/bannercoporate.webp";
+import TrackedLink from "@/components/links/TrackedLink";
 
 export default function PmeHero() {
   return (
@@ -26,12 +26,12 @@ export default function PmeHero() {
             <p className="mt-5 max-w-[520px] text-xl leading-7 text-white/88 md:text-2xl">
               Planos empresariais com Fibra Ótica, estabilidade e suporte para sua operação continuar conectada.
             </p>
-            <Link
+            <TrackedLink
               href="https://vendas.lestetelecom.com.br/"
               className="mt-8 inline-flex min-h-14 items-center justify-center rounded-full bg-white px-8 text-xl font-bold text-primary transition hover:-translate-y-px hover:bg-light"
             >
               Assine agora!
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </div>

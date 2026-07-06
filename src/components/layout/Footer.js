@@ -16,6 +16,7 @@ import youtube from "@/assets/icons/footer/youtube.svg";
 import portalLeste from "@/assets/portalLeste.svg";
 import appLeste from "@/assets/appLeste.svg";
 import topoFooter from "@/assets/icons/footer/topo.svg";
+import TrackedLink from "@/components/links/TrackedLink";
 
 const socialLinks = [
     {href: "https://api.whatsapp.com/send/?phone=552120201300", label: "WhatsApp", icon: socialWhatsIcon},
@@ -28,7 +29,7 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-    {href: "https://vendas.lestetelecom.com.br", label: "Contratação on-line"},
+    {href: "https://vendas.lestetelecom.com.br/vendas", label: "Contratação on-line"},
     {href: "/faq/canal-oficial-de-atendimento", label: "Central de atendimento"},
     {href: "https://portal.lestetelecom.com.br/login", label: "2ª via da conta"},
     {href: "/faq", label: "Precisa de ajuda? FAQ"},
@@ -153,7 +154,17 @@ export default function Footer() {
 
                         <div className="space-y-1 text-base leading-8 md:text-[1.02rem] lg:text-[1.08rem]">
                             {footerLinks.map((item) => (
-                                isExternalLink(item.href) ? (
+                                item.href.includes("vendas.lestetelecom.com.br") ? (
+                                    <TrackedLink
+                                        key={item.label}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block transition-opacity hover:opacity-80"
+                                    >
+                                        {item.label}
+                                    </TrackedLink>
+                                ) : isExternalLink(item.href) ? (
                                     <a
                                         key={item.label}
                                         href={item.href}

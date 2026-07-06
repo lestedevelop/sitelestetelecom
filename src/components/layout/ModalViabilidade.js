@@ -8,8 +8,8 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useViabilidade } from "@/hooks/vendas/useViabilidade";
 import { maskCEP, onlyDigits } from "@/utils/masks";
 import { useSales } from "@/contexts/SalesContextNew";
-import Link from "next/link";
 import { AlertViabilidade } from "@/components/cards/AlertViabilidade";
+import TrackedLink from "@/components/links/TrackedLink";
 
 export default function ModalViabilidade({ open, onClose, updateCadastro }) {
     const { data } = useSales();
@@ -146,12 +146,12 @@ export default function ModalViabilidade({ open, onClose, updateCadastro }) {
             </div>
 
             {available ? (
-                <Link
+                <TrackedLink
                     href="https://vendas.lestetelecom.com.br/"
                     className="mt-5 block rounded-xl bg-primary px-4 py-3 text-center text-[18px] font-semibold text-white shadow-[0_12px_20px_rgba(30,107,93,.22)]"
                 >
                     Finalizar Cadastro
-                </Link>
+                </TrackedLink>
             ) : null}
         </Modal>
     );

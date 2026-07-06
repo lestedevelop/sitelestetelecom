@@ -1,10 +1,12 @@
 "use client";
 
+import {Suspense} from "react";
 import {usePathname} from "next/navigation";
 import {ToastContainer} from "react-toastify";
 import AppBarNew from "@/components/layout/AppBarNew";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
+import TrackingParamsSync from "@/components/links/TrackingParamsSync";
 
 function isVendasPathname(pathname = "") {
     return pathname === "/vendas" || pathname.startsWith("/vendas/") || pathname.startsWith("/vendas-");
@@ -19,11 +21,21 @@ export default function RootShell({children}) {
     const isOverrideRoute = isBaseOverrideRoute || isVendasPathname(pathname);
 
     if (isOverrideRoute) {
-        return <>{children}</>;
+        return (
+            <>
+                <Suspense fallback={null}>
+                    <TrackingParamsSync/>
+                </Suspense>
+                {children}
+            </>
+        );
     }
 
     return (
         <>
+            <Suspense fallback={null}>
+                <TrackingParamsSync/>
+            </Suspense>
             <AppBarNew/>
             {children}
             <WhatsAppFloating/>
