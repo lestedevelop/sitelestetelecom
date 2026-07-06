@@ -130,6 +130,7 @@
     description: "Proteção de dados, avisos legais e segurança da rede.",
     icon: "legal",
     items: [
+      { title: "Política de privacidade - Uso de dados", href: "/faq/politica-privacidade" },
       { title: "O que é o programa de integridade da Leste?", href: "/faq/programa-de-integridade-da-leste" },
       { title: "Como denunciar furto de cabos ou sabotagem?", href: "/faq/denuncias-de-furto-de-cabos" },
       { title: "Quais são as informações legais da Leste?", href: "/faq/info-legal" },
