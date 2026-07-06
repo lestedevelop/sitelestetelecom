@@ -28,7 +28,7 @@ export default function HomeHeroBanner({
     const showDesktopGlow = !hasCustomBanner;
 
     const content = (
-        <div className={`relative aspect-[640/388] max-h-[388px] overflow-hidden bg-white md:aspect-auto md:h-[380px] md:max-h-none lg:h-[460px] xl:h-[520px] ${className}`}>
+        <div className={`relative aspect-[640/388] max-h-[388px] overflow-hidden bg-primary md:aspect-auto md:h-[380px] md:max-h-none lg:h-[460px] xl:h-[520px] ${className}`}>
             {showDesktopGlow ? (
                 <Image
                     src={bannerHomeDesktop}

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import bannerTesteVelocidade from "@/assets/banner-testevelocidade.png";
+import bannerTesteVelocidadeMobile from "@/assets/banner-teste-mobile.png";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
 const PREPARATION_STEPS = [
@@ -53,18 +53,19 @@ export default function TesteDeVelocidade() {
       <section className="w-full">
         <HomeHeroBanner
           alt="Banner da página de teste de velocidade"
-          className="h-[182px] md:h-[350px]"
-          contentClassName="flex items-center"
+          className="!aspect-[390/608] !h-auto !max-h-none !w-full md:!aspect-auto md:!h-[350px] md:!max-h-none"
+          contentClassName="text-light md:flex md:items-center"
           desktopImage={bannerTesteVelocidade}
           tabletImage={bannerTesteVelocidade}
-          mobileImage={bannerTesteVelocidade}
+          mobileImage={bannerTesteVelocidadeMobile}
+          mobileImageClassName="!object-contain"
         >
-          <div className="container px-8 md:px-16">
-            <div className="max-w-[260px] md:max-w-md">
-              <h1 className="text-2xl font-bold leading-tight text-light md:text-5xl">
+          <div className="container flex h-full flex-col items-center justify-between px-8 pb-8 pt-7 text-center md:block md:h-auto md:px-16 md:py-0 md:text-left">
+            <div className="max-w-[250px] md:max-w-md">
+              <h1 className="text-[2rem] font-bold leading-none text-light md:text-5xl md:leading-tight">
                 Teste sua velocidade
               </h1>
-              <p className="mt-2 text-sm font-medium leading-tight text-light/90 md:mt-3 md:text-xl">
+              <p className="mt-2 text-[0.95rem] font-medium leading-tight text-light/90 md:mt-3 md:text-xl">
                 Confira agora o desempenho da sua internet em tempo real.
               </p>
             </div>
@@ -72,7 +73,7 @@ export default function TesteDeVelocidade() {
               href="https://www.speedtest.net/pt"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex w-44 items-center justify-center rounded-xl bg-darkgreen px-4 py-3 text-center text-base font-semibold text-light transition hover:bg-primary md:mt-6 md:w-60 md:text-2xl"
+              className="inline-flex w-44 items-center justify-center rounded-xl bg-darkgreen px-4 py-3 text-center text-base font-semibold text-light transition hover:bg-primary md:mt-6 md:w-60 md:text-2xl"
             >
               Iniciar teste
             </a>
