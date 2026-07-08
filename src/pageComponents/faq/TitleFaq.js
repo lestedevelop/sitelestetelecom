@@ -8,22 +8,22 @@ import { FAQ_HELP_CENTER_SECTIONS } from "@/mocks/faqHelpCenterSections";
 function renderBreadcrumb(items) {
   return (
     <nav aria-label="Breadcrumb" className="min-w-0 text-[10px] text-graylight md:text-sm">
-      <ol className="flex min-w-0 items-center gap-1 overflow-hidden whitespace-nowrap md:flex-wrap md:gap-2 md:whitespace-normal">
+      <ol className="flex min-w-0 flex-wrap items-center gap-1 md:gap-2">
         {items.map((item, index) => (
           <li
             key={`${item.label}-${index}`}
-            className="flex min-w-0 items-center gap-1 overflow-hidden md:gap-2"
+            className="flex min-w-0 items-center gap-1 md:gap-2"
           >
             {index > 0 ? <span className="shrink-0 text-primary/60">&gt;</span> : null}
             {item.href ? (
               <Link
                 href={item.href}
-                className="block truncate transition hover:text-primary"
+                className="block break-words transition hover:text-primary"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="block truncate font-semibold text-darkgreen">
+              <span className="block break-words font-semibold text-darkgreen">
                 {item.label}
               </span>
             )}

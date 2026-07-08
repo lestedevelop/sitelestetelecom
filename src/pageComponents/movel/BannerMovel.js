@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function BannerMovel() {
     return (
-        <section className="mt-[88px] md:mt-[123px] w-full bg-[url('/bannermovel-mobile.png')] md:bg-[url('/banner-movel-05-2026.png')] bg-contain bg-no-repeat bg-darkgreen md:bg-center">
+        <section className="mt-[88px] md:mt-[123px] w-full bg-[url('/banner-mobile-crop.png')] md:bg-[url('/banner-movel-05-2026.png')] bg-contain bg-no-repeat bg-darkgreen md:bg-center">
             <div className={"relative container text-light min-h-screen md:min-h-145 grid grid-cols-1"}>
                 <div className="md:w-1/2 flex flex-col items-left justify-center gap-4 md:gap-8 ">
                     {/*<h3 className={"text-lightgreen font-bold md:text-5xl text-2xl"}>Cada recarga,<br/><span className={"text-light"}>mais gigas</span> para você</h3>*/}

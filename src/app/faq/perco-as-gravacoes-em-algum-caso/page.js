@@ -15,21 +15,40 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              As gravações em nuvem não são permanentes e podem ser perdidas
-              dependendo da situação.
+              As gravações em nuvem não são permanentes e podem ser
+              perdidas dependendo da situação.
             </p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>Em caso de cancelamento, o acesso permanece até a data do cancelamento</li>
-              <li>Após 15 dias de inadimplência, o acesso ao app é bloqueado</li>
-              <li>Após 45 dias, a câmera deixa de realizar novas gravações</li>
-              <li>Após 75 dias, ocorre o cancelamento e a exclusão das gravações</li>
-              <li>Troca de câmera, hardware ou conta também apaga as gravações</li>
-            </ul>
+            <p>
+              Em caso de cancelamento, o acesso às imagens permanece apenas
+              até a data do cancelamento.
+            </p>
+            <div>
+              <p className="font-bold text-darkgreen">Em caso de inadimplência:</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>
+                  Após 15 dias, o acesso ao aplicativo é bloqueado, mas a
+                  câmera continua gravando normalmente.
+                </li>
+                <li>
+                  Após 45 dias, o acesso permanece bloqueado e a câmera deixa
+                  de realizar novas gravações.
+                </li>
+                <li>
+                  Após 75 dias, ocorre o cancelamento do serviço e a exclusão
+                  das gravações armazenadas em nuvem.
+                </li>
+              </ul>
+            </div>
+            <p>
+              Em situações como troca de câmera, alteração de hardware
+              ou mudança de conta, todas as gravações são perdidas.
+            </p>
           </div>
           <FaqNote>
             <p>
-              Baixe previamente os vídeos que deseja salvar enquanto ainda
-              estiverem disponíveis no aplicativo.
+              O cliente deve baixar previamente os vídeos que deseja salvar
+              enquanto ainda estiverem disponíveis no aplicativo. A Leste não
+              se responsabiliza pela perda das imagens nesses casos.
             </p>
           </FaqNote>
         </article>

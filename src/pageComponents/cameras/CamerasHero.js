@@ -1,6 +1,6 @@
 import Image from "next/image";
 import banner from "@/assets/cameras/bannercameras.webp";
-import bannerMobile from "@/assets/cameras/banner-mobile.webp";
+import bannerMobile from "@/assets/cameras/banner-mobile.png";
 import logo from "@/assets/cameras/logocameras.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
@@ -12,38 +12,37 @@ export default function CamerasHero() {
     <section className="w-full">
       <HomeHeroBanner
         alt="Banner de câmeras"
-        priority
-        className="h-[560px] bg-[#003934] md:h-[350px] lg:h-[460px] xl:h-[520px]"
-        contentClassName="flex items-center"
+        className="aspect-[640/974] max-h-none md:aspect-auto md:min-h-[640px]"
+        mobileImageClassName="object-cover object-center"
+        contentClassName="flex items-start pt-8 pb-8 md:items-center md:pb-0 md:pt-0"
         desktopImage={banner}
-        tabletImage={banner}
+        tabletImage={bannerMobile}
         mobileImage={bannerMobile}
         desktopImageClassName="2xl:object-cover"
       >
-        <div className="container px-8 md:px-16">
-          <div className="max-w-[280px] rounded-2xl bg-primary/95 p-4 shadow-md md:max-w-md md:bg-transparent md:p-0 md:shadow-none">
-            <div className="w-[140px] md:w-[200px]">
-              <Image
-                src={logo}
-                alt="Leste Câmeras"
-                className="h-auto w-full"
-                priority
-              />
-            </div>
+        <div className="container px-6 md:px-16 h-full md:h-[300px] ">
+          <div className="text-center justify-between h-full flex flex-col items-center gap-y-4 md:block md:text-left text-white md:max-w-[530px]">
+              <div>
+                <Image
+                    src={logo}
+                    alt="Leste Câmeras"
+                    className="w-[190px] md:w-[260px] ml-4 md:ml-0"
+                />
 
-            <h1 className="mt-4 text-2xl font-semibold leading-tight text-white md:mt-6 md:text-4xl">
-              Acompanhe
-              <br />
-              quem você ama
-              <br />
-              em <span className="text-lightgreen">tempo real.</span>
-            </h1>
+                <h1 className="mt-4 text-[1.85rem] font-semibold leading-[0.98] text-white md:mt-6 md:text-5xl">
+                  Acompanhe
+                  <br />
+                  quem você ama
+                  <br />
+                  em <span className="text-lightgreen">tempo real.</span>
+                </h1>
+              </div>
 
             <a
               href={CAMERAS_WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-lightgreen px-5 py-2 text-sm font-semibold text-darkgreen transition hover:opacity-90 md:px-6 md:py-2.5 md:text-base"
+              className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-lightgreen px-6 py-2.5 text-lg font-semibold text-darkgreen transition hover:opacity-90 md:mt-5 md:px-8 md:py-3 md:text-[1.1rem]"
             >
               <Image src={whatsIcon} alt="WhatsApp" width={18} height={18} />
               Contrate agora!

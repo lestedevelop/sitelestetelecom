@@ -50,6 +50,7 @@ export default function FaqHelpCenter() {
 
   const hasResults = filteredSections.length > 0;
   const hasQuery = query.trim().length > 0;
+  const hasActiveCategory = activeSection !== ALL_CATEGORIES;
 
   function toggleSection(sectionTitle) {
     setExpandedSections((current) => ({
@@ -150,12 +151,16 @@ export default function FaqHelpCenter() {
 
             <div className="space-y-5">
               {filteredSections.map((section) => {
-                const isExpanded = hasQuery || expandedSections[section.title];
+                const isExpanded =
+                  hasQuery || hasActiveCategory || expandedSections[section.title];
                 const visibleItems = isExpanded
                   ? section.items
                   : section.items.slice(0, INITIAL_VISIBLE_ITEMS);
                 const hiddenItemsCount = section.items.length - visibleItems.length;
-                const canToggle = !hasQuery && section.items.length > INITIAL_VISIBLE_ITEMS;
+                const canToggle =
+                  !hasQuery &&
+                  !hasActiveCategory &&
+                  section.items.length > INITIAL_VISIBLE_ITEMS;
 
                 return (
                   <div

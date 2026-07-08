@@ -44,7 +44,7 @@ export default function CamerasFaq() {
           <FaqAccordion items={FAQ_ITEMS} />
         </div>
         <div className="flex items-center justify-center px-8 mt-8">
-          <ActionButton router={"/faq"} className={"bg-primary text-xl w-full max-w-96"}>Acessar FAQ Completo</ActionButton>
+          <ActionButton router={"/faq"} className={"bg-primary text-xl w-full max-w-96 text-light"}>Acessar FAQ Completo</ActionButton>
         </div>
       </div>
     </section>

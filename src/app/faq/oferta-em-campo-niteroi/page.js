@@ -57,8 +57,7 @@ export default function OfertaEmCampoNiteroi() {
 
           <FaqNote>
             <p>
-              A oferta é válida até 30/06/2026 e segue as condições comerciais,
-              disponibilidade técnica e regras contratuais vigentes.
+              A oferta é válida até 31/07/2026 e segue as condições comerciais, disponibilidade técnica e regras contratuais vigentes.
             </p>
           </FaqNote>
         </article>

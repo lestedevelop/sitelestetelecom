@@ -15,14 +15,14 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              Não recomendamos alterar o e-mail cadastrado, pois isso pode causar
-              perda de acesso ou inconsistências na conta.
+              Não recomendamos alterar o e-mail cadastrado, pois isso pode
+              causar perda de acesso ou inconsistências na conta.
             </p>
           </div>
           <FaqNote>
             <p>
-              Se houver necessidade de atualização cadastral, entre em contato com
-              a central de atendimento.
+              Caso precise atualizar dados cadastrais, entre em contato com a
+              central de atendimento antes de fazer qualquer alteração.
             </p>
           </FaqNote>
         </article>

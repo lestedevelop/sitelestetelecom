@@ -145,7 +145,7 @@ export default function MobileDrawer({
 
                     {/* bottom bar: Assine já + search */}
                     <div className="mt-5 flex items-center gap-3 rounded-2xl bg-primary px-4 py-3 text-white shadow-[0_14px_30px_rgba(30,107,93,.25)]">
-                        <TrackedLink href={"https://vendas.lestetelecom.com.br/vendas"} className="flex-1 text-left font-semibold">
+                        <TrackedLink href={"https://vendas.lestetelecom.com.br"} className="flex-1 text-left font-semibold">
                             Assine já
                         </TrackedLink>
                         <Image src={arrowDown} alt={""} className="h-5 w-5 opacity-90" />

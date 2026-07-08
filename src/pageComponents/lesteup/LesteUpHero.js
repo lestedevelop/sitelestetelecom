@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroBanner from "@/assets/lesteup/BANNELESTEUP2.webp";
-import mobileBanner from "@/assets/lesteup/banner-mobile.webp";
+import mobileBanner from "@/assets/lesteup/banner-mobile.png";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
@@ -38,37 +38,37 @@ export default function LesteUpHero() {
     <section className="w-full">
       <HomeHeroBanner
         alt="Banner do Leste Up"
-        priority
-        className="h-[640px] bg-[#001f1c] md:h-[350px] lg:h-[460px] xl:h-[520px]"
-        contentClassName="flex items-center"
+        className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
+        mobileImageClassName="object-cover object-center"
+        contentClassName="flex items-center pb-8 md:items-center md:pb-0"
         desktopImage={heroBanner}
-        tabletImage={heroBanner}
+        tabletImage={mobileBanner}
         mobileImage={mobileBanner}
         desktopImageClassName="2xl:object-cover"
       >
-        <div className="container px-8 md:px-16">
-          <div className="max-w-[300px] text-left text-white md:max-w-[430px]">
-            <h1 className="text-[2.4rem] font-semibold leading-[0.98] md:text-5xl">
-              Mais <span className="text-[#0fd7c1]">4 horas</span> de autonomia para o seu
-              roteador.
+        <div className="container px-6 md:px-16">
+          <div className="max-w-[260px] text-left text-white md:max-w-[530px]">
+            <h1 className="text-[1.55rem] font-semibold leading-[0.98] md:text-5xl">
+              {/*Mais <span className="text-[#0fd7c1]">4 horas</span>*/}
+              Esteja pronto antes da queda de luz: Conte com o<span className="text-[#0fd7c1]"> Leste UP</span>
             </h1>
 
-            <div className="mt-5 md:mt-6">
+            <div className="mt-4 md:mt-6">
               <PriceBlock align="left" />
             </div>
 
-            <div className="mt-5 flex flex-col items-start gap-3">
+            <div className="mt-4 flex flex-col items-start gap-3 md:mt-5">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#0fd7c1] px-5 py-3 text-sm font-semibold text-darkgreen transition hover:opacity-90 md:px-8 md:text-[1.1rem]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#0fd7c1] px-4 py-2.5 text-xs font-semibold text-darkgreen transition hover:opacity-90 md:px-8 md:py-3 md:text-[1.1rem]"
               >
                 <Image src={whatsIcon} alt="WhatsApp" width={18} height={18} />
                 Contrate agora!
               </a>
 
-              <p className="max-w-[520px] text-left text-[10px] leading-relaxed text-white/70 md:text-xs">
+              <p className="max-w-[300px] text-left text-[9px] leading-relaxed text-white/70 md:max-w-[520px] md:text-xs">
                 *O Leste Up é exclusivo para clientes Leste nas cidades de Niterói,
                 Maricá e Rio Bonito. Oferta válida até 30/06/2026. O serviço é
                 autônomo, sem vínculo com a internet fibra. Possui fidelidade de 12 meses.

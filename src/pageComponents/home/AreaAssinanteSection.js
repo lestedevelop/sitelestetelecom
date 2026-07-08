@@ -1,5 +1,6 @@
 import Link from "next/link";
 import bannerBg from "@/assets/home/15-05-2026/clienteLeste.png";
+import bannerBgMobile from "@/assets/area-do-cliente/banner-mobile-ja-cliente.png";
 
 export default function AreaAssinanteSection() {
     return (
@@ -8,22 +9,19 @@ export default function AreaAssinanteSection() {
                 <div className="relative overflow-hidden rounded-3xl">
 
                     <div
-                        className="flex flex-col md:hidden"
-                        style={{ backgroundImage: `url(${bannerBg.src})`, backgroundSize: "cover", backgroundPosition: "center" }}
+                        className="mx-auto flex min-h-[600px] w-full flex-col justify-end md:hidden"
+                        style={{ backgroundImage: `url(${bannerBgMobile.src})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
                     >
-                        <div className="relative h-72 w-full">
-                        </div>
-                        <div className="px-8 pb-10 pt-6 text-white">
-                            <h2 className="text-[2rem] font-bold leading-tight">
-                                Já é cliente
-                                <br />Leste?
+                        <div className="px-6 pb-8 text-white">
+                            <h2 className="text-[2.75rem] font-bold leading-tight">
+                                Já é cliente Leste?
                             </h2>
-                            <p className="mt-2 text-sm leading-6 text-white/80">
+                            <p className="mt-2 max-w-[240px] text-sm leading-5 text-white/80">
                                 Consulte faturas, serviços e tudo da sua conta em um só lugar.
                             </p>
                             <Link
-                                href="https://minhaarea.lestetelecom.com.br"
-                                className="mt-6 inline-block rounded-full bg-darkgreen px-8 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-darkgreen/80"
+                                href="https://portal.lestetelecom.com.br/login"
+                                className="mt-5 inline-block rounded-full bg-darkgreen px-8 py-4 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-darkgreen/80"
                             >
                                 Acessar minha conta
                             </Link>

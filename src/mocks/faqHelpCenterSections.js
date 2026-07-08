@@ -45,11 +45,11 @@
     description: "Acesso, senha e ações que o cliente pode realizar na própria conta.",
     icon: "billing",
     items: [
-      { title: "Suporte Técnico", href: "/faq/mudei-minha-senha-na-central-do-assinante" },
+      { title: "Mudei a senha do Wi-Fi e a internet caiu. O que fazer?", href: "/faq/mudei-minha-senha-na-central-do-assinante" },
       { title: "Como funciona o aplicativo Leste Telecom?", href: "/faq/como-funciona-o-aplicativo-leste-telecom" },
       { title: "Como funciona o aplicativo Leste Suporte?", href: "/faq/como-funciona-o-aplicativo-leste-suporte" },
       { title: "Como acompanhar minha conexão?", href: "/faq/como-acompanhar-minha-conexao" },
-      { title: "Canais de Atendimento", href: "/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste" },
+      { title: "Como funciona o atendimento pelo WhatsApp da Leste", href: "/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste" },
     ],
   },
   {
@@ -204,6 +204,9 @@
       { title: "Como ativar e configurar o Leste Câmeras?", href: "/faq/como-ativar-e-configurar-o-leste-cameras" },
       { title: "Posso ativar a câmera por conta própria?", href: "/faq/posso-ativar-a-camera-por-conta-propria" },
       { title: "Quais recursos a câmera possui?", href: "/faq/quais-recursos-a-camera-possui" },
+      { title: "Como funcionam as gravações na nuvem?", href: "/faq/como-funcionam-as-gravacoes-na-nuvem" },
+      { title: "Perco as gravações em algum caso?", href: "/faq/perco-as-gravacoes-em-algum-caso" },
+      { title: "Posso alterar o e-mail da conta?", href: "/faq/posso-alterar-o-e-mail-da-conta" },
       { title: "Quais são as limitações do Leste Câmeras?", href: "/faq/quais-sao-as-limitacoes-do-leste-cameras" },
       { title: "Como funciona o suporte técnico do Leste Câmeras?", href: "/faq/como-funciona-o-suporte-tecnico-do-leste-cameras" },
       { title: "O que fazer se a câmera perder a conexão?", href: "/faq/o-que-fazer-se-a-camera-perder-a-conexao" },

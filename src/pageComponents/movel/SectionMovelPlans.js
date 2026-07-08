@@ -67,7 +67,7 @@ export default function SectionMovelPlan() {
             titlePlan: "+100 SMS + 1GB Portabilidade\n",
             wifiText: "SUPER WI-FI 6 AX MESH",
             perks: ["+ WhatsApp Grátis","+ Minutos ilimitados\n", "+ Sem multa", "+ Acúmulo de Gigas"],
-            price: 79.99,
+            price: 89.99,
             cta: "Onde comprar!",
             // footnote: "Fidelidade de 12 meses",
             bonus: "44GB + 24GB Bônus"

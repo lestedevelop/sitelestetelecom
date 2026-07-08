@@ -1,68 +1,76 @@
-import BackToIndexButton from "@/pageComponents/faq/BackToIndexButton";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
-import Footer from "@/components/layout/Footer";
-import AppBar from "@/components/layout/AppBar";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
+import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-    title: "Política de privacidade - Uso de dados | Leste",
-    description: "Política de privacidade e uso de dados da Leste Telecom.",
+  title: "Política de privacidade - Uso de dados | Leste",
+  description: "Política de privacidade e uso de dados da Leste Telecom.",
 };
 
 export default function PrivacyPolicyPage() {
-    return (
-        <main className="bg-light">
-            
+  return (
+    <main className="bg-light">
+      <div className="container px-6 py-12">
+        <TitleFaq title={<>Como a Leste utiliza e protege meus dados?</>} />
 
-            <div className="container px-6 py-12">
-                <TitleFaq title={<>Política de privacidade - Uso de dados.</>}/>
+        <article className="mt-10 max-w-5xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
+          <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
+            <p>
+              As informações fornecidas pelos usuários são coletadas e armazenadas
+              conforme padrões rígidos de segurança e confidencialidade.
+            </p>
 
-                <ol className="mt-10 max-w-5xl list-decimal space-y-3 pl-6 text-[15px] leading-7 text-dark">
-                    <li>
-                        Informações que os usuários passarem serão coletadas e guardadas de acordo
-                        com padrões rígidos de segurança e confidencialidade.
-                    </li>
-                    <li>
-                        As informações dos usuários nunca serão transferidas a terceiros — exceto
-                        nos casos de ordem legal ou judicial;
-                    </li>
-                    <li>
-                        A empresa utilizará os dados coletados/informados para promoções, eventos,
-                        divulgações, comúnicações, informes técnicos, avisos técnicos, etc., utilizando
-                        e-mail, aplicativos, programas, redes sociais, sistemas de mensagens e comúnicações
-                        (SMS, Whatsapp, Messenger, etc) — todos ligados à sua operação ou prestação do
-                        serviço de provimento à internet e cobertura de sinal WI-FI — ou em casos de amplo
-                        interesse público. A base de dados NÃO SERÁ VENDIDA.
-                    </li>
-                    <li>
-                        O acesso às informações dos usuários está restrito apenas a funcionários autorizados
-                        para o uso adequado dessas informações.
-                    </li>
-                    <li>
-                        Sempre que outras organizações forem contratadas para prover serviços de apoio, será
-                        exigida a adequação aos padrões de privacidade aqui dispostos.
-                    </li>
-                    <li>
-                        Para fins administrativos, eventualmente a empresa pode utilizar “cookies” (pequeno
-                        arquivo colocado em seu computador para rastrear movimentos dentro dos websites),
-                        sendo que o usuário pode, a qualquer instante, ativar em seu navegador mecanismos
-                        para informá-lo quando os mesmos estiverem acionados ou para evitar que sejam acionados.
-                    </li>
-                    <li>
-                        Todo o conteúdo do site, da fan page no Facebook, assim como de todas as plataformas
-                        digitais utilizadas pertence a Leste Telecom — não podendo ser copiado, reproduzido,
-                        distribuído, apresentado, anunciado ou transmitido de nenhuma maneirá ou por nenhum meio,
-                        salvo por expressa autorização da empresa ou do titular dos direitos autorais (se for o caso).
-                    </li>
-                </ol>
+            <p>
+              A Leste pode utilizar os dados informados para ações ligadas à sua
+              operação e à prestação do serviço, como promoções, eventos,
+              divulgações, comunicações, informes técnicos, avisos técnicos e
+              contatos relacionados ao provimento de internet e à cobertura de
+              sinal Wi-Fi.
+            </p>
 
-                <p className="mt-12 text-sm text-graylight">
-                    Última revisão em: 10/03/20
-                </p>
-            </div>
+            <p>
+              Essas comunicações podem ocorrer por e-mail, aplicativos, programas,
+              redes sociais, SMS, WhatsApp, Messenger ou outros sistemas de mensagem
+              e comunicação. Os dados também podem ser utilizados em casos de amplo
+              interesse público.
+            </p>
 
-            <SupportFooter />
-            
-        </main>
-    );
+            <p>
+              As informações dos usuários não são vendidas e não são transferidas
+              a terceiros, exceto em casos de ordem legal ou judicial.
+            </p>
+
+            <p>
+              O acesso aos dados é restrito apenas a funcionários autorizados,
+              conforme a necessidade de uso adequado dessas informações. Quando
+              outras organizações forem contratadas para prestar serviços de apoio,
+              será exigida adequação aos padrões de privacidade adotados pela
+              empresa.
+            </p>
+
+            <p>
+              Para fins administrativos, podem ser utilizados cookies nos sites da
+              empresa. O usuário pode configurar o navegador para ser avisado sobre
+              o uso de cookies ou para impedir sua ativação.
+            </p>
+
+            <p>
+              Todo o conteúdo do site, da fan page no Facebook e das plataformas
+              digitais utilizadas pela Leste pertence à empresa. Esse conteúdo não
+              pode ser copiado, reproduzido, distribuído, apresentado, anunciado ou
+              transmitido de nenhuma maneira ou por nenhum meio, salvo por
+              autorização expressa da empresa ou do titular dos direitos autorais,
+              quando aplicável.
+            </p>
+          </div>
+
+          <FaqNote>
+            <p>A base de dados da Leste não será vendida.</p>
+          </FaqNote>
+        </article>
+      </div>
+
+      <SupportFooter />
+    </main>
+  );
 }

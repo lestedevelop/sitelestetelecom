@@ -3,7 +3,7 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-  title: "Canais de Atendimento | Leste",
+  title: "Como funciona o atendimento pelo WhatsApp da Leste | Leste",
   description:
     "Informações sobre limitações e uso do atendimento pelo WhatsApp da Leste.",
 };
@@ -12,7 +12,7 @@ export default function ComoFuncionaOAtendimentoPeloWhatsappDaLeste() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
-        <TitleFaq title={<>Canais de Atendimento</>} />
+        <TitleFaq title={<>Como funciona o atendimento pelo WhatsApp da Leste</>} />
 
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">

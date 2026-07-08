@@ -1,30 +1,43 @@
 import imageFaq from "@/assets/imagefaq.jpg";
-import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
-import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
-import Image from "next/image";
+import bannerFaqDesktop from "@/assets/faq/banner-faq-desk.png";
+import bannerFaqMobile from "@/assets/faq/banner-faq-mobile.png";
+import bannerFaqTablet from "@/assets/faq/banner-faq-tablet.png";
 import autoatendimento from "@/assets/autoatendimento.svg";
-import nossaloja from "@/assets/nossaloja.svg";
 import central from "@/assets/central24.svg";
+import nossaloja from "@/assets/nossaloja.svg";
+import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
+import Image from "next/image";
 
 export default function Faq() {
   return (
     <div className="min-h-full">
       <section className="w-full">
-        <HomeHeroBanner
-          alt="Banner FAQ da Leste Telecom"
-          className="!aspect-[390/608] !h-auto !max-h-none !w-full md:!aspect-auto md:!h-[608px] md:!max-h-[608px]"
-          desktopImageClassName="!object-cover"
-          tabletImageClassName="!object-cover"
-          mobileImageClassName="!object-contain"
-          contentClassName="flex flex-col justify-center text-light md:container"
-        >
-          <div className="max-w-48 md:max-w-66">
-            {/*<h1 className="mb-6 text-2xl font-bold md:text-[50px]">FAQ</h1>*/}
-            <p className="text-[13px] md:text-[26px]">
-              {/*Encontre respostas para suas dúvidas.*/}
-            </p>
-          </div>
-        </HomeHeroBanner>
+        <div className="relative aspect-[390/608] w-full overflow-hidden bg-primary md:aspect-[1024/512] lg:aspect-[1440/400]">
+          <Image
+            src={bannerFaqDesktop}
+            alt="FAQ. Tire suas duvidas aqui."
+            fill
+            priority
+            className="hidden object-cover object-center lg:block"
+            sizes="100vw"
+          />
+          <Image
+            src={bannerFaqTablet}
+            alt="FAQ. Tire suas duvidas aqui."
+            fill
+            priority
+            className="hidden object-cover object-center md:block lg:hidden"
+            sizes="100vw"
+          />
+          <Image
+            src={bannerFaqMobile}
+            alt="FAQ. Tire suas duvidas aqui."
+            fill
+            priority
+            className="object-cover object-center md:hidden"
+            sizes="100vw"
+          />
+        </div>
       </section>
 
       <FaqHelpCenter />

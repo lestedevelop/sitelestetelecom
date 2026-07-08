@@ -6,9 +6,9 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import bannerLesteCameras from "@/assets/home/01-07-2026/banner-leste-cameras.png";
+import bannerLesteCameras from "@/assets/home/08-07-2026/banner_site_leste-cameras_1905x520.png";
 import bannerLesteCamerasMobile from "@/assets/home/01-07-2026/banner-leste-cameras-mobile.png";
-import bannerLesteUp from "@/assets/home/01-07-2026/banner-leste-up.png";
+import bannerLesteUp from "@/assets/home/08-07-2026/banner_site_leste-up_1905x520.png";
 import bannerLesteUpMobile from "@/assets/home/01-07-2026/banner-leste-up-mobile.png";
 import bannerOfertaEmCampo from "@/assets/home/01-07-2026/banner-oferta-em-campo.png";
 import bannerOfertaEmCampoMobile from "@/assets/home/01-07-2026/banner-oferta-em-campo-mobile.png";
@@ -23,8 +23,7 @@ const heroSlides = [
         mobileImage: bannerLesteCamerasMobile,
     },
     {
-        id: "home-leste-up",
-        alt: "Banner Leste Up",
+        id: "home-leste-up", alt: "Banner Leste Up",
         href: "/lesteup",
         image: bannerLesteUp,
         mobileImage: bannerLesteUpMobile,
@@ -47,6 +46,7 @@ function HeroSlideItem({slide, priority = false}) {
             desktopImage={slide.image}
             tabletImage={slide.image}
             mobileImage={slide.mobileImage}
+            desktopImageClassName="2xl:object-cover"
         />
     );
 }

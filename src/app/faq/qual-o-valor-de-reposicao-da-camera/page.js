@@ -7,6 +7,11 @@ export const metadata = {
   description: "Valores de reposição das câmeras Leste Câmeras.",
 };
 
+const replacementValues = [
+  ["EZVIZ Interna Fixa - H1C", "R$ 249,00"],
+  ["EZVIZ Interna 360º - H6C", "R$ 299,00"],
+];
+
 export default function Page() {
   return (
     <main className="bg-light">
@@ -19,10 +24,26 @@ export default function Page() {
               que estejam sob a responsabilidade do cliente, poderá ser cobrado
               o valor de reposição.
             </p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>Câmera Interna Fixa: R$ 249,00</li>
-              <li>Câmera Interna 360º: R$ 299,00</li>
-            </ul>
+            <div className="overflow-hidden rounded-xl border border-graylighter">
+              <table className="w-full border-collapse text-left text-sm md:text-base">
+                <thead className="bg-light text-darkgreen">
+                  <tr>
+                    <th className="px-4 py-3 font-bold">Modelo</th>
+                    <th className="px-4 py-3 font-bold">Valor de Reposição</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-graylighter">
+                  {replacementValues.map(([model, value]) => (
+                    <tr key={model}>
+                      <td className="px-4 py-3">{model}</td>
+                      <td className="px-4 py-3 font-bold text-darkgreen">
+                        {value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           <FaqNote>
             <p>

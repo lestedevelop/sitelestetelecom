@@ -15,13 +15,14 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              As gravações do Leste Câmeras são feitas automaticamente a partir
-              da detecção de movimento no ambiente e ficam armazenadas na nuvem
-              conforme o plano contratado.
+              As gravações do Leste Câmeras são feitas automaticamente a
+              partir da detecção de movimento no ambiente e ficam armazenadas
+              na nuvem conforme o plano contratado, com opções de 7 ou 30
+              dias de armazenamento.
             </p>
             <p>
-              O armazenamento pode ser de 7 ou 30 dias, sem limite por volume
-              de dados.
+              Não há limite por volume de dados, apenas pelo período
+              contratado.
             </p>
             <p>
               Enquanto as gravações estiverem disponíveis no aplicativo, é
@@ -29,9 +30,7 @@ export default function Page() {
             </p>
           </div>
           <FaqNote>
-            <p>
-              O acesso depende de o cliente estar ativo e adimplente.
-            </p>
+            <p>O acesso depende de o cliente estar ativo e adimplente.</p>
           </FaqNote>
         </article>
       </div>

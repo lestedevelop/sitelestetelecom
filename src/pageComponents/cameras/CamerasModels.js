@@ -65,10 +65,10 @@ function FeatureItem({ icon, title }) {
 export default function CamerasModels() {
   return (
     <section className="w-full">
-      <div className="container md:py-16">
+      <div className="container md:py-16 py-8">
         <div className="text-center">
           <h2 className="text-lg font-semibold text-primary md:text-[45px]">
-            Sua casa sempre{" "}
+            Sua casa sempre{"   "}
             <span className="relative ml-3">
               <span className="absolute -left-2 -top-2 h-5 w-5 md:border-l-6 border-l-3 border-t-3 md:border-t-6 border-lightgreen" />
               <span className="absolute -bottom-2 -right-4 h-5 w-5 md:border-b-6 border-b-3 border-r-3 md:border-r-6 border-lightgreen" />

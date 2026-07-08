@@ -3,7 +3,9 @@ import { CircleAlert } from "lucide-react";
 import FormIndicate from "@/components/Form/FormIndicate";
 import indiqueImage from "@/assets/indique2.png";
 import bannerIndique from "@/assets/banner-indique.png";
-import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
+import bannerIndiqueMobile from "@/assets/banner-indique-mobile.png";
+import bannerIndiqueTablet from "@/assets/banner-indique-tablet.png";
+import IndiqueHeroBanner from "@/pageComponents/indique-e-ganhe-leste/IndiqueHeroBanner";
 
 const PARTICIPATION_STEPS = [
   {
@@ -42,12 +44,12 @@ export default function IndiqueEGanheLestePage() {
   return (
     <div className="min-h-full bg-light">
       <section className="w-full">
-        <HomeHeroBanner
+        <IndiqueHeroBanner
           alt="Banner da página Indique e Ganhe"
-          className="h-[182px] md:h-[350px]"
+          className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
           desktopImage={bannerIndique}
-          tabletImage={bannerIndique}
-          mobileImage={bannerIndique}
+          tabletImage={bannerIndiqueTablet}
+          mobileImage={bannerIndiqueMobile}
         />
       </section>
 
@@ -145,7 +147,7 @@ export default function IndiqueEGanheLestePage() {
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <CircleAlert className="h-8 w-8 text-darkgreen" strokeWidth={2.2} />
-                <h2 className="text-[2.9rem] font-bold leading-none md:text-[4rem]">
+                <h2 className="text-[1.75rem] font-bold leading-none md:text-[2.9rem]">
                   Regulamento
                 </h2>
               </div>
