@@ -123,9 +123,11 @@ export default function StepPlans({ onNext, onBack }) {
                         renderPlan={renderPlanCard}
                     />
                     <p className="mx-2.5 text-center text-sm text-graylight lg:text-base">
-                        *Planos de 600 MEGA (Niterói-RJ) e 1 GIGA (Maricá-RJ) exclusivos para novos
-                        assinantes em migração de provedor. Oferta válida até 30/07/2026 ou até
+                        *Planos de 600 MEGA (Niterói-RJ) com Oferta Válida até 31/07/2026 ou até
                         durarem os estoques dos equipamentos AC - Wi-Fi 5 para ativação.
+                        <br />
+                        *Planos de 1 GIGA (Maricá, Rio Bonito e Tanguá-RJ) com Wi-Fi 6 AX. Oferta
+                        válida até 31/07/2026.
                     </p>
                 </>
             )}

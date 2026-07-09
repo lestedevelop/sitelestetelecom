@@ -1,6 +1,7 @@
 const PROMOTIONAL_PLAN_CODES = new Set([
     "EUVX0VOD9K",
     "EUVX0VPSZO",
+    "EUVY0RK9RG",
 ]);
 
 export function isPromotionalPlan(plan) {

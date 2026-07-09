@@ -5,58 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/banner-mobile-crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/area-do-cliente/banner-mobile-ja-cliente.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/banner-indique-mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/banner-indique-tablet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/cameras/banner-mobile-crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/cameras/banner-mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/faq/banner-faq-desk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/faq/banner-faq-mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/faq/banner-faq-tablet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/08-07-2026/banner_site_leste-cameras_1905x520.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/08-07-2026/banner_site_leste-up_1905x520.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/lesteup/banner-mobile-crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/movel/banner-mobile-crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/movel/banner-mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/faq/StoresGoogleMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/IndiqueHeroBanner.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.next-dev.err.log" beforeDir="false" afterPath="$PROJECT_DIR$/.next-dev.err.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.next-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/.next-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cameras/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cameras/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/como-funcionam-as-gravacoes-na-nuvem/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/como-funcionam-as-gravacoes-na-nuvem/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/lojas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/lojas/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/mudei-minha-senha-na-central-do-assinante/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-marica/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-marica/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-niteroi/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-niteroi/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/perco-as-gravacoes-em-algum-caso/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/perco-as-gravacoes-em-algum-caso/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/politica-privacidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/politica-privacidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/posso-alterar-o-e-mail-da-conta/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/posso-alterar-o-e-mail-da-conta/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/qual-o-valor-de-reposicao-da-camera/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/qual-o-valor-de-reposicao-da-camera/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/lesteup/banner-mobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/lesteup/banner-mobile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/lesteup/banner-mobile.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/new/MobileDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/new/MobileDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/blogPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/blogPosts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/faqActivePages.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqActivePages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasFaq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasFaq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasModels.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/FaqHelpCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/TitleFaq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/TitleFaq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/AreaAssinanteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/AreaAssinanteSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HomeHeroBanner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/BannerMovel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/BannerMovel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/SectionMovelPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/SectionMovelPlans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/vendas/promotionalPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/vendas/promotionalPlans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="845" />
+    <option name="cachedIndexableFilesCount" value="805" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -88,39 +40,39 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.127.0.0.1:3000.executor": "Run",
-    "JavaScript Debug.localhost:3000.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "javascript.preferred.runtime.type.id": "node",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/faq",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.Next.js: server-side.executor": "Run",
-    "settings.editor.selected.configurable": "ssh.settings",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.127.0.0.1:3000.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/projetos/leste/sitelestetelecom/src/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\faq" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\movel" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\cameras" />
-      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\lesteup" />
+      <recent name="C:\wamp64\www\projetos\leste\sitelestetelecom\src\assets" />
+      <recent name="C:\wamp64\www\projetos\leste\sitelestetelecom\src\assets\ultra" />
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home" />
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\area-do-cliente" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public\fonts" />
@@ -158,7 +110,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -185,7 +137,6 @@
       <workItem from="1782214861979" duration="1251000" />
       <workItem from="1782309506160" duration="28894000" />
       <workItem from="1782742094765" duration="20323000" />
-      <workItem from="1783513120142" duration="17218000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -365,29 +316,13 @@
     </task>
     <task id="LOCAL-00023" summary="++">
       <option name="closed" value="true" />
-      <created>1783340592509</created>
+      <created>1783017350339</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1783340592509</updated>
+      <updated>1783017350339</updated>
     </task>
-    <task id="LOCAL-00024" summary="++">
-      <option name="closed" value="true" />
-      <created>1783360705670</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1783360705670</updated>
-    </task>
-    <task id="LOCAL-00025" summary="++">
-      <option name="closed" value="true" />
-      <created>1783360793869</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1783360793869</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,17 +350,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js</url>
-          <line>49</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/pageComponents/cameras/CamerasModels.js</url>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

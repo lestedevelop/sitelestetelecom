@@ -61,6 +61,13 @@ export default function PlanosSection() {
                     {`Planos disponíveis apenas para a cidade de ${site?.city?.label}`}
                 </p>
                 <div className="text-center">
+                    <p className="mx-2.5 mb-4 text-sm lg:text-base text-graylight">
+                        *Planos de 600 MEGA (Niterói-RJ) com Oferta Válida até 31/07/2026 ou até
+                        durarem os estoques dos equipamentos AC - Wi-Fi 5 para ativação.
+                        <br />
+                        *Planos de 1 GIGA (Maricá, Rio Bonito e Tanguá-RJ) com Wi-Fi 6 AX. Oferta
+                        válida até 31/07/2026.
+                    </p>
                     <p className="mx-2.5 mb-8  text-sm lg:text-base text-graylight">
                         Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso{" "}
                         <Link href="/faq" className="font-semibold text-primary underline underline-offset-2">
