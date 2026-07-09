@@ -25,7 +25,7 @@ export default function PlanosSection() {
             return (
                 <PromotionalPlanCard
                     plan={plan}
-                    actionHref="https://vendas.lestetelecom.com.br/"
+                    actionHref="https://vendas.lestetelecom.com.br/vendas"
                     actionLabel="Assine agora!"
                     compactTop
                     className="-mt-6"
