@@ -7,6 +7,7 @@ export const TRACKING_PARAM_KEYS = [
     "gclid",
     "fbclid",
     "msclkid",
+    "idafiliado",
 ];
 
 const TRACKING_TARGET_HOSTS = new Set([

@@ -1,4 +1,13 @@
+import {getCapturedTrackingFromCookies} from "@/lib/utm";
 
+function getTrackingFields() {
+    const {utm, idafiliado} = getCapturedTrackingFromCookies();
+
+    return {
+        utm,
+        idafiliado,
+    };
+}
 
 export function buildPreCadastroModel(data){
 
@@ -17,6 +26,7 @@ export function buildPreCadastroModel(data){
         viabilidade: data.viabilidade || data.tipo_viabilidade,
         interesse: "sim",
         obs: "Cliente via site",
+        ...getTrackingFields(),
     };
 }
 
@@ -44,5 +54,6 @@ export function buildCadastroCompletoModel(data){
         interesse: "sim",
         tipo_cliente: "F",
         obs: "Cliente via site",
+        ...getTrackingFields(),
     };
 }

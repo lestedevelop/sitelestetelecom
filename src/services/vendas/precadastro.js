@@ -4,6 +4,7 @@ export async function sendPrecadastro(data) {
     const payload = buildCadastroCompletoModel(data);
     const res = await fetch("/api/vendas/precadastro", {
         method: "POST",
+        credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
     });
