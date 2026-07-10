@@ -12,6 +12,21 @@ import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 import {useState} from "react";
 
+const PROMOTIONAL_SUBTITLE_CITIES = new Set([
+    "niteroi",
+    "marica",
+    "rio bonito",
+    "tangua",
+]);
+
+function normalizeCityName(value = "") {
+    return String(value)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toLowerCase();
+}
+
 export default function PlanosSection() {
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
     const {planos, loading} = useHomeData();
@@ -19,6 +34,11 @@ export default function PlanosSection() {
     const plansData = planos?.data || [];
     const sortedPlansData = sortPlansByLowestPrice(plansData);
     const showSkeleton = loading || plansData.length === 0;
+    const cityName = site?.city?.label || "";
+    const hasPromotionalSubtitle = PROMOTIONAL_SUBTITLE_CITIES.has(normalizeCityName(cityName));
+    const subtitle = hasPromotionalSubtitle
+        ? "*Desconto de 3 meses exclusivo para novos assinantes em migração de provedor"
+        : "100% Fibra Ótica";
 
     function renderPlanCard(plan) {
         if (isPromotionalPlan(plan)) {
@@ -43,7 +63,7 @@ export default function PlanosSection() {
                     Conheça nossos planos!
                 </h2>
                 <p className="planos-subtitle mt-2 text-center text-dark">
-                    100% Fibra Ótica
+                    {subtitle}
                 </p>
             </section>
 

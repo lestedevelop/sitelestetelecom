@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Selo GoDaddy">
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Ajuste Plano Promocional + Idafiliado">
+      <change afterPath="$PROJECT_DIR$/src/assets/lesteup/banner-leste-up.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/vendas/precadastro/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/vendas/precadastro/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/trackingParams.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/trackingParams.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/vendas/promotionalPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/vendas/promotionalPlans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/agendamentoModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/agendamentoModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/preCadastroModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/preCadastroModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/useCaptureUtm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/useCaptureUtm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/vendas/agendamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/vendas/agendamento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/vendas/precadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/vendas/precadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-marica/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/oferta-em-campo-marica/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlanosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783626181542</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Ajuste Plano Promocional + Idafiliado">
+      <option name="closed" value="true" />
+      <created>1783695129799</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1783695129799</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +378,8 @@
     <MESSAGE value="++" />
     <MESSAGE value="Oferta em Campo Tangua e Rio Bonito" />
     <MESSAGE value="Selo GoDaddy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Selo GoDaddy" />
+    <MESSAGE value="Ajuste Plano Promocional + Idafiliado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste Plano Promocional + Idafiliado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -383,6 +387,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pageComponents/indique-e-ganhe-leste/BannerIndique.js</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

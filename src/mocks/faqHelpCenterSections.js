@@ -118,7 +118,7 @@
       { title: "Como funcionou a promoção de Natal 2025?", href: "/faq/promocao-de-natal-2025" },
       { title: "Como funciona a campanha Mês do Consumidor 2026?", href: "/faq/mes-do-consumidor-2026" },
       { title: "Oferta limitada de 1GB - 2025", href: "/faq/oferta-limitada-de-1gb-2025" },
-      { title: "Oferta em Campo - Maricá", href: "/faq/oferta-em-campo-marica" },
+      { title: "Oferta em Campo - Maricá, Rio Bonito e Tanguá", href: "/faq/oferta-em-campo-marica" },
       { title: "Oferta em Campo - Niterói", href: "/faq/oferta-em-campo-niteroi" },
       { title: "Campanha Promocional 2026 - Maricá", href: "/faq/campanha-promocional-2026-marica" },
       { title: "Campanha Promocional 2026 - Niterói Predial", href: "/faq/campanha-promocional-2026-niteroi-predial" },
