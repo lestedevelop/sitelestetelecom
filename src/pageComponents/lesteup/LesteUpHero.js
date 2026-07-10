@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroBanner from "@/assets/lesteup/banner-leste-up.png";
-import mobileBanner from "@/assets/lesteup/banner-mobile.png";
+import mobileBanner from "@/assets/lesteup/banner-mobile-crop.png";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
