@@ -35,7 +35,7 @@ function PriceBlock({ align = "right" }) {
 
 export default function LesteUpHero() {
   return (
-    <section className="w-full">
+    <section className="w-full ">
       <HomeHeroBanner
         alt="Banner do Leste Up"
         className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
@@ -47,17 +47,18 @@ export default function LesteUpHero() {
         desktopImageClassName="2xl:object-cover"
       >
         <div className="container px-6 md:px-16">
-          <div className="max-w-[260px] text-left text-white md:ml-auto md:max-w-[430px]">
-            <h1 className="text-[1.55rem] font-semibold leading-[0.98] md:text-5xl">
+          <div className="max-w-[280px] text-left text-white md:ml-auto md:max-w-[430px]">
+            <h1 className="text-[1.95rem] font-semibold leading-[0.98] md:text-5xl">
               {/*Mais <span className="text-[#0fd7c1]">4 horas</span>*/}
-              Esteja pronto antes da queda de luz: Conte com o<span className="text-[#0fd7c1]"> Leste UP</span>
+              <span className={"hidden md:block"}>Esteja pronto antes da queda de luz: Conte com o<span className="text-[#0fd7c1]"> Leste UP</span></span>
+              <span className={"md:hidden"}> Esteja pronto antes da queda de luz: <br/><br/> Conte com <br/>o<span className="text-[#0fd7c1]"> Leste UP</span></span>
             </h1>
 
             <div className="mt-4 md:mt-6">
               <PriceBlock align="left" />
             </div>
 
-            <div className="mt-4 flex flex-col items-start gap-3 md:mt-5">
+            <div className="mt-4 flex-col items-start gap-3 md:mt-5 hidden md:flex">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -74,6 +75,23 @@ export default function LesteUpHero() {
                 autônomo, sem vínculo com a internet fibra. Possui fidelidade de 12 meses.
               </p>
             </div>
+          </div>
+          <div className="mt-4 flex-col items-center gap-3 md:mt-5 flex md:hidden w-full pt-24">
+            <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#0fd7c1] px-16 py-2.5 text-xs font-semibold text-darkgreen transition hover:opacity-90 md:px-8 md:py-3 md:text-[1.1rem]"
+            >
+              <Image src={whatsIcon} alt="WhatsApp" width={18} height={18} />
+              Contrate agora!
+            </a>
+
+            <p className="text-center text-[9px] leading-relaxed text-white/70 md:max-w-[520px] md:text-xs">
+              *O Leste Up é exclusivo para clientes Leste nas cidades de Niterói,
+              Maricá e Rio Bonito. Oferta válida até 30/06/2026. O serviço é
+              autônomo, sem vínculo com a internet fibra. Possui fidelidade de 12 meses.
+            </p>
           </div>
         </div>
       </HomeHeroBanner>
