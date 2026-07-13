@@ -5,6 +5,7 @@ export async function sendAgendamento(data) {
     const payload = buildAgendamentoModel(data);
     const res = await fetch("/api/vendas/agendamento", {
         method: "POST",
+        credentials: "same-origin",
         headers: {
             "Content-Type": "application/json",
         },

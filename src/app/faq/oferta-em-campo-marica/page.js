@@ -3,16 +3,16 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-  title: "Oferta em Campo - Maricá | Leste",
+  title: "Oferta em Campo - Maricá, Rio Bonito e Tanguá | Leste",
   description:
-    "Informações sobre a oferta promocional em campo para Maricá, valores, condições e regras da campanha.",
+    "Informações sobre a oferta promocional em campo para Maricá, Rio Bonito e Tanguá, valores, condições e regras da campanha.",
 };
 
 export default function OfertaEmCampoMarica() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
-        <TitleFaq title={<>Oferta em Campo - Maricá</>} />
+        <TitleFaq title={<>Oferta em Campo - Maricá, Rio Bonito e Tanguá</>} />
 
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
@@ -34,8 +34,8 @@ export default function OfertaEmCampoMarica() {
 
             <p>
               A oferta é destinada exclusivamente para clientes da cidade de
-              Maricá e válida apenas para novos assinantes em processo de
-              migração de outro provedor, mediante comprovação.
+              Maricá, Rio Bonito e Tanguá e válida apenas para novos assinantes
+              em processo de migração de outro provedor, mediante comprovação.
             </p>
 
             <p>

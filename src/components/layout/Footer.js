@@ -130,17 +130,28 @@ export default function Footer() {
                                 Verificados pelo Reclame Aqui
                             </h2>
 
-                            <div className="flex h-[118px] max-w-[390px] items-center justify-start overflow-hidden md:max-w-full lg:max-w-[390px]">
-                                <div
-                                    id="ra-verified-seal"
-                                    className="flex h-full w-full items-center justify-start [&_iframe]:!h-full [&_iframe]:!max-h-full [&_iframe]:!w-full [&_img]:!h-auto [&_img]:!max-h-full [&_img]:!max-w-full"
-                                />
+                            <div className="flex min-h-[118px] flex-wrap items-center justify-start gap-4">
+                                <div className="flex h-[118px] w-full max-w-[390px] shrink-0 items-center justify-start overflow-hidden sm:w-[390px]">
+                                    <div
+                                        id="ra-verified-seal"
+                                        className="flex h-full w-full items-center justify-start [&_iframe]:!h-full [&_iframe]:!max-h-full [&_iframe]:!w-full [&_img]:!h-auto [&_img]:!max-h-full [&_img]:!max-w-full"
+                                    />
+                                </div>
                                 <Script
                                     id="ra-embed-verified-seal"
                                     src="https://s3.amazonaws.com/raichu-beta/ra-verified/bundle.js"
                                     data-id="MTA0Nzk5Omxlc3RlLXRlbGVjb20="
                                     data-target="ra-verified-seal"
                                     data-model="2"
+                                    strategy="afterInteractive"
+                                />
+                                <span
+                                    id="siteseal"
+                                    className="flex min-h-[90px] shrink-0 items-center justify-start [&_img]:!h-auto [&_img]:!max-h-[100px] [&_img]:!max-w-[150px]"
+                                />
+                                <Script
+                                    id="godaddy-site-seal"
+                                    src="https://seal.godaddy.com/getSealBasic?sealID=aIb4nl8iEHq3oqfN10lyVMnM7EzGmjq27ExqTCsHRy0DgZNFk86Lj94378tM"
                                     strategy="afterInteractive"
                                 />
                             </div>

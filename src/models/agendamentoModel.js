@@ -1,10 +1,12 @@
 import {brToISODate} from "@/utils/Format";
+import {getCapturedTrackingFromCookies} from "@/lib/utm";
 
 export function buildAgendamentoModel(data) {
     const cadastro = data?.cadastro || {};
     const plano = data?.plano || data?.planos || {};
     const agendamento = data?.agendamento || {};
     const precadastroBody = data?.precadastroBody || {};
+    const {utm, idafiliado} = getCapturedTrackingFromCookies();
     const txadesao = plano?.taxaTotal ?? plano?.taxa_desconto ?? plano?.taxa;
     const pgtotxadesao = plano?.formaDePagamento || "Pix na Instalação";
 
@@ -49,6 +51,8 @@ export function buildAgendamentoModel(data) {
         txadesao,
         pgtotxadesao,
         event_id:agendamento?.slotId,
+        idafiliado,
+        utm,
     };
 }
 

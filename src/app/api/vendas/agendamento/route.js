@@ -14,14 +14,37 @@ function appendAny(form, key, value) {
     form.append(key, String(value));
 }
 
+function getCookieValue(req, name) {
+    const cookieHeader = req.headers.get("cookie") || "";
+
+    const raw = cookieHeader
+        .split(";")
+        .map((s) => s.trim())
+        .find((cookie) => cookie.startsWith(`${name}=`))
+        ?.split("=")
+        .slice(1)
+        .join("=");
+
+    return raw ? decodeURIComponent(raw) : "";
+}
+
 export async function POST(req) {
     try {
         const body = await req.json();
-        const utm = getUtmFromReq(req);
+        const rawUtm = getUtmFromReq(req);
+        const {idafiliado: idafiliadoFromUtm, ...utm} = rawUtm;
+        const bodyUtm = body?.utm && typeof body.utm === "object" ? body.utm : {};
+        const {idafiliado: idafiliadoFromBodyUtm, ...cleanBodyUtm} = bodyUtm;
+        const idafiliado =
+            body?.idafiliado ||
+            getCookieValue(req, "leste_idafiliado") ||
+            idafiliadoFromBodyUtm ||
+            idafiliadoFromUtm;
 
         const payload = {
             ...body,
-            utm,
+            utm: Object.keys(cleanBodyUtm).length ? cleanBodyUtm : utm,
+            idafiliado,
         };
 
         const form = new FormData();
@@ -32,6 +55,8 @@ export async function POST(req) {
         appendAny(form, "pgtotxadesao", payload?.pgtotxadesao);
         appendAny(form, "txadesao", payload?.txadesao);
         appendAny(form, "pgtoprorata", payload?.pgtoprorata || "");
+        appendAny(form, "idafiliado", payload?.idafiliado);
+        appendAny(form, "utm", payload?.utm);
         appendAny(form, "precadastro", payload?.precadastro);
         appendAny(form, "responsaveis", payload?.responsaveis);
 

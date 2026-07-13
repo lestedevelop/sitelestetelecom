@@ -2,14 +2,37 @@ import {NextResponse} from "next/server";
 import {coreApi} from "@/lib/coreApi";
 import {getUtmFromReq} from "@/lib/utmServerRaw";
 
+function getCookieValue(req, name) {
+    const cookieHeader = req.headers.get("cookie") || "";
+
+    const raw = cookieHeader
+        .split(";")
+        .map((s) => s.trim())
+        .find((cookie) => cookie.startsWith(`${name}=`))
+        ?.split("=")
+        .slice(1)
+        .join("=");
+
+    return raw ? decodeURIComponent(raw) : "";
+}
+
 export async function POST(req) {
     try {
         const body = await req.json();
-        const utm = getUtmFromReq(req);
+        const rawUtm = getUtmFromReq(req);
+        const {idafiliado: idafiliadoFromUtm, ...utmFromCookie} = rawUtm;
+        const bodyUtm = body?.utm && typeof body.utm === "object" ? body.utm : {};
+        const {idafiliado: idafiliadoFromBodyUtm, ...cleanBodyUtm} = bodyUtm;
+        const idafiliado =
+            body?.idafiliado ||
+            getCookieValue(req, "leste_idafiliado") ||
+            idafiliadoFromBodyUtm ||
+            idafiliadoFromUtm;
 
         const payload = {
             ...body,
-            utm,
+            utm: Object.keys(cleanBodyUtm).length ? cleanBodyUtm : utmFromCookie,
+            idafiliado,
         };
         console.log(payload);
         const resp = await coreApi.put("/api/sac/externo/precadastroNew", payload);

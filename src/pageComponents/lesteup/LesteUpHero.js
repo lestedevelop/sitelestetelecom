@@ -1,6 +1,6 @@
 import Image from "next/image";
-import heroBanner from "@/assets/lesteup/BANNELESTEUP2.webp";
-import mobileBanner from "@/assets/lesteup/banner-mobile.png";
+import heroBanner from "@/assets/lesteup/banner-leste-up.png";
+import mobileBanner from "@/assets/lesteup/banner-mobile-crop.png";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 
@@ -40,14 +40,14 @@ export default function LesteUpHero() {
         alt="Banner do Leste Up"
         className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
         mobileImageClassName="object-cover object-center"
-        contentClassName="flex items-center pb-8 md:items-center md:pb-0"
+        contentClassName="flex items-start pt-8 md:items-center md:justify-end md:pb-0 md:pt-0"
         desktopImage={heroBanner}
         tabletImage={mobileBanner}
         mobileImage={mobileBanner}
         desktopImageClassName="2xl:object-cover"
       >
         <div className="container px-6 md:px-16">
-          <div className="max-w-[260px] text-left text-white md:max-w-[530px]">
+          <div className="max-w-[260px] text-left text-white md:ml-auto md:max-w-[430px]">
             <h1 className="text-[1.55rem] font-semibold leading-[0.98] md:text-5xl">
               {/*Mais <span className="text-[#0fd7c1]">4 horas</span>*/}
               Esteja pronto antes da queda de luz: Conte com o<span className="text-[#0fd7c1]"> Leste UP</span>
