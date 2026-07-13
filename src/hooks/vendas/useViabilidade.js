@@ -5,12 +5,21 @@ import { getViabilidade } from "@/services/vendas/viabilidade";
 import { useSales } from "@/contexts/SalesContextNew";
 import { toast } from "react-toastify";
 
+function normalizeRisco(value) {
+    if (typeof value === "boolean") return value;
+    if (typeof value === "number") return value === 1;
+    if (typeof value === "string") {
+        return ["1", "true", "sim", "s"].includes(value.trim().toLowerCase());
+    }
+    return false;
+}
+
 export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const abortRef = useRef(null);
     const lastKeyRef = useRef("");
-    const { data, updateCadastro } = useSales();
+    const { updateCadastro } = useSales();
 
     const checkViabilidade = useCallback(
         async ({ cep, numero }) => {
@@ -33,6 +42,11 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 setValue("rua", "", { shouldDirty: true, shouldTouch: true });
             };
 
+            const setViabilidadeFields = ({ tipoViabilidade, risco }) => {
+                setValue("tipo_viabilidade", tipoViabilidade, { shouldDirty: true, shouldTouch: true });
+                setValue("risco", risco, { shouldDirty: true, shouldTouch: true });
+            };
+
             try {
                 setError("");
                 setLoading(true);
@@ -45,6 +59,16 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
 
                 if (!Array.isArray(resp) || resp.length === 0) {
                     clearAddressFields();
+                    setViabilidadeFields({ tipoViabilidade: "", risco: false });
+                    updateCadastro({
+                        cep: cepDigits,
+                        numero: numeroStr,
+                        cidade: "",
+                        bairro: "",
+                        rua: "",
+                        tipo_viabilidade: "",
+                        risco: false,
+                    });
                     if (trigger) await trigger(["cidade", "bairro", "rua"]);
                     toast.error("CEP não encontrado ou sem cobertura");
                     return;
@@ -56,17 +80,25 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 const cidade = v?.cidade || v?.nome_cid || "";
                 const bairro = v?.bairro || "";
                 const rua = v?.logradouro || v?.endereco || v?.logradouro_do || "";
+                const tipoViabilidade = v?.tipo_viabilidade || v?.viabilidade || "";
+                const risco = normalizeRisco(v?.risco);
 
                 if (cidade) setValue("cidade", cidade, { shouldDirty: true, shouldTouch: true });
                 if (bairro) setValue("bairro", bairro, { shouldDirty: true, shouldTouch: true });
                 if (rua) setValue("rua", rua, { shouldDirty: true, shouldTouch: true });
+                setViabilidadeFields({ tipoViabilidade, risco });
 
                 if (trigger) await trigger(["cidade", "bairro", "rua"]);
 
                 updateCadastro({
-                    ...data?.cadastro,
                     ...v,
-                    numero
+                    cep: cepDigits,
+                    numero: numeroStr,
+                    cidade,
+                    bairro,
+                    rua,
+                    tipo_viabilidade: tipoViabilidade,
+                    risco,
                 });
                 toast.success("Cep validado com sucesso!");
             } catch (e) {
@@ -76,7 +108,7 @@ export function useViabilidade({ setValue, trigger, stepKey, updateStep }) {
                 setLoading(false);
             }
         },
-        [setValue, trigger, updateStep, stepKey, data?.cadastro, updateCadastro]
+        [setValue, trigger, updateStep, stepKey, updateCadastro]
     );
 
     return { checkViabilidade, loading, error };
