@@ -87,7 +87,8 @@ export default function StepAgendamento({ onNext, onBack }) {
             />
 
             {data?.agendamento.start && <ProRataSection/>}
-            {data?.agendamento.start && <div className="pt-6">
+            {data?.agendamento.start && data?.plano.vencimento &&
+                <div className="pt-6">
                 <button
                     id={VENDAS_GTM_BUTTON_IDS.agendamentoContinuar}
                     type="button"

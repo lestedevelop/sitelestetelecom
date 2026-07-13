@@ -154,6 +154,7 @@ export default function StepCadastroInicial({ onNext }) {
                     id={VENDAS_GTM_FORM_IDS.cadastroInicial.numero}
                     label="Número"
                     name="numero"
+                    type="number"
                     error={errors?.numero?.message}
                     register={(n) =>
                         register(n, {
