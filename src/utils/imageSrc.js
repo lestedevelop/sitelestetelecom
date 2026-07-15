@@ -1,14 +1,3 @@
-export function getBase64ImageSrc(item) {
-    const base64 = item?.base64;
-    if (!base64) return null;
-
-    return `data:image/webp;base64,${base64}`;
-}
-
-export function isDataImageSrc(src) {
-    return typeof src === "string" && src.startsWith("data:");
-}
-
 function resolveNameSrc(name) {
     if (!name) return null;
 
@@ -19,20 +8,39 @@ function resolveNameSrc(name) {
     return null;
 }
 
+function resolveApiImageSrc(value) {
+    if (typeof value !== "string") return value;
+
+    const coreImagePath = "/api/sac/externo/home/image";
+    if (value.startsWith(coreImagePath)) {
+        return value.replace(coreImagePath, "/api/home/image");
+    }
+
+    if (/^https?:\/\//i.test(value)) {
+        try {
+            const url = new URL(value);
+            if (url.pathname === coreImagePath) return `/api/home/image${url.search}`;
+        } catch {
+            return value;
+        }
+    }
+
+    return value;
+}
+
 export function resolveImageSrc(item, fallback = null) {
-    const base64Src = getBase64ImageSrc(item);
-    if (base64Src) return base64Src;
-
     if (!item) return fallback;
-    if (typeof item === "string") return item || fallback;
+    if (typeof item === "string") return resolveApiImageSrc(item) || fallback;
 
-    return (
+    const src =
+        item.image?.url ||
         item.url ||
         item.src ||
         item.image ||
         item.imageUrl ||
         item.image_url ||
         resolveNameSrc(item.name || item.nome) ||
-        fallback
-    );
+        fallback;
+
+    return resolveApiImageSrc(src);
 }

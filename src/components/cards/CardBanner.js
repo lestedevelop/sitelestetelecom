@@ -1,7 +1,7 @@
 'use-client'
 import ActionButton from "@/components/Buttons/ActionButton";
 import Image from "next/image";
-import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 
 export default function CardBanner({image,title,buttonText,className,link}) {
@@ -15,7 +15,6 @@ export default function CardBanner({image,title,buttonText,className,link}) {
                     alt="Casal feliz usando tablet"
                     fill
                     className="object-cover hidden md:block"
-                    unoptimized={isDataImageSrc(imageSrc)}
                 />
                 <div className="relative z-10 flex flex-col justify-center md:items-start items-center px-16 max-w-full text-white md:max-w-[50%]">
                     <h1 className="text-center md:text-left text-[32px] font-bold mb-6">

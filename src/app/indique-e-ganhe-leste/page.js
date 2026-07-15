@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { CircleAlert } from "lucide-react";
 import FormIndicate from "@/components/Form/FormIndicate";
@@ -6,6 +8,8 @@ import bannerIndique from "@/assets/banner-indique.png";
 import bannerIndiqueMobile from "@/assets/banner-indique-mobile.png";
 import bannerIndiqueTablet from "@/assets/banner-indique-tablet.png";
 import IndiqueHeroBanner from "@/pageComponents/indique-e-ganhe-leste/IndiqueHeroBanner";
+import {useHomeSections} from "@/hooks/useHomeSections";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 const PARTICIPATION_STEPS = [
   {
@@ -41,15 +45,22 @@ const REGULATION_ITEMS = [
 ];
 
 export default function IndiqueEGanheLestePage() {
+  const {getAdverts} = useHomeSections();
+  const bannerAdvert = getAdverts("indiqueGanheBanner")[0];
+  const bannerImage = resolveImageSrc(bannerAdvert, null);
+  const formAdvert = getAdverts("indiqueGanheForm")[0];
+  const formImage = resolveImageSrc(formAdvert, indiqueImage);
+
   return (
     <div className="min-h-full bg-light">
       <section className="w-full">
         <IndiqueHeroBanner
+          href={bannerAdvert?.cta?.href}
           alt="Banner da página Indique e Ganhe"
           className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
-          desktopImage={bannerIndique}
-          tabletImage={bannerIndiqueTablet}
-          mobileImage={bannerIndiqueMobile}
+          desktopImage={bannerImage || bannerIndique}
+          tabletImage={bannerImage || bannerIndiqueTablet}
+          mobileImage={bannerImage || bannerIndiqueMobile}
         />
       </section>
 
@@ -67,8 +78,8 @@ export default function IndiqueEGanheLestePage() {
 
             <div className="mt-8 overflow-hidden rounded-[1.7rem] bg-primary md:mt-10">
               <Image
-                src={indiqueImage}
-                alt="Clientes usando notebook"
+                src={formImage}
+                alt={formAdvert?.title || "Clientes usando notebook"}
                 className="h-auto w-full"
                 priority
               />

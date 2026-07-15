@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 
 const CardProduto = ({imageSrc, title = "Leste Móvel", description = "Chegou o chip da Leste!", buttonText = "Onde comprar", link}) => {
@@ -16,7 +16,6 @@ const CardProduto = ({imageSrc, title = "Leste Móvel", description = "Chegou o 
           width={640}
           height={320}
           className="w-full h-full object-cover"
-          unoptimized={isDataImageSrc(resolvedImageSrc)}
         />
       </div>
       <div className="flex flex-col justify-between flex-1 p-5 text-center">

@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+        localPatterns: [
+            {
+                pathname: "/api/home/image",
+            },
+        ],
+    },
     async redirects() {
         return [
             {source: "/vendas-cadastro-inicial", destination: "/vendas", permanent: false},

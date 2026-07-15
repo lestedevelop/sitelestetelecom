@@ -1,6 +1,5 @@
 "use client";
 
-import {useEffect, useState} from "react";
 import {Autoplay, Pagination} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -39,15 +38,6 @@ const heroSlides = [
     },
 ];
 
-function normalizeText(value = "") {
-    return String(value)
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]+/g, " ")
-        .trim();
-}
-
 function getValidUrl(value) {
     const url = String(value || "").trim();
     if (!url || url === "undefined" || url === "null") return "";
@@ -59,55 +49,20 @@ function getValidUrl(value) {
     return "";
 }
 
-function getDeviceType(item) {
-    return Number(item?.deviceType || item?.device_type || item?.typeDispositivo || 0);
-}
+function mapAdvertsToSlides(adverts = []) {
+    return adverts.flatMap((advert) => {
+        const image = resolveImageSrc(advert, null);
+        if (!image) return [];
 
-function getRelatedBanner(desktop, banners) {
-    const title = normalizeText(desktop?.title);
-
-    if (title.includes("camera")) {
-        return banners.find((item) => normalizeText(item?.title).includes("camera"));
-    }
-
-    if (title.includes("oferta") || title.includes("campo")) {
-        return banners.find((item) => normalizeText(item?.title).includes("campo"));
-    }
-
-    if (title.includes("leste") || title.includes("up")) {
-        return banners.find((item) => {
-            const itemTitle = normalizeText(item?.title);
-            return itemTitle.includes("leste") || itemTitle.includes("up");
-        });
-    }
-
-    return banners.find((item) => item?.order === desktop?.order) || banners[0] || null;
-}
-
-function mapCoreBannersToSlides(banners = []) {
-    const validBanners = banners.filter((item) => resolveImageSrc(item, null));
-    const desktopBanners = validBanners.filter((item) => getDeviceType(item) === 1);
-    const mobileBanners = validBanners.filter((item) => getDeviceType(item) === 2);
-    const tabletBanners = validBanners.filter((item) => getDeviceType(item) === 3);
-    const sortedDesktopBanners = desktopBanners
-        .sort((a, b) => (Number(a?.order) || 0) - (Number(b?.order) || 0) || (Number(a?.id) || 0) - (Number(b?.id) || 0));
-
-    return sortedDesktopBanners.map((banner) => {
-        const tabletBanner = getRelatedBanner(banner, tabletBanners);
-        const mobileBanner = getRelatedBanner(banner, mobileBanners);
-        const image = resolveImageSrc(banner, null);
-        const tabletImage = resolveImageSrc(tabletBanner, image);
-        const mobileImage = resolveImageSrc(mobileBanner, image);
-
-        return {
-            id: `core-banner-${banner.id}`,
-            alt: banner?.title || banner?.text || "Banner Leste Telecom",
-            href: getValidUrl(banner?.button_url),
-            ctaLabel: banner?.button_label || "",
+        return [{
+            id: `core-banner-${advert.id}`,
+            alt: advert.title || advert.description || "Banner Leste Telecom",
+            href: getValidUrl(advert.cta?.href),
+            ctaLabel: advert.cta?.label || "",
             image,
-            tabletImage,
-            mobileImage,
-        };
+            tabletImage: image,
+            mobileImage: image,
+        }];
     });
 }
 
@@ -125,33 +80,9 @@ function HeroSlideItem({slide, priority = false}) {
     );
 }
 
-export default function HeroSlider({slides = heroSlides}) {
-    const [coreSlides, setCoreSlides] = useState(null);
-    const activeSlides = coreSlides?.length ? coreSlides : slides;
-
-    useEffect(() => {
-        let isActive = true;
-
-        async function loadCoreSlides() {
-            try {
-                const res = await fetch("/api/debug/core-test");
-                const data = await res.json();
-                const mappedSlides = mapCoreBannersToSlides(Array.isArray(data?.banner) ? data.banner : []);
-
-                if (isActive && mappedSlides.length) {
-                    setCoreSlides(mappedSlides);
-                }
-            } catch {
-                if (isActive) setCoreSlides(null);
-            }
-        }
-
-        loadCoreSlides();
-
-        return () => {
-            isActive = false;
-        };
-    }, []);
+export default function HeroSlider({slides = heroSlides, adverts = []}) {
+    const coreSlides = mapAdvertsToSlides(adverts);
+    const activeSlides = coreSlides.length ? coreSlides : slides;
 
     return (
         <section className="w-full">

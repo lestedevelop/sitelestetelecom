@@ -1,3 +1,5 @@
+"use client";
+
 import imageFaq from "@/assets/imagefaq.jpg";
 import bannerFaqDesktop from "@/assets/faq/banner-faq-desk.png";
 import bannerFaqMobile from "@/assets/faq/banner-faq-mobile.png";
@@ -7,31 +9,37 @@ import central from "@/assets/central24.svg";
 import nossaloja from "@/assets/nossaloja.svg";
 import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
 import Image from "next/image";
+import {useHomeSections} from "@/hooks/useHomeSections";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 export default function Faq() {
+  const {getAdverts} = useHomeSections();
+  const advert = getAdverts("faq")[0];
+  const bannerImage = resolveImageSrc(advert, null);
+
   return (
     <div className="min-h-full">
       <section className="w-full">
         <div className="relative aspect-[390/608] w-full overflow-hidden bg-primary md:aspect-[1024/512] lg:aspect-[1440/400]">
           <Image
-            src={bannerFaqDesktop}
-            alt="FAQ. Tire suas duvidas aqui."
+            src={bannerImage || bannerFaqDesktop}
+            alt={advert?.title || "FAQ. Tire suas duvidas aqui."}
             fill
             priority
             className="hidden object-cover object-center lg:block"
             sizes="100vw"
           />
           <Image
-            src={bannerFaqTablet}
-            alt="FAQ. Tire suas duvidas aqui."
+            src={bannerImage || bannerFaqTablet}
+            alt={advert?.title || "FAQ. Tire suas duvidas aqui."}
             fill
             priority
             className="hidden object-cover object-center md:block lg:hidden"
             sizes="100vw"
           />
           <Image
-            src={bannerFaqMobile}
-            alt="FAQ. Tire suas duvidas aqui."
+            src={bannerImage || bannerFaqMobile}
+            alt={advert?.title || "FAQ. Tire suas duvidas aqui."}
             fill
             priority
             className="object-cover object-center md:hidden"

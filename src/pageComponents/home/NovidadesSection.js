@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { getClientAreaBlogPosts } from "@/mocks/blogPosts";
-import { isDataImageSrc, resolveImageSrc } from "@/utils/imageSrc";
+import { resolveImageSrc } from "@/utils/imageSrc";
 
 function NewsCard({ item }) {
   const imageSrc = resolveImageSrc(item, item.image);
@@ -24,7 +24,6 @@ function NewsCard({ item }) {
             fill
             sizes="(min-width: 1280px) 360px, (min-width: 768px) 50vw, 100vw"
             className="h-full w-full object-cover"
-            unoptimized={isDataImageSrc(imageSrc)}
           />
         </div>
 

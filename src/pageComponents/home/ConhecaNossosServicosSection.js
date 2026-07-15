@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { getLesteServices } from "@/mocks/lesteServices";
-import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,7 +23,6 @@ function ServiceCard({ service }) {
             alt={service.title}
             fill
             className="object-cover"
-            unoptimized={isDataImageSrc(imageSrc)}
           />
         </div>
 
@@ -45,9 +44,26 @@ function ServiceCard({ service }) {
   );
 }
 
-export default function ConhecaNossosServicosSection() {
+function mapAdvertsToServices(adverts) {
+  return adverts.flatMap((advert) => {
+    const image = resolveImageSrc(advert, null);
+    if (!image) return [];
+
+    return [{
+      id: `advert-${advert.id}`,
+      title: advert.title || "Serviço Leste",
+      excerpt: advert.description || "",
+      cta: advert.cta?.label || "Saiba mais",
+      href: advert.cta?.href || "#",
+      image,
+    }];
+  });
+}
+
+export default function ConhecaNossosServicosSection({ adverts = [] }) {
   const swiperRef = useRef(null);
-  const services = getLesteServices();
+  const apiServices = mapAdvertsToServices(adverts);
+  const services = apiServices.length ? apiServices : getLesteServices();
 
   return (
     <section className="w-full bg-light">

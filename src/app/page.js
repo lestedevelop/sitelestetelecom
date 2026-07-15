@@ -3,29 +3,30 @@ import AppBar from "@/components/layout/AppBar";
 import PlanosSection from "@/pageComponents/home/PlanosSection";
 import AreaCoberturaSection from "@/pageComponents/home/AreaCoberturaSection";
 import JaeClienteSection from "@/pageComponents/home/JaeClienteSection";
-import AreaAssinanteSection from "@/pageComponents/home/AreaAssinanteSection";
 import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
 import CanaisAtendimentosSection from "@/pageComponents/home/CanaisAtendimentosSection";
 import AmaisPremiadaDoEstado from "@/pageComponents/home/AmaisPremiadaDoEstado";
-import ConhecaNossosServicosSection from "@/pageComponents/home/ConhecaNossosServicosSection";
 import NovidadesSection from "@/pageComponents/home/NovidadesSection";
 import Footer from "@/components/layout/Footer";
 import BannerUltraSection from "@/pageComponents/home/BannerUltraSection";
-import HeroSlide from "@/pageComponents/home/HeroSlide";
 import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.webp";
+import {useHomeSections} from "@/hooks/useHomeSections";
+import {HomeManagedSection} from "@/pageComponents/home/sectionComponents";
 
 export default function Home() {
+    const {getAdverts} = useHomeSections();
 
     return (
         <div className="min-h-full bg-light">
-            <HeroSlide />
+            <HomeManagedSection sectionKey="bannerCentral" adverts={getAdverts("bannerCentral")}/>
             <PlanosSection  />
             {/*<BannerUltraSection/>*/}
             <JaeClienteSection/>
-            <AreaAssinanteSection/>
+            <HomeManagedSection sectionKey="jaClienteLeste" adverts={getAdverts("jaClienteLeste")}/>
             <AmaisPremiadaDoEstado />
-            <ConhecaNossosServicosSection />
+            <HomeManagedSection sectionKey="outrosServicos" adverts={getAdverts("outrosServicos")}/>
+            <HomeManagedSection sectionKey="indiqueGanheCard" adverts={getAdverts("indiqueGanheCard")}/>
             <NovidadesSection />
             {/*<AreaCoberturaSection/>*/}
             {/*<BeneficiosSection/>*/}
