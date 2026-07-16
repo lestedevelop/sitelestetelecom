@@ -13,6 +13,7 @@ import bannerLesteUpMobile from "@/assets/home/01-07-2026/banner-leste-up-mobile
 import bannerOfertaEmCampo from "@/assets/home/01-07-2026/banner-oferta-em-campo.png";
 import bannerOfertaEmCampoMobile from "@/assets/home/01-07-2026/banner-oferta-em-campo-mobile.png";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 const heroSlides = [
     {
@@ -37,6 +38,34 @@ const heroSlides = [
     },
 ];
 
+function getValidUrl(value) {
+    const url = String(value || "").trim();
+    if (!url || url === "undefined" || url === "null") return "";
+
+    if (/^https?:\/\//i.test(url)) return url;
+    if (url.startsWith("/")) return url;
+    if (/^[a-z0-9][a-z0-9\-_/]*(\?.*)?(#.*)?$/i.test(url)) return `/${url}`;
+
+    return "";
+}
+
+function mapAdvertsToSlides(adverts = []) {
+    return adverts.flatMap((advert) => {
+        const image = resolveImageSrc(advert, null);
+        if (!image) return [];
+
+        return [{
+            id: `core-banner-${advert.id}`,
+            alt: advert.title || advert.description || "Banner Leste Telecom",
+            href: getValidUrl(advert.cta?.href),
+            ctaLabel: advert.cta?.label || "",
+            image,
+            tabletImage: image,
+            mobileImage: image,
+        }];
+    });
+}
+
 function HeroSlideItem({slide, priority = false}) {
     return (
         <HomeHeroBanner
@@ -44,14 +73,17 @@ function HeroSlideItem({slide, priority = false}) {
             alt={slide.alt}
             priority={priority}
             desktopImage={slide.image}
-            tabletImage={slide.image}
+            tabletImage={slide.tabletImage || slide.image}
             mobileImage={slide.mobileImage}
             desktopImageClassName="2xl:object-cover"
         />
     );
 }
 
-export default function HeroSlider({slides = heroSlides}) {
+export default function HeroSlider({slides = heroSlides, adverts = []}) {
+    const coreSlides = mapAdvertsToSlides(adverts);
+    const activeSlides = coreSlides.length ? coreSlides : slides;
+
     return (
         <section className="w-full">
             <Swiper
@@ -64,7 +96,7 @@ export default function HeroSlider({slides = heroSlides}) {
                 }}
                 className="w-full overflow-hidden [&_.swiper-pagination]:absolute [&_.swiper-pagination]:inset-x-0 [&_.swiper-pagination]:bottom-5 [&_.swiper-pagination]:z-20 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-2 lg:[&_.swiper-pagination]:bottom-8 [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2.5 [&_.swiper-pagination-bullet]:w-2.5 [&_.swiper-pagination-bullet]:rounded-full [&_.swiper-pagination-bullet]:border [&_.swiper-pagination-bullet]:border-white/70 [&_.swiper-pagination-bullet]:bg-white/35 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!w-8 [&_.swiper-pagination-bullet-active]:!rounded-full [&_.swiper-pagination-bullet-active]:!bg-white"
             >
-                {slides.map((slide, index) => (
+                {activeSlides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
                         <HeroSlideItem slide={slide} priority={index === 0}/>
                     </SwiperSlide>

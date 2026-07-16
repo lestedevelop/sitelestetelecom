@@ -229,6 +229,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                             id={VENDAS_GTM_FORM_IDS.cadastroCompleto.numero}
                             label="Número"
                             name="numero"
+                            type="number"
                             error={errors?.numero?.message}
                             disabled={viabLoading}
                             register={(n) =>

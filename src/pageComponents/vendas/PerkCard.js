@@ -4,7 +4,7 @@ import Image from "next/image";
 import skeelo from "@/assets/icons/skelolivros.svg"
 import bebanca from "@/assets/icons/bebanca.svg"
 import lesteClub from "@/assets/icons/lesteclube-green.svg"
-import {isDataImageSrc, resolveImageSrc} from "@/utils/imageSrc";
+import {resolveImageSrc} from "@/utils/imageSrc";
 
 function getFallbackIcon(label = "") {
     if (label.includes("eelo")) return skeelo;
@@ -36,7 +36,6 @@ export default function PerkCard({ descri_simp, item, onClick, fullWidth = false
                 width={96}
                 height={36}
                 className={getIconClassName(label)}
-                unoptimized={isDataImageSrc(imageSrc)}
             />
         </button>
     );

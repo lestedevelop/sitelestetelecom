@@ -15,6 +15,15 @@ import { toast } from "react-toastify";
 import { useDebounce } from "@/hooks/useDebounce";
 import {VENDAS_GTM_BUTTON_IDS, VENDAS_GTM_FORM_IDS} from "@/lib/gtm/vendas";
 
+function normalizeRisco(value) {
+    if (typeof value === "boolean") return value;
+    if (typeof value === "number") return value === 1;
+    if (typeof value === "string") {
+        return ["1", "true", "sim", "s"].includes(value.trim().toLowerCase());
+    }
+    return false;
+}
+
 export default function StepCadastroInicial({ onNext }) {
     const { data, hydrated, updateCadastro, setPrecadastroBody, setStep } = useSales();
 
@@ -70,9 +79,13 @@ export default function StepCadastroInicial({ onNext }) {
     }, [cepDebounced, numeroDebounced, checkViabilidade]);
 
     async function onSubmit(values) {
+        const tipoViabilidade = values.tipo_viabilidade ?? data?.cadastro?.tipo_viabilidade ?? "";
+        const risco = normalizeRisco(values.risco ?? data?.cadastro?.risco);
         const cadastroPayload = {
             ...data?.cadastro,
             ...values,
+            tipo_viabilidade: tipoViabilidade,
+            risco,
         };
 
         updateCadastro(cadastroPayload);
@@ -154,6 +167,7 @@ export default function StepCadastroInicial({ onNext }) {
                     id={VENDAS_GTM_FORM_IDS.cadastroInicial.numero}
                     label="Número"
                     name="numero"
+                    type="number"
                     error={errors?.numero?.message}
                     register={(n) =>
                         register(n, {

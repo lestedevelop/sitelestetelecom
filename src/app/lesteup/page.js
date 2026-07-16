@@ -3,6 +3,10 @@ import LesteUpOverview from "@/pageComponents/lesteup/LesteUpOverview";
 import LesteUpBenefits from "@/pageComponents/lesteup/LesteUpBenefits";
 import LesteUpCta from "@/pageComponents/lesteup/LesteUpCta";
 import LesteUpFaq from "@/pageComponents/lesteup/LesteUpFaq";
+import Image from "next/image";
+import whatsIcon from "@/assets/whatsIcon.svg";
+const WHATSAPP_URL = "https://wa.me/552120201300";
+
 
 export default function LesteUpPage() {
   return (
