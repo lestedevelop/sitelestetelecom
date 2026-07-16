@@ -104,10 +104,10 @@ export function SiteProvider({children, defaultCity = null}) {
 
 
     useEffect(() => {
-        if (!hydrated) return;
+        if (!hydrated || !site?.city?.value || !site?.cityConfirmed) return;
 
         try {
-            // localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
         } catch (e) {
             console.warn("Falha ao salvar localStorage (site):", e);
         }
