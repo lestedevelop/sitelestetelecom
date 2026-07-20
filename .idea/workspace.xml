@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Implementação Api da Home + Cache">
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/como-pode-ajudar-meu-evento.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/conheca-leste-corporate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/link-dedicado.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/quem-sao-fornecedores.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/ter-wifi-liberado-cliente.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/blog/vantagens-ter-link-dedicado.png" afterDir="false" />
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Internas Blog Corporate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/corporate/blog/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/corporate/blog/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +140,7 @@
       <workItem from="1782742094765" duration="20323000" />
       <workItem from="1783513120142" duration="17218000" />
       <workItem from="1784116998351" duration="18475000" />
-      <workItem from="1784546243770" duration="5495000" />
+      <workItem from="1784546243770" duration="6715000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -378,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784141869471</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Internas Blog Corporate">
+      <option name="closed" value="true" />
+      <created>1784552978475</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1784552978475</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +395,8 @@
     <MESSAGE value="commit teste jenkins 1" />
     <MESSAGE value="++" />
     <MESSAGE value="Implementação Api da Home + Cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação Api da Home + Cache" />
+    <MESSAGE value="Internas Blog Corporate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Internas Blog Corporate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
