@@ -1,6 +1,7 @@
 import "./globals.css";
 import { SiteProvider } from "@/contexts/SiteContext";
 import RootShell from "@/components/layout/RootShell";
+import PrivacyConsent from "@/components/layout/PrivacyConsent";
 import localFont from "next/font/local";
 
 const ibmPlexSans = localFont({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       <body className={`${ibmPlexSans.className} bg-light text-dark antialiased`}>
         <SiteProvider>
           <RootShell>{children}</RootShell>
+          <PrivacyConsent />
         </SiteProvider>
       </body>
     </html>
