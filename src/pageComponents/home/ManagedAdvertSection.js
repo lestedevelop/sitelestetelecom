@@ -41,6 +41,7 @@ function Advert({advert, showContent}) {
                 alt={title || description || "Conteudo Leste Telecom"}
                 width={640}
                 height={388}
+                unoptimized
                 className="block h-auto w-full md:hidden"
                 sizes="100vw"
             />
@@ -49,6 +50,7 @@ function Advert({advert, showContent}) {
                 alt=""
                 fill
                 aria-hidden="true"
+                unoptimized
                 className="hidden object-cover md:block"
                 sizes="(min-width: 1280px) 1280px, 100vw"
             />

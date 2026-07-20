@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Internas Blog Corporate">
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/StoresGoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/StoresGoogleMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ManagedAdvertSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ManagedAdvertSection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +380,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784552978475</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="++">
+      <option name="closed" value="true" />
+      <created>1784559652566</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1784559652566</updated>
+    </task>
+    <task id="LOCAL-00031" summary="++">
+      <option name="closed" value="true" />
+      <created>1784562063804</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1784562063804</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,10 +415,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit teste jenkins 1" />
-    <MESSAGE value="++" />
     <MESSAGE value="Implementação Api da Home + Cache" />
     <MESSAGE value="Internas Blog Corporate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Internas Blog Corporate" />
+    <MESSAGE value="++" />
+    <option name="LAST_COMMIT_MESSAGE" value="++" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -416,7 +438,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

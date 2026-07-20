@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 
 const STORES_MAP_SRC =
-  "https://www.google.com/maps/d/u/0/embed?mid=1cp6z52nFdosT4Q8YhsOOV4feHmdHZHc&ehbc=2E312F";
+  "https://www.google.com/maps/d/embed?mid=16rPk7n3LkRfhvbrIssK4FuD3eEZtFpU&ehbc=2E312F";
 
 export default function StoresGoogleMap() {
   return (
