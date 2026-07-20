@@ -11,6 +11,7 @@ import FaqHelpCenter from "@/pageComponents/faq/FaqHelpCenter";
 import Image from "next/image";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
+import Link from "next/link";
 
 export default function Faq() {
   const {getAdverts} = useHomeSections();
@@ -95,12 +96,12 @@ export default function Faq() {
             </div>
             <div className="flex h-[90px] w-[250px] items-center justify-center gap-4 rounded-xl bg-light">
               <Image src={nossaloja} width={40} alt="" />
-              <a
+              <Link
                 className="w-32 text-md font-bold text-primary"
-                href="https://www.lestetelecom.com.br/lojas"
+                href="/faq/lojas"
               >
                 Nossas Lojas
-              </a>
+              </Link>
             </div>
             <div className="flex h-[90px] w-[250px] items-center justify-center gap-4 rounded-xl bg-light">
               <Image src={central} width={40} alt="" />
