@@ -12,6 +12,9 @@ import Image from "next/image";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
 import Link from "next/link";
+import googlePlay from "@/assets/googleplay.svg";
+import appStore from "@/assets/appstore.svg";
+import {Check} from "lucide-react";
 
 export default function Faq() {
   const {getAdverts} = useHomeSections();
@@ -52,24 +55,36 @@ export default function Faq() {
       <FaqHelpCenter />
 
       <section className="bg-primary py-16 md:py-0">
-        <div className="container flex min-h-[547px] items-center justify-center">
-          <div className="sr-only">
-            <h2>Baixe agora o Leste Central</h2>
-            <p>O app Leste Central e pratico e facil de usar.</p>
-            <ul>
-              <li>Acesse ao boleto</li>
-              <li>Troque a senha do Wifi</li>
-              <li>Receba avisos</li>
-            </ul>
-            <a href="https://onelink.to/lestecentral">Google Play</a>
-            <a href="https://onelink.to/lestecentral">App Store</a>
-          </div>
-
+        <div className="container flex min-h-[547px] flex-col items-center justify-center gap-12 py-12 text-light md:flex-row md:gap-16 md:py-0 lg:gap-[70px]">
           <Image
             src={imageFaq}
             alt="Banner do aplicativo Leste Central"
-            className="rounded-3xl"
+            className="w-full max-w-[297px] rounded-2xl md:max-w-[297px]"
           />
+
+          <div className="w-full max-w-[300px] text-center md:text-left">
+            <h2 className="text-2xl font-bold leading-tight md:text-[26px]">
+              Baixe agora o<br />Leste Central!
+            </h2>
+            <p className="mt-3 text-base font-medium leading-none">
+              O App Leste Central é muito<br />prático e fácil de usar!
+            </p>
+
+            <div className="mt-7 flex items-center justify-center gap-3 md:justify-start">
+              <a href="https://onelink.to/lestecentral" aria-label="Baixar o Leste Central no Google Play">
+                <Image src={googlePlay} width={88} alt="Disponível no Google Play" />
+              </a>
+              <a href="https://onelink.to/lestecentral" aria-label="Baixar o Leste Central na App Store">
+                <Image src={appStore} width={88} alt="Disponível na App Store" />
+              </a>
+            </div>
+
+            <ul className="mt-7 space-y-7 text-base font-bold">
+              <li className="flex items-center justify-center gap-3 md:justify-start"><Check size={22} strokeWidth={4} aria-hidden="true" /> Acesse ao boleto</li>
+              <li className="flex items-center justify-center gap-3 md:justify-start"><Check size={22} strokeWidth={4} aria-hidden="true" /> Troque a senha do Wi-Fi</li>
+              <li className="flex items-center justify-center gap-3 md:justify-start"><Check size={22} strokeWidth={4} aria-hidden="true" /> Receba avisos</li>
+            </ul>
+          </div>
         </div>
       </section>
 
