@@ -8,33 +8,18 @@ function resolveNameSrc(name) {
     return null;
 }
 
-const HOME_IMAGE_CACHE_VERSION = "2";
-
-function withHomeImageCacheVersion(value) {
-    if (!value || value.includes("siteImageVersion=")) return value;
-    const separator = value.includes("?") ? "&" : "?";
-    return `${value}${separator}siteImageVersion=${HOME_IMAGE_CACHE_VERSION}`;
-}
-
 function resolveApiImageSrc(value) {
     if (typeof value !== "string") return value;
 
     const coreImagePath = "/api/sac/externo/home/image";
-    const siteImagePath = "/api/home/image";
     if (value.startsWith(coreImagePath)) {
-        return withHomeImageCacheVersion(value.replace(coreImagePath, siteImagePath));
-    }
-
-    if (value.startsWith(siteImagePath)) {
-        return withHomeImageCacheVersion(value);
+        return value.replace(coreImagePath, "/api/home/image");
     }
 
     if (/^https?:\/\//i.test(value)) {
         try {
             const url = new URL(value);
-            if (url.pathname === coreImagePath) {
-                return withHomeImageCacheVersion(`${siteImagePath}${url.search}`);
-            }
+            if (url.pathname === coreImagePath) return `/api/home/image${url.search}`;
         } catch {
             return value;
         }

@@ -19,7 +19,7 @@ export async function GET(req) {
             status: 200,
             headers: {
                 "Content-Type": response.headers["content-type"] || "application/octet-stream",
-                "Cache-Control": "no-store, max-age=0",
+                "Cache-Control": "public, max-age=31536000, s-maxage=31536000, immutable",
             },
         });
     } catch (error) {
