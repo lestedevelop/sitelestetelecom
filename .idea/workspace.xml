@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/faq/StoresGoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/faq/StoresGoogleMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ManagedAdvertSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ManagedAdvertSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/home/image/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/home/image/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/imageSrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/imageSrc.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784562063804</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="++">
+      <option name="closed" value="true" />
+      <created>1784570055506</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1784570055506</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

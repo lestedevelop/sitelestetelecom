@@ -76,11 +76,14 @@ export default function IndiqueEGanheLestePage() {
               </p>
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-[1.7rem] bg-primary md:mt-10">
+            <div className="relative mt-8 aspect-[447/520] overflow-hidden rounded-[1.7rem] bg-primary md:mt-10">
               <Image
                 src={formImage}
                 alt={formAdvert?.title || "Clientes usando notebook"}
-                className="h-auto w-full"
+                fill
+                unoptimized
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
                 priority
               />
             </div>

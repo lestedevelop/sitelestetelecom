@@ -22,6 +22,7 @@ function ServiceCard({ service }) {
             src={imageSrc}
             alt={service.title}
             fill
+            unoptimized={typeof imageSrc === "string" && imageSrc.startsWith("/api/home/image")}
             className="object-cover"
           />
         </div>
