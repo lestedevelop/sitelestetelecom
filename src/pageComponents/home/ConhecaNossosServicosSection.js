@@ -140,10 +140,10 @@ export default function ConhecaNossosServicosSection({ adverts = [] }) {
                     spaceBetween: 16,
                   },
                 }}
-                className="overflow-visible pb-8 md:pb-0 [&_.swiper-pagination]:!bottom-0 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 lg:[&_.swiper-pagination]:hidden [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
+                className="overflow-visible [&_.swiper-pagination]:!bottom-2 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1.5 lg:[&_.swiper-pagination]:hidden [&_.swiper-pagination-bullet]:m-0 [&_.swiper-pagination-bullet]:h-2 [&_.swiper-pagination-bullet]:w-2 [&_.swiper-pagination-bullet]:bg-primary/30 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
               >
                 {services.map((service) => (
-                  <SwiperSlide key={service.id} className="max-h-[550px]">
+                  <SwiperSlide key={service.id} className="!h-auto pb-12 lg:pb-0">
                     <ServiceCard service={service} />
                   </SwiperSlide>
                 ))}

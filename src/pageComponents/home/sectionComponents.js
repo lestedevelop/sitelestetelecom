@@ -1,5 +1,4 @@
 import HeroSlide from "@/pageComponents/home/HeroSlide";
-import AreaAssinanteSection from "@/pageComponents/home/AreaAssinanteSection";
 import ConhecaNossosServicosSection from "@/pageComponents/home/ConhecaNossosServicosSection";
 import ManagedAdvertSection from "@/pageComponents/home/ManagedAdvertSection";
 
@@ -8,7 +7,7 @@ function BannerCentral({adverts}) {
 }
 
 function JaClienteLeste({adverts}) {
-    return <ManagedAdvertSection adverts={adverts} fallback={AreaAssinanteSection}/>;
+    return <ManagedAdvertSection adverts={adverts} showContent/>;
 }
 
 function OutrosServicos({adverts}) {
