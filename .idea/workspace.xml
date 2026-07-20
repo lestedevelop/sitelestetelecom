@@ -4,29 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
-      <change afterPath="$PROJECT_DIR$/src/app/api/home/content/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useHomeSections.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/homeSections.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/ManagedAdvertSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pageComponents/home/sectionComponents.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/home.ts" afterDir="false" />
+    <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="Implementação Api da Home + Cache">
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/como-pode-ajudar-meu-evento.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/conheca-leste-corporate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/link-dedicado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/quem-sao-fornecedores.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/ter-wifi-liberado-cliente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blog/vantagens-ter-link-dedicado.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/faq/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/faq/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/leste-suporte/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/leste-suporte/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/testedevelocidade/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/CardBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardBanner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/CardImageWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardImageWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/cameras/CamerasHero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/HeroSlide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/NovidadesSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/lesteup/LesteUpHero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/PerkCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/PerkCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/imageSrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/imageSrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/corporate/blog/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/corporate/blog/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/movel/FooterMovel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="859" />
+    <option name="cachedIndexableFilesCount" value="868" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -96,6 +87,7 @@
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\cameras" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\blog" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\public\fonts" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\home\15-05-2026" />
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\app" />
@@ -159,7 +151,8 @@
       <workItem from="1782309506160" duration="28894000" />
       <workItem from="1782742094765" duration="20323000" />
       <workItem from="1783513120142" duration="17218000" />
-      <workItem from="1784116998351" duration="17804000" />
+      <workItem from="1784116998351" duration="18475000" />
+      <workItem from="1784546243770" duration="5495000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -377,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783976347842</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Implementação Api da Home + Cache">
+      <option name="closed" value="true" />
+      <created>1784141869471</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1784141869471</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +398,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit teste jenkins 1" />
     <MESSAGE value="++" />
-    <option name="LAST_COMMIT_MESSAGE" value="++" />
+    <MESSAGE value="Implementação Api da Home + Cache" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação Api da Home + Cache" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -414,6 +416,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pageComponents/cameras/CamerasModels.js</url>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/corporate/blog/[slug]/page.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

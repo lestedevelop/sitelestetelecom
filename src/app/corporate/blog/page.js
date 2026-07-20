@@ -43,7 +43,7 @@ const POSTS = [
         author: "Talita Carvalho",
         date: "2023-04-12",
         readingTime: "2 min de leitura",
-        image: post2,
+        image: post3,
         likes: 1,
     },
     {
@@ -56,7 +56,7 @@ const POSTS = [
         author: "Talita Carvalho",
         date: "2023-04-12",
         readingTime: "2 min de leitura",
-        image: post3,
+        image: post4,
         likes: 1,
     },
     {
@@ -69,12 +69,12 @@ const POSTS = [
         author: "Talita Carvalho",
         date: "2023-04-12",
         readingTime: "2 min de leitura",
-        image: post4,
+        image: post2,
         likes: 1,
     },
     {
         id: "5",
-        slug: "conheça-a-leste-corporate",
+        slug: "conheca-a-leste-corporate",
         title: "Conheça a Leste Corporate!",
         excerpt:
             "A melhor solução de internet empresarial para sua empresa. Somos uma das maiores empresas de telecomúnicações do Leste Fluminense e...",
