@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/home/image/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/home/image/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/indique-e-ganhe-leste/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/ConhecaNossosServicosSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/imageSrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/imageSrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,32 +42,33 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.127.0.0.1:3000.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/lesteup&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.127.0.0.1:3000.executor": "Run",
+    "JavaScript Debug.como-mudar-de-plano.executor": "Debug",
+    "JavaScript Debug.localhost:3000.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "C:/Users/alessandro_mello/WebstormProjects/sitelestetelecom/src/assets/lesteup",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Next.js: server-side.executor": "Run",
+    "settings.editor.selected.configurable": "ssh.settings",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\lesteup" />
@@ -85,11 +84,14 @@
       <recent name="C:\Users\alessandro_mello\WebstormProjects\sitelestetelecom\src\assets\app" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Next.js: server-side">
+  <component name="RunManager" selected="JavaScript Debug.como-mudar-de-plano">
     <configuration name="127.0.0.1:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:3000">
       <method v="2" />
     </configuration>
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="como-mudar-de-plano" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000/faq/como-mudar-de-plano">
       <method v="2" />
     </configuration>
     <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
@@ -107,6 +109,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.como-mudar-de-plano" />
         <item itemvalue="JavaScript Debug.127.0.0.1:3000" />
         <item itemvalue="JavaScript Debug.localhost:3000" />
       </list>
@@ -402,7 +405,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784570055506</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="++">
+      <option name="closed" value="true" />
+      <created>1784571079983</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1784571079983</updated>
+    </task>
+    <task id="LOCAL-00034" summary="++">
+      <option name="closed" value="true" />
+      <created>1784572877782</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1784572877782</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
