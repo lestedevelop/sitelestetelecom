@@ -10,17 +10,12 @@ import {resolveImageSrc} from "@/utils/imageSrc";
 
 const WHATSAPP_URL = "https://wa.me/552120201300";
 
-function PriceBlock({ align = "right", price }) {
+function PriceBlock({ align = "right" }) {
   const alignmentClass =
     align === "left" ? "items-start text-left" : "items-end text-right";
 
   return (
     <div className={`flex flex-col ${alignmentClass} text-white`}>
-      {price ? (
-        <div className="text-4xl font-semibold leading-none md:text-6xl">
-          {price}
-        </div>
-      ) : (
       <div className="flex items-end gap-3">
         <div className="mb-2 text-sm font-medium md:text-xl">
           <p>Por</p>
@@ -34,7 +29,6 @@ function PriceBlock({ align = "right", price }) {
           <p className="mt-2 text-base md:text-[1.75rem]">/mês</p>
         </div>
       </div>
-      )}
 
       <p className="mt-2 text-xs text-white/80 md:text-sm">
         *Fidelidade de 12 meses
@@ -69,7 +63,7 @@ export default function LesteUpHero() {
             </h1>
 
             <div className="mt-4 md:mt-6">
-              <PriceBlock align="left" price={advert?.cta?.label} />
+              <PriceBlock align="left" />
             </div>
 
             <div className="mt-4 flex-col items-start gap-3 md:mt-5 hidden md:flex">
