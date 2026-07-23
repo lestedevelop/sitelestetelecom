@@ -12,7 +12,7 @@
     ],
   },
   {
-    title: "Contrato",
+    title: "Contratos",
     description: "Regras contratuais, titularidade, cancelamento e alterações do serviço.",
     icon: "document",
     items: [
@@ -20,8 +20,8 @@
       { title: "Como cancelar meu plano de internet?", href: "/faq/como-cancelar-o-meu-plano-de-internet" },
       { title: "Posso transferir minha internet para outro endereço?", href: "/faq/mudei-de-endereco-posso-transferir-o-meu-ponto-da-leste" },
       { title: "Posso suspender ou reativar meu plano?", href: "/faq/como-posso-suspender-ou-bloquear-o-meu-plano" },
-      { title: "A Leste pode enviar comúnicados?", href: "/faq/a-leste-pode-enviar-comúnicados" },
-      { title: "Por que meu plano teve reajuste?", href: "/faq/correção-monetaria-dos-planos" },
+      { title: "A Leste pode enviar comunicados?", href: "/faq/a-leste-pode-enviar-comunicados" },
+      { title: "Por que meu plano teve reajuste?", href: "/faq/correcao-monetaria-dos-planos" },
       { title: "Como enviar documentos para contratação do serviço?", href: "/faq/foi-solicitado-o-envio-de-documentos-no-ato-da-ativacao" },
       { title: "Quanto custa repor equipamentos da Leste?", href: "/faq/quanto-custa-repor-equipamentos-da-leste" },
       { title: "Como mudar meu plano de internet?", href: "/faq/como-mudar-de-plano" },
@@ -235,7 +235,7 @@
       { title: "O que é o Leste UP e como funciona?", href: "/faq/o-que-e-o-leste-up-e-como-funciona" },
       { title: "Posso usar o Leste UP com qualquer equipamento?", href: "/faq/posso-usar-o-leste-up-com-qualquer-equipamento" },
       { title: "Preciso de um Leste UP para cada equipamento Mesh?", href: "/faq/preciso-de-um-leste-up-para-cada-equipamento-mesh" },
-      { title: "Onde o Leste UP está disponível?", href: "/faq/onde-o-leste-up-esta-disponível" },
+      { title: "Onde o Leste UP está disponível?", href: "/faq/onde-o-leste-up-esta-disponivel" },
       { title: "Qual o valor e como funciona a contratação do Leste UP?", href: "/faq/qual-o-valor-e-como-funciona-a-contratacao-do-leste-up" },
       { title: "Quais cuidados devo ter com o Leste UP?", href: "/faq/quais-cuidados-devo-ter-com-o-leste-up" },
       { title: "Como utilizar o Leste UP no dia a dia?", href: "/faq/como-utilizar-o-leste-up-no-dia-a-dia" },

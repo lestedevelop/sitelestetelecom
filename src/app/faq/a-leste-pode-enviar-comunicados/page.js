@@ -3,20 +3,20 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqNote from "@/pageComponents/faq/FaqNote";
 
 export const metadata = {
-  title: "A Leste pode enviar comúnicados? | Leste",
-  description: "Informações sobre comúnicados enviados pela Leste Telecom.",
+  title: "A Leste pode enviar comunicados? | Leste",
+  description: "Informações sobre comunicados enviados pela Leste Telecom.",
 };
 
-export default function ALestePodeEnviarComúnicados() {
+export default function ALestePodeEnviarComunicados() {
   return (
     <main className="bg-light">
       <div className="container py-12 md:py-16">
-        <TitleFaq title={<>A Leste pode enviar comúnicados?</>} />
+        <TitleFaq title={<>A Leste pode enviar comunicados?</>} />
 
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              A Leste pode enviar comúnicados relacionados ao seu serviço e ao
+              A Leste pode enviar comunicados relacionados ao seu serviço e ao
               seu contrato, utilizando os canais de contato informados no seu
               cadastro.
             </p>
@@ -37,7 +37,7 @@ export default function ALestePodeEnviarComúnicados() {
           <FaqNote>
             <p>
               Ao contratar o serviço, o assinante autoriza o envio de
-              comúnicados, inclusive em formato massivo, pelos canais informados
+              comunicados, inclusive em formato massivo, pelos canais informados
               no cadastro. O e-mail cadastrado é considerado o principal meio de
               comúnicação entre as partes.
             </p>
