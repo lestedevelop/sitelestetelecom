@@ -14,7 +14,7 @@ import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSectio
 import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
-import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {getPromotionalPlanNotice, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 
 export default function StepPlans({ onNext, onBack }) {
@@ -33,6 +33,7 @@ export default function StepPlans({ onNext, onBack }) {
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [addRespOpen, setAddRespOpen] = useState(false);
     const sortedPlans = useMemo(() => sortPlansByLowestPrice(plans), [plans]);
+    const promotionalNotice = getPromotionalPlanNotice(cidadeNome);
 
 
     function handleContinue() {
@@ -122,13 +123,11 @@ export default function StepPlans({ onNext, onBack }) {
                         plans={sortedPlans}
                         renderPlan={renderPlanCard}
                     />
-                    <p className="mx-2.5 text-center text-sm text-graylight lg:text-base">
-                        *Planos de 600 MEGA (Niterói-RJ) com Oferta Válida até 31/07/2026 ou até
-                        durarem os estoques dos equipamentos AC - Wi-Fi 5 para ativação.
-                        <br />
-                        *Planos de 1 GIGA (Maricá, Rio Bonito e Tanguá-RJ) com Wi-Fi 6 AX. Oferta
-                        válida até 31/07/2026.
-                    </p>
+                    {promotionalNotice ? (
+                        <p className="mx-2.5 text-center text-sm text-graylight lg:text-base">
+                            {promotionalNotice}
+                        </p>
+                    ) : null}
                 </>
             )}
 

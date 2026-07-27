@@ -8,7 +8,8 @@ import {SalesProviderNew} from "@/contexts/SalesContextNew";
 import Link from "next/link";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
-import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {getPromotionalPlanNotice, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {normalizeCityName} from "@/utils/cidade";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 import {useState} from "react";
 
@@ -19,14 +20,6 @@ const PROMOTIONAL_SUBTITLE_CITIES = new Set([
     "tangua",
 ]);
 
-function normalizeCityName(value = "") {
-    return String(value)
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim()
-        .toLowerCase();
-}
-
 export default function PlanosSection() {
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
     const {planos, loading} = useHomeData();
@@ -36,6 +29,7 @@ export default function PlanosSection() {
     const showSkeleton = loading || plansData.length === 0;
     const cityName = site?.city?.label || "";
     const hasPromotionalSubtitle = PROMOTIONAL_SUBTITLE_CITIES.has(normalizeCityName(cityName));
+    const promotionalNotice = getPromotionalPlanNotice(cityName);
     const subtitle = hasPromotionalSubtitle
         ? "*Desconto de 3 meses exclusivo para novos assinantes em migração de provedor"
         : "100% Fibra Ótica";
@@ -81,13 +75,11 @@ export default function PlanosSection() {
                     {`Planos disponíveis apenas para a cidade de ${site?.city?.label}`}
                 </p>
                 <div className="text-center">
-                    <p className="mx-2.5 mb-4 text-sm lg:text-base text-graylight">
-                        *Planos de 600 MEGA (Niterói-RJ) com Oferta Válida até 31/07/2026 ou até
-                        durarem os estoques dos equipamentos AC - Wi-Fi 5 para ativação.
-                        <br />
-                        *Planos de 1 GIGA (Maricá, Rio Bonito e Tanguá-RJ) com Wi-Fi 6 AX. Oferta
-                        válida até 31/07/2026.
-                    </p>
+                    {promotionalNotice ? (
+                        <p className="mx-2.5 mb-4 text-sm lg:text-base text-graylight">
+                            {promotionalNotice}
+                        </p>
+                    ) : null}
                     <p className="mx-2.5 mb-8  text-sm lg:text-base text-graylight">
                         Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso{" "}
                         <Link href="/faq" className="font-semibold text-primary underline underline-offset-2">
