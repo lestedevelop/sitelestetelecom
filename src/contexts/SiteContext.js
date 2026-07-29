@@ -104,7 +104,7 @@ export function SiteProvider({children, defaultCity = null}) {
 
 
     useEffect(() => {
-        if (!hydrated || !site?.city?.value || !site?.cityConfirmed) return;
+        if (!hydrated || !site?.city?.value) return;
 
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(site));
