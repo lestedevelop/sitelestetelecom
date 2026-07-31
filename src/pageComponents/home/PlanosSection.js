@@ -8,17 +8,10 @@ import {SalesProviderNew} from "@/contexts/SalesContextNew";
 import Link from "next/link";
 import {useSite} from "@/contexts/SiteContext";
 import {useHomeData} from "@/hooks/useHomeData";
-import {getPromotionalPlanNotice, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {normalizeCityName} from "@/utils/cidade";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 import {useState} from "react";
-
-const PROMOTIONAL_SUBTITLE_CITIES = new Set([
-    "niteroi",
-    "marica",
-    "rio bonito",
-    "tangua",
-]);
 
 export default function PlanosSection() {
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
@@ -28,11 +21,7 @@ export default function PlanosSection() {
     const sortedPlansData = sortPlansByLowestPrice(plansData);
     const showSkeleton = loading || plansData.length === 0;
     const cityName = site?.city?.label || "";
-    const hasPromotionalSubtitle = PROMOTIONAL_SUBTITLE_CITIES.has(normalizeCityName(cityName));
-    const promotionalNotice = getPromotionalPlanNotice(cityName);
-    const subtitle = hasPromotionalSubtitle
-        ? "*Desconto de 3 meses exclusivo para novos assinantes em migração de provedor"
-        : "100% Fibra Ótica";
+    const normalizedCityName = normalizeCityName(cityName);
 
     function renderPlanCard(plan) {
         if (isPromotionalPlan(plan)) {
@@ -57,7 +46,7 @@ export default function PlanosSection() {
                     Conheça nossos planos!
                 </h2>
                 <p className="planos-subtitle mt-2 text-center text-dark">
-                    {subtitle}
+                    100% Fibra Ótica
                 </p>
             </section>
 
@@ -71,15 +60,12 @@ export default function PlanosSection() {
             </div>
 
             <div className="pt-8 pb-8">
-                <p className="planos-subtitle font-bold mt-2 text-xl text-center text-darkgreen">
-                    {`Planos disponíveis apenas para a cidade de ${site?.city?.label}`}
-                </p>
+                {normalizedCityName !== "niteroi" ? (
+                    <p className="planos-subtitle font-bold mt-2 text-xl text-center text-darkgreen">
+                        {`Planos disponíveis apenas para a cidade de ${site?.city?.label}`}
+                    </p>
+                ) : null}
                 <div className="text-center">
-                    {promotionalNotice ? (
-                        <p className="mx-2.5 mb-4 text-sm lg:text-base text-graylight">
-                            {promotionalNotice}
-                        </p>
-                    ) : null}
                     <p className="mx-2.5 mb-8  text-sm lg:text-base text-graylight">
                         Todos os planos e serviços estão sujeitos à viabilidade técnica. Consulte nosso{" "}
                         <Link href="/faq" className="font-semibold text-primary underline underline-offset-2">

@@ -14,7 +14,7 @@ import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSectio
 import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
-import {getPromotionalPlanNotice, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 
 export default function StepPlans({ onNext, onBack }) {
@@ -33,9 +33,6 @@ export default function StepPlans({ onNext, onBack }) {
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [addRespOpen, setAddRespOpen] = useState(false);
     const sortedPlans = useMemo(() => sortPlansByLowestPrice(plans), [plans]);
-    const promotionalNotice = getPromotionalPlanNotice(cidadeNome);
-
-
     function handleContinue() {
         const hasResponsavel = (data?.responsaveis || []).length > 0;
 
@@ -123,11 +120,6 @@ export default function StepPlans({ onNext, onBack }) {
                         plans={sortedPlans}
                         renderPlan={renderPlanCard}
                     />
-                    {promotionalNotice ? (
-                        <p className="mx-2.5 text-center text-sm text-graylight lg:text-base">
-                            {promotionalNotice}
-                        </p>
-                    ) : null}
                 </>
             )}
 
