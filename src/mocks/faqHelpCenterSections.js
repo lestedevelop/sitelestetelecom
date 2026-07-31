@@ -80,6 +80,9 @@
       { title: "A Leste oferece IPv6? Entenda o impacto em câmeras e DVRs", href: "/faq/a-leste-telecom-trabalha-com-ipv6-o-ipv6-pode-afetar-o-funcionamento-das-minhas-cameras" },
       { title: "A Leste dá suporte a IPTV ou TV Box?", href: "/faq/a-leste-da-suporte-a-iptv-ou-tv-box" },
       { title: "Os aplicativos da Leste são seguros?", href: "/faq/os-aplicativos-da-leste-sao-seguros" },
+      { title: "Como acessar o Leste Clube?", href: "/faq/como-acessar-o-leste-clube" },
+      { title: "Como acessar o Skeelo?", href: "/faq/como-acessar-o-skeelo" },
+      { title: "Como acessar o BeBanca?", href: "/faq/como-acessar-o-bebanca" },
     ],
   },
   {

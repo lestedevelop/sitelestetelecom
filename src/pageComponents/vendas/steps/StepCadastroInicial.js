@@ -240,7 +240,7 @@ export default function StepCadastroInicial({ onNext }) {
                 error={errors?.aceitouPrivacidade?.message}
             >
                 Aceitar{" "}
-                <a className="text-primary underline" href="https://www.lestetelecom.com.br/faq-suporte/politica-de-privacidade-uso-de-dados" target="_blank">
+                <a className="text-primary underline" href="https://lestetelecom.com.br/faq/politica-privacidade" target="_blank">
                     Políticas de Privacidade*
                 </a>
             </Checkbox>
