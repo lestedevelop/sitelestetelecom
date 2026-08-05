@@ -1,0 +1,191 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import {Plus} from "lucide-react";
+import {useState} from "react";
+import StreamingChannelsModal from "@/pageComponents/home/StreamingChannelsModal";
+
+import canaisStart from "@/assets/home/streaming-plan/canais_start.svg";
+import canais800 from "@/assets/home/streaming-plan/canais_800.svg";
+import canais1Giga from "@/assets/home/streaming-plan/canais_1g.svg";
+import canaisFamily from "@/assets/home/streaming-plan/canais_family.svg";
+import canaisStartSales from "@/assets/home/streaming-plan/canais_start_sales.svg";
+import canais800Sales from "@/assets/home/streaming-plan/canais_800_sales.svg";
+import canais1GigaSales from "@/assets/home/streaming-plan/canais_1g_sales.svg";
+import canaisFamilySales from "@/assets/home/streaming-plan/canais_family_sales.svg";
+import lesteClubeSkeelo from "@/assets/home/streaming-plan/leste-clube-skeelo.svg";
+import lestePlay from "@/assets/home/streaming-plan/leste-play.svg";
+import streamingByWatch from "@/assets/home/streaming-plan/streaming-by-watch.svg";
+import wifi5 from "@/assets/home/streaming-plan/wifi-5.svg";
+import wifi6 from "@/assets/home/streaming-plan/super-wifi-6.svg";
+
+const channelArtwork = {
+    start: canaisStart,
+    sports: canais800,
+    cine: canais1Giga,
+    family: canaisFamily,
+};
+
+const salesChannelArtwork = {
+    start: canaisStartSales,
+    sports: canais800Sales,
+    cine: canais1GigaSales,
+    family: canaisFamilySales,
+};
+
+function Toggle({active, label, onChange}) {
+    return (
+        <button
+            type="button"
+            role="switch"
+            aria-checked={active}
+            aria-label={`${active ? "Remover" : "Adicionar"} pacote ${label}`}
+            onClick={onChange}
+            className={`relative block h-[18px] w-8 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${active ? "bg-[#0ddab7]" : "bg-[#002d26]"}`}
+        >
+            <span className={`absolute top-0.5 size-3.5 rounded-full bg-white ${active ? "right-0.5" : "left-0.5"}`} />
+        </button>
+    );
+}
+
+export default function StreamingPlanPreview({plan, variant = "home", onSelect, onPackageChange}) {
+    const [activeChannel, setActiveChannel] = useState(plan.channels);
+    const [selected, setSelected] = useState(false);
+    const [channelsModalOpen, setChannelsModalOpen] = useState(false);
+    const isSales = variant === "sales";
+    const channels = (isSales ? salesChannelArtwork : channelArtwork)[activeChannel];
+    const currentPrice = plan.prices?.[activeChannel] || plan.price;
+    const wifiArtwork = plan.wifiGeneration === "5" ? wifi5 : wifi6;
+    const hasPackages = plan.packages?.length > 0;
+
+    return (
+        <article className={[
+            "relative w-[343px] shrink-0 overflow-hidden rounded-[22px] pt-10 shadow-xl",
+            isSales
+                ? "h-[703px] bg-white text-primary"
+                : "h-[784px] border border-[#10f4c9] bg-[#087b60] pb-9 text-white",
+        ].join(" ")}>
+            <header className="text-center">
+                <p className="text-[100px] font-bold leading-[0.72] tracking-[-7px]">{plan.speed}</p>
+                <p className={`${isSales ? "mt-1" : "mt-4"} text-[58px] font-bold leading-none tracking-[-4px]`}>{plan.speedUnit}</p>
+
+                <div className={`${isSales ? "mt-1" : "mt-6"} flex items-center justify-center gap-3`}>
+                    <span className={`flex size-[19px] items-center justify-center rounded-[4px] bg-[#18efc5] text-[#00644e] ${plan.wifiGeneration === "5" ? "translate-y-3" : ""}`}>
+                        <Plus aria-hidden="true" size={16} strokeWidth={4}/>
+                    </span>
+                    <Image
+                        src={wifiArtwork}
+                        alt={`${plan.wifi} ${plan.wifiGeneration}`}
+                        className={`${plan.wifiGeneration === "5" ? "h-11 w-[94px]" : "h-10 w-[118px]"} ${isSales ? "[filter:brightness(0)_saturate(100%)_invert(37%)_sepia(86%)_saturate(1031%)_hue-rotate(126deg)_brightness(91%)_contrast(101%)]" : ""}`}
+                    />
+                </div>
+
+                <Image
+                    src={lesteClubeSkeelo}
+                    alt="Leste Clube mais Skeelo"
+                    className={`mx-auto h-auto w-[163px] ${isSales ? "mt-3 [filter:brightness(0)_saturate(100%)_invert(37%)_sepia(86%)_saturate(1031%)_hue-rotate(126deg)_brightness(91%)_contrast(101%)]" : "mt-6"}`}
+                />
+            </header>
+
+            <div className={`mx-auto w-[220px] overflow-hidden rounded-xl ${isSales ? "mt-4 bg-[#e4f7f3]" : "mt-5 bg-[#00684f]"}`}>
+                <div className="flex h-11 items-center justify-center rounded-xl border border-[#13eac5] bg-[#087b60]">
+                    <Image src={lestePlay} alt="Leste Play" className="h-auto w-[115px]"/>
+                </div>
+
+                <div className="flex h-[204px] flex-col items-center pt-3">
+                    {hasPackages ? (
+                        <div className={`grid w-full ${plan.packages.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
+                            {plan.packages.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className={`flex flex-col items-center gap-1.5 ${item.channel === "cine" ? "translate-x-1" : ""}`}
+                                >
+                                    <span className={`whitespace-nowrap text-[12px] font-semibold uppercase ${isSales ? "text-darkgreen" : "text-[#10f4c9]"}`}>
+                                        {item.label}
+                                    </span>
+                                    <Toggle
+                                        active={activeChannel === item.channel}
+                                        label={item.label}
+                                        onChange={() => {
+                                            setActiveChannel(item.channel);
+                                            onPackageChange?.({
+                                                plan,
+                                                channel: item.channel,
+                                                package: item,
+                                                backendPlan: plan.backendPlans?.[item.channel] || null,
+                                                price: plan.prices?.[item.channel] || plan.price,
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className={`text-[12px] font-semibold uppercase ${isSales ? "text-darkgreen" : "text-[#10f4c9]"}`}>{plan.streamingTier}</p>
+                    )}
+
+                    <button
+                        type="button"
+                        onClick={() => setChannelsModalOpen(true)}
+                        aria-label={`Ver todos os canais do pacote ${activeChannel}`}
+                        className={`${hasPackages ? "mt-4 w-[191px]" : "mt-6 w-[126px]"} rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                    >
+                        <Image
+                            src={channels}
+                            alt={plan.channelsAlt}
+                            className="h-auto w-full"
+                        />
+                    </button>
+                    <Image
+                        src={streamingByWatch}
+                        alt="Streaming by Watch"
+                        className={`mb-3 mt-auto h-auto w-[127px] ${isSales ? "[filter:brightness(0)_saturate(100%)_invert(26%)_sepia(23%)_saturate(1563%)_hue-rotate(120deg)_brightness(88%)_contrast(101%)]" : ""}`}
+                    />
+                </div>
+            </div>
+
+            <div className={`${isSales ? "mt-6 text-[#00644e]" : "mt-6"}`}>
+                <div className={`flex items-start justify-center ${isSales ? "text-[#00644e]" : "text-white"}`}>
+                    <div className="mr-1 pt-1 text-right font-semibold leading-none">
+                        <span className="block text-[20px]">Por</span>
+                        <span className="mt-2 block text-[32px]">R$</span>
+                    </div>
+                    <span className="text-[75px] font-bold leading-[0.86] tracking-[-5px]">{currentPrice.integer}</span>
+                    <div className="ml-1 pt-1 leading-none">
+                        <span className="block text-[30px] font-bold tracking-[-2px]">,{currentPrice.cents}</span>
+                        <span className="mt-4 block text-[16px] font-semibold">{currentPrice.period}</span>
+                    </div>
+                </div>
+                <p className="mt-2 text-center text-[12px] font-semibold">{plan.loyalty}</p>
+            </div>
+
+            {isSales ? (
+                <button
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => {
+                        setSelected(true);
+                        onSelect?.(plan.backendPlans?.[activeChannel] || plan);
+                    }}
+                    className={`absolute inset-x-0 bottom-0 flex h-[53px] items-center justify-center rounded-b-[22px] text-[20px] font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white ${selected ? "bg-primary" : "bg-[#979797] hover:bg-[#858585]"}`}
+                >
+                    {selected ? "Selecionado" : "Selecionar"}
+                </button>
+            ) : (
+                <Link
+                    href={plan.actionHref}
+                    className="mx-auto mt-7 flex min-h-12 w-48 items-center justify-center rounded-lg bg-[#17efc3] px-4 text-[20px] font-medium text-[#003f34] transition-transform hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                    {plan.actionLabel}
+                </Link>
+            )}
+
+            <StreamingChannelsModal
+                open={channelsModalOpen}
+                channel={activeChannel}
+                onClose={() => setChannelsModalOpen(false)}
+            />
+        </article>
+    );
+}

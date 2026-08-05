@@ -13,6 +13,12 @@ export default function PlansSwiperHome({
     loading = false,
     renderSkeleton,
     skeletonCount = 3,
+    slidesPerView = 1.15,
+    breakpoints = {
+        640: {slidesPerView: 2},
+        1024: {slidesPerView: 4},
+    },
+    slideClassName = "",
 }) {
     const items = loading
         ? Array.from({ length: skeletonCount }, (_, index) => ({
@@ -27,12 +33,9 @@ export default function PlansSwiperHome({
             <Swiper
                 modules={[Navigation, Pagination]}
                 spaceBetween={24}
-                slidesPerView={1.15}
+                slidesPerView={slidesPerView}
                 centeredSlides={false}
-                breakpoints={{
-                    640: { slidesPerView: 2 },
-                    1024: { slidesPerView: 4 },
-                }}
+                breakpoints={breakpoints}
                 pagination={{
                     clickable: true,
                     dynamicMainBullets: true,
@@ -45,7 +48,7 @@ export default function PlansSwiperHome({
                 {items.map((plan) => (
                     <SwiperSlide
                         key={plan.id}
-                        className="flex min-h-[588px] justify-center"
+                        className={`flex min-h-[588px] justify-center ${slideClassName}`}
                     >
                         {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
                     </SwiperSlide>

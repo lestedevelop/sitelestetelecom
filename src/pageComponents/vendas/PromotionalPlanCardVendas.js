@@ -36,6 +36,7 @@ export default function PromotionalPlanCardVendas({
     actionHref,
     actionLabel = "Selecionar",
     className = "",
+    cardClassName = "",
     compactTop = false,
 }) {
     const { titleNumber, titleUnit } = getTitle(plan);
@@ -49,7 +50,7 @@ export default function PromotionalPlanCardVendas({
         <div className={`relative w-full ${compactTop ? "pt-6 pb-12" : "py-12"} ${className}`}>
             <article
                 className={[
-                    "relative flex h-[588px] w-full flex-col items-center overflow-visible rounded-[24px]",
+                    `relative flex h-[588px] w-full flex-col items-center overflow-visible rounded-[24px] ${cardClassName}`,
                     "border-[3px] border-transparent px-5 pt-8 text-white shadow-lg",
                 ].join(" ")}
                 style={{

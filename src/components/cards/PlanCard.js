@@ -105,12 +105,6 @@ function getPlanDescription({titleNumber, titleUnit, wifiText}) {
 }
 
 function SimplePlanModal({open, title, onClose, children}) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
     useEffect(() => {
         if (!open) return;
 
@@ -122,7 +116,7 @@ function SimplePlanModal({open, title, onClose, children}) {
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [open, onClose]);
 
-    if (!open || !mounted) return null;
+    if (!open || typeof document === "undefined") return null;
 
     return createPortal(
         <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
@@ -177,7 +171,14 @@ function SimplePlanModal({open, title, onClose, children}) {
     );
 }
 
-export default function PlanCardVendas({plan, selected, onSelect}) {
+export default function PlanCardVendas({
+    plan,
+    selected,
+    onSelect,
+    className = "",
+    cardClassName = "",
+    matchStreamingStyle = false,
+}) {
     const [detailsOpen, setDetailsOpen] = useState(false);
     const badge = useMemo(() => getBadge(plan), [plan]);
     const wifiText = plan?.descri_ser_bot || plan?.descri_ser;
@@ -193,22 +194,27 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
     );
 
     return (
-        <div className={"relative py-12 -mt-12"}>
+        <div className={`relative py-12 -mt-12 ${className}`}>
             <div
-                className="rounded-3xl pb-8 border border-primary bg-white px-6 min-h-[588px] shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center">
+                className={`rounded-3xl pb-8 border border-primary bg-white px-6 min-h-[588px] shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center ${cardClassName}`}>
 
                 {/* título */}
-                <div className="mt-6 text-8xl font-semibold leading-none text-primary">
+                <div className={`${matchStreamingStyle ? "text-[100px] tracking-[-7px]" : "text-8xl"} mt-6 font-semibold leading-none text-primary`}>
                     {titleNumber}
                 </div>
-                <div className="-mt-2 text-5xl tracking-[0.15em] font-semibold uppercase text-primary">
+                <div className={`${matchStreamingStyle ? "mt-1 text-[58px] tracking-[-4px]" : "-mt-2 text-5xl tracking-[0.15em]"} font-semibold uppercase leading-none text-primary`}>
                     {titleUnit}
                 </div>
                 <div>
-                    <Image src={getWifiIcon(wifiText)} alt="wifi" width={181}/>
+                    <Image
+                        src={getWifiIcon(wifiText)}
+                        alt="wifi"
+                        width={181}
+                        className={matchStreamingStyle ? "h-auto w-[118px]" : ""}
+                    />
                 </div>
 
-                <div className="mt-4 w-full flex gap-y-3 flex-col-reverse">
+                <div className={`mt-4 flex w-full flex-col-reverse gap-y-3 ${matchStreamingStyle ? "mx-auto max-w-[220px]" : ""}`}>
                     {benefitItems.map((sva) => (
                         <PerkCard
                             key={normalizeSvaKey(getSvaLabel(sva))}
@@ -224,7 +230,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
                   <span className="mt-6  text-base">Por</span>
                   <span className="mr-1 text-base mb-2 ">R$</span>
               </span>
-                    <span className="text-7xl leading-none">
+                    <span className={matchStreamingStyle ? "text-[75px] leading-[0.86] tracking-[-5px]" : "text-7xl leading-none"}>
                   {inteiro}
                 </span>
                     <span className="flex flex-col">
@@ -235,7 +241,7 @@ export default function PlanCardVendas({plan, selected, onSelect}) {
 
                     <TrackedLink
                         href={"https://vendas.lestetelecom.com.br/vendas"}
-                        className={"w-full -mx-6 rounded-2xl px-4 py-3 text-center font-semibold transition border border-darkgreen bg-primary text-white"}
+                        className={`${matchStreamingStyle ? "mx-auto w-48 rounded-lg text-[20px]" : "w-full -mx-6 rounded-2xl"} border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition`}
                     >
                         Assine agora!
                     </TrackedLink>
