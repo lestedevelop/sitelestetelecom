@@ -28,11 +28,11 @@ function getStreamingSpeedId(plan) {
     return null;
 }
 
-function toCardPrice(value, fallback) {
+function toCardPrice(value) {
     const normalized = String(value ?? "").replace(",", ".");
     const number = Number(normalized);
 
-    if (!Number.isFinite(number)) return fallback;
+    if (!Number.isFinite(number)) return null;
 
     const [integer, cents = "00"] = number.toFixed(2).split(".");
     return {integer, cents, period: "/mês"};
@@ -60,20 +60,36 @@ export function groupStreamingPlans(plans = [], templates = []) {
         variantsBySpeed[speedId][channel] ||= plan;
     });
 
-    const streamingPlans = templates.map((template) => {
+    const streamingPlans = templates.flatMap((template) => {
         const backendPlans = variantsBySpeed[template.id];
-        const prices = {...template.prices};
+        const availableChannels = Object.keys(backendPlans);
+
+        // O template define apenas o visual do card. Sem um plano correspondente
+        // retornado pela API, nenhum card é criado.
+        if (availableChannels.length === 0) return [];
+
+        const prices = {};
 
         Object.entries(backendPlans).forEach(([channel, backendPlan]) => {
-            prices[channel] = toCardPrice(backendPlan?.valor, prices[channel] || template.price);
+            const price = toCardPrice(backendPlan?.valor);
+            if (price) prices[channel] = price;
         });
 
-        return {
+        const channels = availableChannels.includes(template.channels)
+            ? template.channels
+            : availableChannels[0];
+        const primaryBackendPlan = backendPlans[channels];
+
+        return [{
             ...template,
             __streaming: true,
             backendPlans,
+            backendPlan: primaryBackendPlan,
+            channels,
+            packages: template.packages?.filter(({channel}) => availableChannels.includes(channel)),
             prices,
-        };
+            price: prices[channels],
+        }];
     });
 
     return {streamingPlans, standardPlans};

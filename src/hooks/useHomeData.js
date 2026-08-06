@@ -20,9 +20,15 @@ export function useHomeData() {
         setPlanos?.([]);
 
         fetch(`/api/home?cidade=${cityId}`, { signal: controller.signal })
-            .then((r) => {
-                if (!r.ok) throw new Error("Erro ao buscar dados da home");
-                return r.json();
+            .then(async (r) => {
+                const response = await r.json().catch(() => null);
+
+                if (!r.ok) {
+                    const message = response?.message || "Erro ao buscar dados da home";
+                    throw new Error(`${message} (${r.status})`);
+                }
+
+                return response;
             })
             .then((res) => {
                 setPlanos(res?.planos || res || []);

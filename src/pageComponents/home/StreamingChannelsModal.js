@@ -9,6 +9,7 @@ import lestePlay from "@/assets/home/streaming-plan/leste-play.svg";
 import {sportsChannelSections} from "@/mocks/sportsChannels";
 import {cineChannelSections} from "@/mocks/cineChannels";
 import {familyChannelSections} from "@/mocks/familyChannels";
+import {startChannelSections} from "@/mocks/startChannels";
 
 const channelTitles = {
     start: "Start",
@@ -18,6 +19,7 @@ const channelTitles = {
 };
 
 const channelSections = {
+    start: startChannelSections,
     sports: sportsChannelSections,
     cine: cineChannelSections,
     family: familyChannelSections,

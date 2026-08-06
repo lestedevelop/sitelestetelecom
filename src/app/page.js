@@ -1,6 +1,6 @@
 "use client"
 import AppBar from "@/components/layout/AppBar";
-import PlanosSection from "@/pageComponents/home/PlanosSection";
+import StreamingPlansSectionPreview from "@/pageComponents/home/StreamingPlansSectionPreview";
 import AreaCoberturaSection from "@/pageComponents/home/AreaCoberturaSection";
 import JaeClienteSection from "@/pageComponents/home/JaeClienteSection";
 import BeneficiosSection from "@/pageComponents/home/BeneficiosSection";
@@ -20,7 +20,7 @@ export default function Home() {
     return (
         <div className="min-h-full bg-light">
             <HomeManagedSection sectionKey="bannerCentral" adverts={getAdverts("bannerCentral")}/>
-            <PlanosSection  />
+            <StreamingPlansSectionPreview />
             {/*<BannerUltraSection/>*/}
             <JaeClienteSection/>
             <HomeManagedSection sectionKey="jaClienteLeste" adverts={getAdverts("jaClienteLeste")}/>
