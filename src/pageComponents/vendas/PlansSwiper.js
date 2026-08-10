@@ -11,7 +11,7 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
     if (!plans.length) return null;
 
     return (
-        <div className="">
+        <div className="w-full min-w-0 overflow-x-clip">
             <Swiper
                 modules={[Navigation, Pagination]}
                 spaceBetween={32}
@@ -25,10 +25,10 @@ export default function PlansSwiper({plans = [], renderPlan, onPrev, onNext,}) {
                     640: {slidesPerView: 2},
                     768: {slidesPerView: 3},
                 }}
-                className="py-10"
+                className="overflow-visible! px-1 pt-10 [&_.swiper-pagination]:!bottom-0"
             >
                 {plans.map((plan) => (
-                    <SwiperSlide key={plan.id} className="flex justify-center">
+                    <SwiperSlide key={plan.id} className="flex h-auto! justify-center pb-10">
                         {renderPlan(plan)}
                     </SwiperSlide>
                 ))}

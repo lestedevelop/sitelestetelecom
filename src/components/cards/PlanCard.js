@@ -12,6 +12,7 @@ import wifi5icon from "@/assets/vendas/icons/wifi-5.svg"
 import wifi6axicon from "@/assets/vendas/icons/wifi-6ax.svg"
 import wifi6axmeshicon from "@/assets/vendas/icons/wifi-6axmesh.svg"
 import {getPerkByCodsimp} from "@/utils/getPerkByCodsimp";
+import {getPlanoButtonId} from "@/lib/gtm/vendas";
 
 function getWifiIcon(label = "") {
     const normalized = String(label).toLowerCase();
@@ -194,9 +195,9 @@ export default function PlanCardVendas({
     );
 
     return (
-        <div className={`relative py-12 -mt-12 ${className}`}>
+        <div className={`relative ${onSelect ? "z-20 h-[588px]" : "py-12 -mt-12"} ${className}`}>
             <div
-                className={`rounded-3xl pb-8 border border-primary bg-white px-6 min-h-[588px] shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center ${cardClassName}`}>
+                className={`rounded-3xl pb-8 border border-primary bg-white px-6 shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center ${onSelect ? "relative h-full min-h-0" : "min-h-[588px]"} ${cardClassName}`}>
 
                 {/* título */}
                 <div className={`${matchStreamingStyle ? "text-[100px] tracking-[-7px]" : "text-8xl"} mt-6 font-semibold leading-none text-primary`}>
@@ -239,25 +240,44 @@ export default function PlanCardVendas({
                 </span>
                 </div>
 
-                    <TrackedLink
-                        href={"https://vendas.lestetelecom.com.br/vendas"}
-                        className={`${matchStreamingStyle ? "mx-auto w-48 rounded-lg text-[20px]" : "w-full -mx-6 rounded-2xl"} border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition`}
-                    >
-                        Assine agora!
-                    </TrackedLink>
+                    {onSelect ? (
+                        <button
+                            id={getPlanoButtonId(plan)}
+                            type="button"
+                            onClick={() => onSelect(plan)}
+                            data-gtm-plan-codser={plan?.codser || ""}
+                            data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
+                            className="mt-auto -mx-6 -mb-8 w-[calc(100%+3rem)] rounded-b-3xl border border-transparent px-4 py-4 text-center font-semibold text-white transition data-[selected=true]:bg-primary data-[selected=false]:bg-[#8f8f8f] data-[selected=false]:hover:bg-gray-500"
+                            data-selected={isSelected}
+                        >
+                            {isSelected ? "Selecionado" : "Selecionar"}
+                        </button>
+                    ) : (
+                        <TrackedLink
+                            href={"https://vendas.lestetelecom.com.br/vendas"}
+                            className={`${matchStreamingStyle ? "mx-auto w-48 rounded-lg text-[20px]" : "w-full -mx-6 rounded-2xl"} border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition`}
+                        >
+                            Assine agora!
+                        </TrackedLink>
+                    )}
 
-                    <button
-                        type="button"
-                        onClick={() => setDetailsOpen(true)}
-                        className="mt-3 text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
-                    >
-                        Mais Detalhes
-                    </button>
+                    {!onSelect ? (
+                        <button
+                            type="button"
+                            onClick={() => setDetailsOpen(true)}
+                            className="mt-3 text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
+                        >
+                            Mais Detalhes
+                        </button>
+                    ) : null}
 
 
                 {/* Badge topo */}
                 {badge ? (
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+                    <div className={onSelect
+                        ? "absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2"
+                        : "absolute bottom-8 left-1/2 -translate-x-1/2"}
+                    >
                         <span
                             className="flex w-60 items-center justify-center gap-2 rounded-2xl border border-primary bg-white px-3 py-2 text-xs font-semibold text-primary shadow">
                             <Image src={alertIcon} alt="" width={14} height={14}/>

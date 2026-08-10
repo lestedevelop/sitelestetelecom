@@ -1,5 +1,6 @@
 import {brToISODate} from "@/utils/Format";
 import {getCapturedTrackingFromCookies} from "@/lib/utm";
+import {isLestePlayPlan} from "@/utils/streamingPlans";
 
 export function buildAgendamentoModel(data) {
     const cadastro = data?.cadastro || {};
@@ -47,6 +48,7 @@ export function buildAgendamentoModel(data) {
             obs: "Cliente via site",
         },
         codser: plano.codser,
+        ...(isLestePlayPlan(plano) ? {lestePlay: true} : {}),
         vencimento: plano?.vencimento,
         txadesao,
         pgtotxadesao,

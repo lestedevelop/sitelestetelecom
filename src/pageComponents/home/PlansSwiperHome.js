@@ -41,7 +41,7 @@ export default function PlansSwiperHome({
                     dynamicMainBullets: true,
                 }}
                 className={[
-                    "overflow-visible! px-1 py-10 [&_.swiper-pagination]:!bottom-0",
+                    "overflow-visible! px-1 pb-10 [&_.swiper-pagination]:!bottom-0",
                     shouldCenterDesktop ? "lg:[&_.swiper-wrapper]:justify-center" : "",
                 ].join(" ")}
             >

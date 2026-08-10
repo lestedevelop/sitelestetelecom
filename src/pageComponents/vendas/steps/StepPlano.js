@@ -6,8 +6,9 @@ import { cidadesMock } from "@/mocks/cidadesMock";
 import { findCodCidByName } from "@/utils/cidade";
 import { getPlanosByCodCid } from "@/services/vendas/planos";
 
-import PlanCard from "@/pageComponents/vendas/PlanCardVendas";
+import PlanCard from "@/components/cards/PlanCard";
 import PromotionalPlanCard from "@/pageComponents/vendas/PromotionalPlanCardVendas";
+import StreamingPlanPreview from "@/pageComponents/home/StreamingPlanPreview";
 import PlansSwiper from "@/pageComponents/vendas/PlansSwiper";
 import VencimentoSection from "@/pageComponents/vendas/components/VencimentoSection";
 import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSection";
@@ -16,6 +17,8 @@ import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
 import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
+import {groupStreamingPlans} from "@/utils/streamingPlans";
+import {streamingPlansMock} from "@/mocks/streamingPlan";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -32,7 +35,10 @@ export default function StepPlans({ onNext, onBack }) {
 
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [addRespOpen, setAddRespOpen] = useState(false);
-    const sortedPlans = useMemo(() => sortPlansByLowestPrice(plans), [plans]);
+    const displayedPlans = useMemo(() => {
+        const {streamingPlans, standardPlans} = groupStreamingPlans(plans, streamingPlansMock);
+        return [...streamingPlans, ...sortPlansByLowestPrice(standardPlans)];
+    }, [plans]);
     function handleContinue() {
         const hasResponsavel = (data?.responsaveis || []).length > 0;
 
@@ -91,6 +97,28 @@ export default function StepPlans({ onNext, onBack }) {
     }
 
     function renderPlanCard(plan) {
+        if (plan.__streaming) {
+            const selectedEntry = Object.entries(plan.backendPlans || {}).find(
+                ([, backendPlan]) =>
+                    (backendPlan?.id && backendPlan.id === data?.plano?.id) ||
+                    (backendPlan?.codser && backendPlan.codser === data?.plano?.codser)
+            );
+            const selectedBackendPlan = selectedEntry?.[1];
+
+            return (
+                <StreamingPlanPreview
+                    plan={plan}
+                    variant="sales"
+                    initialChannel={selectedEntry?.[0] || plan.channels}
+                    selected={!!selectedBackendPlan}
+                    onSelect={handleSelect}
+                    onPackageChange={({backendPlan}) => {
+                        if (selectedBackendPlan && backendPlan) handleSelect(backendPlan);
+                    }}
+                />
+            );
+        }
+
         const Card = isPromotionalPlan(plan) ? PromotionalPlanCard : PlanCard;
 
         return (
@@ -114,10 +142,10 @@ export default function StepPlans({ onNext, onBack }) {
 
             <h3 className={"text-3xl text-dark font-bold pb-8"}>Selecione o seu Plano</h3>
 
-            {!!sortedPlans.length && (
+            {!!displayedPlans.length && (
                 <>
                     <PlansSwiper
-                        plans={sortedPlans}
+                        plans={displayedPlans}
                         renderPlan={renderPlanCard}
                     />
                 </>

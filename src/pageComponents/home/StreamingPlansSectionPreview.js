@@ -42,7 +42,7 @@ export default function StreamingPlansSectionPreview() {
     }
 
     return (
-        <Section className="px-0! sm:px-8! xl:px-0!">
+        <Section className="px-0! pb-8 sm:px-8! sm:pb-12 lg:pb-24 xl:px-0!">
             <section className="pb-8 pt-8">
                 <h2 className="text-center text-[28px] font-bold leading-[1.05] text-primary md:text-[64px]">
                     Conheça nossos planos!

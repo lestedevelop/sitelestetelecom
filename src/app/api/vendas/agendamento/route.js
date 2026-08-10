@@ -51,6 +51,7 @@ export async function POST(req) {
 
         appendAny(form, "event_id", payload?.event_id);
         appendAny(form, "codser", payload?.codser);
+        appendAny(form, "lestePlay", payload?.lestePlay);
         appendAny(form, "vencimento", payload?.vencimento);
         appendAny(form, "pgtotxadesao", payload?.pgtotxadesao);
         appendAny(form, "txadesao", payload?.txadesao);

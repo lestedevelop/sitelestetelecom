@@ -19,6 +19,7 @@ import lestePlay from "@/assets/home/streaming-plan/leste-play.svg";
 import streamingByWatch from "@/assets/home/streaming-plan/streaming-by-watch.svg";
 import wifi5 from "@/assets/home/streaming-plan/wifi-5.svg";
 import wifi6 from "@/assets/home/streaming-plan/super-wifi-6.svg";
+import {getPlanoButtonId} from "@/lib/gtm/vendas";
 
 const channelArtwork = {
     start: canaisStart,
@@ -49,26 +50,26 @@ function Toggle({active, label, onChange}) {
     );
 }
 
-export default function StreamingPlanPreview({plan, variant = "home", onSelect, onPackageChange}) {
-    const [activeChannel, setActiveChannel] = useState(plan.channels);
-    const [selected, setSelected] = useState(false);
+export default function StreamingPlanPreview({plan, variant = "home", initialChannel, selected = false, onSelect, onPackageChange}) {
+    const [activeChannel, setActiveChannel] = useState(initialChannel || plan.channels);
     const [channelsModalOpen, setChannelsModalOpen] = useState(false);
     const isSales = variant === "sales";
     const channels = (isSales ? salesChannelArtwork : channelArtwork)[activeChannel];
     const currentPrice = plan.prices?.[activeChannel] || plan.price;
+    const activeBackendPlan = plan.backendPlans?.[activeChannel] || plan.backendPlan || plan;
     const wifiArtwork = plan.wifiGeneration === "5" ? wifi5 : wifi6;
     const hasPackages = plan.packages?.length > 0;
 
     return (
         <article className={[
-            "relative w-[343px] shrink-0 overflow-hidden rounded-[22px] pt-10 shadow-xl",
+            "relative shrink-0 overflow-hidden rounded-[22px] shadow-xl",
             isSales
-                ? "h-[703px] bg-white text-primary"
-                : "h-[784px] border border-[#10f4c9] bg-[#087b60] pb-9 text-white",
+                ? "h-[588px] w-full max-w-[343px] bg-white pt-6 text-primary"
+                : "h-[784px] w-[343px] border border-[#10f4c9] bg-[#087b60] pb-9 pt-10 text-white",
         ].join(" ")}>
             <header className="text-center">
-                <p className="text-[100px] font-bold leading-[0.72] tracking-[-7px]">{plan.speed}</p>
-                <p className={`${isSales ? "mt-1" : "mt-4"} text-[58px] font-bold leading-none tracking-[-4px]`}>{plan.speedUnit}</p>
+                <p className={`${isSales ? "text-[76px] tracking-[-5px]" : "text-[100px] tracking-[-7px]"} font-bold leading-[0.72]`}>{plan.speed}</p>
+                <p className={`${isSales ? "mt-1 text-[44px] tracking-[-3px]" : "mt-4 text-[58px] tracking-[-4px]"} font-bold leading-none`}>{plan.speedUnit}</p>
 
                 <div className={`${isSales ? "mt-1" : "mt-6"} flex items-center justify-center gap-3`}>
                     <span className={`flex size-[19px] items-center justify-center rounded-[4px] bg-[#18efc5] text-[#00644e] ${plan.wifiGeneration === "5" ? "translate-y-3" : ""}`}>
@@ -88,12 +89,12 @@ export default function StreamingPlanPreview({plan, variant = "home", onSelect, 
                 />
             </header>
 
-            <div className={`mx-auto w-[220px] overflow-hidden rounded-xl ${isSales ? "mt-4 bg-[#e4f7f3]" : "mt-5 bg-[#00684f]"}`}>
+            <div className={`mx-auto w-[220px] overflow-hidden rounded-xl ${isSales ? "mt-2 bg-[#e4f7f3]" : "mt-5 bg-[#00684f]"}`}>
                 <div className="flex h-11 items-center justify-center rounded-xl border border-[#13eac5] bg-[#087b60]">
                     <Image src={lestePlay} alt="Leste Play" className="h-auto w-[115px]"/>
                 </div>
 
-                <div className="flex h-[204px] flex-col items-center pt-3">
+                <div className={`flex flex-col items-center ${isSales ? "h-[150px] pt-2" : "h-[204px] pt-3"}`}>
                     {hasPackages ? (
                         <div className={`grid w-full ${plan.packages.length === 3 ? "grid-cols-3" : "grid-cols-2"}`}>
                             {plan.packages.map((item) => (
@@ -129,7 +130,7 @@ export default function StreamingPlanPreview({plan, variant = "home", onSelect, 
                         type="button"
                         onClick={() => setChannelsModalOpen(true)}
                         aria-label={`Ver todos os canais do pacote ${activeChannel}`}
-                        className={`${hasPackages ? "mt-4 w-[191px]" : "mt-6 w-[126px]"} rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
                         <Image
                             src={channels}
@@ -140,18 +141,18 @@ export default function StreamingPlanPreview({plan, variant = "home", onSelect, 
                     <Image
                         src={streamingByWatch}
                         alt="Streaming by Watch"
-                        className={`mb-3 mt-auto h-auto w-[127px] ${isSales ? "[filter:brightness(0)_saturate(100%)_invert(26%)_sepia(23%)_saturate(1563%)_hue-rotate(120deg)_brightness(88%)_contrast(101%)]" : ""}`}
+                        className={`mt-auto h-auto ${isSales ? "mb-2 w-[105px] [filter:brightness(0)_saturate(100%)_invert(26%)_sepia(23%)_saturate(1563%)_hue-rotate(120deg)_brightness(88%)_contrast(101%)]" : "mb-3 w-[127px]"}`}
                     />
                 </div>
             </div>
 
-            <div className={`${isSales ? "mt-6 text-[#00644e]" : "mt-6"}`}>
+            <div className={`${isSales ? "mt-3 text-[#00644e]" : "mt-6"}`}>
                 <div className={`flex items-start justify-center ${isSales ? "text-[#00644e]" : "text-white"}`}>
                     <div className="mr-1 pt-1 text-right font-semibold leading-none">
                         <span className="block text-[20px]">Por</span>
                         <span className="mt-2 block text-[32px]">R$</span>
                     </div>
-                    <span className="text-[75px] font-bold leading-[0.86] tracking-[-5px]">{currentPrice.integer}</span>
+                    <span className={`${isSales ? "text-[58px] tracking-[-4px]" : "text-[75px] tracking-[-5px]"} font-bold leading-[0.86]`}>{currentPrice.integer}</span>
                     <div className="ml-1 pt-1 leading-none">
                         <span className="block text-[30px] font-bold tracking-[-2px]">,{currentPrice.cents}</span>
                         <span className="mt-4 block text-[16px] font-semibold">{currentPrice.period}</span>
@@ -162,11 +163,13 @@ export default function StreamingPlanPreview({plan, variant = "home", onSelect, 
 
             {isSales ? (
                 <button
+                    id={getPlanoButtonId(activeBackendPlan)}
                     type="button"
                     aria-pressed={selected}
+                    data-gtm-plan-codser={activeBackendPlan?.codser || ""}
+                    data-gtm-plan-name={activeBackendPlan?.nome_exibicao || activeBackendPlan?.descri_ser || ""}
                     onClick={() => {
-                        setSelected(true);
-                        onSelect?.(plan.backendPlans?.[activeChannel] || plan);
+                        onSelect?.(activeBackendPlan);
                     }}
                     className={`absolute inset-x-0 bottom-0 flex h-[53px] items-center justify-center rounded-b-[22px] text-[20px] font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white ${selected ? "bg-primary" : "bg-[#979797] hover:bg-[#858585]"}`}
                 >
