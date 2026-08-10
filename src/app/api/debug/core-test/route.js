@@ -1,12 +1,20 @@
 import { NextResponse } from "next/server";
 import { coreApi } from "@/lib/coreApi";
-import { getUtmFromReq } from "@/lib/utmServerRaw";
 
 export async function GET(req) {
     try {
-        const response = await coreApi.get("/api/sac/externo/home");
+        const codcid = new URL(req.url).searchParams.get("codcid")?.trim();
+        const response = await coreApi.get("/api/sac/externo/home", {
+            params: codcid ? {codcid} : undefined,
+        });
 
-        return NextResponse.json(response.data, { status: 200 });
+        return NextResponse.json(response.data, {
+            status: 200,
+            headers: {
+                "Cache-Control": "no-store",
+                "X-Debug-Codcid": codcid || "not-sent",
+            },
+        });
     } catch (error) {
         const status = error?.response?.status || 500;
         const data = error?.response?.data;
@@ -16,7 +24,7 @@ export async function GET(req) {
             error?.message ||
             "Erro ao validar viabilidade";
 
-        console.error("VIABILIDADE FAIL", {
+        console.error("CORE TEST FAIL", {
             status,
             message,
             responseData: data,

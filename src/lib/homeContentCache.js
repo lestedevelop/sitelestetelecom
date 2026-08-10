@@ -1,18 +1,24 @@
 import {coreApi} from "@/lib/coreApi";
 
-let pendingRefresh = null;
+const pendingRefreshByCity = new Map();
 
-export async function getHomeContent() {
+export async function getHomeContent(codcid) {
+    const normalizedCodcid = String(codcid || "").trim();
+    const requestKey = normalizedCodcid || "all";
+    const pendingRefresh = pendingRefreshByCity.get(requestKey);
     if (pendingRefresh) return pendingRefresh;
 
-    pendingRefresh = (async () => {
-        const response = await coreApi.get("/api/sac/externo/home");
+    const refresh = (async () => {
+        const response = await coreApi.get("/api/sac/externo/home", {
+            params: normalizedCodcid ? {codcid: normalizedCodcid} : undefined,
+        });
         return {payload: response.data, status: "BYPASS"};
     })();
+    pendingRefreshByCity.set(requestKey, refresh);
 
     try {
-        return await pendingRefresh;
+        return await refresh;
     } finally {
-        pendingRefresh = null;
+        pendingRefreshByCity.delete(requestKey);
     }
 }

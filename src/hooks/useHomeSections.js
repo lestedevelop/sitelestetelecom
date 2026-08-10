@@ -1,7 +1,9 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {findHomeSection, getCurrentDevice, selectSectionAdverts} from "@/lib/homeSections";
+import {useSite} from "@/contexts/SiteContext";
 
 export function useHomeSections() {
+    const {codcid, hydrated} = useSite();
     const [home, setHome] = useState(null);
     const [device, setDevice] = useState("desktop");
     const [loading, setLoading] = useState(true);
@@ -19,9 +21,12 @@ export function useHomeSections() {
     }, []);
 
     useEffect(() => {
-        const controller = new AbortController();
+        if (!hydrated) return;
 
-        fetch("/api/home/content", {
+        const controller = new AbortController();
+        const query = codcid ? `?codcid=${encodeURIComponent(codcid)}` : "";
+
+        fetch(`/api/home/content${query}`, {
             signal: controller.signal,
             cache: "no-store",
         })
@@ -38,7 +43,7 @@ export function useHomeSections() {
             });
 
         return () => controller.abort();
-    }, []);
+    }, [codcid, hydrated]);
 
     const sectionsByKey = useMemo(
         () => Object.fromEntries((home?.sections || []).map((section) => [section.key, section])),

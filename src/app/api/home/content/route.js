@@ -3,15 +3,25 @@ import {getHomeContent} from "@/lib/homeContentCache";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req) {
     try {
-        const {payload, status: cacheStatus} = await getHomeContent();
+        const codcid = new URL(req.url).searchParams.get("codcid")?.trim();
+
+        if (codcid && !/^\d+$/.test(codcid)) {
+            return NextResponse.json(
+                {message: "codcid invalido"},
+                {status: 400}
+            );
+        }
+
+        const {payload, status: cacheStatus} = await getHomeContent(codcid);
 
         return NextResponse.json(payload, {
             status: 200,
             headers: {
                 "Cache-Control": "private, no-store",
                 "X-Home-Cache": cacheStatus,
+                "X-Home-Codcid": codcid || "not-sent",
             },
         });
     } catch (error) {
