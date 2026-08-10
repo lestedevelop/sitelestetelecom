@@ -7,16 +7,6 @@
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/home/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/home/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/vendas/agendamento/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/PlanCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PlanCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/agendamentoModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/agendamentoModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/PlansSwiperHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/PlansSwiperHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/StreamingPlanPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/StreamingPlanPreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/home/StreamingPlansSectionPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/home/StreamingPlansSectionPreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/PlansSwiper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/PlansSwiper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pageComponents/vendas/steps/StepPlano.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/streamingPlans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/streamingPlans.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +145,7 @@
       <workItem from="1785244938061" duration="1181000" />
       <workItem from="1785499879990" duration="4011000" />
       <workItem from="1786121963646" duration="1297000" />
-      <workItem from="1786363172329" duration="8576000" />
+      <workItem from="1786363172329" duration="14609000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -421,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786327607932</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="++">
+      <option name="closed" value="true" />
+      <created>1786378677891</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1786378677891</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

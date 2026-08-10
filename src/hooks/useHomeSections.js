@@ -20,9 +20,11 @@ export function useHomeSections() {
 
     useEffect(() => {
         const controller = new AbortController();
-        setLoading(true);
 
-        fetch("/api/home/content", {signal: controller.signal})
+        fetch("/api/home/content", {
+            signal: controller.signal,
+            cache: "no-store",
+        })
             .then((response) => {
                 if (!response.ok) throw new Error("Erro ao buscar secoes da home");
                 return response.json();
