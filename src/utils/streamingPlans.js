@@ -5,6 +5,12 @@ export const streamingTierChannels = {
     ELITE: "family",
 };
 
+// Alguns serviços do LestePlay não trazem o nome do tier na descrição.
+// Nesses casos, o codser é a fonte confiável para identificar o pacote.
+const streamingChannelByCodser = {
+    EUIG14JZGJ: streamingTierChannels.HUB,
+};
+
 export function getStreamingChannelFromService(description = "") {
     const normalizedDescription = String(description).toUpperCase();
 
@@ -15,6 +21,17 @@ export function getStreamingChannelFromService(description = "") {
     if (normalizedDescription.includes("HUB")) return streamingTierChannels.HUB;
 
     return null;
+}
+
+function getStreamingChannelFromPlan(plan) {
+    const codser = String(plan?.codser || "").trim().toUpperCase();
+    // Quando o backend informa o codser, só aceitamos um pacote explicitamente
+    // mapeado. Isso evita agrupar planos diferentes apenas porque a descrição
+    // contém palavras semelhantes (principalmente entre os três planos de 1 Giga).
+    if (codser) return streamingChannelByCodser[codser] || null;
+
+    // Compatibilidade com respostas antigas que ainda não trazem codser.
+    return getStreamingChannelFromService(plan?.descri_ser);
 }
 
 function getStreamingSpeedId(plan) {
@@ -46,7 +63,7 @@ export function groupStreamingPlans(plans = [], templates = []) {
     const standardPlans = [];
 
     plans.forEach((plan) => {
-        const channel = getStreamingChannelFromService(plan?.descri_ser);
+        const channel = getStreamingChannelFromPlan(plan);
         const speedId = getStreamingSpeedId(plan);
 
         const template = templates.find((item) => item.id === speedId);
