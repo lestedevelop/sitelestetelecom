@@ -10,10 +10,6 @@ import canaisStart from "@/assets/home/streaming-plan/canais_start.svg";
 import canais800 from "@/assets/home/streaming-plan/canais_800.svg";
 import canais1Giga from "@/assets/home/streaming-plan/canais_1g.svg";
 import canaisFamily from "@/assets/home/streaming-plan/canais_family.svg";
-import canaisStartSales from "@/assets/home/streaming-plan/canais_start_sales.svg";
-import canais800Sales from "@/assets/home/streaming-plan/canais_800_sales.svg";
-import canais1GigaSales from "@/assets/home/streaming-plan/canais_1g_sales.svg";
-import canaisFamilySales from "@/assets/home/streaming-plan/canais_family_sales.svg";
 import lesteClubeSkeelo from "@/assets/home/streaming-plan/leste-clube-skeelo.svg";
 import lestePlay from "@/assets/home/streaming-plan/leste-play.svg";
 import streamingByWatch from "@/assets/home/streaming-plan/streaming-by-watch.svg";
@@ -28,13 +24,6 @@ const channelArtwork = {
     family: canaisFamily,
 };
 
-const salesChannelArtwork = {
-    start: canaisStartSales,
-    sports: canais800Sales,
-    cine: canais1GigaSales,
-    family: canaisFamilySales,
-};
-
 function Toggle({active, label, onChange}) {
     return (
         <button
@@ -43,7 +32,7 @@ function Toggle({active, label, onChange}) {
             aria-checked={active}
             aria-label={`${active ? "Remover" : "Adicionar"} pacote ${label}`}
             onClick={onChange}
-            className={`relative block h-[18px] w-8 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${active ? "bg-[#0ddab7]" : "bg-[#002d26]"}`}
+            className={`relative block h-[18px] w-8 cursor-pointer rounded-full transition hover:scale-105 hover:ring-2 hover:ring-[#10f4c9]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${active ? "bg-[#0ddab7]" : "bg-[#002d26]"}`}
         >
             <span className={`absolute top-0.5 size-3.5 rounded-full bg-white ${active ? "right-0.5" : "left-0.5"}`} />
         </button>
@@ -54,7 +43,7 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
     const [activeChannel, setActiveChannel] = useState(initialChannel || plan.channels);
     const [channelsModalOpen, setChannelsModalOpen] = useState(false);
     const isSales = variant === "sales";
-    const channels = (isSales ? salesChannelArtwork : channelArtwork)[activeChannel];
+    const channels = channelArtwork[activeChannel];
     const currentPrice = plan.prices?.[activeChannel] || plan.price;
     const activeBackendPlan = plan.backendPlans?.[activeChannel] || plan.backendPlan || plan;
     const wifiArtwork = plan.wifiGeneration === "5" ? wifi5 : wifi6;
@@ -65,7 +54,7 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
             "relative shrink-0 overflow-hidden rounded-[22px] shadow-xl",
             isSales
                 ? "h-[588px] w-full max-w-[343px] bg-white pt-6 text-primary"
-                : "h-[784px] w-[343px] border border-[#10f4c9] bg-[#087b60] pb-9 pt-10 text-white",
+                : "h-[784px] w-full max-w-[343px] border border-[#10f4c9] bg-[#087b60] pb-9 pt-10 text-white",
         ].join(" ")}>
             <header className="text-center">
                 <p className={`${isSales ? "text-[76px] tracking-[-5px]" : "text-[100px] tracking-[-7px]"} font-bold leading-[0.72]`}>{plan.speed}</p>
@@ -130,7 +119,7 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                         type="button"
                         onClick={() => setChannelsModalOpen(true)}
                         aria-label={`Ver todos os canais do pacote ${activeChannel}`}
-                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
                         <Image
                             src={channels}
@@ -158,7 +147,9 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                         <span className="mt-4 block text-[16px] font-semibold">{currentPrice.period}</span>
                     </div>
                 </div>
-                <p className="mt-2 text-center text-[12px] font-semibold">{plan.loyalty}</p>
+                {!isSales ? (
+                    <p className="mt-2 text-center text-[12px] font-semibold">{plan.loyalty}</p>
+                ) : null}
             </div>
 
             {isSales ? (
@@ -171,14 +162,14 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                     onClick={() => {
                         onSelect?.(activeBackendPlan);
                     }}
-                    className={`absolute inset-x-0 bottom-0 flex h-[53px] items-center justify-center rounded-b-[22px] text-[20px] font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white ${selected ? "bg-primary" : "bg-[#979797] hover:bg-[#858585]"}`}
+                    className={`absolute inset-x-0 bottom-0 flex h-[53px] cursor-pointer items-center justify-center rounded-b-[22px] text-[20px] font-semibold text-white transition hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white ${selected ? "bg-primary" : "bg-[#979797] hover:bg-[#858585]"}`}
                 >
                     {selected ? "Selecionado" : "Selecionar"}
                 </button>
             ) : (
                 <Link
                     href={plan.actionHref}
-                    className="mx-auto mt-7 flex min-h-12 w-48 items-center justify-center rounded-lg bg-[#17efc3] px-4 text-[20px] font-medium text-[#003f34] transition-transform hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="mx-auto mt-7 flex min-h-12 w-48 cursor-pointer items-center justify-center rounded-lg bg-[#17efc3] px-4 text-[20px] font-medium text-[#003f34] transition-transform hover:-translate-y-px hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                     {plan.actionLabel}
                 </Link>

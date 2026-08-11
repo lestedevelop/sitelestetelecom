@@ -247,7 +247,7 @@ export default function PlanCardVendas({
                             onClick={() => onSelect(plan)}
                             data-gtm-plan-codser={plan?.codser || ""}
                             data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
-                            className="mt-auto -mx-6 -mb-8 w-[calc(100%+3rem)] rounded-b-3xl border border-transparent px-4 py-4 text-center font-semibold text-white transition data-[selected=true]:bg-primary data-[selected=false]:bg-[#8f8f8f] data-[selected=false]:hover:bg-gray-500"
+                            className="mt-auto -mx-6 -mb-8 w-[calc(100%+3rem)] cursor-pointer rounded-b-3xl border border-transparent px-4 py-4 text-center font-semibold text-white transition hover:brightness-110 hover:shadow-lg data-[selected=true]:bg-primary data-[selected=false]:bg-[#8f8f8f] data-[selected=false]:hover:bg-gray-500"
                             data-selected={isSelected}
                         >
                             {isSelected ? "Selecionado" : "Selecionar"}
@@ -255,7 +255,7 @@ export default function PlanCardVendas({
                     ) : (
                         <TrackedLink
                             href={"https://vendas.lestetelecom.com.br/vendas"}
-                            className={`${matchStreamingStyle ? "mx-auto w-48 rounded-lg text-[20px]" : "w-full -mx-6 rounded-2xl"} border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition`}
+                            className={`${matchStreamingStyle ? "mx-auto w-48 rounded-lg text-[20px]" : "w-full -mx-6 rounded-2xl"} cursor-pointer border border-darkgreen bg-primary px-4 py-3 text-center font-semibold text-white transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg`}
                         >
                             Assine agora!
                         </TrackedLink>
@@ -265,7 +265,7 @@ export default function PlanCardVendas({
                         <button
                             type="button"
                             onClick={() => setDetailsOpen(true)}
-                            className="mt-3 text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
+                            className="mt-3 cursor-pointer text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
                         >
                             Mais Detalhes
                         </button>

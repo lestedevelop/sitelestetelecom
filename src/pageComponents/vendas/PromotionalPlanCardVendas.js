@@ -133,7 +133,9 @@ export default function PromotionalPlanCardVendas({
                     </div>
                 </div>
 
-                <p className="mt-4 text-center text-sm">*Fidelidade de 12 meses</p>
+                {actionHref ? (
+                    <p className="mt-4 text-center text-sm">*Fidelidade de 12 meses</p>
+                ) : null}
 
                 {actionHref ? (
                     <TrackedLink
@@ -141,7 +143,7 @@ export default function PromotionalPlanCardVendas({
                         href={actionHref}
                         data-gtm-plan-codser={plan?.codser || ""}
                         data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
-                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 cursor-pointer rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                         style={{ backgroundImage: `url(${dourado.src})` }}
                     >
                         {actionLabel}
@@ -154,7 +156,7 @@ export default function PromotionalPlanCardVendas({
                         onClick={() => onSelect?.(plan)}
                         data-gtm-plan-codser={plan?.codser || ""}
                         data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
-                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 cursor-pointer rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                         style={{ backgroundImage: `url(${dourado.src})` }}
                     >
                         {selected ? "Selecionado" : actionLabel}

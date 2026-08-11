@@ -28,7 +28,7 @@ export default function PerkCard({ descri_simp, item, onClick, fullWidth = false
         <button
             type="button"
             onClick={() => onClick?.(label)}
-            className={`${fullWidth ? "w-full" : "w-44"} mx-auto flex h-9 items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:opacity-90`}
+            className={`${fullWidth ? "w-full" : "w-44"} mx-auto flex h-9 cursor-pointer items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:scale-[1.02] hover:opacity-90`}
         >
             <Image
                 src={imageSrc}
