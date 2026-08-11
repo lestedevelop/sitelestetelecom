@@ -8,9 +8,10 @@ import {useHomeData} from "@/hooks/useHomeData";
 import {groupStreamingPlans} from "@/utils/streamingPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
-import {Sparkles} from "lucide-react";
 import {useMemo, useState} from "react";
 import {useSite} from "@/contexts/SiteContext";
+import Image from "next/image";
+import bestOffersIcon from "@/assets/home/filter-best-offers.svg";
 
 const planFilters = [
     {id: "best", label: "Melhores Ofertas"},
@@ -99,7 +100,16 @@ export default function StreamingPlansSectionPreview() {
                                         onClick={() => setActiveFilter(filter.id)}
                                         className={`flex min-h-10 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full px-4 text-xs font-semibold transition md:px-6 md:text-sm ${isActive ? "bg-primary text-white shadow-sm" : "text-primary hover:bg-lightgreenBackground"}`}
                                     >
-                                        {filter.id === "best" ? <Sparkles aria-hidden="true" size={14}/> : null}
+                                        {filter.id === "best" ? (
+                                            <span className="flex size-6 items-center justify-center">
+                                                <Image
+                                                    src={bestOffersIcon}
+                                                    alt=""
+                                                    aria-hidden="true"
+                                                    className={`size-5 ${isActive ? "brightness-0 invert" : ""}`}
+                                                />
+                                            </span>
+                                        ) : null}
                                         {filter.label}
                                     </button>
                                 );
