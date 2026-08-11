@@ -4,11 +4,13 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqContentRenderer from "@/pageComponents/faq/structured/FaqContentRenderer";
 import { getFaqBySlug } from "@/lib/faq";
 import { getConfiguredFaqCategory } from "@/lib/faqData";
+import { getLestePlayFaqBySlug } from "@/lib/lestePlayFaqs";
 
 export default async function StructuredFaqPage({ params, searchParams }) {
   const { slug } = await params;
   const query = await searchParams;
-  const faq = await getFaqBySlug(slug, { includeTest: query?.isTeste === "1" });
+  const faq = getLestePlayFaqBySlug(slug) ||
+    await getFaqBySlug(slug, { includeTest: query?.isTeste === "1" });
 
   if (!faq) notFound();
 
