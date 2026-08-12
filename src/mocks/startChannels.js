@@ -40,11 +40,11 @@ export const startChannelSections = [
     {
         title: "VOD",
         channels: [
-            channel(2458, "vod", "Itaú Cultural Play"),
-            channel(2460, "vod", "Xpeed School"),
+            channel(2454, "vod", "Itaú Cultural Play"),
+            channel(2455, "vod", "Xpeed School"),
             channel(2456, "vod", "CNN Brasil"),
             channel(2457, "vod", "Edye"),
-            channel(2455, "vod", "Universal Plus"),
+            channel(2458, "vod", "Universal Plus"),
         ],
     },
 ];
