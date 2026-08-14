@@ -1,6 +1,34 @@
 import {NextResponse} from "next/server";
 import IPLocate from "node-iplocate";
 
+const RETRYABLE_IPLOCATE_ERRORS = new Set([
+    "AuthenticationError",
+    "RateLimitError",
+]);
+
+async function lookupWithFallback(ip, apiKeys) {
+    let lastError;
+
+    for (const apiKey of apiKeys) {
+        try {
+            const client = new IPLocate(apiKey);
+            return await client.lookup(ip);
+        } catch (error) {
+            lastError = error;
+
+            const canTryNextKey =
+                RETRYABLE_IPLOCATE_ERRORS.has(error?.name) ||
+                [401, 403, 429].includes(error?.statusCode);
+
+            if (!canTryNextKey) {
+                throw error;
+            }
+        }
+    }
+
+    throw lastError;
+}
+
 
 export async function POST(req) {
     try {
@@ -9,10 +37,14 @@ export async function POST(req) {
         const forwarded = req.headers.get("x-forwarded-for") || "";
         const ipFromHeader = forwarded.split(",")[0]?.trim();
         const ip = ipFromQuery || ipFromHeader;
+        const apiKeys = [...new Set([
+            process.env.IPLOCATE_API_KEY,
+            process.env.IPLOCATE_API_KEY_BACKUP,
+        ].filter(Boolean))];
 
-        if (!process.env.IPLOCATE_API_KEY) {
+        if (apiKeys.length === 0) {
             return NextResponse.json(
-                {message: "IPLOCATE_API_KEY não configurada", status: 500},
+                {message: "Nenhuma chave do IPLocate configurada", status: 500},
                 {status: 500}
             );
         }
@@ -24,12 +56,21 @@ export async function POST(req) {
             );
         }
         console.log(ip)
-        const client = new IPLocate(process.env.IPLOCATE_API_KEY);
-        const response = await client.lookup(ip);
+        const response = await lookupWithFallback(ip, apiKeys);
 
         return NextResponse.json({cidade: response.city}, {status: 200});
     } catch (error) {
-        const status = error?.response?.status || 500;
+        const statusByErrorName = {
+            InvalidIPError: 400,
+            AuthenticationError: 401,
+            NotFoundError: 404,
+            RateLimitError: 429,
+        };
+        const status =
+            error?.statusCode ||
+            statusByErrorName[error?.name] ||
+            error?.response?.status ||
+            500;
         const data = error?.response?.data;
         const message =
             data?.message ||
