@@ -224,6 +224,12 @@
       "active": true
     },
     {
+      "title": "Como acessar o SuperComics?",
+      "href": "/faq/como-acessar-o-supercomics",
+      "category": "Serviços e Aplicativos",
+      "active": true
+    },
+    {
       "title": "A Leste Telecom trabalha com IPv6? O IPv6 pode afetar o funcionamento das minhas câmeras?",
       "href": "/faq/a-leste-telecom-trabalha-com-ipv6-o-ipv6-pode-afetar-o-funcionamento-das-minhas-cameras",
       "category": "Serviços e Aplicativos",
@@ -571,8 +577,8 @@
       "href": "/faq/posso-trocar-o-titular-ou-substituir-o-chip",
       "category": "Leste Móvel",
       "active": true
-    }
-  ]    {
+    },
+    {
       "title": "O que é o Leste Ultra?",
       "href": "/faq/o-que-e-o-leste-ultra",
       "category": "Leste Ultra",
@@ -625,8 +631,8 @@
       "href": "/faq/como-funciona-a-tecnologia-leste-ultra-xgs-pon-piloto",
       "category": "Leste Ultra",
       "active": true
-    }
-  ]    {
+    },
+    {
       "title": "O que é o Leste UP e como funciona?",
       "href": "/faq/o-que-e-o-leste-up-e-como-funciona",
       "category": "Leste Up",

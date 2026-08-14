@@ -83,6 +83,7 @@
       { title: "Como acessar o Leste Clube?", href: "/faq/como-acessar-o-leste-clube" },
       { title: "Como acessar o Skeelo?", href: "/faq/como-acessar-o-skeelo" },
       { title: "Como acessar o BeBanca?", href: "/faq/como-acessar-o-bebanca" },
+      { title: "Como acessar o SuperComics?", href: "/faq/como-acessar-o-supercomics" },
     ],
   },
   {
