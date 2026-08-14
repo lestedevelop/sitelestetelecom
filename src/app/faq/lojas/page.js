@@ -46,7 +46,7 @@ const stores = [
   {
     city: "Niterói (Stand)",
     address: "Rua Quinze de Novembro, 8 - Centro",
-    reference: "Shopping Plaza Niterói - Piso L3",
+    reference: "Shopping Plaza Niterói - Piso L2",
     hours: "Segunda a sábado, das 10h às 22h | Domingo, das 13h às 21h",
     mapUrl: "https://maps.app.goo.gl/KsDhyKxkX3eNGue5A",
     coords: { lat: -22.8965652, lng: -43.124045217193704 },

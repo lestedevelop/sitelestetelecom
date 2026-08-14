@@ -106,7 +106,7 @@ export default function Chip() {
         {
             cidade: "Niterói (Stand)",
             endereco: "Rua Quinze de Novembro, 8 - Centro, Niterói - RJ, 24020-125",
-            referencia: "Shopping Plaza Niterói - Piso L3",
+            referencia: "Shopping Plaza Niterói - Piso L2",
             link: "https://maps.app.goo.gl/x5nyQmAwuUX9AYte7",
         },
         {
