@@ -80,9 +80,30 @@ export default async function BlogPostPage({params}) {
         </div>
 
         <div className="mt-10 max-w-6xl text-base leading-8 text-dark md:text-lg md:leading-9">
-          {post.content.map((paragraph, index) => (
-            <p key={paragraph} className="mb-6">
-              {isMovelPost && index === lastParagraphIndex ? (
+          {post.content.map((block, index) => {
+            if (typeof block === "object" && block.type === "heading") {
+              return (
+                <h2 key={`${block.type}-${block.text}`} className="mb-5 mt-10 text-2xl font-bold text-primary md:text-3xl">
+                  {block.text}
+                </h2>
+              );
+            }
+
+            if (typeof block === "object" && block.type === "list") {
+              return (
+                <ul key={`${block.type}-${index}`} className="mb-7 list-disc space-y-2 pl-6">
+                  {block.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+
+            const paragraph = String(block);
+
+            return (
+              <p key={`${index}-${paragraph}`} className="mb-6">
+                {isMovelPost && index === lastParagraphIndex ? (
                 <a
                   href="https://www.lestemovel.com.br"
                   target="_blank"
@@ -109,11 +130,12 @@ export default async function BlogPostPage({params}) {
                 >
                   {paragraph}
                 </Link>
-              ) : (
-                paragraph
-              )}
-            </p>
-          ))}
+                ) : (
+                  paragraph
+                )}
+              </p>
+            );
+          })}
         </div>
 
         <p className="mt-12 text-sm text-graylight">

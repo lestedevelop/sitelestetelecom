@@ -1,5 +1,42 @@
 [
   {
+    "id": "9",
+    "slug": "leste-apresenta-o-leste-play",
+    "title": "Leste apresenta o Leste Play",
+    "excerpt": "A nova plataforma reúne TV ao vivo, esportes, filmes, séries, canais infantis e serviços de streaming com a qualidade da internet Leste.",
+    "category": "Novidades",
+    "author": "Leste Telecom",
+    "date": "2026-08-14",
+    "readingTime": "3 min de leitura",
+    "imageKey": "blogLestePlay",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "A Leste acaba de expandir seu portfólio de serviços para oferecer uma experiência completa de conectividade e entretenimento. Agora, os clientes podem fazer o upgrade do plano de internet e aproveitar todas as vantagens do Leste Play, a nova plataforma de TV e streaming da Leste.",
+      "Com o Leste Play, você reúne em um só lugar TV ao vivo, esportes, filmes, séries, canais infantis e os principais serviços de streaming. Tudo isso com a velocidade, estabilidade e segurança da internet Leste, proporcionando mais praticidade e qualidade para toda a família.",
+      "A plataforma oferece diferentes opções de pacotes para atender a diversos perfis de consumidores, incluindo Start, Sports, Cine + HBO e o completo combo Family, que reúne uma ampla variedade de canais abertos, conteúdos esportivos, filmes, séries, programação infantil e streamings em uma única assinatura.",
+      "Além de um catálogo completo de entretenimento, o Leste Play disponibiliza recursos que tornam a experiência ainda mais personalizada:",
+      {
+        "type": "list",
+        "items": [
+          "Até 8 perfis por assinatura",
+          "Acesso simultâneo",
+          "Uso sem restrição de localização",
+          "Conteúdo para toda a família",
+          "Controle parental para mais segurança"
+        ]
+      },
+      "Entre os principais conteúdos disponíveis estão plataformas e canais de sucesso, como Globoplay, HBO, Telecine e ESPN, tudo acessado de forma simples por meio da plataforma Watch.",
+      "Com essa novidade, a Leste oferece muito além de internet: entrega uma solução completa de conectividade e entretenimento para transformar a experiência dos seus clientes.",
+      {
+        "type": "heading",
+        "text": "Faça o upgrade para o Leste Play"
+      },
+      "Se você já é cliente Leste, aproveite e faça o upgrade do seu plano. Descubra um novo jeito de assistir aos seus conteúdos favoritos com mais entretenimento, praticidade e toda a qualidade que só a Leste oferece!"
+    ]
+  },
+  {
     "id": "1",
     "slug": "como-a-internet-pode-ajudar-o-meu-evento",
     "title": "Como a internet pode ajudar o meu evento?",

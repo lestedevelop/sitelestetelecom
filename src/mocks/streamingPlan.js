@@ -7,7 +7,7 @@ export const streamingPlansMock = [{
     streamingTier: "Start",
     backendTier: "HUB",
     channels: "start",
-    channelsAlt: "TV Globo, Band, Record TV e mais de 24 canais",
+    channelsAlt: "TV Globo, Band, Record TV e mais de 22 canais",
     price: {
         integer: "119",
         cents: "99",
@@ -26,7 +26,7 @@ export const streamingPlansMock = [{
     wifi: "SUPER WI-FI",
     wifiGeneration: "6 AX",
     channels: "sports",
-    channelsAlt: "SporTV, ESPN, GE TV, BandSports, OFF e mais de 70 canais",
+    channelsAlt: "SporTV, ESPN, GE TV, BandSports, OFF e mais de 66 canais",
     packages: [
         {label: "Sports", channel: "sports", backendTier: "POWER", active: true},
         {label: "Cine + HBO", channel: "cine", backendTier: "BLACK", active: false},
@@ -46,7 +46,7 @@ export const streamingPlansMock = [{
     wifi: "SUPER WI-FI",
     wifiGeneration: "6 AX",
     channels: "cine",
-    channelsAlt: "HBO Max, Telecine, Universal Plus, Manual do Mundo, CNN Brasil e mais de 32 canais",
+    channelsAlt: "HBO Max, Telecine, Universal Plus, Manual do Mundo, CNN Brasil e mais de 28 canais",
     packages: [
         {label: "Cine + HBO", channel: "cine", backendTier: "BLACK", active: true},
         {label: "Sports", channel: "sports", backendTier: "POWER", active: false},

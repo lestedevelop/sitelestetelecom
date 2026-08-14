@@ -24,6 +24,13 @@ const channelArtwork = {
     family: canaisFamily,
 };
 
+const channelArtworkAlt = {
+    start: "Canais do Leste Play Start e mais de 22 canais",
+    sports: "Canais do Leste Play Sports e mais de 66 canais",
+    cine: "Canais do Leste Play Cine + HBO e mais de 28 canais",
+    family: "Canais do Leste Play Family e mais de 82 canais",
+};
+
 function Toggle({active, label, onChange}) {
     return (
         <button
@@ -123,7 +130,7 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                     >
                         <Image
                             src={channels}
-                            alt={plan.channelsAlt}
+                            alt={channelArtworkAlt[activeChannel] || plan.channelsAlt}
                             className="h-auto w-full"
                         />
                     </button>
