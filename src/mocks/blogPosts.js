@@ -4,6 +4,7 @@ import blogCamera from "@/assets/blog/blog-cameras.png";
 import blogUp from "@/assets/blog/blog-lesteup.png";
 import blogFibra from "@/assets/blog/blog-fibra.png";
 import blogLestePlay from "@/assets/blog/leste-play.webp";
+import blogRa1000 from "@/assets/blog/selo-ra1000.jpg";
 import post1 from "@/assets/blog/post1.webp";
 import post2 from "@/assets/blog/post2.webp";
 import post3 from "@/assets/blog/post3.webp";
@@ -16,6 +17,7 @@ const BLOG_IMAGES = {
   blogUp,
   blogFibra,
   blogLestePlay,
+  blogRa1000,
   post1,
   post2,
   post3,
