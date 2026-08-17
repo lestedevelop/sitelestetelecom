@@ -1,4 +1,5 @@
 const p = (text) => ({type: "paragraph", text});
+const richP = (segments) => ({type: "paragraph", segments});
 const list = (items) => ({type: "list", style: "unordered", items});
 const link = (text, href) => ({type: "link", text, href});
 const note = (text) => ({type: "note", title: "Nota", blocks: [p(text)]});
@@ -92,13 +93,18 @@ const faqEntries = [
         "Quais dispositivos aceitam o Leste Play?",
         [
             p("O Leste Play é compatível com celulares e tablets Android e iOS, navegadores atualizados, Smart TVs compatíveis e alguns dispositivos de streaming."),
-            p("Entre os dispositivos suportados estão Android TV, Samsung, LG, Roku, Fire TV Stick, Mi TV Stick, além de acesso pela web em navegadores como Google Chrome, Mozilla Firefox, Microsoft Edge e Safari, conforme versões compatíveis."),
+            richP([
+                "Entre os dispositivos suportados estão Smart TVs ",
+                {text: "Samsung", href: "https://descubra.watch.tv.br/tutorial/como-instalar-watch-na-minha-tv-samsung/"},
+                ", ",
+                {text: "LG", href: "https://descubra.watch.tv.br/tutorial/como-instalar-watch-na-minha-tv-lg/"},
+                ", ",
+                {text: "Roku", href: "https://descubra.watch.tv.br/tutorial/saiba-como-baixar-a-watch-na-roku-express/"},
+                " e ",
+                {text: "Android TV", href: "https://descubra.watch.tv.br/tutorial/saiba-como-instalar-o-apptv-da-watch-brasil-na-sua-android-tv-elsys/"},
+                ", Fire TV Stick e Mi TV Stick, além de acesso pela web em navegadores como Google Chrome, Mozilla Firefox, Microsoft Edge e Safari, conforme versões compatíveis.",
+            ]),
             p("Smart TVs antigas podem deixar de receber atualizações ou não permitir novas instalações do aplicativo. Nesses casos, o acesso pode continuar pelo celular, computador, navegador ou por dispositivos compatíveis."),
-            p("Também estão disponíveis tutoriais de instalação para alguns dispositivos compatíveis, como Smart TVs Samsung, LG, Roku e Android TV."),
-            link("Como instalar a Watch na Smart TV Samsung", "https://descubra.watch.tv.br/tutorial/como-instalar-watch-na-minha-tv-samsung/"),
-            link("Como instalar a Watch na Smart TV LG", "https://descubra.watch.tv.br/tutorial/como-instalar-watch-na-minha-tv-lg/"),
-            link("Como baixar a Watch na Roku Express", "https://descubra.watch.tv.br/tutorial/saiba-como-baixar-a-watch-na-roku-express/"),
-            link("Como instalar a Watch na Android TV", "https://descubra.watch.tv.br/tutorial/saiba-como-instalar-o-apptv-da-watch-brasil-na-sua-android-tv-elsys/"),
             note("Dispositivos com Android Open Source (AOSP), versões antigas de sistemas ou aparelhos sem suporte oficial podem não funcionar corretamente com a Watch."),
         ],
     ],

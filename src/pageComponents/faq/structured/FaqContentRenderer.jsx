@@ -17,7 +17,7 @@ export default function FaqContentRenderer({ blocks }) {
       case "heading":
         return <FaqHeading key={block.id || index} level={block.level} text={block.text} />;
       case "paragraph":
-        return <FaqParagraph key={block.id || index} text={block.text} />;
+        return <FaqParagraph key={block.id || index} text={block.text} segments={block.segments} />;
       case "list":
         return <FaqList key={block.id || index} style={block.style} items={block.items} />;
       case "note":

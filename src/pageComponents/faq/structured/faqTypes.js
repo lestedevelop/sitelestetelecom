@@ -1,6 +1,7 @@
 /**
  * @typedef {{ id: string, type: "heading", level: 2 | 3 | 4, text: string }} HeadingBlock
- * @typedef {{ id: string, type: "paragraph", text: string }} ParagraphBlock
+ * @typedef {{ text: string, href: string }} ParagraphLinkSegment
+ * @typedef {{ id: string, type: "paragraph", text?: string, segments?: Array<string | ParagraphLinkSegment> }} ParagraphBlock
  * @typedef {{ id: string, type: "list", style: "ordered" | "unordered", items: string[] }} ListBlock
  * @typedef {{ id: string, type: "link", text: string, href: string }} LinkBlock
  * @typedef {{ id: string, type: "image", src: string, alt: string }} ImageBlock

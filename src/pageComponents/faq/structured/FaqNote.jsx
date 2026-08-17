@@ -9,7 +9,9 @@ export default function FaqNote({ title, blocks }) {
       <p className="text-base font-bold text-primary">{title}</p>
       <div className="mt-3 space-y-3">
         {blocks.map((block) => {
-          if (block?.type === "paragraph") return <FaqParagraph key={block.id} text={block.text} />;
+          if (block?.type === "paragraph") {
+            return <FaqParagraph key={block.id} text={block.text} segments={block.segments} />;
+          }
           if (block?.type === "list") {
             return <FaqList key={block.id} style={block.style} items={block.items} />;
           }
