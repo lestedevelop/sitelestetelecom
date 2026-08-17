@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {Plus} from "lucide-react";
 import {useState} from "react";
 import StreamingChannelsModal from "@/pageComponents/home/StreamingChannelsModal";
+import TrackedLink from "@/components/links/TrackedLink";
 
 import canaisStart from "@/assets/home/streaming-plan/canais_start.svg";
 import canais800 from "@/assets/home/streaming-plan/canais_800.svg";
@@ -174,12 +174,15 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                     {selected ? "Selecionado" : "Selecionar"}
                 </button>
             ) : (
-                <Link
+                <TrackedLink
+                    id={getPlanoButtonId(activeBackendPlan)}
                     href={plan.actionHref}
+                    data-gtm-plan-codser={activeBackendPlan?.codser || ""}
+                    data-gtm-plan-name={activeBackendPlan?.nome_exibicao || activeBackendPlan?.descri_ser || ""}
                     className="mx-auto mt-7 flex min-h-12 w-48 cursor-pointer items-center justify-center rounded-lg bg-[#17efc3] px-4 text-[20px] font-medium text-[#003f34] transition-transform hover:-translate-y-px hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                     {plan.actionLabel}
-                </Link>
+                </TrackedLink>
             )}
 
             <StreamingChannelsModal

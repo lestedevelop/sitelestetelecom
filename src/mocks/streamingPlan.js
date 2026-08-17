@@ -18,7 +18,7 @@ export const streamingPlansMock = [{
     },
     loyalty: "*Fidelidade de 12 meses",
     actionLabel: "Assinar agora",
-    actionHref: "/vendas",
+    actionHref: "https://vendas.lestetelecom.com.br/vendas",
 }, {
     id: "800-mega",
     speed: "800",
@@ -38,7 +38,7 @@ export const streamingPlansMock = [{
     },
     loyalty: "*Fidelidade de 12 meses",
     actionLabel: "Assinar agora",
-    actionHref: "/vendas",
+    actionHref: "https://vendas.lestetelecom.com.br/vendas",
 }, {
     id: "1-giga",
     speed: "1",
@@ -60,5 +60,5 @@ export const streamingPlansMock = [{
     },
     loyalty: "*Fidelidade de 12 meses",
     actionLabel: "Assinar agora",
-    actionHref: "/vendas",
+    actionHref: "https://vendas.lestetelecom.com.br/vendas",
 }];
