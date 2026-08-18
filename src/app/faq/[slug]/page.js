@@ -15,6 +15,9 @@ export default async function StructuredFaqPage({ params, searchParams }) {
   if (!faq) notFound();
 
   const category = faq.content.category?.label || getConfiguredFaqCategory(slug);
+  const categoryHref = category
+    ? `/faq?categoria=${encodeURIComponent(category)}`
+    : "/faq";
 
   return (
     <main className="bg-light">
@@ -22,9 +25,10 @@ export default async function StructuredFaqPage({ params, searchParams }) {
         <div className="mx-auto max-w-5xl">
           <TitleFaq
             title={faq.title}
+            href={categoryHref}
             breadcrumb={[
               { label: "Faq", href: "/faq" },
-              { label: category, href: "/faq" },
+              { label: category, href: categoryHref },
               { label: faq.title },
             ]}
           />

@@ -1,9 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import BackToIndexButton from "@/pageComponents/faq/BackToIndexButton";
 import { FAQ_HELP_CENTER_SECTIONS } from "@/mocks/faqHelpCenterSections";
+
+function subscribeToLocation(callback) {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+}
+
+function getCategoryParam() {
+  return new URLSearchParams(window.location.search).get("categoria") || "";
+}
+
+function getServerCategoryParam() {
+  return "";
+}
 
 function renderBreadcrumb(items) {
   return (
@@ -43,13 +57,27 @@ export default function TitleFaq({
   breadcrumb = null,
 }) {
   const pathname = usePathname();
+  const categoryParam = useSyncExternalStore(
+    subscribeToLocation,
+    getCategoryParam,
+    getServerCategoryParam
+  );
 
   const derivedBreadcrumb = (() => {
     if (!pathname || pathname === "/faq") {
       return null;
     }
 
-    for (const section of FAQ_HELP_CENTER_SECTIONS) {
+    const preferredSection = FAQ_HELP_CENTER_SECTIONS.find(
+      (section) =>
+        section.title.localeCompare(categoryParam, "pt-BR", { sensitivity: "base" }) === 0 &&
+        section.items.some((entry) => entry.href === pathname)
+    );
+    const orderedSections = preferredSection
+      ? [preferredSection, ...FAQ_HELP_CENTER_SECTIONS.filter((section) => section !== preferredSection)]
+      : FAQ_HELP_CENTER_SECTIONS;
+
+    for (const section of orderedSections) {
       const item = section.items.find((entry) => entry.href === pathname);
       if (item) {
         const categoryHref = `/faq?categoria=${encodeURIComponent(section.title)}`;
