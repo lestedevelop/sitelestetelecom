@@ -15,6 +15,7 @@ import Link from "next/link";
 import googlePlay from "@/assets/googleplay.svg";
 import appStore from "@/assets/appstore.svg";
 import {Check} from "lucide-react";
+import {Suspense} from "react";
 
 export default function Faq() {
   const {getAdverts} = useHomeSections();
@@ -52,7 +53,9 @@ export default function Faq() {
         </div>
       </section>
 
-      <FaqHelpCenter />
+      <Suspense fallback={null}>
+        <FaqHelpCenter />
+      </Suspense>
 
       <section className="bg-primary py-16 md:py-0">
         <div className="container flex min-h-[547px] flex-col items-center justify-center gap-12 py-12 text-light md:flex-row md:gap-16 md:py-0 lg:gap-[70px]">

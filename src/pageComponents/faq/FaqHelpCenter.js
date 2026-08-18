@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import { FAQ_HELP_CENTER_SECTIONS } from "@/mocks/faqHelpCenterSections";
 import { ChevronRight, IconBadge } from "@/utils/faqIcons";
 
@@ -15,10 +16,32 @@ function normalizeText(text) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+function getCategoryHref(href, category) {
+  const separator = href.includes("?") ? "&" : "?";
+  return `${href}${separator}categoria=${encodeURIComponent(category)}`;
+}
+
 export default function FaqHelpCenter() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [activeSection, setActiveSection] = useState(ALL_CATEGORIES);
   const [expandedSections, setExpandedSections] = useState({});
+  const categoryParam = searchParams.get("categoria") || "";
+  const activeSection = FAQ_HELP_CENTER_SECTIONS.find(
+    (section) => normalizeText(section.title) === normalizeText(categoryParam)
+  )?.title || ALL_CATEGORIES;
+
+  function selectCategory(category) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (category === ALL_CATEGORIES) {
+      params.delete("categoria");
+    } else {
+      params.set("categoria", category);
+    }
+    const queryString = params.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, {scroll: false});
+  }
 
   const filteredSections = useMemo(() => {
     const queryNormalized = normalizeText(query.trim());
@@ -93,7 +116,7 @@ export default function FaqHelpCenter() {
           <div className="mb-8 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => setActiveSection(ALL_CATEGORIES)}
+              onClick={() => selectCategory(ALL_CATEGORIES)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                 activeSection === ALL_CATEGORIES
                   ? "border-primary bg-primary text-light"
@@ -107,7 +130,7 @@ export default function FaqHelpCenter() {
               <button
                 key={section.title}
                 type="button"
-                onClick={() => setActiveSection(section.title)}
+                onClick={() => selectCategory(section.title)}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                   activeSection === section.title
                     ? "border-primary bg-primary text-light"
@@ -135,7 +158,7 @@ export default function FaqHelpCenter() {
               {activeSection !== ALL_CATEGORIES ? (
                 <button
                   type="button"
-                  onClick={() => setActiveSection(ALL_CATEGORIES)}
+                  onClick={() => selectCategory(ALL_CATEGORIES)}
                   className="text-left text-sm font-semibold text-primary hover:underline md:text-right"
                 >
                   Ver todas as categorias
@@ -183,7 +206,7 @@ export default function FaqHelpCenter() {
                       {visibleItems.map((item) => (
                         <Link
                           key={`${section.title}-${item.href}`}
-                          href={item.href}
+                          href={getCategoryHref(item.href, section.title)}
                           className="flex min-h-[52px] items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-light"
                         >
                           <span className="text-sm font-medium leading-6 text-darkgreen">

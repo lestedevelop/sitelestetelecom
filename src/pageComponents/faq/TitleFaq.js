@@ -38,7 +38,7 @@ export default function TitleFaq({
   title,
   className = "",
   titleClassName = "",
-  href = "/faq",
+  href = null,
   eyebrow = "FAQ",
   breadcrumb = null,
 }) {
@@ -52,9 +52,11 @@ export default function TitleFaq({
     for (const section of FAQ_HELP_CENTER_SECTIONS) {
       const item = section.items.find((entry) => entry.href === pathname);
       if (item) {
+        const categoryHref = `/faq?categoria=${encodeURIComponent(section.title)}`;
+
         return [
           { label: "Faq", href: "/faq" },
-          { label: section.title, href: "/faq" },
+          { label: section.title, href: categoryHref },
           { label: item.title },
         ];
       }
@@ -66,6 +68,8 @@ export default function TitleFaq({
   const breadcrumbItems = Array.isArray(breadcrumb) && breadcrumb.length > 0
     ? breadcrumb
     : derivedBreadcrumb;
+  const categoryHref = derivedBreadcrumb?.[1]?.href;
+  const backHref = href || categoryHref || "/faq";
 
   return (
     <header className={className}>
@@ -87,7 +91,7 @@ export default function TitleFaq({
         </h1>
 
         <BackToIndexButton
-          href={href}
+          href={backHref}
           className="hidden md:inline-flex md:w-auto md:min-w-[240px]"
         />
       </div>
