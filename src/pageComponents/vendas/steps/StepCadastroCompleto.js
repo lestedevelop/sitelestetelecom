@@ -172,7 +172,7 @@ export default function StepCadastroCompleto({onNext, onBack}) {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <Input
                             id={VENDAS_GTM_FORM_IDS.cadastroCompleto.celular}
-                            label="Celular"
+                            label="Celular *"
                             name="celular"
                             error={errors?.celular?.message}
                             register={(n) =>

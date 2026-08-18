@@ -4,18 +4,27 @@ import Image from "next/image";
 import {Plus} from "lucide-react";
 import {useState} from "react";
 import StreamingChannelsModal from "@/pageComponents/home/StreamingChannelsModal";
+import ChannelCountBadge from "@/components/streaming/ChannelCountBadge";
 import TrackedLink from "@/components/links/TrackedLink";
 
 import canaisStart from "@/assets/home/streaming-plan/canais_start.svg";
 import canais800 from "@/assets/home/streaming-plan/canais_800.svg";
 import canais1Giga from "@/assets/home/streaming-plan/canais_1g.svg";
 import canaisFamily from "@/assets/home/streaming-plan/canais_family.svg";
+import canaisStartSales from "@/assets/home/streaming-plan/canais_start_sales.svg";
+import canais800Sales from "@/assets/home/streaming-plan/canais_800_sales.svg";
+import canais1GigaSales from "@/assets/home/streaming-plan/canais_1g_sales.svg";
+import canaisFamilySales from "@/assets/home/streaming-plan/canais_family_sales.svg";
 import lesteClubeSkeelo from "@/assets/home/streaming-plan/leste-clube-skeelo.svg";
 import lestePlay from "@/assets/home/streaming-plan/leste-play.svg";
 import streamingByWatch from "@/assets/home/streaming-plan/streaming-by-watch.svg";
 import wifi5 from "@/assets/home/streaming-plan/wifi-5.svg";
 import wifi6 from "@/assets/home/streaming-plan/super-wifi-6.svg";
 import {getPlanoButtonId} from "@/lib/gtm/vendas";
+import {startChannelSections} from "@/mocks/startChannels";
+import {sportsChannelSections} from "@/mocks/sportsChannels";
+import {cineChannelSections} from "@/mocks/cineChannels";
+import {familyChannelSections} from "@/mocks/familyChannels";
 
 const channelArtwork = {
     start: canaisStart,
@@ -24,11 +33,41 @@ const channelArtwork = {
     family: canaisFamily,
 };
 
+const salesChannelArtwork = {
+    start: canaisStartSales,
+    sports: canais800Sales,
+    cine: canais1GigaSales,
+    family: canaisFamilySales,
+};
+
+const channelSectionsByType = {
+    start: startChannelSections,
+    sports: sportsChannelSections,
+    cine: cineChannelSections,
+    family: familyChannelSections,
+};
+
+const visibleChannelLogos = {
+    start: 3,
+    sports: 5,
+    cine: 5,
+    family: 5,
+};
+
+function getAdditionalChannelCount(channel) {
+    const total = (channelSectionsByType[channel] || []).reduce(
+        (sum, section) => sum + section.channels.length,
+        0
+    );
+
+    return Math.max(0, total - (visibleChannelLogos[channel] || 0));
+}
+
 const channelArtworkAlt = {
-    start: "Canais do Leste Play Start e mais de 22 canais",
-    sports: "Canais do Leste Play Sports e mais de 66 canais",
-    cine: "Canais do Leste Play Cine + HBO e mais de 28 canais",
-    family: "Canais do Leste Play Family e mais de 82 canais",
+    start: "Canais do Leste Play Start",
+    sports: "Canais do Leste Play Sports",
+    cine: "Canais do Leste Play Cine + HBO",
+    family: "Canais do Leste Play Family",
 };
 
 function Toggle({active, label, onChange}) {
@@ -50,7 +89,8 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
     const [activeChannel, setActiveChannel] = useState(initialChannel || plan.channels);
     const [channelsModalOpen, setChannelsModalOpen] = useState(false);
     const isSales = variant === "sales";
-    const channels = channelArtwork[activeChannel];
+    const channels = (isSales ? salesChannelArtwork : channelArtwork)[activeChannel];
+    const additionalChannelCount = getAdditionalChannelCount(activeChannel);
     const currentPrice = plan.prices?.[activeChannel] || plan.price;
     const activeBackendPlan = plan.backendPlans?.[activeChannel] || plan.backendPlan || plan;
     const wifiArtwork = plan.wifiGeneration === "5" ? wifi5 : wifi6;
@@ -126,13 +166,23 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                         type="button"
                         onClick={() => setChannelsModalOpen(true)}
                         aria-label={`Ver todos os canais do pacote ${activeChannel}`}
-                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} relative cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
                         <Image
                             src={channels}
-                            alt={channelArtworkAlt[activeChannel] || plan.channelsAlt}
+                            alt={`${channelArtworkAlt[activeChannel] || plan.channelsAlt}: mais ${additionalChannelCount} canais`}
                             className="h-auto w-full"
                         />
+                        <span
+                            aria-hidden="true"
+                            className={`absolute bottom-0 right-0 h-[47.525%] ${activeChannel === "start" ? "w-[46.825%]" : "w-[30.89%]"}`}
+                        >
+                            <ChannelCountBadge
+                                count={additionalChannelCount}
+                                isSales={isSales}
+                                className="h-full w-full"
+                            />
+                        </span>
                     </button>
                     <Image
                         src={streamingByWatch}

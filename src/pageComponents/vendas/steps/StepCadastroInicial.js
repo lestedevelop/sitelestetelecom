@@ -132,7 +132,7 @@ export default function StepCadastroInicial({ onNext }) {
 
             <Input
                 id={VENDAS_GTM_FORM_IDS.cadastroInicial.celular}
-                label="Celular / WhatsApp"
+                label="Celular / WhatsApp *"
                 name="celular"
                 error={errors?.celular?.message}
                 register={(n) =>

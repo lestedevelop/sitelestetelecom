@@ -5,7 +5,9 @@ const cineLiveVodIds = [
     2450, 2451, 2452, 2453, 2464, 2465, 2466,
 ];
 
-const cineVodIds = [2454, 2455, 2456, 2457, 2458, 2460];
+const cineVodIds = [2454, 2455, 2456, 2457, 2458];
+
+const cineExtraIds = [2460, 2459];
 
 function toChannelAssets(ids, folder) {
     return ids.map((id) => ({
@@ -19,4 +21,5 @@ export const cineChannelSections = [
     {title: "Ao vivo", channels: toChannelAssets(cineLiveIds, "ao-vivo")},
     {title: "Ao vivo e VOD", channels: toChannelAssets(cineLiveVodIds, "ao-vivo-vod")},
     {title: "VOD", channels: toChannelAssets(cineVodIds, "vod")},
+    {title: "Extra", channels: toChannelAssets(cineExtraIds, "vod")},
 ];

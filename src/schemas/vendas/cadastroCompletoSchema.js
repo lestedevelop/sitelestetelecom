@@ -57,8 +57,22 @@ export const cadastroCompletoSchema = yup.object({
         .oneOf([yup.ref("email")], "E-mails não conferem")
         .required("Confirme seu e-mail"),
 
-    celular: yup.string().trim().required("Informe seu celular"),
-    telefone: yup.string().trim().nullable(),
+    celular: yup
+        .string()
+        .trim()
+        .required("Informe seu celular")
+        .test("celular-len", "Celular incompleto", (value) => {
+            if (!value) return true;
+            return onlyDigits(value).length === 11;
+        }),
+    telefone: yup
+        .string()
+        .trim()
+        .nullable()
+        .test("telefone-len", "Telefone incompleto", (value) => {
+            if (!value) return true;
+            return onlyDigits(value).length === 10;
+        }),
 
     cep: yup.string().trim().required("Informe o CEP"),
     numero: yup.string().trim().required("Informe o número"),

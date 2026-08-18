@@ -19,6 +19,24 @@ function getCookieValue(req, name) {
 export async function POST(req) {
     try {
         const body = await req.json();
+        const celularDigits = String(body?.celular || "").replace(/\D/g, "");
+
+        if (celularDigits.length !== 11) {
+            return NextResponse.json(
+                {message: "Informe um celular válido com DDD"},
+                {status: 400}
+            );
+        }
+
+        const telefoneDigits = String(body?.fone ?? body?.telefone ?? "").replace(/\D/g, "");
+
+        if (telefoneDigits.length > 0 && telefoneDigits.length !== 10) {
+            return NextResponse.json(
+                {message: "Informe um telefone válido com DDD ou deixe o campo vazio"},
+                {status: 400}
+            );
+        }
+
         const rawUtm = getUtmFromReq(req);
         const {idafiliado: idafiliadoFromUtm, ...utmFromCookie} = rawUtm;
         const bodyUtm = body?.utm && typeof body.utm === "object" ? body.utm : {};
