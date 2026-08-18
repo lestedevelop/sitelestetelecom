@@ -166,7 +166,7 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                         type="button"
                         onClick={() => setChannelsModalOpen(true)}
                         aria-label={`Ver todos os canais do pacote ${activeChannel}`}
-                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} relative cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} relative mb-2 cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
                         <Image
                             src={channels}
