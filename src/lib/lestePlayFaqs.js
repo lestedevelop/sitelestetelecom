@@ -2,7 +2,11 @@ const p = (text) => ({type: "paragraph", text});
 const richP = (segments) => ({type: "paragraph", segments});
 const list = (items) => ({type: "list", style: "unordered", items});
 const link = (text, href) => ({type: "link", text, href});
-const note = (text) => ({type: "note", title: "Nota", blocks: [p(text)]});
+const note = (content) => ({
+    type: "note",
+    title: "Nota",
+    blocks: [Array.isArray(content) ? richP(content) : p(content)],
+});
 
 function createFaq(slug, title, blocks) {
     const blocksWithIds = blocks.map((block, index) => ({
@@ -63,7 +67,14 @@ const faqEntries = [
             p("Para realizar o primeiro acesso, siga o link indicado para a plataforma Watch, cadastre sua senha pessoal e finalize a ativação da conta. Depois disso, o acesso poderá ser realizado pelo aplicativo Watch ou pelo site play.watch.tv.br."),
             link("Acessar play.watch.tv.br", "https://play.watch.tv.br"),
             p("Caso não receba as instruções de acesso, verifique a caixa de spam do seu e-mail e entre em contato com a Leste para confirmar os dados cadastrados e solicitar um novo envio."),
-            note("Caso precise de apoio visual, consulte o tutorial de primeiro acesso disponibilizado pela Watch."),
+            note([
+                "Caso precise de apoio visual, consulte o ",
+                {
+                    text: "tutorial de primeiro acesso disponibilizado pela Watch",
+                    href: "https://descubra.watch.tv.br/tutorial/como-realizar-o-primeiro-acesso-a-watch-brasil/",
+                },
+                ".",
+            ]),
         ],
     ],
     [
@@ -158,7 +169,14 @@ const faqEntries = [
             p("Para ativar, acesse sua conta Leste Play pelo navegador em play.watch.tv.br, faça login, localize a área “Mais diversão pra você” e clique em HBO Max. Depois, siga as instruções da HBO Max para completar o cadastro."),
             link("Acessar play.watch.tv.br", "https://play.watch.tv.br"),
             p("Após a ativação, baixe o aplicativo da HBO Max ou acesse pelo site da plataforma e faça login com os dados cadastrados."),
-            note("Se a opção HBO Max não aparecer, verifique se o serviço está incluído no seu plano. Se necessário, consulte o tutorial de ativação da HBO Max pela Watch ou entre em contato com a Leste."),
+            note([
+                "Se a opção HBO Max não aparecer, verifique se o serviço está incluído no seu plano. Se necessário, consulte o ",
+                {
+                    text: "tutorial de ativação da HBO Max pela Watch",
+                    href: "https://descubra.watch.tv.br/tutorial/como-acessar-a-max-com-a-minha-conta-watch-brasil/",
+                },
+                " ou entre em contato com a Leste.",
+            ]),
         ],
     ],
     [
