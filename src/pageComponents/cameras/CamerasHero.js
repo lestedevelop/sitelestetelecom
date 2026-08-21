@@ -5,6 +5,7 @@ import banner from "@/assets/cameras/bannercameras.webp";
 import bannerMobile from "@/assets/cameras/banner-mobile.png";
 import logo from "@/assets/cameras/logocameras.webp";
 import whatsIcon from "@/assets/whatsIcon.svg";
+import TrackedLink from "@/components/links/TrackedLink";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
@@ -32,7 +33,6 @@ export default function CamerasHero() {
   return (
     <section className="w-full">
       <HomeHeroBanner
-        href={advertImage ? advertHref : undefined}
         alt="Banner de câmeras"
         className="aspect-[640/974] max-h-none md:aspect-auto md:min-h-[640px]"
         mobileImageClassName="object-cover object-center"
@@ -42,7 +42,13 @@ export default function CamerasHero() {
         mobileImage={advertImage || bannerMobile}
         desktopImageClassName="2xl:object-cover"
       >
-        {!advertImage ? (
+        {advertImage && advertHref ? (
+          <TrackedLink
+            href={advertHref}
+            aria-label={advert?.title || "Acessar oferta Leste Câmeras"}
+            className="absolute inset-0 z-20 block cursor-pointer"
+          />
+        ) : !advertImage ? (
           <div className="container h-full px-6 md:h-[300px] md:px-16">
             <div className="flex h-full flex-col items-center justify-between gap-y-4 text-center text-white md:block md:max-w-[530px] md:text-left">
               <div>
