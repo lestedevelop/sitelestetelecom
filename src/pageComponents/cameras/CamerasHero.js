@@ -29,31 +29,33 @@ export default function CamerasHero() {
         mobileImage={advertImage || bannerMobile}
         desktopImageClassName="2xl:object-cover"
       >
-        <div className="container h-full px-6 md:h-[300px] md:px-16">
-          <div className="flex h-full flex-col items-center justify-between gap-y-4 text-center text-white md:block md:max-w-[530px] md:text-left">
-            <div>
-              <Image
-                src={logo}
-                alt="Leste Câmeras"
-                className="ml-4 w-[190px] md:ml-0 md:w-[260px]"
-              />
+        {!advertImage ? (
+          <div className="container h-full px-6 md:h-[300px] md:px-16">
+            <div className="flex h-full flex-col items-center justify-between gap-y-4 text-center text-white md:block md:max-w-[530px] md:text-left">
+              <div>
+                <Image
+                  src={logo}
+                  alt="Leste Câmeras"
+                  className="ml-4 w-[190px] md:ml-0 md:w-[260px]"
+                />
 
-              <h1 className="mt-4 whitespace-pre-line text-[1.85rem] font-semibold leading-[0.98] text-white md:mt-6 md:text-5xl">
-                {description}
-              </h1>
+                <h1 className="mt-4 whitespace-pre-line text-[1.85rem] font-semibold leading-[0.98] text-white md:mt-6 md:text-5xl">
+                  {description}
+                </h1>
+              </div>
+
+              <a
+                href={advert?.cta?.href || CAMERAS_WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-lightgreen px-6 py-2.5 text-lg font-semibold text-darkgreen transition hover:opacity-90 md:mt-5 md:px-8 md:py-3 md:text-[1.1rem]"
+              >
+                <Image src={whatsIcon} alt="WhatsApp" width={18} height={18}/>
+                {advert?.cta?.label || "Contrate agora!"}
+              </a>
             </div>
-
-            <a
-              href={advert?.cta?.href || CAMERAS_WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-lightgreen px-6 py-2.5 text-lg font-semibold text-darkgreen transition hover:opacity-90 md:mt-5 md:px-8 md:py-3 md:text-[1.1rem]"
-            >
-              <Image src={whatsIcon} alt="WhatsApp" width={18} height={18}/>
-              {advert?.cta?.label || "Contrate agora!"}
-            </a>
           </div>
-        </div>
+        ) : null}
       </HomeHeroBanner>
     </section>
   );
