@@ -11,15 +11,28 @@ import {resolveImageSrc} from "@/utils/imageSrc";
 
 const CAMERAS_WHATSAPP_URL = "https://bit.ly/4khdcOO";
 
+function getValidUrl(value) {
+  const url = String(value || "").trim();
+  if (!url || url === "undefined" || url === "null") return "";
+
+  if (/^https?:\/\//i.test(url)) return url;
+  if (url.startsWith("/")) return url;
+  if (/^[a-z0-9][a-z0-9\-_/]*(\?.*)?(#.*)?$/i.test(url)) return `/${url}`;
+
+  return "";
+}
+
 export default function CamerasHero() {
   const {getAdverts} = useHomeSections();
   const advert = getAdverts("cameras")[0];
   const advertImage = resolveImageSrc(advert, null);
+  const advertHref = getValidUrl(advert?.cta?.href);
   const description = advert?.description || "Acompanhe\nquem você ama\nem tempo real.";
 
   return (
     <section className="w-full">
       <HomeHeroBanner
+        href={advertImage ? advertHref : undefined}
         alt="Banner de câmeras"
         className="aspect-[640/974] max-h-none md:aspect-auto md:min-h-[640px]"
         mobileImageClassName="object-cover object-center"
