@@ -54,13 +54,21 @@ const visibleChannelLogos = {
     family: 5,
 };
 
+const additionalChannelOffsets = {
+    sports: 1,
+    family: 1,
+};
+
 function getAdditionalChannelCount(channel) {
     const total = (channelSectionsByType[channel] || []).reduce(
         (sum, section) => sum + section.channels.length,
         0
     );
 
-    return Math.max(0, total - (visibleChannelLogos[channel] || 0));
+    return Math.max(
+        0,
+        total - (visibleChannelLogos[channel] || 0) + (additionalChannelOffsets[channel] || 0)
+    );
 }
 
 const channelArtworkAlt = {

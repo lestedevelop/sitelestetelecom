@@ -1,6 +1,6 @@
 import Image from "next/image";
-import bannerDesktop from "@/assets/movel/banner-18-08-2026.png";
-import bannerMobile from "@/assets/movel/banner-18-08-2026-mobile.png";
+import bannerDesktop from "@/assets/movel/banner-25-08-2026.png";
+import bannerMobile from "@/assets/movel/banner-25-08-2026-mobile.png";
 
 export default function BannerMovel() {
     return (
