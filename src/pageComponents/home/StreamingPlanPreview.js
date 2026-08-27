@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {Plus} from "lucide-react";
-import {useState} from "react";
+import {useId, useState} from "react";
 import StreamingChannelsModal from "@/pageComponents/home/StreamingChannelsModal";
 import ChannelCountBadge from "@/components/streaming/ChannelCountBadge";
 import TrackedLink from "@/components/links/TrackedLink";
@@ -25,6 +25,12 @@ import {startChannelSections} from "@/mocks/startChannels";
 import {sportsChannelSections} from "@/mocks/sportsChannels";
 import {cineChannelSections} from "@/mocks/cineChannels";
 import {familyChannelSections} from "@/mocks/familyChannels";
+import {useLestePlayChannels} from "@/hooks/useLestePlayChannels";
+import {
+    getFeaturedChannelsLayout,
+    getChannelBadgeCount,
+    getPlanDataForCard,
+} from "@/lib/lestePlayChannelsShared.mjs";
 
 const channelArtwork = {
     start: canaisStart,
@@ -78,6 +84,47 @@ const channelArtworkAlt = {
     family: "Canais do Leste Play Family",
 };
 
+function FeaturedChannelTile({channel}) {
+    const gradientId = useId().replaceAll(":", "");
+
+    return (
+        <span className="relative flex h-[47px] w-[59px] shrink-0 items-center justify-center">
+            <Image
+                src={channel.image.url}
+                alt={channel.title}
+                width={52}
+                height={40}
+                unoptimized
+                className="relative z-10 h-10 w-[52px] rounded-[4px] object-contain"
+            />
+            <svg
+                viewBox="0 0 59 47"
+                fill="none"
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[45.6px] w-[57.7px] -translate-x-1/2 -translate-y-1/2"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M39.8027.3057c4.3605 0 7.662-.001 10.211.3418 2.5578.3439 4.4046 1.0384 5.8281 2.4619 1.4233 1.4234 2.118 3.2695 2.4619 5.8271.3427 2.549.3418 5.8504.3418 10.211v8.5546c0 4.3607.0009 7.662-.3418 10.211-.3439 2.5576-1.0386 4.4037-2.4619 5.8271-1.4235 1.4235-3.2703 2.1181-5.8281 2.4619-2.549.3427-5.8505.3418-10.211.3418H19.1475c-4.3606 0-7.662.001-10.211-.3418-2.5577-.3438-4.4037-1.0384-5.8271-2.4619-1.4235-1.4234-2.118-3.2694-2.4619-5.8271-.3427-2.549-.3418-5.8503-.3418-10.211v-8.5546c0-4.3606-.001-7.662.3418-10.211.3439-2.5577 1.0385-4.4037 2.4619-5.8271C4.5328 1.6859 6.3788.9914 8.9365.6475 11.4855.3048 14.7869.3057 19.1475.3057h20.6552Z"
+                    fill="white"
+                    stroke={`url(#${gradientId}-stroke)`}
+                    strokeWidth=".61"
+                />
+                <defs>
+                    <linearGradient id={`${gradientId}-fill`} x1="14.0665" y1="6.0367" x2="66.0583" y2="28.5539" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#01FFA7"/>
+                        <stop offset="1" stopColor="#04AC84" stopOpacity="0"/>
+                    </linearGradient>
+                    <linearGradient id={`${gradientId}-stroke`} x1="12.2001" y1="10.6349" x2="47.1913" y2="53.4889" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#03FFA9"/>
+                        <stop offset="1" stopColor="#189986" stopOpacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </span>
+    );
+}
+
 function Toggle({active, label, onChange}) {
     return (
         <button
@@ -97,6 +144,10 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
     const [activeChannel, setActiveChannel] = useState(initialChannel || plan.channels);
     const [channelsModalOpen, setChannelsModalOpen] = useState(false);
     const isSales = variant === "sales";
+    const channelsPayload = useLestePlayChannels();
+    const apiPlanData = getPlanDataForCard(channelsPayload?.channelsByPlan, activeChannel);
+    const apiArtworkLayout = getFeaturedChannelsLayout(apiPlanData);
+    const apiChannelBadgeCount = getChannelBadgeCount(apiPlanData);
     const channels = (isSales ? salesChannelArtwork : channelArtwork)[activeChannel];
     const additionalChannelCount = getAdditionalChannelCount(activeChannel);
     const currentPrice = plan.prices?.[activeChannel] || plan.price;
@@ -173,24 +224,52 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
                     <button
                         type="button"
                         onClick={() => setChannelsModalOpen(true)}
-                        aria-label={`Ver todos os canais do pacote ${activeChannel}`}
-                            className={`${hasPackages ? (isSales ? "mt-2 w-[145px]" : "mt-4 w-[191px]") : (isSales ? "mt-3 w-[105px]" : "mt-6 w-[126px]")} relative mb-2 cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                        aria-label={apiPlanData?.totalChannels !== null && apiPlanData?.totalChannels !== undefined
+                            ? `Ver os ${apiPlanData.totalChannels} canais do pacote ${activeChannel}`
+                            : `Ver todos os canais do pacote ${activeChannel}`}
+                            className={`${hasPackages ? (isSales ? "mt-2" : "mt-4") : (isSales ? "mt-3" : "mt-6")} ${apiPlanData ? ({1: "w-[59px]", 2: "w-[126px]", 3: "w-[191px]"}[apiArtworkLayout.columns]) : (hasPackages ? (isSales ? "w-[145px]" : "w-[191px]") : (isSales ? "w-[105px]" : "w-[126px]"))} relative mb-2 cursor-pointer rounded-lg transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
-                        <Image
-                            src={channels}
-                            alt={`${channelArtworkAlt[activeChannel] || plan.channelsAlt}: mais ${additionalChannelCount} canais`}
-                            className="h-auto w-full"
-                        />
-                        <span
-                            aria-hidden="true"
-                            className={`absolute bottom-0 right-0 h-[47.525%] ${activeChannel === "start" ? "w-[46.825%]" : "w-[30.89%]"}`}
-                        >
-                            <ChannelCountBadge
-                                count={additionalChannelCount}
-                                isSales={isSales}
-                                className="h-full w-full"
-                            />
-                        </span>
+                        {apiPlanData ? (
+                            <span className="flex min-h-[48px] w-full flex-wrap items-center justify-center gap-1">
+                                {apiPlanData.featuredChannels.map((featuredChannel, index) => (
+                                    featuredChannel.image?.url ? (
+                                        <FeaturedChannelTile
+                                            key={`${featuredChannel.id ?? featuredChannel.title}-${index}`}
+                                            channel={featuredChannel}
+                                        />
+                                    ) : null
+                                ))}
+                                {apiChannelBadgeCount > 0 ? (
+                                    <span aria-hidden="true" className="block h-12 w-[59px] shrink-0">
+                                        <ChannelCountBadge
+                                            count={apiChannelBadgeCount}
+                                            isSales={isSales}
+                                            className="h-full w-full"
+                                        />
+                                    </span>
+                                ) : null}
+                            </span>
+                        ) : (
+                            <>
+                                <Image
+                                    src={channels}
+                                    alt={`${channelArtworkAlt[activeChannel] || plan.channelsAlt}: mais ${additionalChannelCount} canais`}
+                                    className="h-auto w-full"
+                                />
+                                {additionalChannelCount > 0 ? (
+                                    <span
+                                        aria-hidden="true"
+                                        className={`absolute bottom-0 right-0 h-[47.525%] ${activeChannel === "start" ? "w-[46.825%]" : "w-[30.89%]"}`}
+                                    >
+                                        <ChannelCountBadge
+                                            count={additionalChannelCount}
+                                            isSales={isSales}
+                                            className="h-full w-full"
+                                        />
+                                    </span>
+                                ) : null}
+                            </>
+                        )}
                     </button>
                     <Image
                         src={streamingByWatch}
@@ -246,6 +325,8 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
             <StreamingChannelsModal
                 open={channelsModalOpen}
                 channel={activeChannel}
+                apiPlanData={apiPlanData}
+                categoryOrder={channelsPayload?.categories}
                 onClose={() => setChannelsModalOpen(false)}
             />
         </article>
