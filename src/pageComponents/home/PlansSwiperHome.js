@@ -67,9 +67,11 @@ export default function PlansSwiperHome({
                 {items.map((plan) => (
                     <SwiperSlide
                         key={plan.id}
-                        className={`flex min-h-[588px] justify-center ${slideClassName}`}
+                        className={`flex! min-h-[588px] justify-center ${slideClassName}`}
                     >
-                        {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
+                        <div className="w-full max-w-[343px] sm:max-w-none">
+                            {plan.__skeleton ? renderSkeleton?.() : renderPlan(plan)}
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
