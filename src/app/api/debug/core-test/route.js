@@ -4,7 +4,7 @@ import { coreApi } from "@/lib/coreApi";
 export async function GET(req) {
     try {
         const codcid = new URL(req.url).searchParams.get("codcid")?.trim();
-        const response = await coreApi.get("/api/sac/externo/home", {
+        const response = await coreApi.get("/api/sac/externo/channels", {
             params: codcid ? {codcid} : undefined,
         });
 
