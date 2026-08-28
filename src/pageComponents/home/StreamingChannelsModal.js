@@ -31,7 +31,7 @@ function ChannelCard({item}) {
     const label = String(title).toUpperCase();
 
     return (
-        <div className="relative mx-auto h-[56.18px] w-[76.68px]">
+        <div className="relative h-[56.18px] w-[76.68px] shrink-0">
             <div className="absolute inset-x-0 bottom-0 h-[23.53px] w-[76.68px] rounded-[4px] border border-[#03F7A4] bg-[linear-gradient(to_bottom_right,#00B78E,rgba(0,155,121,0))] backdrop-blur-[4px]"/>
             <div className="absolute left-1/2 top-0 z-10 h-[42.62px] w-[76.31px] -translate-x-1/2 overflow-hidden rounded-[4px] border border-[#03F7A4] bg-white">
                 <Image
@@ -106,7 +106,7 @@ export default function StreamingChannelsModal({open, channel, apiPlanData, cate
                         {sections.map((section) => (
                             <section key={section.title}>
                                 <h3 className="mb-3 text-xl font-bold uppercase md:text-2xl">{section.title}</h3>
-                                <div className="grid grid-cols-3 gap-[6px] sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-13">
+                                <div className="flex flex-wrap gap-[12px]">
                                     {section.channels.map((item, index) => (
                                         <ChannelCard
                                             key={`${item.id ?? item.title}-${index}`}
