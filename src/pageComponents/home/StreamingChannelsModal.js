@@ -72,7 +72,9 @@ export default function StreamingChannelsModal({open, channel, apiPlanData, cate
 
     if (!open) return null;
 
-    const sections = buildApiChannelSections(apiPlanData, categoryOrder) ?? channelSections[channel] ?? [];
+    const apiSections = buildApiChannelSections(apiPlanData, categoryOrder);
+    const usesApiChannels = apiSections !== null;
+    const sections = apiSections ?? channelSections[channel] ?? [];
 
     return createPortal(
         <div
@@ -108,10 +110,22 @@ export default function StreamingChannelsModal({open, channel, apiPlanData, cate
                                 <h3 className="mb-3 text-xl font-bold uppercase md:text-2xl">{section.title}</h3>
                                 <div className="flex flex-wrap gap-[12px]">
                                     {section.channels.map((item, index) => (
-                                        <ChannelCard
-                                            key={`${item.id ?? item.title}-${index}`}
-                                            item={item}
-                                        />
+                                        usesApiChannels ? (
+                                            <ChannelCard
+                                                key={`${item.id ?? item.title}-${index}`}
+                                                item={item}
+                                            />
+                                        ) : (
+                                            <Image
+                                                key={`${item.id ?? item.alt}-${index}`}
+                                                src={item.src}
+                                                alt={item.alt || "Canal"}
+                                                width={77}
+                                                height={57}
+                                                unoptimized
+                                                className="h-[56.18px] w-[76.68px] shrink-0 object-contain"
+                                            />
+                                        )
                                     ))}
                                 </div>
                             </section>
