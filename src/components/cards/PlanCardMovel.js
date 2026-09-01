@@ -9,30 +9,32 @@ export default function PlanCardMovel({plan, className}) {
 
     return (
         <div
-            className={`w-55 rounded-3xl h-[440px] bg-white px-4 py-6 flex flex-col items-center gap-y-2 justify-between ${className}`}>
+            className={`flex h-[480px] w-[240px] flex-col items-center rounded-3xl bg-white px-4 py-6 ${className}`}>
             {/* título */}
             <div className="text-5xl font-semibold leading-none text-primary">
                 {plan?.titleNumber}
             </div>
-            <div className="text-[15px] tracking-[0.15em] font-bold uppercase text-darkgreen">
-                {plan?.bonus}
-            </div>
-            <div className="text-[11px] font-bold uppercase text-dark">
+            {plan?.bonus && (
+                <div className="mt-3 flex min-h-10 items-center text-center text-[13px] font-bold leading-snug text-darkgreen">
+                    {plan.bonus}
+                </div>
+            )}
+            <div className="mt-1 min-h-10 whitespace-pre-line text-center text-[11px] font-bold uppercase leading-relaxed text-dark">
                 {plan?.titlePlan}
             </div>
 
             {/* perks */}
-            <div className="w-full space-y-2">
+            <div className="mt-2 w-full space-y-2">
                 {plan?.perks?.map((perk, i) => (<div
                     key={i}
-                    className="px-3 text-[15px] font-semibold text-darkgreen "
+                    className="px-3 text-[14px] font-semibold leading-5 text-darkgreen"
                 >
                     {perk}
                 </div>))}
             </div>
             {/* preço */}
-            <div className="relative">
-                <p className="mt-5 -ml-6 text-dark text-sm">Por apenas</p>
+            <div className="relative mt-auto w-full px-3">
+                <p className="text-sm text-dark">Por apenas</p>
                 <div className="mt-1 flex items-end">
                     <span className="mr-1 text-sm text-dark">R$</span>
                     <span className="text-5xl font-semibold leading-none text-dark"> {inteiro}</span>
@@ -45,7 +47,7 @@ export default function PlanCardMovel({plan, className}) {
             <Link
                 href="/movel/chip"
                 type="button"
-                className="mt-4 w-full rounded-xl bg-primary px-4 py-3 text-center text-white font-semibold hover:bg-primartext-primary active:scale-[.99] transition"
+                className="mt-4 w-full rounded-xl bg-primary px-4 py-3 text-center font-semibold text-white transition hover:brightness-95 active:scale-[.99]"
             >
                 {plan?.cta}
             </Link>
