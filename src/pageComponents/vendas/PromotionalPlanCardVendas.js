@@ -1,31 +1,149 @@
 "use client";
 
+import {useEffect, useMemo, useState} from "react";
+import {createPortal} from "react-dom";
 import Image from "next/image";
-import bebanca from "@/assets/icons/bebanca.svg";
-import lesteClube from "@/assets/lesteclube.svg";
-import skeelo from "@/assets/icons/skelolivros.svg";
+import TrackedLink from "@/components/links/TrackedLink";
+import PerkCard from "@/pageComponents/vendas/PerkCard";
 import wifi5icon from "@/assets/vendas/icons/wifi-5.svg";
 import wifi6axicon from "@/assets/vendas/icons/wifi-6ax.svg";
 import wifi6axmeshicon from "@/assets/vendas/icons/wifi-6axmesh.svg";
-import dourado from "@/assets/dourado.png";
-import { getPlanoButtonId } from "@/lib/gtm/vendas";
-import { formatPrice } from "@/utils/Format";
-import { getTitle } from "@/utils/utils";
-import TrackedLink from "@/components/links/TrackedLink";
+import {getPlanoButtonId} from "@/lib/gtm/vendas";
+import {formatPrice} from "@/utils/Format";
+import {getPerkByCodsimp} from "@/utils/getPerkByCodsimp";
+import {getTitle} from "@/utils/utils";
 
 function getWifiIcon(label = "") {
     const normalized = String(label).toLowerCase();
-
     if (normalized.includes("mesh")) return wifi6axmeshicon;
     if (normalized.includes("6 ax")) return wifi6axicon;
     return wifi5icon;
 }
 
-function Benefit({ children }) {
-    return (
-        <div className="flex h-11 w-full items-center justify-center rounded-xl bg-[#006B59] px-5">
-            {children}
-        </div>
+function getSvaLabel(sva) {
+    return getPerkByCodsimp(sva?.descri_simp) ||
+        getPerkByCodsimp(sva?.name) ||
+        sva?.name ||
+        sva?.descri_simp ||
+        "";
+}
+
+function normalizeSvaKey(value) {
+    return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+}
+
+function getBenefitItems(svas = []) {
+    const seen = new Set();
+
+    return svas.filter((sva) => {
+        const key = normalizeSvaKey(getSvaLabel(sva));
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+}
+
+function getPromotionMonths(plan) {
+    const value = Number(
+        plan?.meses_desconto ??
+        plan?.duracao_desconto ??
+        plan?.promotional_months ??
+        3
+    );
+
+    return Number.isFinite(value) && value > 0 ? value : 3;
+}
+
+function PromotionDetailsModal({open, onClose, plan, titleNumber, titleUnit, wifiText, benefits}) {
+    useEffect(() => {
+        if (!open) return;
+
+        function handleKeyDown(event) {
+            if (event.key === "Escape") onClose();
+        }
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [open, onClose]);
+
+    if (!open || typeof document === "undefined") return null;
+
+    const grossPrice = formatPrice(plan?.valor);
+    const discountedPrice = formatPrice(plan?.valor_desconto);
+    const fidelity = Number(plan?.fidelidade) > 0 ? Number(plan.fidelidade) : 12;
+
+    return createPortal(
+        <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
+            <button
+                type="button"
+                aria-label="Fechar modal"
+                onClick={onClose}
+                className="absolute inset-0 bg-black/55"
+            />
+            <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="promotion-plan-details-title"
+                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl ring-1 ring-black/10"
+            >
+                <div className="flex items-center justify-between border-b border-black/10 px-5 py-4">
+                    <h3 id="promotion-plan-details-title" className="text-xl font-semibold text-darkgreen">
+                        Mais detalhes do plano
+                    </h3>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="inline-flex size-9 items-center justify-center rounded-full text-graylight transition hover:bg-light"
+                        aria-label="Fechar"
+                    >
+                        x
+                    </button>
+                </div>
+                <div className="px-5 py-5 text-dark md:px-7">
+                    <p className="text-sm leading-relaxed text-darkgreen">
+                        Plano {titleNumber} {titleUnit} {wifiText}.
+                    </p>
+
+                    {benefits.length ? (
+                        <div className="mt-5">
+                            <h4 className="text-sm font-bold uppercase tracking-wide text-darkgreen">
+                                Benefícios inclusos
+                            </h4>
+                            <div className="mt-4 flex flex-col-reverse gap-y-3">
+                                {benefits.map((sva) => (
+                                    <PerkCard
+                                        key={normalizeSvaKey(getSvaLabel(sva))}
+                                        item={sva}
+                                        descri_simp={sva.descri_simp}
+                                        fullWidth
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ) : null}
+
+                    <dl className="mt-5 overflow-hidden rounded-xl border border-primary/15 text-sm">
+                        {[
+                            ["Mensalidade", `R$ ${grossPrice.inteiro},${grossPrice.centavos}`],
+                            ["Preço promocional", `R$ ${discountedPrice.inteiro},${discountedPrice.centavos}`],
+                            ["Período promocional", `${getPromotionMonths(plan)} meses`],
+                            ["Fidelidade", `${fidelity} meses`],
+                        ].map(([label, value]) => (
+                            <div key={label} className="grid grid-cols-[2fr_3fr] border-b border-primary/10 last:border-b-0">
+                                <dt className="bg-light px-4 py-3 font-semibold text-darkgreen">{label}</dt>
+                                <dd className="px-4 py-3">{value}</dd>
+                            </div>
+                        ))}
+                    </dl>
+                </div>
+            </div>
+        </div>,
+        document.body
     );
 }
 
@@ -39,112 +157,83 @@ export default function PromotionalPlanCardVendas({
     cardClassName = "",
     compactTop = false,
 }) {
-    const { titleNumber, titleUnit } = getTitle(plan);
+    const [detailsOpen, setDetailsOpen] = useState(false);
+    const {titleNumber, titleUnit} = getTitle(plan);
     const grossPrice = formatPrice(plan?.valor);
     const discountedPrice = formatPrice(plan?.valor_desconto ?? plan?.valor);
-    const wifiText = String(plan?.descri_ser_bot || plan?.descri_ser || "SUPER WI-FI 6 AX")
+    const promotionMonths = getPromotionMonths(plan);
+    const fidelity = Number(plan?.fidelidade) > 0 ? Number(plan.fidelidade) : 12;
+    const wifiText = String(plan?.descri_ser_bot || plan?.descri_ser || "WI-FI 5")
         .replace(/\s+/g, " ")
         .trim();
+    const benefits = useMemo(() => getBenefitItems(plan?.SVAs || []), [plan]);
+    const planName = plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim();
+    const actionClasses = "mt-3 flex min-h-12 w-full cursor-pointer items-center justify-center rounded-lg border border-darkgreen bg-primary px-4 py-3 text-center text-lg font-bold text-white transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
     return (
-        <div className={`relative w-full ${compactTop ? "pt-6 pb-12" : "py-12"} ${className}`}>
+        <div className={`relative w-full ${compactTop ? "pt-6 pb-12" : onSelect ? "z-20 h-[588px]" : "py-12 -mt-12"} ${className}`}>
             <article
-                className={[
-                    `relative flex h-[588px] w-full flex-col items-center overflow-visible rounded-[24px] ${cardClassName}`,
-                    "border-[3px] border-transparent px-5 pt-8 text-white shadow-lg",
-                ].join(" ")}
-                style={{
-                    backgroundImage: `linear-gradient(#007B67, #007B67), url(${dourado.src})`,
-                    backgroundClip: "padding-box, border-box",
-                    backgroundOrigin: "border-box",
-                    backgroundPosition: "center",
-                    backgroundSize: "auto, cover",
-                }}
+                className={`relative flex w-full flex-col items-center rounded-3xl border border-primary bg-white px-6 pb-8 text-primary shadow-lg ring-1 ring-black/5 ${onSelect ? "h-full min-h-0" : "min-h-[588px]"} ${cardClassName}`}
             >
-                <div
-                    className="absolute left-1/2 top-0 z-50 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-xl bg-cover bg-center px-5 py-2 text-sm font-extrabold text-black shadow-sm"
-                    style={{ backgroundImage: `url(${dourado.src})` }}
-                >
-                    3 MESES COM DESCONTO
-                </div>
-
-                <div className="text-8xl font-semibold leading-none text-white">
+                <div className="mt-6 text-8xl font-semibold leading-none tracking-[-0.04em]">
                     {titleNumber}
                 </div>
-                <div className="-mt-2 text-5xl font-semibold uppercase leading-none tracking-[0.15em]">
+                <div className="-mt-2 text-5xl font-semibold uppercase leading-none tracking-[0.1em]">
                     {titleUnit}
                 </div>
 
-                <div className="mt-2 flex min-h-[94px] items-center justify-center">
+                <div className="mt-3 flex min-h-[94px] items-center justify-center">
                     <Image
                         src={getWifiIcon(wifiText)}
                         alt={wifiText || "Wi-Fi incluso"}
-                        width={183}
-                        className="h-auto w-[183px] brightness-0 invert"
+                        width={181}
+                        className="h-auto w-[150px]"
                     />
                 </div>
 
-                <div className="mt-3 flex w-full flex-col gap-2">
-                    <Benefit>
-                        <Image
-                            src={skeelo}
-                            alt="Skeelo livros"
-                            className="h-8 w-auto object-contain brightness-0 invert"
+                <div className="mt-2 flex w-full flex-col-reverse gap-y-3">
+                    {benefits.map((sva) => (
+                        <PerkCard
+                            key={normalizeSvaKey(getSvaLabel(sva))}
+                            item={sva}
+                            descri_simp={sva.descri_simp}
                         />
-                    </Benefit>
-                    <Benefit>
-                        <Image
-                            src={bebanca}
-                            alt="Bebanca"
-                            className="h-8 w-auto object-contain [filter:brightness(0)_saturate(100%)_invert(81%)_sepia(91%)_saturate(1000%)_hue-rotate(337deg)_brightness(103%)_contrast(101%)]"
-                        />
-                    </Benefit>
-                    <Benefit>
-                        <Image src={lesteClube} alt="Leste Clube" className="h-8 w-auto object-contain" />
-                    </Benefit>
+                    ))}
                 </div>
 
-                <div className="relative mt-4 text-center text-xl font-light leading-none text-[#10C6A8]">
-                    De {grossPrice.inteiro},{grossPrice.centavos}
-                    <span
-                        aria-hidden="true"
-                        className="absolute left-[-4px] right-[-4px] top-1/2 h-[3px] -translate-y-1/2 rotate-[-4deg] bg-cover bg-center"
-                        style={{ backgroundImage: `url(${dourado.src})` }}
-                    />
-                </div>
-
-                <div className="mt-2 flex items-end justify-center">
-                    <div className="mb-1 mr-2 text-left text-xl font-medium leading-[1.05]">
-                        <div>Por</div>
-                        <div>R$</div>
+                <div className="mt-auto flex flex-col items-center pt-3 text-darkgreen">
+                    <div className="relative text-base leading-none">
+                        De R$ {grossPrice.inteiro},{grossPrice.centavos}
+                        <span aria-hidden="true" className="absolute -left-1 -right-1 top-1/2 h-[2px] -rotate-6 bg-[#d62b2b]" />
                     </div>
-                    <span className="text-[4.4rem] font-semibold leading-[0.78] tracking-[-0.06em]">
-                        {discountedPrice.inteiro}
-                    </span>
-                    <div className="ml-1 flex flex-col pb-0.5">
-                        <span className="text-2xl font-semibold leading-none">
-                            ,{discountedPrice.centavos}
-                        </span>
-                        <span className="mt-2 text-[11px] leading-[1.05]">
-                            /por 3
-                            <br />
-                            <strong>meses</strong>
-                        </span>
-                    </div>
-                </div>
 
-                {actionHref ? (
-                    <p className="mt-4 text-center text-sm">*Fidelidade de 12 meses</p>
-                ) : null}
+                    <div className="mt-1 flex items-end justify-center font-bold">
+                        <div className="mb-1 mr-2 text-left text-xl font-medium leading-[1.05]">
+                            <div>Por</div>
+                            <div>R$</div>
+                        </div>
+                        <span className="text-[4.65rem] leading-[0.82] tracking-[-0.06em]">
+                            {discountedPrice.inteiro}
+                        </span>
+                        <div className="ml-1 flex flex-col pb-0.5">
+                            <span className="text-2xl leading-none">,{discountedPrice.centavos}</span>
+                            <span className="mt-2 text-[10px] font-normal leading-[1.05]">
+                                /por {promotionMonths}
+                                <br />
+                                <strong>meses</strong>
+                            </span>
+                        </div>
+                    </div>
+                    <p className="mt-2 text-center text-xs font-normal">*Fidelidade de {fidelity} meses</p>
+                </div>
 
                 {actionHref ? (
                     <TrackedLink
                         id={getPlanoButtonId(plan)}
                         href={actionHref}
                         data-gtm-plan-codser={plan?.codser || ""}
-                        data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
-                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 cursor-pointer rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                        style={{ backgroundImage: `url(${dourado.src})` }}
+                        data-gtm-plan-name={planName}
+                        className={actionClasses}
                     >
                         {actionLabel}
                     </TrackedLink>
@@ -155,14 +244,33 @@ export default function PromotionalPlanCardVendas({
                         aria-pressed={!!selected}
                         onClick={() => onSelect?.(plan)}
                         data-gtm-plan-codser={plan?.codser || ""}
-                        data-gtm-plan-name={plan?.nome_exibicao || `${titleNumber} ${titleUnit}`.trim()}
-                        className="mt-auto w-[calc(100%+2.5rem)] -mx-5 cursor-pointer rounded-b-[20px] bg-cover bg-center px-4 py-4 text-center text-xl font-extrabold text-black transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                        style={{ backgroundImage: `url(${dourado.src})` }}
+                        data-gtm-plan-name={planName}
+                        className={actionClasses}
                     >
                         {selected ? "Selecionado" : actionLabel}
                     </button>
                 )}
+
+                {!onSelect ? (
+                    <button
+                        type="button"
+                        onClick={() => setDetailsOpen(true)}
+                        className="mt-4 cursor-pointer text-sm font-semibold text-darkgreen underline underline-offset-4 transition hover:text-primary"
+                    >
+                        Mais Detalhes
+                    </button>
+                ) : null}
             </article>
+
+            <PromotionDetailsModal
+                open={detailsOpen}
+                onClose={() => setDetailsOpen(false)}
+                plan={plan}
+                titleNumber={titleNumber}
+                titleUnit={titleUnit}
+                wifiText={wifiText}
+                benefits={benefits}
+            />
         </div>
     );
 }

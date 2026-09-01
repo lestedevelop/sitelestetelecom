@@ -30,7 +30,16 @@ export function isValidChannelsPayload(payload) {
 }
 
 function publicImageUrl(fileName) {
-    return `/images/lesteplay/channels/${encodeURIComponent(fileName)}`;
+    return `/api/lesteplay/channels/image/${encodeURIComponent(fileName)}`;
+}
+
+export function resolveCachedImagePath(imageDirectory, fileName) {
+    const safeFileName = sanitizeFileName(fileName);
+    if (!safeFileName || safeFileName !== fileName) return null;
+
+    const resolvedDirectory = path.resolve(imageDirectory);
+    const resolvedFile = path.resolve(resolvedDirectory, safeFileName);
+    return path.dirname(resolvedFile) === resolvedDirectory ? resolvedFile : null;
 }
 
 function toPublicChannel(channel) {
@@ -189,6 +198,10 @@ export class LestePlayChannelsSync {
         return toPublicChannelsPayload(this.snapshot);
     }
 
+    getImagePath(fileName) {
+        return resolveCachedImagePath(this.imageDirectory, fileName);
+    }
+
     sync() {
         if (this.syncPromise) return this.syncPromise;
 
@@ -301,7 +314,7 @@ export class LestePlayChannelsSync {
 
 const globalKey = Symbol.for("lestePlay.channelsSync");
 const globalStore = globalThis;
-const SERVICE_VERSION = 3;
+const SERVICE_VERSION = 4;
 
 export function getLestePlayChannelsSync() {
     const currentStore = globalStore[globalKey];
