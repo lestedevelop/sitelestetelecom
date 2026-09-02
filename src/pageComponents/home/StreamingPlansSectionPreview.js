@@ -7,11 +7,12 @@ import PromotionalPlanCard from "@/pageComponents/vendas/PromotionalPlanCardVend
 import {useHomeData} from "@/hooks/useHomeData";
 import {groupStreamingPlans} from "@/utils/streamingPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
-import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {getPromotionalCampaignDisclaimer, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {useMemo, useState} from "react";
 import {useSite} from "@/contexts/SiteContext";
 import Image from "next/image";
 import bestOffersIcon from "@/assets/home/filter-best-offers.svg";
+import PromotionalCampaignDisclaimer from "@/components/plans/PromotionalCampaignDisclaimer";
 
 const planFilters = [
     {id: "best", label: "Melhores Ofertas"},
@@ -26,6 +27,7 @@ export default function StreamingPlansSectionPreview() {
     const {planos} = useHomeData();
     const {codcid} = useSite();
     const hasPlanFilters = citiesWithPlanFilters.has(Number(codcid));
+    const promotionalDisclaimer = getPromotionalCampaignDisclaimer(codcid);
     const backendPlans = planos?.data;
     const {streamingPlans, standardPlans} = useMemo(
         () => groupStreamingPlans(Array.isArray(backendPlans) ? backendPlans : [], streamingPlansMock),
@@ -55,7 +57,8 @@ export default function StreamingPlansSectionPreview() {
                     actionHref="https://vendas.lestetelecom.com.br/vendas"
                     actionLabel="Assine agora!"
                     compactTop
-                    className="h-[784px] py-0!"
+                    emphasizedBenefits
+                    className="h-[760px] py-0!"
                     cardClassName="h-full!"
                 />
             );
@@ -64,7 +67,7 @@ export default function StreamingPlansSectionPreview() {
         return (
             <PlanCard
                 plan={plan}
-                className="mt-0! h-[784px] py-0!"
+                className="mt-0! h-[760px] py-0!"
                 cardClassName="h-full! min-h-0!"
                 matchStreamingStyle
             />
@@ -130,12 +133,14 @@ export default function StreamingPlansSectionPreview() {
                         1024: {slidesPerView: 3},
                         1280: {slidesPerView: 4},
                     }}
-                    slideClassName="h-[784px]!"
+                    slideClassName="h-[760px]!"
                 />
             </div>
 
             <div className="mx-auto mt-6 max-w-5xl px-5 text-center text-xs leading-relaxed text-graylight md:px-8 md:text-sm">
-                {!hasPlanFilters || activeFilter === "internet" ? (
+                {promotionalDisclaimer ? (
+                    <PromotionalCampaignDisclaimer cities={promotionalDisclaimer.cities}/>
+                ) : !hasPlanFilters || activeFilter === "internet" ? (
                     <p>
                         Sujeita à viabilidade técnica. Consulte nosso{" "}
                         <a

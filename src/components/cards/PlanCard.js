@@ -179,6 +179,7 @@ export default function PlanCardVendas({
     className = "",
     cardClassName = "",
     matchStreamingStyle = false,
+    emphasizedBenefits = false,
 }) {
     const [detailsOpen, setDetailsOpen] = useState(false);
     const badge = useMemo(() => getBadge(plan), [plan]);
@@ -195,7 +196,7 @@ export default function PlanCardVendas({
     );
 
     return (
-        <div className={`relative ${onSelect ? "z-20 h-[588px]" : "py-12 -mt-12"} ${className}`}>
+        <div className={`relative ${onSelect ? "z-20 h-[576px]" : "py-12 -mt-12"} ${className}`}>
             <div
                 className={`rounded-3xl pb-8 border border-primary bg-white px-6 shadow-lg ring-1 ring-black/5 flex flex-col justify-between items-center ${onSelect ? "relative h-full min-h-0" : "min-h-[588px]"} ${cardClassName}`}>
 
@@ -221,6 +222,7 @@ export default function PlanCardVendas({
                             key={normalizeSvaKey(getSvaLabel(sva))}
                             item={sva}
                             descri_simp={sva.descri_simp}
+                            emphasized={matchStreamingStyle || emphasizedBenefits}
                         />
                     ))}
                 </div>

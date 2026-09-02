@@ -15,10 +15,11 @@ import PagamentoSection from "@/pageComponents/vendas/components/PagamentoSectio
 import ResponsaveisSection from "@/pageComponents/vendas/components/ResponsaveisSection";
 import ConfirmModal from "@/pageComponents/vendas/components/ConfirmModal";
 import {VENDAS_GTM_BUTTON_IDS} from "@/lib/gtm/vendas";
-import {isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
+import {getPromotionalCampaignDisclaimer, isPromotionalPlan} from "@/lib/vendas/promotionalPlans";
 import {sortPlansByLowestPrice} from "@/utils/plans";
 import {groupStreamingPlans} from "@/utils/streamingPlans";
 import {streamingPlansMock} from "@/mocks/streamingPlan";
+import PromotionalCampaignDisclaimer from "@/components/plans/PromotionalCampaignDisclaimer";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -32,6 +33,7 @@ export default function StepPlans({ onNext, onBack }) {
         () => findCodCidByName(cidadeNome, cidadesMock),
         [cidadeNome]
     );
+    const promotionalDisclaimer = getPromotionalCampaignDisclaimer(codcid);
 
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [addRespOpen, setAddRespOpen] = useState(false);
@@ -126,6 +128,7 @@ export default function StepPlans({ onNext, onBack }) {
                 plan={plan}
                 selected={data?.plano?.id === plan.id}
                 onSelect={handleSelect}
+                emphasizedBenefits
             />
         );
     }
@@ -148,6 +151,12 @@ export default function StepPlans({ onNext, onBack }) {
                         plans={displayedPlans}
                         renderPlan={renderPlanCard}
                     />
+                    {promotionalDisclaimer ? (
+                        <PromotionalCampaignDisclaimer
+                            cities={promotionalDisclaimer.cities}
+                            className="mx-auto max-w-4xl px-4 text-center text-xs leading-relaxed text-graylight md:text-sm"
+                        />
+                    ) : null}
                 </>
             )}
 

@@ -13,12 +13,12 @@ function getFallbackIcon(label = "") {
     return null;
 }
 
-function getIconClassName(label = "") {
-    if (label.includes("banca")) return "w-20 object-contain";
-    return "w-18 object-contain";
+function getIconClassName(label = "", emphasized = false) {
+    if (label.includes("banca")) return `${emphasized ? "w-24" : "w-20"} object-contain`;
+    return `${emphasized ? "w-22" : "w-18"} object-contain`;
 }
 
-export default function PerkCard({ descri_simp, item, onClick, fullWidth = false }) {
+export default function PerkCard({ descri_simp, item, onClick, fullWidth = false, emphasized = false }) {
     const label = getPerkByCodsimp(descri_simp) || getPerkByCodsimp(item?.name) || item?.name;
     const imageSrc = resolveImageSrc(item, getFallbackIcon(label));
 
@@ -28,14 +28,14 @@ export default function PerkCard({ descri_simp, item, onClick, fullWidth = false
         <button
             type="button"
             onClick={() => onClick?.(label)}
-            className={`${fullWidth ? "w-full" : "w-44"} mx-auto flex h-9 cursor-pointer items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:scale-[1.02] hover:opacity-90`}
+            className={`${fullWidth ? "w-full" : emphasized ? "w-48" : "w-44"} ${emphasized ? "h-10" : "h-9"} mx-auto flex cursor-pointer items-center justify-center rounded-md bg-lightgreenBackground text-sm font-medium text-dark transition hover:scale-[1.02] hover:opacity-90`}
         >
             <Image
                 src={imageSrc}
                 alt={label}
                 width={96}
                 height={36}
-                className={getIconClassName(label)}
+                className={getIconClassName(label, emphasized)}
             />
         </button>
     );

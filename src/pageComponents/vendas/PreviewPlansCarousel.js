@@ -92,6 +92,7 @@ export default function PreviewPlansCarousel() {
                 plan={plan}
                 selected={isSelected(plan)}
                 onSelect={setSelectedPlan}
+                emphasizedBenefits
             />
         );
     }

@@ -159,8 +159,8 @@ export default function StreamingPlanPreview({plan, variant = "home", initialCha
         <article className={[
             "relative shrink-0 overflow-hidden rounded-[22px] shadow-xl",
             isSales
-                ? "h-[588px] w-full max-w-[343px] bg-white pt-6 text-primary"
-                : "h-[784px] w-full max-w-[343px] border border-[#10f4c9] bg-[#087b60] pb-9 pt-10 text-white",
+                ? "h-[576px] w-full max-w-[343px] bg-white pt-6 text-primary"
+                : "h-[760px] w-full max-w-[343px] border border-[#10f4c9] bg-[#087b60] pb-9 pt-10 text-white",
         ].join(" ")}>
             <header className="text-center">
                 <p className={`${isSales ? "text-[76px] tracking-[-5px]" : "text-[100px] tracking-[-7px]"} font-bold leading-[0.72]`}>{plan.speed}</p>
