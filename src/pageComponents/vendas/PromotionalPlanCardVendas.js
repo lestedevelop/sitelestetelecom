@@ -172,7 +172,7 @@ export default function PromotionalPlanCardVendas({
     const actionClasses = "mt-3 flex min-h-12 w-full cursor-pointer items-center justify-center rounded-lg border border-darkgreen bg-primary px-4 py-3 text-center text-lg font-bold text-white transition hover:-translate-y-px hover:brightness-110 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
     return (
-        <div className={`relative w-full ${compactTop ? "pt-6 pb-12" : onSelect ? "z-20 h-[576px]" : "py-12 -mt-12"} ${className}`}>
+        <div className={`relative w-full ${compactTop ? "pt-6 pb-12" : onSelect ? "z-20 h-[588px]" : "py-12 -mt-12"} ${className}`}>
             <article
                 className={`relative flex w-full flex-col items-center rounded-3xl border border-primary bg-white px-6 pb-8 text-primary shadow-lg ring-1 ring-black/5 ${onSelect ? "h-full min-h-0" : "min-h-[588px]"} ${cardClassName}`}
             >

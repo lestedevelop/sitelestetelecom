@@ -58,7 +58,7 @@ export default function StreamingPlansSectionPreview() {
                     actionLabel="Assine agora!"
                     compactTop
                     emphasizedBenefits
-                    className="h-[760px] py-0!"
+                    className="h-[784px] py-0!"
                     cardClassName="h-full!"
                 />
             );
@@ -67,7 +67,7 @@ export default function StreamingPlansSectionPreview() {
         return (
             <PlanCard
                 plan={plan}
-                className="mt-0! h-[760px] py-0!"
+                className="mt-0! h-[784px] py-0!"
                 cardClassName="h-full! min-h-0!"
                 matchStreamingStyle
             />
@@ -133,7 +133,7 @@ export default function StreamingPlansSectionPreview() {
                         1024: {slidesPerView: 3},
                         1280: {slidesPerView: 4},
                     }}
-                    slideClassName="h-[760px]!"
+                    slideClassName="h-[784px]!"
                 />
             </div>
 
