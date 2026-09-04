@@ -71,7 +71,9 @@ export default function TitleFaq({
 
     const preferredSection = FAQ_HELP_CENTER_SECTIONS.find(
       (section) =>
-        section.title.localeCompare(categoryParam, "pt-BR", { sensitivity: "base" }) === 0 &&
+        [section.query, section.title].filter(Boolean).some(
+          (value) => value.localeCompare(categoryParam, "pt-BR", { sensitivity: "base" }) === 0
+        ) &&
         section.items.some((entry) => entry.href === pathname)
     );
     const orderedSections = preferredSection
@@ -81,7 +83,10 @@ export default function TitleFaq({
     for (const section of orderedSections) {
       const item = section.items.find((entry) => entry.href === pathname);
       if (item) {
-        const categoryHref = `/faq?categoria=${encodeURIComponent(section.title)}`;
+        const params = new URLSearchParams({
+          categoria: section.query || section.title,
+        });
+        const categoryHref = `/faq?${params.toString()}`;
 
         return [
           { label: "Faq", href: "/faq" },

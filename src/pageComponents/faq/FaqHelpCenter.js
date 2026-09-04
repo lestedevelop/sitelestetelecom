@@ -16,9 +16,15 @@ function normalizeText(text) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+function getCategoryValue(section) {
+  return section.query || section.title;
+}
+
 function getCategoryHref(href, category) {
-  const separator = href.includes("?") ? "&" : "?";
-  return `${href}${separator}categoria=${encodeURIComponent(category)}`;
+  const [pathname, currentQuery = ""] = href.split("?");
+  const params = new URLSearchParams(currentQuery);
+  params.set("categoria", category);
+  return `${pathname}?${params.toString()}`;
 }
 
 export default function FaqHelpCenter() {
@@ -29,7 +35,9 @@ export default function FaqHelpCenter() {
   const [expandedSections, setExpandedSections] = useState({});
   const categoryParam = searchParams.get("categoria") || "";
   const activeSection = FAQ_HELP_CENTER_SECTIONS.find(
-    (section) => normalizeText(section.title) === normalizeText(categoryParam)
+    (section) =>
+      normalizeText(getCategoryValue(section)) === normalizeText(categoryParam) ||
+      normalizeText(section.title) === normalizeText(categoryParam)
   )?.title || ALL_CATEGORIES;
 
   function selectCategory(category) {
@@ -130,7 +138,7 @@ export default function FaqHelpCenter() {
               <button
                 key={section.title}
                 type="button"
-                onClick={() => selectCategory(section.title)}
+                  onClick={() => selectCategory(getCategoryValue(section))}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                   activeSection === section.title
                     ? "border-primary bg-primary text-light"
@@ -206,7 +214,7 @@ export default function FaqHelpCenter() {
                       {visibleItems.map((item) => (
                         <Link
                           key={`${section.title}-${item.href}`}
-                          href={getCategoryHref(item.href, section.title)}
+                          href={getCategoryHref(item.href, getCategoryValue(section))}
                           className="flex min-h-[52px] items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-light"
                         >
                           <span className="text-sm font-medium leading-6 text-darkgreen">

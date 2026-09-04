@@ -1,5 +1,5 @@
 ﻿{
-  "total": 114,
+  "total": 125,
   "pages": [
     {
       "title": "Quais são os canais oficiais de atendimento?",
@@ -269,6 +269,72 @@
       "title": "Os planos podem mudar conforme a cidade ou oferta?",
       "href": "/faq/os-planos-podem-mudar-conforme-a-cidade-ou-oferta",
       "category": "Planos",
+      "active": true
+    },
+    {
+      "title": "O que é a readequação de ofertas para planos antigos?",
+      "href": "/faq/o-que-e-a-readequacao-de-ofertas-para-planos-antigos",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "O que acontece com meu plano antigo na readequação?",
+      "href": "/faq/o-que-acontece-com-meu-plano-antigo-na-readequacao",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "A migração será automática?",
+      "href": "/faq/a-readequacao-do-meu-plano-sera-automatica",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "Posso escolher outra oferta durante a readequação?",
+      "href": "/faq/posso-escolher-outra-oferta-durante-a-readequacao",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "A readequação pode exigir troca de equipamentos?",
+      "href": "/faq/a-readequacao-pode-exigir-troca-de-equipamentos",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "O que acontece com os serviços adicionais na readequação?",
+      "href": "/faq/o-que-acontece-com-os-servicos-adicionais-na-readequacao",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "Onde tirar dúvidas sobre a readequação da minha oferta?",
+      "href": "/faq/onde-tirar-duvidas-sobre-a-readequacao-da-minha-oferta",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "Escolher outra oferta na readequação pode gerar fidelidade?",
+      "href": "/faq/escolher-outra-oferta-na-readequacao-pode-gerar-fidelidade",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "Posso cancelar se não quiser a readequação da oferta?",
+      "href": "/faq/posso-cancelar-se-nao-quiser-a-readequacao-da-oferta",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "A readequação altera vencimento, contrato ou documentos?",
+      "href": "/faq/a-readequacao-altera-vencimento-contrato-ou-documentos",
+      "category": "Readequação de Ofertas 2026",
+      "active": true
+    },
+    {
+      "title": "A readequação para a oferta indicada gera fidelidade?",
+      "href": "/faq/a-readequacao-para-a-oferta-indicada-gera-fidelidade",
+      "category": "Readequação de Ofertas 2026",
       "active": true
     },
     {
