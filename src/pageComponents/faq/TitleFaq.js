@@ -55,6 +55,7 @@ export default function TitleFaq({
   href = null,
   eyebrow = "FAQ",
   breadcrumb = null,
+  showBackButton = true,
 }) {
   const pathname = usePathname();
   const categoryParam = useSyncExternalStore(
@@ -118,10 +119,12 @@ export default function TitleFaq({
           {title}
         </h1>
 
-        <BackToIndexButton
-          href={backHref}
-          className="hidden md:inline-flex md:w-auto md:min-w-[240px]"
-        />
+        {showBackButton ? (
+          <BackToIndexButton
+            href={backHref}
+            className="hidden md:inline-flex md:w-auto md:min-w-[240px]"
+          />
+        ) : null}
       </div>
     </header>
   );

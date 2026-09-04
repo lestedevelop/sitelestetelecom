@@ -9,7 +9,7 @@ function Icon({ children }) {
   return <span className="inline-flex h-5 w-5 items-center justify-center">{children}</span>;
 }
 
-export default function SupportFooter() {
+export default function SupportFooter({ showBackButton = true }) {
   return (
     <section className="bg-light">
       <div className="container pb-16 pt-10">
@@ -91,13 +91,15 @@ export default function SupportFooter() {
             </div>
           </div>
 
-          <div className="mt-8 pt-8">
-            <BackToIndexButton
-              href="/faq"
-              label="Voltar pro Indice"
-              className="w-full justify-center text-base"
-            />
-          </div>
+          {showBackButton ? (
+            <div className="mt-8 pt-8">
+              <BackToIndexButton
+                href="/faq"
+                label="Voltar pro Indice"
+                className="w-full justify-center text-base"
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
