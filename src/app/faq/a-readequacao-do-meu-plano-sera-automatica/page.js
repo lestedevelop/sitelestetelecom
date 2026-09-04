@@ -1,6 +1,6 @@
 import ReadequacaoFaqPage from "@/pageComponents/faq/ReadequacaoFaqPage";
 
-const title = "A readequação do meu plano será automática?";
+const title = "A migração será automática?";
 
 export const metadata = {
   title: `${title} | Leste`,

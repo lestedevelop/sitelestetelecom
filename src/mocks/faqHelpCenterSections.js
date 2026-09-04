@@ -116,7 +116,7 @@
       { title: "Os planos podem mudar conforme a cidade ou oferta?", href: "/faq/os-planos-podem-mudar-conforme-a-cidade-ou-oferta" },
       { title: "O que é a readequação de ofertas para planos antigos?", href: "/faq/o-que-e-a-readequacao-de-ofertas-para-planos-antigos" },
       { title: "O que acontece com meu plano antigo na readequação?", href: "/faq/o-que-acontece-com-meu-plano-antigo-na-readequacao" },
-      { title: "A readequação do meu plano será automática?", href: "/faq/a-readequacao-do-meu-plano-sera-automatica" },
+      { title: "A migração será automática?", href: "/faq/a-readequacao-do-meu-plano-sera-automatica" },
       { title: "Posso escolher outra oferta durante a readequação?", href: "/faq/posso-escolher-outra-oferta-durante-a-readequacao" },
       { title: "A readequação pode exigir troca de equipamentos?", href: "/faq/a-readequacao-pode-exigir-troca-de-equipamentos" },
       { title: "O que acontece com os serviços adicionais na readequação?", href: "/faq/o-que-acontece-com-os-servicos-adicionais-na-readequacao" },
