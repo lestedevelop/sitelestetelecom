@@ -84,10 +84,10 @@ export const formCoporateSchema = yup.object({
 
     email: yup.string().required("Email obrigatório").email("Email inválido"),
 
-    telefone: yup
+    celular: yup
         .string()
-        .required("Telefone obrigatório")
-        .test("tel-len", "Telefone incompleto", (v) => onlyDigits(v || "").length >= 10),
+        .required("Celular obrigatório")
+        .test("cel-len", "Celular incompleto", (v) => onlyDigits(v || "").length === 11),
 
     empresa: yup.string().required("Empresa obrigatória").min(2, "Empresa muito curta"),
 
