@@ -13,6 +13,7 @@ import {useSite} from "@/contexts/SiteContext";
 import Image from "next/image";
 import bestOffersIcon from "@/assets/home/filter-best-offers.svg";
 import PromotionalCampaignDisclaimer from "@/components/plans/PromotionalCampaignDisclaimer";
+import LestePlayDisclaimer from "@/components/plans/LestePlayDisclaimer";
 
 const planFilters = [
     {id: "best", label: "Melhores Ofertas"},
@@ -37,6 +38,9 @@ export default function StreamingPlansSectionPreview() {
         () => sortPlansByLowestPrice(standardPlans),
         [standardPlans]
     );
+    const shouldShowLestePlayDisclaimer = hasPlanFilters &&
+        streamingPlans.length > 0 &&
+        (activeFilter === "best" || activeFilter === "streaming");
     const swiperPlans = useMemo(() => {
         if (!hasPlanFilters) return sortedStandardPlans;
         if (activeFilter === "streaming") return streamingPlans;
@@ -152,22 +156,7 @@ export default function StreamingPlansSectionPreview() {
                         para conhecer as regras que complementam o contrato de prestação de serviço, bem como os
                         serviços agregados a cada plano.
                     </p>
-                ) : (
-                    <p>
-                        Oferta exclusiva para Niterói/RJ e Maricá/RJ. Sujeita à viabilidade técnica. Fidelidade de
-                        12 meses. Combo internet + Leste Play, conforme plano contratado. Conteúdos, canais e
-                        funcionalidades variam por plano e estão sujeitos a alterações, inclusão, exclusão ou
-                        indisponibilidade na plataforma Watch, sem aviso prévio. Disponibilidade consultada em
-                        [01/08/2026]. Consulte condições em{" "}
-                        <a
-                            href="https://lestetelecom.com.br/faq"
-                            className="font-semibold text-primary underline underline-offset-2 hover:text-darkgreen"
-                        >
-                            lestetelecom.com.br/faq
-                        </a>
-                        .
-                    </p>
-                )}
+                ) : shouldShowLestePlayDisclaimer ? <LestePlayDisclaimer/> : null}
             </div>
         </Section>
     );

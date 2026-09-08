@@ -20,6 +20,7 @@ import {sortPlansByLowestPrice} from "@/utils/plans";
 import {groupStreamingPlans} from "@/utils/streamingPlans";
 import {streamingPlansMock} from "@/mocks/streamingPlan";
 import PromotionalCampaignDisclaimer from "@/components/plans/PromotionalCampaignDisclaimer";
+import LestePlayDisclaimer from "@/components/plans/LestePlayDisclaimer";
 
 export default function StepPlans({ onNext, onBack }) {
     const { data, updateStep } = useSales();
@@ -41,6 +42,8 @@ export default function StepPlans({ onNext, onBack }) {
         const {streamingPlans, standardPlans} = groupStreamingPlans(plans, streamingPlansMock);
         return [...streamingPlans, ...sortPlansByLowestPrice(standardPlans)];
     }, [plans]);
+    const shouldShowLestePlayDisclaimer = [3302700, 3303302].includes(Number(codcid)) &&
+        displayedPlans.some((plan) => plan.__streaming);
     function handleContinue() {
         const hasResponsavel = (data?.responsaveis || []).length > 0;
 
@@ -156,6 +159,8 @@ export default function StepPlans({ onNext, onBack }) {
                             cities={promotionalDisclaimer.cities}
                             className="mx-auto max-w-4xl px-4 text-center text-xs leading-relaxed text-graylight md:text-sm"
                         />
+                    ) : shouldShowLestePlayDisclaimer ? (
+                        <LestePlayDisclaimer className="mx-auto max-w-4xl px-4 text-center text-xs leading-relaxed text-graylight md:text-sm"/>
                     ) : null}
                 </>
             )}
