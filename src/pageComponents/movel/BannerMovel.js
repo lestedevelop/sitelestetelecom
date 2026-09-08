@@ -1,8 +1,9 @@
 import Image from "next/image";
 import bannerDesktop from "@/assets/movel/banner-03-09-2026.png";
 import bannerMobile from "@/assets/movel/banner-03-09-2026-mobile.png";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
-export default function BannerMovel() {
+function StaticBannerMovel() {
     return (
         <section className="mt-[88px] w-full bg-darkgreen md:mt-[123px]">
             <Image
@@ -20,5 +21,18 @@ export default function BannerMovel() {
                 priority
             />
         </section>
+    );
+}
+
+export default function BannerMovel() {
+    return (
+        <BannerHome
+            sectionKey="bannerMovel"
+            fallback={<StaticBannerMovel/>}
+            alt="Banner Leste Móvel"
+            className="mt-[88px] md:mt-[123px]"
+            desktopImageClassName="2xl:object-cover"
+            mobileImageClassName="object-cover"
+        />
     );
 }
