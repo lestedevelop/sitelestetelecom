@@ -181,7 +181,7 @@ export default function AtualizacaoAutomaticaDeOfertaPage() {
                 href="/faq?categoria=Readequa%C3%A7%C3%A3o+de+Ofertas+2026"
                 className="font-semibold text-primary underline underline-offset-2"
               >
-                Lestetelecom.com.br/faq?categoria=Readequa%C3%A7%C3%A3o+de+Ofertas+2026
+                Lestetelecom.com.br/faq
               </Link>
             </p>
           </div>
