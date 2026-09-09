@@ -3,7 +3,7 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 
 export const metadata = {
-  title: "Atualização automática de oferta | Leste",
+  title: "Readequação de Ofertas 2026 | Leste",
   description:
     "Informações sobre a atualização automática de ofertas do portfólio da Leste.",
 };
@@ -55,7 +55,7 @@ export default function AtualizacaoAutomaticaDeOfertaPage() {
     <main className="bg-light">
       <div className="container py-12 md:py-16">
         <TitleFaq
-          title={<>Matriz 01 | Atualização automática de oferta</>}
+          title={<>Readequação de Ofertas 2026</>}
           eyebrow="Comunicado ao cliente"
           showBackButton={false}
         />
@@ -176,12 +176,12 @@ export default function AtualizacaoAutomaticaDeOfertaPage() {
             <p className="font-bold text-darkgreen">Conte conosco!</p>
 
             <p>
-              <strong>Saiba mais na categoria “Contratos” e “Planos” em:</strong>{" "}
+              <strong>Saiba mais clicando aqui:</strong>{" "}
               <Link
-                href="/faq"
+                href="/faq?categoria=Readequa%C3%A7%C3%A3o+de+Ofertas+2026"
                 className="font-semibold text-primary underline underline-offset-2"
               >
-                www.lestetelecom.com.br/faq
+                Lestetelecom.com.br/faq?categoria=Readequa%C3%A7%C3%A3o+de+Ofertas+2026
               </Link>
             </p>
           </div>
