@@ -17,6 +17,10 @@ const legalLinks = [
     label: "Outorga SCM",
     href: "/docs/anatellestescm.pdf",
   },
+  {
+    label: "Regulamento Geral de Direitos do Consumidor de Serviços de Telecom",
+    href: "/docs/RGC-Regulamento-Geral-de-Direitos-do-Consumidor.pdf",
+  },
 ];
 
 export default function InfoLegalPage() {
