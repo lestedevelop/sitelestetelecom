@@ -13,6 +13,7 @@ export function getCurrentDevice() {
 
 export function isAdvertActive(advert, now = new Date()) {
     if (!advert) return false;
+    if (advert.flags?.isValid === false) return false;
 
     const showTestAdverts =
         process.env.NODE_ENV !== "production" ||

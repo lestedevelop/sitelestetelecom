@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Input from "@/components/Form/FormComponents/Input";
 import { formCoporateSchema } from "@/schemas/FormSchemas";
-import { maskTelefone, maskCEP, maskCNPJ, onlyDigits } from "@/utils/masks";
+import { maskCelular, maskCEP, maskCNPJ } from "@/utils/masks";
 import {sendIndicacao} from "@/services/indicacao";
 import {toast} from "react-toastify";
 import SuccessCard from "@/components/cards/SuccessCard";
@@ -31,7 +31,7 @@ export default function FormConsultores() {
         defaultValues: {
             nome: "",
             email: "",
-            telefone: "",
+            celular: "",
             empresa: "",
             cep: "",
             numero: "",
@@ -39,7 +39,7 @@ export default function FormConsultores() {
         },
     });
 
-    const [telefone, setTelefone] = useState("");
+    const [celular, setCelular] = useState("");
     const [cep, setCep] = useState("");
     const [cnpj, setCnpj] = useState("");
 
@@ -97,16 +97,16 @@ export default function FormConsultores() {
                     />
 
                     <Input
-                        label="Telefone *"
-                        name="telefone"
+                        label="Celular *"
+                        name="celular"
                         register={register}
-                        error={errors.telefone?.message}
-                        placeholder="(XX) XXXX-XXXX"
-                        value={telefone}
+                        error={errors.celular?.message}
+                        placeholder="(XX) XXXXX-XXXX"
+                        value={celular}
                         onChange={(e) => {
-                            const masked = maskTelefone(e.target.value);
-                            setTelefone(masked);
-                            setValue("telefone", masked, { shouldValidate: true });
+                            const masked = maskCelular(e.target.value);
+                            setCelular(masked);
+                            setValue("celular", masked, { shouldValidate: true });
                         }}
                     />
 

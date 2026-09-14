@@ -13,13 +13,20 @@ import CardBanner from "@/components/cards/CardBanner";
 import bannerAssineOnline from "@/assets/cardBanner.webp";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {HomeManagedSection} from "@/pageComponents/home/sectionComponents";
+import BannerHome from "@/pageComponents/home/BannerHome";
+import HeroSlide from "@/pageComponents/home/HeroSlide";
 
 export default function Home() {
     const {getAdverts} = useHomeSections();
 
     return (
         <div className="min-h-full bg-light">
-            <HomeManagedSection sectionKey="bannerCentral" adverts={getAdverts("bannerCentral")}/>
+            <BannerHome
+                sectionKey="bannerCentral"
+                adverts={getAdverts("bannerCentral")}
+                fallback={<HeroSlide/>}
+                alt="Banner principal da Leste Telecom"
+            />
             <StreamingPlansSectionPreview />
             {/*<BannerUltraSection/>*/}
             <JaeClienteSection/>

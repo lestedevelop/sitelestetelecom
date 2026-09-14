@@ -1,8 +1,9 @@
 import Image from "next/image";
 import bannerCorporate from "@/assets/bannercoporate.webp";
 import TrackedLink from "@/components/links/TrackedLink";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
-export default function PmeHero() {
+function StaticPmeHero() {
   return (
     <section className="w-full bg-primary">
       <div className="relative min-h-[430px] overflow-hidden md:min-h-[520px]">
@@ -36,5 +37,18 @@ export default function PmeHero() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function PmeHero() {
+  return (
+    <BannerHome
+      sectionKey="bannerPme"
+      fallback={<StaticPmeHero/>}
+      alt="Banner PME"
+      className="min-h-[430px] md:min-h-[520px]"
+      desktopImageClassName="2xl:object-cover"
+      mobileImageClassName="object-cover"
+    />
   );
 }

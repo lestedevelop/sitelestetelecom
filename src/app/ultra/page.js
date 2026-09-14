@@ -12,6 +12,7 @@ import insta from "@/assets/icons/footer/insta.svg";
 import whatsapp from "@/assets/icons/footer/whatsapp.svg";
 import linkedin from "@/assets/icons/footer/linkedin.svg";
 import UltraLeadForm from "@/pageComponents/ultra/UltraLeadForm";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
 const plans = [
   {speed: "2.5", price: "500"},
@@ -141,7 +142,13 @@ function LogoUltra() {
 export default function Ultra() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#000806] text-white">
-      <section className="relative min-h-[600px] bg-black md:min-h-[730px]">
+      <BannerHome
+        sectionKey="bannerUltra"
+        alt="Banner Leste Ultra"
+        className="min-h-[600px] md:min-h-[730px]"
+        desktopImageClassName="2xl:object-cover"
+        mobileImageClassName="object-cover"
+        fallback={<section className="relative min-h-[600px] bg-black md:min-h-[730px]">
         <video
           className="absolute inset-0 h-full w-full object-cover object-top opacity-95"
           src={heroVideo}
@@ -170,7 +177,8 @@ export default function Ultra() {
             </p>
           </div>
         </div>
-      </section>
+      </section>}
+      />
 
       <section
         className="relative py-8 md:py-10"

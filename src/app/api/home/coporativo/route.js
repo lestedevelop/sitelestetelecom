@@ -10,7 +10,7 @@ export async function POST(req) {
         const payload = {
             name: body.nome,
             email: body.email,
-            cel: body.telefone,
+            cel: body.celular,
             empresa: body.empresa,
             cnpj: body.cnpj,
             numero: body.numero,

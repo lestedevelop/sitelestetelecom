@@ -5,8 +5,7 @@ import heroBanner from "@/assets/lesteup/banner-leste-up.png";
 import mobileBanner from "@/assets/lesteup/banner-mobile-crop.png";
 import whatsIcon from "@/assets/whatsIcon.svg";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
-import {useHomeSections} from "@/hooks/useHomeSections";
-import {resolveImageSrc} from "@/utils/imageSrc";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
 const WHATSAPP_URL = "https://wa.me/552120201300";
 
@@ -38,20 +37,16 @@ function PriceBlock({ align = "right" }) {
 }
 
 export default function LesteUpHero() {
-  const {getAdverts} = useHomeSections();
-  const advert = getAdverts("lesteUp")[0];
-  const advertImage = resolveImageSrc(advert, null);
-
-  return (
+  const fallback = (
     <section className="w-full ">
       <HomeHeroBanner
         alt="Banner do Leste Up"
         className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
         mobileImageClassName="object-cover object-center"
         contentClassName="flex items-start pt-8 md:items-center md:justify-end md:pb-0 md:pt-0"
-        desktopImage={advertImage || heroBanner}
-        tabletImage={advertImage || mobileBanner}
-        mobileImage={advertImage || mobileBanner}
+        desktopImage={heroBanner}
+        tabletImage={mobileBanner}
+        mobileImage={mobileBanner}
         desktopImageClassName="2xl:object-cover"
       >
         <div className="container px-6 md:px-16">
@@ -68,7 +63,7 @@ export default function LesteUpHero() {
 
             <div className="mt-4 flex-col items-start gap-3 md:mt-5 hidden md:flex">
               <a
-                href={advert?.cta?.href || WHATSAPP_URL}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#0fd7c1] px-4 py-2.5 text-xs font-semibold text-darkgreen transition hover:opacity-90 md:px-8 md:py-3 md:text-[1.1rem]"
@@ -86,7 +81,7 @@ export default function LesteUpHero() {
           </div>
           <div className="mt-4 flex-col items-center gap-3 md:mt-5 flex md:hidden w-full pt-24">
             <a
-                href={advert?.cta?.href || WHATSAPP_URL}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#0fd7c1] px-16 py-2.5 text-xs font-semibold text-darkgreen transition hover:opacity-90 md:px-8 md:py-3 md:text-[1.1rem]"
@@ -104,5 +99,16 @@ export default function LesteUpHero() {
         </div>
       </HomeHeroBanner>
     </section>
+  );
+
+  return (
+    <BannerHome
+      sectionKey="bannerLesteUp"
+      fallback={fallback}
+      alt="Banner do Leste Up"
+      className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
+      mobileImageClassName="object-cover object-center"
+      desktopImageClassName="2xl:object-cover"
+    />
   );
 }

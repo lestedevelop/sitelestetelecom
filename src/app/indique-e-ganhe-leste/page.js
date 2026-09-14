@@ -10,6 +10,7 @@ import bannerIndiqueTablet from "@/assets/banner-indique-tablet.png";
 import IndiqueHeroBanner from "@/pageComponents/indique-e-ganhe-leste/IndiqueHeroBanner";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
 const PARTICIPATION_STEPS = [
   {
@@ -46,23 +47,29 @@ const REGULATION_ITEMS = [
 
 export default function IndiqueEGanheLestePage() {
   const {getAdverts} = useHomeSections();
-  const bannerAdvert = getAdverts("indiqueGanheBanner")[0];
-  const bannerImage = resolveImageSrc(bannerAdvert, null);
   const formAdvert = getAdverts("indiqueGanheForm")[0];
   const formImage = resolveImageSrc(formAdvert, indiqueImage);
 
   return (
     <div className="min-h-full bg-light">
-      <section className="w-full">
-        <IndiqueHeroBanner
-          href={bannerAdvert?.cta?.href}
-          alt="Banner da página Indique e Ganhe"
-          className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
-          desktopImage={bannerImage || bannerIndique}
-          tabletImage={bannerImage || bannerIndiqueTablet}
-          mobileImage={bannerImage || bannerIndiqueMobile}
-        />
-      </section>
+      <BannerHome
+        sectionKey="indiqueGanheBanner"
+        alt="Banner da página Indique e Ganhe"
+        className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
+        desktopImageClassName="2xl:object-cover"
+        mobileImageClassName="object-cover"
+        fallback={
+          <section className="w-full">
+            <IndiqueHeroBanner
+              alt="Banner da página Indique e Ganhe"
+              className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
+              desktopImage={bannerIndique}
+              tabletImage={bannerIndiqueTablet}
+              mobileImage={bannerIndiqueMobile}
+            />
+          </section>
+        }
+      />
 
       <section className="w-full bg-light">
         <div className="container grid gap-8 py-10 md:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:py-16">

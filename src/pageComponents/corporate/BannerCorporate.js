@@ -1,7 +1,8 @@
 'use client'
 import {scrollToSection} from "@/utils/scrollToSection";
+import BannerHome from "@/pageComponents/home/BannerHome";
 
-export default function BannerCorporate() {
+function StaticBannerCorporate() {
     return (
         <section
             className="mt-[120px] md:mt-[155px] w-full bg-[url('/bannercorporate-mobile.png')] md:bg-[url('/bannercoporate.png')] bg-cover bg-no-repeat bg-center md:bg-top">
@@ -23,4 +24,17 @@ export default function BannerCorporate() {
             </div>
         </section>
     )
+}
+
+export default function BannerCorporate() {
+    return (
+        <BannerHome
+            sectionKey="bannerCorporate"
+            fallback={<StaticBannerCorporate/>}
+            alt="Banner Leste Corporate"
+            className="mt-[120px] md:mt-[155px] min-h-[430px] md:min-h-[580px]"
+            desktopImageClassName="2xl:object-cover"
+            mobileImageClassName="object-cover"
+        />
+    );
 }
