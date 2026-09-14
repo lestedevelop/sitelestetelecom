@@ -4,14 +4,20 @@ import {coreApi} from "@/lib/coreApi";
 export const dynamic = "force-dynamic";
 
 export async function GET(req) {
-    const id = new URL(req.url).searchParams.get("id");
+    const searchParams = new URL(req.url).searchParams;
+    const id = searchParams.get("id")?.trim();
+    const codcid = searchParams.get("codcid")?.trim();
+
     if (!id || !/^\d+$/.test(id)) {
         return NextResponse.json({message: "id invalido"}, {status: 400});
     }
 
     try {
         const response = await coreApi.get("/api/sac/externo/home/image", {
-            params: {id},
+            params: {
+                id,
+                codcid: codcid || undefined,
+            },
             responseType: "arraybuffer",
         });
 

@@ -1,44 +1,43 @@
-import { NextResponse } from "next/server";
-import { coreApi } from "@/lib/coreApi";
+import {NextResponse} from "next/server";
+import {coreApi} from "@/lib/coreApi";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(req) {
+    const searchParams = new URL(req.url).searchParams;
+    const id = searchParams.get("id")?.trim();
+    const codcid = searchParams.get("codcid")?.trim();
+
+    if (!id || !/^\d+$/.test(id)) {
+        return NextResponse.json({message: "id invalido"}, {status: 400});
+    }
+
     try {
-        const codcid = new URL(req.url).searchParams.get("codcid")?.trim();
-        const response = await coreApi.get("/api/sac/externo/channels", {
-            params: codcid ? {codcid} : undefined,
+        const response = await coreApi.get("/api/sac/externo/home/image", {
+            params: {
+                id,
+                codcid: codcid || undefined,
+            },
+            responseType: "arraybuffer",
         });
 
-        return NextResponse.json(response.data, {
+        return new NextResponse(response.data, {
             status: 200,
             headers: {
-                "Cache-Control": "no-store",
-                "X-Debug-Codcid": codcid || "not-sent",
+                "Content-Type":
+                    response.headers["content-type"] ||
+                    "application/octet-stream",
+                "Cache-Control":
+                    "private, no-store, no-cache, must-revalidate, max-age=0",
+                "Pragma": "no-cache",
+                "Expires": "0",
             },
         });
     } catch (error) {
         const status = error?.response?.status || 500;
-        const data = error?.response?.data;
-        const message =
-            data?.message ||
-            data?.error ||
-            error?.message ||
-            "Erro ao validar viabilidade";
-
-        console.error("CORE TEST FAIL", {
-            status,
-            message,
-            responseData: data,
-            coreApiBase: process.env.CORE_API_URL,
-            keyPrefix: (process.env.INSTITUCIONAL_KEY || "").slice(0, 6) + "***",
-        });
-
         return NextResponse.json(
-            {
-                message,
-                status,
-                details: data || null,
-            },
-            { status }
+            {message: "Erro ao buscar imagem da home"},
+            {status}
         );
     }
 }
