@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lestePlayChannels.test.mjs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="1127" />
+    <option name="cachedIndexableFilesCount" value="1365" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -22,9 +23,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="1278b04e-a44b-4484-9ead-d2c0489be8cd" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -174,7 +172,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.8665.341" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -213,6 +211,12 @@
       <workItem from="1786363172329" duration="14609000" />
       <workItem from="1787862035239" duration="3176000" />
       <workItem from="1788448022417" duration="1255000" />
+      <workItem from="1789141275362" duration="688000" />
+      <workItem from="1789148744264" duration="3232000" />
+      <workItem from="1789183152916" duration="6050000" />
+      <workItem from="1789361742310" duration="3555000" />
+      <workItem from="1789403829551" duration="2018000" />
+      <workItem from="1789485961780" duration="4608000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -526,7 +530,39 @@
       <option name="project" value="LOCAL" />
       <updated>1788530192461</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fix: codcid rota /home">
+      <option name="closed" value="true" />
+      <created>1789367360995</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1789367360995</updated>
+    </task>
+    <task id="LOCAL-00041" summary="++">
+      <option name="closed" value="true" />
+      <created>1789403972131</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1789403972131</updated>
+    </task>
+    <task id="LOCAL-00042" summary="++">
+      <option name="closed" value="true" />
+      <created>1789405003624</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1789405003624</updated>
+    </task>
+    <task id="LOCAL-00043" summary="++">
+      <option name="closed" value="true" />
+      <created>1789487099126</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1789487099126</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,6 +585,7 @@
     <MESSAGE value="Selo GoDaddy" />
     <MESSAGE value="Ajuste Plano Promocional + Idafiliado" />
     <MESSAGE value="Ajustes Doc 10/07/2026" />
+    <MESSAGE value="Fix: codcid rota /home" />
     <MESSAGE value="++" />
     <option name="LAST_COMMIT_MESSAGE" value="++" />
   </component>

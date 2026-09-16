@@ -23,26 +23,29 @@ export function useHomeSections() {
     useEffect(() => {
         if (!hydrated) return;
 
-        const controller = new AbortController();
+        let disposed = false;
         const query = codcid ? `?codcid=${encodeURIComponent(codcid)}` : "";
 
         fetch(`/api/home/content${query}`, {
-            signal: controller.signal,
             cache: "no-store",
         })
             .then((response) => {
                 if (!response.ok) throw new Error("Erro ao buscar secoes da home");
                 return response.json();
             })
-            .then(setHome)
+            .then((payload) => {
+                if (!disposed) setHome(payload);
+            })
             .catch((fetchError) => {
-                if (fetchError.name !== "AbortError") setError(fetchError);
+                if (!disposed) setError(fetchError);
             })
             .finally(() => {
-                if (!controller.signal.aborted) setLoading(false);
+                if (!disposed) setLoading(false);
             });
 
-        return () => controller.abort();
+        return () => {
+            disposed = true;
+        };
     }, [codcid, hydrated]);
 
     const sectionsByKey = useMemo(
