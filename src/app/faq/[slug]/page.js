@@ -4,13 +4,15 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import FaqContentRenderer from "@/pageComponents/faq/structured/FaqContentRenderer";
 import { getFaqBySlug } from "@/lib/faq";
 import { getConfiguredFaqCategory } from "@/lib/faqData";
+import { getIpv4PublicoFaqBySlug } from "@/lib/ipv4PublicoFaqs";
 import { getLestePlayFaqBySlug } from "@/lib/lestePlayFaqs";
 import { getReadequacaoFaqBySlug } from "@/lib/readequacaoFaqs";
 
 export default async function StructuredFaqPage({ params, searchParams }) {
   const { slug } = await params;
   const query = await searchParams;
-  const faq = getReadequacaoFaqBySlug(slug) ||
+  const faq = getIpv4PublicoFaqBySlug(slug) ||
+    getReadequacaoFaqBySlug(slug) ||
     getLestePlayFaqBySlug(slug) ||
     await getFaqBySlug(slug, { includeTest: query?.isTeste === "1" });
 
