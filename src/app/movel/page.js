@@ -12,6 +12,7 @@ import shield from "@/assets/icons/shield.svg";
 import Image from "next/image";
 import FooterMovel from "@/pageComponents/movel/FooterMovel";
 import lestemovel from "@/assets/5g.png";
+import Link from "next/link";
 
 export default function Movel() {
 
@@ -34,16 +35,20 @@ export default function Movel() {
                             </p>
                         </div>
                         <div className={"flex items-center h-24 md:w-96 justify-between"}>
-                            <div className={"flex items-center gap-x-4 w-48"}>
-                                <Image className={"w-[29px] h-[36px]"} src={playstore} alt={"playstore"}/>
-                                <p className={"text-darkgreen"}>Baixar no<span className={"font-bold"}><br/> Play Store</span>
-                                </p></div>
+                            <Link target={"_blank"} href={"https://play.google.com/store/apps/details?id=app.mobile.leste&hl=pt_BR"}>
+                                <div className={"flex items-center gap-x-4 w-48"}>
+                                    <Image className={"w-[29px] h-[36px]"} src={playstore} alt={"playstore"}/>
+                                    <p className={"text-darkgreen"}>Baixar no<span className={"font-bold"}><br/> Play Store</span>
+                                    </p></div>
+                            </Link>
+                            <Link target={"_blank"}  href={"https://apps.apple.com/br/app/leste-m%C3%B3vel/id6449548594"}>
                             <div className={"flex items-center gap-x-4 w-48"}>
                                 <Image className={"w-[29px] h-[36px]"} src={appstore} alt={"appstore"}/>
                                 <p className={"text-darkgreen"}>Baixar no <span
                                     className={"font-bold"}><br/>App Store</span>
                                 </p>
                             </div>
+                            </Link>
                         </div>
                         <div className={"max-w-screen md:hidden  overflow-hidden"}>
                             <Image src={imagemMovel} alt={""} className={""}/>
