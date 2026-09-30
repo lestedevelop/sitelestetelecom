@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSite } from "@/contexts/SiteContext";
 
 export function useHomeData() {
@@ -6,18 +6,17 @@ export function useHomeData() {
 
     const cityId = codcid || site?.city?.value || ""; //
 
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [requestResult, setRequestResult] = useState({ cityId: null, error: null });
+    const setPlanosRef = useRef(setPlanos);
 
     useEffect(() => {
-        if (!cityId) return;
+        setPlanosRef.current = setPlanos;
+    }, [setPlanos]);
+
+    useEffect(() => {
+        if (!cityId) return undefined;
 
         const controller = new AbortController();
-
-        setLoading(true);
-        setError(null);
-
-        setPlanos?.([]);
 
         fetch(`/api/home?cidade=${cityId}`, { signal: controller.signal })
             .then(async (r) => {
@@ -31,22 +30,24 @@ export function useHomeData() {
                 return response;
             })
             .then((res) => {
-                setPlanos(res?.planos || res || []);
+                if (controller.signal.aborted) return;
+                setPlanosRef.current(res?.data?.planos || res?.data || res?.planos || []);
+                setRequestResult({ cityId, error: null });
             })
             .catch((err) => {
-                if (err.name !== "AbortError") {
-                    console.error("HOME FETCH FAIL:", err);
-                    setError(err);
+                if (err.name !== "AbortError" && !controller.signal.aborted) {
+                    // A home pode continuar com o conteúdo já carregado quando a API estiver indisponível.
+                    console.warn("HOME FETCH FAIL:", err.message);
+                    setRequestResult({ cityId, error: err });
                 }
-            })
-            .finally(() => setLoading(false));
+            });
 
         return () => controller.abort();
     }, [cityId]);
 
     return {
         planos: site?.planos || [],
-        loading,
-        error,
+        loading: Boolean(cityId) && requestResult.cityId !== cityId,
+        error: requestResult.cityId === cityId ? requestResult.error : null,
     };
 }
