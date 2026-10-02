@@ -9,6 +9,9 @@ import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 import TrackingParamsSync from "@/components/links/TrackingParamsSync";
 import {isVendasPathname} from "@/lib/gtm/site";
 
+const SHOW_WHATSAPP_BUTTON = process.env.NEXT_PUBLIC_SHOW_WHATSAPP_BUTTON !== "false";
+const SHOW_CHATBOT_BUTTON = process.env.NEXT_PUBLIC_SHOW_CHATBOT_BUTTON !== "false";
+
 export default function RootShell({children}) {
     const pathname = usePathname();
     const layoutOverrideRoutes = ["/movel","/corporate","/vendas", "/ultra"];
@@ -35,7 +38,7 @@ export default function RootShell({children}) {
             </Suspense>
             <AppBarNew/>
             {children}
-            <WhatsAppFloating/>
+            {SHOW_WHATSAPP_BUTTON || SHOW_CHATBOT_BUTTON ? <WhatsAppFloating showWhatsApp={SHOW_WHATSAPP_BUTTON} showChatbot={SHOW_CHATBOT_BUTTON}/> : null}
             <ToastContainer
                 position="top-right"
                 autoClose={4000}
