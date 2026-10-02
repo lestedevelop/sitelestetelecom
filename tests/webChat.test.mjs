@@ -7,11 +7,13 @@ const moduleUrl = `data:text/javascript;base64,${Buffer.from(source).toString("b
 const {
   CHAT_STORAGE_KEY,
   createChatStartPayload,
+  getChatSocketAuth,
   getChatBootstrapMessages,
   loadStoredChat,
   mergeMessages,
   normalizeMessage,
   normalizeTurn,
+  prepareOutboxEvent,
 } = await import(moduleUrl);
 
 test("inicia o fluxo com o CPF no documento e escolhe a entrada conforme o público", () => {
@@ -63,6 +65,35 @@ test("não duplica mensagens recebidas novamente pelo stream", () => {
   const first = { id: "1", text: "Olá" };
   const second = { id: "2", text: "Tudo bem?" };
   assert.deepEqual(mergeMessages([first], [first, second]), [first, second]);
+  assert.deepEqual(mergeMessages([first], [second, second]), [first, second]);
+});
+
+test("guarda o ID real da última mensagem como cursor, sem usar IDs locais", () => {
+  const turn = normalizeTurn({
+    message: "texto enviado pelo visitante",
+    responses: [{ _id: "outbox-41", text: "Resposta correta" }],
+  });
+  assert.equal(turn.messages[0].text, "Resposta correta");
+  assert.equal(turn.messages[0].id, "outbox-41");
+  assert.equal(turn.cursor, "outbox-41");
+  assert.equal(normalizeTurn({ message: "Sem ID do servidor" }).cursor, "");
+});
+
+test("recupera o ID do envelope de evento para deduplicar e retomar o socket", () => {
+  const event = prepareOutboxEvent({ id: "outbox-42", agent_message: { text: "Mensagem perdida" } });
+  const turn = normalizeTurn(event);
+  assert.equal(turn.messages[0].id, "outbox-42");
+  assert.equal(turn.cursor, "outbox-42");
+  assert.deepEqual(mergeMessages(turn.messages, normalizeTurn(prepareOutboxEvent({ id: "outbox-42", message: "Mensagem perdida" })).messages), turn.messages);
+  assert.deepEqual(getChatSocketAuth("session-1", { sessionId: "session-1", cursor: turn.cursor }), {
+    sessionId: "session-1",
+    after: "outbox-42",
+  });
+  assert.deepEqual(getChatSocketAuth("session-2", { sessionId: "session-1", cursor: turn.cursor }), { sessionId: "session-2" });
+  const wrapped = normalizeTurn(prepareOutboxEvent({ data: { id: "outbox-43", message: "Mais uma resposta" }, sessionId: "session-1" }));
+  assert.equal(wrapped.messages[0].id, "outbox-43");
+  assert.equal(wrapped.sessionId, "session-1");
+  assert.equal(wrapped.cursor, "outbox-43");
 });
 
 test("normaliza mídia, links e PIX sem aceitar protocolos inseguros", () => {
@@ -85,4 +116,12 @@ test("descarta sessão local expirada", () => {
   };
   assert.equal(loadStoredChat(storage, 100), null);
   assert.equal(values.has(CHAT_STORAGE_KEY), false);
+});
+
+test("carrega o cursor persistido junto da sessão", () => {
+  const storage = {
+    getItem: () => JSON.stringify({ sessionId: "session-1", cursor: "outbox-42", messages: [], expiresAt: 200 }),
+    removeItem: () => assert.fail("Sessão ativa não deve ser removida"),
+  };
+  assert.equal(loadStoredChat(storage, 100).cursor, "outbox-42");
 });

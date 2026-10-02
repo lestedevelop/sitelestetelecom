@@ -5,6 +5,7 @@ import blogUp from "@/assets/blog/blog-lesteup.png";
 import blogFibra from "@/assets/blog/blog-fibra.png";
 import blogLestePlay from "@/assets/blog/leste-play.webp";
 import blogRa1000 from "@/assets/blog/selo-ra1000.jpg";
+import expoLugRio2026 from "@/assets/blog/expo-lug-rio-2026.png";
 import post1 from "@/assets/blog/post1.webp";
 import post2 from "@/assets/blog/post2.webp";
 import post3 from "@/assets/blog/post3.webp";
@@ -18,6 +19,7 @@ const BLOG_IMAGES = {
   blogFibra,
   blogLestePlay,
   blogRa1000,
+  expoLugRio2026,
   post1,
   post2,
   post3,

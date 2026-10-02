@@ -22,6 +22,15 @@ function firstString(...values) {
   return values.find((value) => typeof value === "string" && value.trim())?.trim() || "";
 }
 
+function messageId(message) {
+  if (!message || typeof message !== "object") return "";
+  return firstString(message.id, message._id, message.messageId, message.message_id);
+}
+
+function lastMessageId(messages) {
+  return [...asArray(messages)].reverse().map(messageId).find(Boolean) || "";
+}
+
 function safeUrl(value) {
   if (typeof value !== "string") return "";
   try {
@@ -108,6 +117,7 @@ export function normalizeMessage(message, fallbackId = "message") {
     message.fallback_text,
     message.body,
     message.content,
+    message.message,
     raw?.caption,
   );
   const media = mediaFrom(message);
@@ -116,7 +126,7 @@ export function normalizeMessage(message, fallbackId = "message") {
   if (!text && !media && !pix && options.length === 0) return null;
 
   return {
-    id: firstString(message.id, message.messageId, message.message_id, fallbackId),
+    id: firstString(messageId(message), fallbackId),
     role: ["user", "visitor", "client"].includes(message.role || message.sender) ? "user" : "assistant",
     text,
     options,
@@ -131,12 +141,12 @@ export function normalizeTurn(payload) {
       messages: payload.map((message, index) => normalizeMessage(message, `message-${Date.now()}-${index}`)).filter(Boolean),
       sessionId: "",
       status: "",
-      cursor: "",
+      cursor: lastMessageId(payload),
     };
   }
-  if (!payload || typeof payload !== "object") return { messages: [], sessionId: "", status: "" };
+  if (!payload || typeof payload !== "object") return { messages: [], sessionId: "", status: "", cursor: "" };
   const body = payload.data && typeof payload.data === "object" ? payload.data : payload;
-  const candidates = body.messages ?? body.message ?? body.responses ?? body.output ?? body.result?.messages ?? [];
+  const candidates = body.messages ?? body.responses ?? body.output ?? body.result?.messages ?? body.agent_message ?? body.message ?? [];
   const messages = asArray(candidates)
     .map((message, index) => normalizeMessage(message, `message-${Date.now()}-${index}`))
     .filter(Boolean);
@@ -145,13 +155,45 @@ export function normalizeTurn(payload) {
     messages,
     sessionId: firstString(body.sessionId, body.session_id, body.session?.id, payload.sessionId),
     status: firstString(body.status, body.session?.status, payload.status).toLowerCase(),
-    cursor: firstString(body.cursor, body.lastId, body.last_id, body.eventId),
+    cursor: firstString(body.cursor, body.lastId, body.last_id, body.eventId, body.event_id, payload.cursor, lastMessageId(candidates)),
   };
+}
+
+export function prepareOutboxEvent(payload) {
+  const wrapper = payload && typeof payload === "object" ? payload : { message: payload };
+  const body = wrapper.data && typeof wrapper.data === "object" ? wrapper.data : wrapper;
+  const source = body.messages ?? body.agent_message ?? body.message ?? body;
+  const entries = asArray(source);
+  const envelopeId = firstString(body.cursor, body.lastId, body.last_id, body.eventId, body.event_id, body.id, body._id, body.messageId, body.message_id, wrapper.cursor, wrapper.id);
+  const messages = entries.map((entry) => {
+    if (entry && typeof entry === "object") {
+      return messageId(entry) || entries.length !== 1 || !envelopeId ? entry : { ...entry, id: envelopeId };
+    }
+    return { ...(entries.length === 1 && envelopeId ? { id: envelopeId } : {}), text: String(entry ?? "") };
+  });
+  return {
+    ...body,
+    sessionId: firstString(body.sessionId, body.session_id, wrapper.sessionId, wrapper.session_id),
+    status: firstString(body.status, wrapper.status),
+    messages,
+    cursor: envelopeId || lastMessageId(entries),
+  };
+}
+
+export function getChatSocketAuth(sessionId, chat) {
+  const cursor = chat?.sessionId === sessionId ? firstString(chat.cursor) : "";
+  return { sessionId, ...(cursor ? { after: cursor } : {}) };
 }
 
 export function mergeMessages(current, incoming) {
   const seen = new Set(current.map((message) => message.id));
-  return [...current, ...incoming.filter((message) => !seen.has(message.id))];
+  const merged = [...current];
+  for (const message of incoming) {
+    if (seen.has(message.id)) continue;
+    seen.add(message.id);
+    merged.push(message);
+  }
+  return merged;
 }
 
 export function isTerminalStatus(status) {
@@ -165,7 +207,7 @@ export function loadStoredChat(storage, now = Date.now()) {
       storage.removeItem(CHAT_STORAGE_KEY);
       return null;
     }
-    return { ...value, messages: Array.isArray(value.messages) ? value.messages : [] };
+    return { ...value, cursor: firstString(value.cursor), messages: Array.isArray(value.messages) ? value.messages : [] };
   } catch {
     storage.removeItem(CHAT_STORAGE_KEY);
     return null;

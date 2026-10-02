@@ -1,18 +1,20 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, Check, Copy, ExternalLink, Headphones, LoaderCircle, RefreshCw, Send, X } from "lucide-react";
+import { ArrowLeft, Check, Copy, ExternalLink, Headphones, LoaderCircle, Minimize2, RefreshCw, Send, X } from "lucide-react";
 import { io } from "socket.io-client";
 import LesteChatAuth from "@/components/layout/LesteChatAuth";
 import {
   CHAT_SESSION_DURATION_MS,
   CHAT_STORAGE_KEY,
   createChatStartPayload,
+  getChatSocketAuth,
   getChatBootstrapMessages,
   isTerminalStatus,
   loadStoredChat,
   mergeMessages,
   normalizeTurn,
+  prepareOutboxEvent,
   retryDelay,
 } from "@/lib/webChat";
 
@@ -77,7 +79,7 @@ function Message({ message, disabled, onOption }) {
   );
 }
 
-export default function LesteChat({ onBack, onClose }) {
+export default function LesteChat({ onBack, onClose, onMinimize }) {
   const [chat, setChat] = useState(null);
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(true);
@@ -102,12 +104,15 @@ export default function LesteChat({ onBack, onClose }) {
   const applyTurn = useCallback((payload, base = chatRef.current) => {
     const turn = normalizeTurn(payload);
     if (!base && !turn.sessionId) return null;
+    const previousMessages = base?.messages || [];
+    const hasNewMessages = turn.messages.some((message) => !previousMessages.some((previous) => previous.id === message.id));
+    const sessionChanged = Boolean(base?.sessionId && turn.sessionId && turn.sessionId !== base.sessionId);
     const next = {
       ...(base || {}),
       sessionId: turn.sessionId || base?.sessionId,
       status: turn.status || base?.status || "active",
-      cursor: turn.cursor || base?.cursor || "",
-      messages: mergeMessages(base?.messages || [], turn.messages),
+      cursor: sessionChanged ? turn.cursor : turn.cursor && (hasNewMessages || !base?.cursor) ? turn.cursor : base?.cursor || "",
+      messages: mergeMessages(previousMessages, turn.messages),
       expiresAt: base?.expiresAt || Date.now() + CHAT_SESSION_DURATION_MS,
     };
     persist(next);
@@ -120,7 +125,7 @@ export default function LesteChat({ onBack, onClose }) {
       method: "POST",
       body: JSON.stringify({ message: "Olá" }),
     });
-    return applyTurn(payload, session);
+    return applyTurn(payload);
   }, [applyTurn]);
 
   const start = useCallback(async (context = null) => {
@@ -177,7 +182,7 @@ export default function LesteChat({ onBack, onClose }) {
     if (!sessionId || isTerminalStatus(chat.status)) return;
 
     const socket = io(CHAT_SOCKET_URL, {
-      auth: { sessionId },
+      auth: (callback) => callback(getChatSocketAuth(sessionId, chatRef.current)),
       transports: ["websocket", "polling"],
       reconnection: true,
       reconnectionDelay: 1000,
@@ -196,9 +201,7 @@ export default function LesteChat({ onBack, onClose }) {
       setError("");
     };
     const applyAgentMessage = (payload) => {
-      const agentMessage = payload?.agent_message || payload?.message || payload;
-      const messages = Array.isArray(payload?.messages) ? payload.messages : [agentMessage];
-      applyTurn({ ...payload, messages });
+      applyTurn(prepareOutboxEvent(payload));
       finishPendingSend();
       setError("");
     };
@@ -264,7 +267,7 @@ export default function LesteChat({ onBack, onClose }) {
         if (socketError) {
           setError("A resposta demorou mais que o esperado. Tente novamente.");
         } else {
-          applyTurn(payload, optimistic);
+          applyTurn(payload);
         }
         setSending(false);
       });
@@ -275,7 +278,7 @@ export default function LesteChat({ onBack, onClose }) {
         method: "POST",
         body: JSON.stringify({ message: content }),
       });
-      applyTurn(payload, optimistic);
+      applyTurn(payload);
     } catch (cause) {
       setError(cause.message);
       if (cause.status === 429) setTimeout(() => setError("Você já pode tentar enviar novamente."), cause.retryAfter);
@@ -287,15 +290,16 @@ export default function LesteChat({ onBack, onClose }) {
   const ended = isTerminalStatus(chat?.status);
 
   return (
-    <section className="flex h-[min(680px,calc(100dvh-40px))] w-[min(400px,calc(100vw-24px))] flex-col overflow-hidden rounded-2xl border border-black/10 bg-[#f4f7f6] shadow-[0_18px_50px_rgba(0,0,0,.22)]" role="dialog" aria-label="Chat de atendimento Leste">
-      <header className="flex items-center gap-3 bg-darkgreen px-4 py-3 text-white">
+    <section className="fixed inset-0 flex h-[100dvh] w-screen min-h-0 flex-col overflow-hidden bg-[#f4f7f6] overscroll-contain sm:static sm:h-[min(680px,calc(100dvh-40px))] sm:w-[min(400px,calc(100vw-24px))] sm:rounded-2xl sm:border sm:border-black/10 sm:shadow-[0_18px_50px_rgba(0,0,0,.22)]" role="dialog" aria-label="Chat de atendimento Leste">
+      <header className="flex shrink-0 items-center gap-3 bg-darkgreen px-4 py-3 pt-[calc(0.75rem+env(safe-area-inset-top))] text-white sm:pt-3">
         <button type="button" onClick={onBack} className="grid h-9 w-9 place-items-center rounded-full hover:bg-white/10" aria-label="Voltar às opções"><ArrowLeft className="h-5 w-5" /></button>
         <span className="grid h-10 w-10 place-items-center rounded-full bg-white/15"><Headphones className="h-5 w-5" /></span>
         <div className="min-w-0 flex-1"><h2 className="text-sm font-bold">Atendimento Leste</h2><p className="text-xs text-white/75">{!authComplete ? "Identificação segura" : chat?.status === "handoff" ? "Atendimento com nossa equipe" : realtimeConnected ? "Assistente virtual • tempo real" : "Assistente virtual"}</p></div>
+        <button type="button" onClick={onMinimize} className="grid h-9 w-9 place-items-center rounded-full hover:bg-white/10 sm:hidden" aria-label="Minimizar chat"><Minimize2 className="h-5 w-5" /></button>
         <button type="button" onClick={onClose} className="grid h-9 w-9 place-items-center rounded-full hover:bg-white/10" aria-label="Fechar chat"><X className="h-5 w-5" /></button>
       </header>
 
-      {!authComplete ? <LesteChatAuth onAuthenticated={handleAuthenticated} /> : <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
+      {!authComplete ? <LesteChatAuth onAuthenticated={handleAuthenticated} /> : <div className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain px-4 py-4" aria-live="polite">
         {loading ? <div className="flex h-full items-center justify-center text-primary"><LoaderCircle className="h-7 w-7 animate-spin" /></div> : null}
         {!loading && !chat?.messages?.length && !error ? <p className="mx-auto mt-8 max-w-64 text-center text-sm text-graylight">Iniciando seu atendimento…</p> : null}
         {chat?.messages?.map((message) => <Message key={message.id} message={message} disabled={sending || ended} onOption={send} />)}
@@ -305,7 +309,7 @@ export default function LesteChat({ onBack, onClose }) {
         <div ref={bottomRef} />
       </div>}
 
-      {authComplete ? <form className="flex items-end gap-2 border-t border-graylighter bg-white p-3" onSubmit={(event) => { event.preventDefault(); send(); }}>
+      {authComplete ? <form className="flex shrink-0 items-end gap-2 border-t border-graylighter bg-white p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] sm:pb-3" onSubmit={(event) => { event.preventDefault(); send(); }}>
         <label className="sr-only" htmlFor="leste-chat-message">Digite sua mensagem</label>
         <textarea id="leste-chat-message" rows={1} maxLength={2000} value={draft} disabled={loading || sending || ended || !chat?.sessionId} onChange={(event) => setDraft(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); send(); } }} placeholder="Digite sua mensagem" className="max-h-28 min-h-11 flex-1 resize-none rounded-xl border border-graylighter px-3 py-2.5 text-sm text-darkgreen outline-none focus:border-primary disabled:bg-light" />
         <button type="submit" disabled={!draft.trim() || sending || ended || !chat?.sessionId} className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary text-white transition hover:bg-darkgreen disabled:cursor-not-allowed disabled:opacity-40" aria-label="Enviar mensagem"><Send className="h-5 w-5" /></button>

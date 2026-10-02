@@ -6,7 +6,9 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import {BLOG_POSTS, getBlogPostBySlug, getRecentBlogPosts} from "@/mocks/blogPosts";
 
 function formatDate(date) {
-  return new Date(date).toLocaleDateString("pt-BR", {
+  const [year, month, day] = date.split("-").map(Number);
+
+  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -99,6 +101,32 @@ export default async function BlogPostPage({params}) {
               );
             }
 
+            if (typeof block === "object" && block.type === "linkedParagraph") {
+              return (
+                <p key={`${block.type}-${index}`} className="mb-6">
+                  {block.text}{" "}
+                  <a
+                    href={block.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-primary underline underline-offset-4"
+                  >
+                    {block.linkText}
+                  </a>
+                </p>
+              );
+            }
+
+            if (typeof block === "object" && block.type === "lines") {
+              return (
+                <div key={`${block.type}-${index}`} className="mb-7 space-y-1">
+                  {block.items.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              );
+            }
+
             const paragraph = String(block);
 
             return (
@@ -139,7 +167,7 @@ export default async function BlogPostPage({params}) {
         </div>
 
         <p className="mt-12 text-sm text-graylight">
-          Ultima revisao em: {formatDate(post.date)}
+          Última revisão em: {formatDate(post.date)}
         </p>
       </article>
 

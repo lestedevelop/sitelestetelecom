@@ -225,7 +225,7 @@ export default function LesteChatAuth({ onAuthenticated }) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto px-5 py-5 text-darkgreen">
+    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 text-darkgreen">
       {step === "audience" ? <div className="mx-auto flex max-w-sm flex-col items-center pt-5 text-center">
         <span className="grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary"><ShieldCheck className="h-7 w-7" /></span>
         <h3 className="mt-4 text-lg font-bold">Vamos identificar você</h3>

@@ -4,7 +4,9 @@ import TitleFaq from "@/pageComponents/faq/TitleFaq";
 import {BLOG_POSTS} from "@/mocks/blogPosts";
 
 function formatDate(date) {
-  return new Date(date).toLocaleDateString("pt-BR", {
+  const [year, month, day] = date.split("-").map(Number);
+
+  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "short",
     year: "numeric",

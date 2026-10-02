@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/lestePlayChannels.test.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/LesteChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LesteChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/LesteChatAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LesteChatAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/WhatsAppFloating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/WhatsAppFloating.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/webChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/webChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/webChat.test.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/webChat.test.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="1365" />
+    <option name="cachedIndexableFilesCount" value="1362" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -109,7 +113,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;codex/chat-vercel-preview&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
@@ -216,7 +220,11 @@
       <workItem from="1789183152916" duration="6050000" />
       <workItem from="1789361742310" duration="3555000" />
       <workItem from="1789403829551" duration="2018000" />
-      <workItem from="1789485961780" duration="4608000" />
+      <workItem from="1789485961780" duration="9429000" />
+      <workItem from="1789657297485" duration="18000" />
+      <workItem from="1790176544381" duration="1299000" />
+      <workItem from="1790718230901" duration="8751000" />
+      <workItem from="1790950320294" duration="1195000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />
@@ -562,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789487099126</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="++">
+      <option name="closed" value="true" />
+      <created>1789540233729</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1789540233729</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

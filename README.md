@@ -22,6 +22,8 @@ npm run lint
 
 O ambiente de desenvolvimento roda com Turbopack via `next dev --turbopack`.
 
+Para esconder a opção de WhatsApp do widget e abrir o chat diretamente pelo botão flutuante, use `NEXT_PUBLIC_SHOW_WHATSAPP_BUTTON=false` no `.env`. O padrão, quando a variável não está definida, é mostrar a opção. Como arquivos `.env` não são versionados, configure a mesma variável no ambiente de deploy quando necessário.
+
 ## Deploy com PM2
 
 No servidor, instale dependências, gere a build e suba o processo pelo arquivo `ecosystem.config.cjs`:

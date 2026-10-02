@@ -1,5 +1,45 @@
 [
   {
+    "id": "11",
+    "slug": "4-expo-lug-rio-2026",
+    "title": "4ª Expo LUG Rio 2026: criatividade e diversão em Niterói!",
+    "excerpt": "Nos dias 2, 3 e 4 de outubro, o Plaza Niterói recebe uma edição gratuita da Expo LUG Rio com construções inspiradas no universo medieval e nos jogos.",
+    "category": "Notícias",
+    "author": "Leste Telecom",
+    "date": "2026-09-30",
+    "readingTime": "2 min de leitura",
+    "imageKey": "expoLugRio2026",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "Castelos, personagens, cenários e diferentes criações prometem despertar a curiosidade de quem passar pela 4ª Expo LUG Rio 2026. A exposição convida o público a explorar de perto construções cheias de detalhes e descobrir novas possibilidades dentro desse universo.",
+      "Além de conhecer as criações expostas, os visitantes poderão participar de atividades e aproveitar diferentes atrações ao longo da programação. A experiência foi pensada para crianças, jovens e adultos, reunindo diversão e criatividade em um passeio para toda a família.",
+      "Nesta edição, o universo medieval e os jogos ganham espaço entre as construções, trazendo novas referências e experiências para quem já acompanha a Expo LUG Rio e também para quem está conhecendo o evento pela primeira vez.",
+      {
+        "type": "linkedParagraph",
+        "text": "Quer conhecer um pouco mais da Expo LUG Rio?",
+        "linkText": "Veja como foi a 3ª edição.",
+        "href": "https://www.instagram.com/reel/DPmd_RllBUn/?stkn=YWtybDh5NjZxeWRi"
+      },
+      "A Leste é patrocinadora da 4ª Expo LUG Rio 2026 e convida clientes, famílias e todo o público da região para participar. A parceria reforça a presença da Leste em experiências que aproximam pessoas e incentivam a criatividade, a diversão e a conexão.",
+      {
+        "type": "heading",
+        "text": "Anote na agenda!"
+      },
+      {
+        "type": "lines",
+        "items": [
+          "2 e 3 de outubro: 10h às 22h",
+          "4 de outubro: 12h às 21h",
+          "Local: Plaza Niterói, Piso L3",
+          "Entrada gratuita"
+        ]
+      },
+      "Reúna a família e venha aproveitar a 4ª Expo LUG Rio 2026 com a Leste!"
+    ]
+  },
+  {
     "id": "10",
     "slug": "importancia-de-contratar-uma-empresa-com-selo-ra1000",
     "title": "Por que escolher uma empresa com selo RA1000?",
