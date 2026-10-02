@@ -3,11 +3,22 @@ const TERMINAL_STATUSES = new Set(["completed", "failed"]);
 export const CHAT_STORAGE_KEY = "leste:webchat:v5";
 export const CHAT_SESSION_DURATION_MS = 24 * 60 * 60 * 1000;
 
+export function getChatStorageKey(flowId) {
+  return flowId && flowId !== "clone2-capta"
+    ? `${CHAT_STORAGE_KEY}:${encodeURIComponent(flowId)}`
+    : CHAT_STORAGE_KEY;
+}
+
+export function requiresChatIdentification(flowId) {
+  return !flowId || flowId === "clone2-capta";
+}
+
 export function createChatStartPayload(documento) {
   return { message: "Olá", variables: { documento: String(documento || "").replace(/\D/g, "") } };
 }
 
-export function getChatBootstrapMessages(audience) {
+export function getChatBootstrapMessages(audience, flowId = "clone2-capta") {
+  if (!requiresChatIdentification(flowId)) return [];
   return audience === "customer"
     ? ["Já sou cliente"]
     : ["Não sou cliente", "Assinar por aqui"];
@@ -200,16 +211,16 @@ export function isTerminalStatus(status) {
   return TERMINAL_STATUSES.has(status);
 }
 
-export function loadStoredChat(storage, now = Date.now()) {
+export function loadStoredChat(storage, now = Date.now(), storageKey = CHAT_STORAGE_KEY) {
   try {
-    const value = JSON.parse(storage.getItem(CHAT_STORAGE_KEY));
+    const value = JSON.parse(storage.getItem(storageKey));
     if (!value?.sessionId || !value?.expiresAt || value.expiresAt <= now || isTerminalStatus(value.status)) {
-      storage.removeItem(CHAT_STORAGE_KEY);
+      storage.removeItem(storageKey);
       return null;
     }
     return { ...value, cursor: firstString(value.cursor), messages: Array.isArray(value.messages) ? value.messages : [] };
   } catch {
-    storage.removeItem(CHAT_STORAGE_KEY);
+    storage.removeItem(storageKey);
     return null;
   }
 }

@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
         </Script>
         <SiteGtm />
         <SiteProvider>
-          <RootShell>{children}</RootShell>
+          <RootShell chatFlowId={process.env.CHAT_PUBLIC_ID || "clone2-capta"}>{children}</RootShell>
           <PrivacyConsent />
         </SiteProvider>
       </body>

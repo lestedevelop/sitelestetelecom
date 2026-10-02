@@ -13,7 +13,7 @@ function whatsappLink(message) {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
 }
 
-export default function WhatsAppFloating({ showWhatsApp = true, showChatbot = true }) {
+export default function WhatsAppFloating({ showWhatsApp = true, showChatbot = true, chatFlowId = "clone2-capta" }) {
   const [open, setOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMinimized, setChatMinimized] = useState(false);
@@ -59,6 +59,7 @@ export default function WhatsAppFloating({ showWhatsApp = true, showChatbot = tr
       {chatOpen || chatMinimized ? (
         <div className={chatOpen ? "" : "hidden"}>
           <LesteChat
+            flowId={chatFlowId}
             onBack={() => { setChatOpen(false); setChatMinimized(false); setOpen(showWhatsApp); }}
             onMinimize={() => { setChatOpen(false); setChatMinimized(true); setOpen(false); }}
             onClose={() => { setChatOpen(false); setChatMinimized(false); setOpen(false); }}

@@ -8,12 +8,14 @@ const {
   CHAT_STORAGE_KEY,
   createChatStartPayload,
   getChatSocketAuth,
+  getChatStorageKey,
   getChatBootstrapMessages,
   loadStoredChat,
   mergeMessages,
   normalizeMessage,
   normalizeTurn,
   prepareOutboxEvent,
+  requiresChatIdentification,
 } = await import(moduleUrl);
 
 test("inicia o fluxo com o CPF no documento e escolhe a entrada conforme o público", () => {
@@ -23,6 +25,12 @@ test("inicia o fluxo com o CPF no documento e escolhe a entrada conforme o públ
   });
   assert.deepEqual(getChatBootstrapMessages("customer"), ["Já sou cliente"]);
   assert.deepEqual(getChatBootstrapMessages("visitor"), ["Não sou cliente", "Assinar por aqui"]);
+  assert.deepEqual(createChatStartPayload(), { message: "Olá", variables: { documento: "" } });
+  assert.deepEqual(getChatBootstrapMessages(undefined, "vendas-web"), []);
+  assert.equal(requiresChatIdentification("clone2-capta"), true);
+  assert.equal(requiresChatIdentification("vendas-web"), false);
+  assert.equal(getChatStorageKey("clone2-capta"), CHAT_STORAGE_KEY);
+  assert.equal(getChatStorageKey("vendas-web"), `${CHAT_STORAGE_KEY}:vendas-web`);
 });
 
 test("normaliza texto e botões interativos e usa o título para ids inválidos", () => {
@@ -124,4 +132,14 @@ test("carrega o cursor persistido junto da sessão", () => {
     removeItem: () => assert.fail("Sessão ativa não deve ser removida"),
   };
   assert.equal(loadStoredChat(storage, 100).cursor, "outbox-42");
+});
+
+test("não reutiliza a sessão do fluxo de identificação no fluxo de vendas", () => {
+  const values = new Map([[CHAT_STORAGE_KEY, JSON.stringify({ sessionId: "cliente", expiresAt: 200 })]]);
+  const storage = {
+    getItem: (key) => values.get(key),
+    removeItem: (key) => values.delete(key),
+  };
+  assert.equal(loadStoredChat(storage, 100, getChatStorageKey("vendas-web")), null);
+  assert.equal(loadStoredChat(storage, 100)?.sessionId, "cliente");
 });

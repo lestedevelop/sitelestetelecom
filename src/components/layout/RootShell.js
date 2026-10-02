@@ -12,7 +12,7 @@ import {isVendasPathname} from "@/lib/gtm/site";
 const SHOW_WHATSAPP_BUTTON = process.env.NEXT_PUBLIC_SHOW_WHATSAPP_BUTTON !== "false";
 const SHOW_CHATBOT_BUTTON = process.env.NEXT_PUBLIC_SHOW_CHATBOT_BUTTON !== "false";
 
-export default function RootShell({children}) {
+export default function RootShell({children, chatFlowId}) {
     const pathname = usePathname();
     const layoutOverrideRoutes = ["/movel","/corporate","/vendas", "/ultra"];
     const isBaseOverrideRoute = layoutOverrideRoutes.some(
@@ -38,7 +38,7 @@ export default function RootShell({children}) {
             </Suspense>
             <AppBarNew/>
             {children}
-            {SHOW_WHATSAPP_BUTTON || SHOW_CHATBOT_BUTTON ? <WhatsAppFloating showWhatsApp={SHOW_WHATSAPP_BUTTON} showChatbot={SHOW_CHATBOT_BUTTON}/> : null}
+            {SHOW_WHATSAPP_BUTTON || SHOW_CHATBOT_BUTTON ? <WhatsAppFloating showWhatsApp={SHOW_WHATSAPP_BUTTON} showChatbot={SHOW_CHATBOT_BUTTON} chatFlowId={chatFlowId}/> : null}
             <ToastContainer
                 position="top-right"
                 autoClose={4000}

@@ -6,15 +6,16 @@ import { io } from "socket.io-client";
 import LesteChatAuth from "@/components/layout/LesteChatAuth";
 import {
   CHAT_SESSION_DURATION_MS,
-  CHAT_STORAGE_KEY,
   createChatStartPayload,
   getChatSocketAuth,
   getChatBootstrapMessages,
+  getChatStorageKey,
   isTerminalStatus,
   loadStoredChat,
   mergeMessages,
   normalizeTurn,
   prepareOutboxEvent,
+  requiresChatIdentification,
   retryDelay,
 } from "@/lib/webChat";
 
@@ -79,27 +80,30 @@ function Message({ message, disabled, onOption }) {
   );
 }
 
-export default function LesteChat({ onBack, onClose, onMinimize }) {
+export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone2-capta" }) {
+  const storageKey = getChatStorageKey(flowId);
+  const needsIdentification = requiresChatIdentification(flowId);
   const [chat, setChat] = useState(null);
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [realtimeConnected, setRealtimeConnected] = useState(false);
-  const [authComplete, setAuthComplete] = useState(false);
+  const [authComplete, setAuthComplete] = useState(!needsIdentification);
   const [verifiedContext, setVerifiedContext] = useState(null);
   const socketRef = useRef(null);
   const initializedSessionsRef = useRef(new Set());
   const pendingSendRef = useRef(null);
   const bottomRef = useRef(null);
   const chatRef = useRef(null);
+  const startedRef = useRef(false);
 
   const persist = useCallback((next) => {
     chatRef.current = next;
     setChat(next);
-    if (next?.sessionId && !isTerminalStatus(next.status)) localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(next));
-    else localStorage.removeItem(CHAT_STORAGE_KEY);
-  }, []);
+    if (next?.sessionId && !isTerminalStatus(next.status)) localStorage.setItem(storageKey, JSON.stringify(next));
+    else localStorage.removeItem(storageKey);
+  }, [storageKey]);
 
   const applyTurn = useCallback((payload, base = chatRef.current) => {
     const turn = normalizeTurn(payload);
@@ -138,7 +142,7 @@ export default function LesteChat({ onBack, onClose, onMinimize }) {
         body: JSON.stringify(createChatStartPayload(context?.cpf)),
       });
 
-      for (const message of getChatBootstrapMessages(context?.audience)) {
+      for (const message of getChatBootstrapMessages(context?.audience, flowId)) {
         const sessionId = normalizeTurn(payload).sessionId;
         if (!sessionId) throw new Error("Não foi possível iniciar o atendimento.");
         payload = await request(`${CHAT_API_URL}/sessions/${encodeURIComponent(sessionId)}/continue`, {
@@ -153,20 +157,23 @@ export default function LesteChat({ onBack, onClose, onMinimize }) {
     } finally {
       setLoading(false);
     }
-  }, [applyTurn]);
+  }, [applyTurn, flowId]);
 
   useEffect(() => {
-    const stored = loadStoredChat(localStorage);
+    const stored = loadStoredChat(localStorage, Date.now(), storageKey);
     if (stored) {
       chatRef.current = stored;
       setChat(stored);
       setAuthComplete(true);
       setLoading(false);
-    } else {
+    } else if (needsIdentification) {
       setLoading(false);
       setAuthComplete(false);
+    } else if (!startedRef.current) {
+      startedRef.current = true;
+      void start();
     }
-  }, []);
+  }, [needsIdentification, start, storageKey]);
 
   const handleAuthenticated = useCallback(async (context) => {
     setVerifiedContext(context);
