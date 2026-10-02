@@ -29,7 +29,7 @@ export default function StreamingPlansSectionPreview() {
     const {codcid} = useSite();
     const hasPlanFilters = citiesWithPlanFilters.has(Number(codcid));
     const promotionalDisclaimer = getPromotionalCampaignDisclaimer(codcid);
-    const backendPlans = planos?.data;
+    const backendPlans = planos;
     const {streamingPlans, standardPlans} = useMemo(
         () => groupStreamingPlans(Array.isArray(backendPlans) ? backendPlans : [], streamingPlansMock),
         [backendPlans]

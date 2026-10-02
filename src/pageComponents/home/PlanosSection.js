@@ -17,7 +17,7 @@ export default function PlanosSection() {
     const [modalViabilidadeOpen, setModalViabilidadeOpen] = useState(false);
     const {planos, loading} = useHomeData();
     const {site} = useSite();
-    const plansData = planos?.data || [];
+    const plansData = planos;
     const sortedPlansData = sortPlansByLowestPrice(plansData);
     const showSkeleton = loading || plansData.length === 0;
     const cityName = site?.city?.label || "";

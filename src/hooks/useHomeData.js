@@ -45,8 +45,15 @@ export function useHomeData() {
         return () => controller.abort();
     }, [cityId]);
 
+    const storedPlans = site?.planos;
+    const planos = Array.isArray(storedPlans)
+        ? storedPlans
+        : Array.isArray(storedPlans?.data)
+            ? storedPlans.data
+            : [];
+
     return {
-        planos: site?.planos || [],
+        planos,
         loading: Boolean(cityId) && requestResult.cityId !== cityId,
         error: requestResult.cityId === cityId ? requestResult.error : null,
     };
