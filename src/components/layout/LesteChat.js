@@ -4,9 +4,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, Check, Copy, ExternalLink, Headphones, LoaderCircle, Minimize2, RefreshCw, Send, X } from "lucide-react";
 import { io } from "socket.io-client";
 import LesteChatAuth from "@/components/layout/LesteChatAuth";
+import LesteChatCarousel from "@/components/layout/LesteChatCarousel";
+import LesteChatWebForm from "@/components/layout/LesteChatWebForm";
 import {
   CHAT_SESSION_DURATION_MS,
   createChatStartPayload,
+  createWebFormSubmission,
   getChatSocketAuth,
   getChatBootstrapMessages,
   getChatStorageKey,
@@ -17,6 +20,7 @@ import {
   prepareOutboxEvent,
   requiresChatIdentification,
   retryDelay,
+  webFormValidationError,
 } from "@/lib/webChat";
 
 const CHAT_API_URL = "/api/web-chat";
@@ -32,18 +36,25 @@ async function request(url, options) {
   } catch {
     throw new Error("Não foi possível conectar ao atendimento. Tente novamente.");
   }
+  const data = await response.json().catch(() => ({}));
   if (!response.ok) {
     const error = new Error(response.status === 429 ? "Muitas tentativas. Aguarde um instante." : "Não foi possível conectar ao atendimento.");
     error.status = response.status;
     error.retryAfter = retryDelay(response);
+    error.payload = data;
     throw error;
   }
-  return response.json();
+  return data;
 }
 
-function Message({ message, disabled, onOption }) {
+function Message({ message, disabled, formError, onOption, onFormSubmit }) {
   const mine = message.role === "user";
   const [copied, setCopied] = useState(false);
+  useEffect(() => {
+    if (!message.unsupportedType) return;
+    console.warn("[LesteChat] Tipo de mensagem não suportado:", message.unsupportedType);
+    window.dispatchEvent(new CustomEvent("leste:chat:unsupported-message", { detail: { type: message.unsupportedType } }));
+  }, [message.unsupportedType]);
   const renderText = (text) => text.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
     if (!part.startsWith("http")) return part;
     return <a key={`${part}-${index}`} href={part} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">{part}</a>;
@@ -56,8 +67,10 @@ function Message({ message, disabled, onOption }) {
 
   return (
     <div className={`flex ${mine ? "justify-end" : "justify-start"}`}>
-      <div className={`max-w-[86%] rounded-2xl px-3.5 py-2.5 text-sm leading-5 ${mine ? "rounded-br-md bg-primary text-white" : "rounded-bl-md border border-graylighter bg-white text-darkgreen"}`}>
+      <div className={`${message.kind === "web_form" || message.kind === "carousel" ? "w-full" : "max-w-[86%]"} min-w-0 rounded-2xl px-3.5 py-2.5 text-sm leading-5 ${mine ? "rounded-br-md bg-primary text-white" : "rounded-bl-md border border-graylighter bg-white text-darkgreen"}`}>
         {message.text ? <p className="whitespace-pre-wrap break-words">{renderText(message.text)}</p> : null}
+        {message.webForm ? <LesteChatWebForm form={message.webForm} disabled={disabled} submitted={message.submitted} error={formError} onSubmit={(form, values) => onFormSubmit(message.id, form, values)} /> : null}
+        {message.carousel ? <LesteChatCarousel carousel={message.carousel} disabled={disabled} onSelect={onOption} /> : null}
         {message.media?.kind === "image" ? <a href={message.media.url} target="_blank" rel="noopener noreferrer" aria-label={message.media.label} className="mt-2 block h-36 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${JSON.stringify(message.media.url)})` }} /> : null}
         {message.media?.kind === "video" ? <video className="mt-2 max-h-52 w-full rounded-lg" src={message.media.url} controls preload="metadata" /> : null}
         {message.media?.kind === "audio" ? <audio className="mt-2 w-full max-w-64" src={message.media.url} controls preload="metadata" /> : null}
@@ -88,12 +101,14 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const [formErrors, setFormErrors] = useState({});
   const [realtimeConnected, setRealtimeConnected] = useState(false);
   const [authComplete, setAuthComplete] = useState(!needsIdentification);
   const [verifiedContext, setVerifiedContext] = useState(null);
   const socketRef = useRef(null);
   const initializedSessionsRef = useRef(new Set());
   const pendingSendRef = useRef(null);
+  const pendingFormRef = useRef(null);
   const bottomRef = useRef(null);
   const chatRef = useRef(null);
   const startedRef = useRef(false);
@@ -123,6 +138,19 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
     return next;
   }, [persist]);
 
+  const handleFormResponse = useCallback((messageId, payload) => {
+    const validationError = webFormValidationError(payload);
+    if (validationError) {
+      setFormErrors((current) => ({ ...current, [messageId]: validationError }));
+      return;
+    }
+    applyTurn(payload);
+    const current = chatRef.current;
+    if (current) persist({ ...current, messages: current.messages.map((message) => message.id === messageId ? { ...message, submitted: true } : message) });
+    setFormErrors((currentErrors) => ({ ...currentErrors, [messageId]: "" }));
+    setError("");
+  }, [applyTurn, persist]);
+
   const activateIdleSessionWithRest = useCallback(async (session) => {
     if (session?.status !== "idle" || session.messages?.length) return session;
     const payload = await request(`${CHAT_API_URL}/sessions/${encodeURIComponent(session.sessionId)}/continue`, {
@@ -136,6 +164,7 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
     setAuthComplete(true);
     setLoading(true);
     setError("");
+    setFormErrors({});
     try {
       let payload = await request(`${CHAT_API_URL}/start`, {
         method: "POST",
@@ -199,15 +228,31 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
     socketRef.current = socket;
 
     const finishPendingSend = () => {
+      if (pendingFormRef.current) return;
       pendingSendRef.current = null;
       setSending(false);
     };
     const applyReply = (payload) => {
+      if (pendingFormRef.current) {
+        const pending = pendingFormRef.current;
+        pendingFormRef.current = null;
+        handleFormResponse(pending.messageId, payload);
+        setSending(false);
+        return;
+      }
       applyTurn(payload);
       finishPendingSend();
       setError("");
     };
     const applyAgentMessage = (payload) => {
+      const validationError = pendingFormRef.current && webFormValidationError(payload);
+      if (validationError) {
+        const pending = pendingFormRef.current;
+        pendingFormRef.current = null;
+        setFormErrors((current) => ({ ...current, [pending.messageId]: validationError }));
+        setSending(false);
+        return;
+      }
       applyTurn(prepareOutboxEvent(payload));
       finishPendingSend();
       setError("");
@@ -251,9 +296,9 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
       if (socketRef.current === socket) socketRef.current = null;
       setRealtimeConnected(false);
     };
-  }, [activateIdleSessionWithRest, applyTurn, chat?.sessionId, chat?.status]);
+  }, [activateIdleSessionWithRest, applyTurn, chat?.sessionId, chat?.status, handleFormResponse]);
 
-  const send = async (value = draft, label = value) => {
+  const send = async (value = draft, label = value, socketUsesText = false) => {
     const content = value.trim();
     if (!content || !chat?.sessionId || sending || isTerminalStatus(chat.status)) return;
     const optimistic = {
@@ -268,7 +313,7 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
     if (socket?.connected) {
       const operationId = `send-${Date.now()}`;
       pendingSendRef.current = operationId;
-      socket.timeout(15000).emit("message", { message: content }, (socketError, payload) => {
+      socket.timeout(15000).emit("message", socketUsesText ? { text: content } : { message: content }, (socketError, payload) => {
         if (pendingSendRef.current !== operationId) return;
         pendingSendRef.current = null;
         if (socketError) {
@@ -294,6 +339,52 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
     }
   };
 
+  const sendForm = async (messageId, form, values) => {
+    const current = chatRef.current;
+    if (!current?.sessionId || sending || isTerminalStatus(current.status)) return;
+
+    let socketPayload;
+    let restPayload;
+    try {
+      socketPayload = createWebFormSubmission(form, values, "socket");
+      restPayload = createWebFormSubmission(form, values);
+    } catch (cause) {
+      setFormErrors((errors) => ({ ...errors, [messageId]: cause.message }));
+      return;
+    }
+
+    setFormErrors((errors) => ({ ...errors, [messageId]: "" }));
+    setSending(true);
+    const socket = socketRef.current;
+    if (socket?.connected) {
+      const operationId = `form-${Date.now()}-${Math.random()}`;
+      pendingFormRef.current = { operationId, messageId };
+      socket.timeout(15000).emit("message", socketPayload, (socketError, payload) => {
+        if (pendingFormRef.current?.operationId !== operationId) return;
+        pendingFormRef.current = null;
+        if (socketError) {
+          setFormErrors((errors) => ({ ...errors, [messageId]: "A resposta demorou mais que o esperado. Tente novamente." }));
+        } else {
+          handleFormResponse(messageId, payload);
+        }
+        setSending(false);
+      });
+      return;
+    }
+
+    try {
+      const payload = await request(`${CHAT_API_URL}/sessions/${encodeURIComponent(current.sessionId)}/continue`, {
+        method: "POST",
+        body: JSON.stringify(restPayload),
+      });
+      handleFormResponse(messageId, payload);
+    } catch (cause) {
+      setFormErrors((errors) => ({ ...errors, [messageId]: webFormValidationError(cause.payload) || cause.message }));
+    } finally {
+      setSending(false);
+    }
+  };
+
   const ended = isTerminalStatus(chat?.status);
 
   return (
@@ -309,7 +400,7 @@ export default function LesteChat({ onBack, onClose, onMinimize, flowId = "clone
       {!authComplete ? <LesteChatAuth onAuthenticated={handleAuthenticated} /> : <div className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain px-4 py-4" aria-live="polite">
         {loading ? <div className="flex h-full items-center justify-center text-primary"><LoaderCircle className="h-7 w-7 animate-spin" /></div> : null}
         {!loading && !chat?.messages?.length && !error ? <p className="mx-auto mt-8 max-w-64 text-center text-sm text-graylight">Iniciando seu atendimento…</p> : null}
-        {chat?.messages?.map((message) => <Message key={message.id} message={message} disabled={sending || ended} onOption={send} />)}
+        {chat?.messages?.map((message) => <Message key={message.id} message={message} disabled={sending || ended} formError={formErrors[message.id]} onOption={send} onFormSubmit={sendForm} />)}
         {sending ? <div className="flex justify-start"><span className="rounded-2xl rounded-bl-md border border-graylighter bg-white px-4 py-3"><LoaderCircle className="h-4 w-4 animate-spin text-primary" /></span></div> : null}
         {error ? <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-700">{error}{!chat?.sessionId ? <button type="button" onClick={() => start(verifiedContext)} className="mt-2 flex items-center gap-1 font-bold"><RefreshCw className="h-3.5 w-3.5" />Tentar novamente</button> : null}</div> : null}
         {ended ? <div className="rounded-xl border border-graylighter bg-white p-3 text-center text-sm text-graylight">Este atendimento foi encerrado.<button type="button" onClick={() => verifiedContext ? start(verifiedContext) : setAuthComplete(false)} className="mx-auto mt-2 flex items-center gap-1 font-bold text-primary"><RefreshCw className="h-4 w-4" />Iniciar novo atendimento</button></div> : null}

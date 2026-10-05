@@ -1,5 +1,5 @@
 ﻿{
-  "total": 125,
+  "total": 134,
   "pages": [
     {
       "title": "Quais são os canais oficiais de atendimento?",
@@ -173,6 +173,18 @@
       "title": "Como funciona o aplicativo Leste Suporte?",
       "href": "/faq/como-funciona-o-aplicativo-leste-suporte",
       "category": "Minha Conta",
+      "active": true
+    },
+    {
+      "title": "Como solicitar a exclusão dos meus dados?",
+      "href": "/faq/como-solicitar-a-exclusao-dos-meus-dados",
+      "category": "Minha Conta",
+      "active": true
+    },
+    {
+      "title": "Quem pode contratar o Leste Play Avulso?",
+      "href": "/faq/quem-pode-contratar-o-leste-play-avulso",
+      "category": "Leste Play",
       "active": true
     },
     {

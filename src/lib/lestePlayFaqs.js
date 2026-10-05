@@ -60,6 +60,22 @@ const faqEntries = [
         ],
     ],
     [
+        "quem-pode-contratar-o-leste-play-avulso",
+        "Quem pode contratar o Leste Play Avulso?",
+        [
+            p("A oferta pode ser contratada por clientes Leste Fibra, conforme as condições comerciais vigentes."),
+            p("Os planos disponíveis são:"),
+            list([
+                "Leste Play Start - R$ 24,90/mês",
+                "Leste Play Sports - R$ 32,90/mês",
+                "Leste Play Cine + HBO - R$ 39,90/mês",
+                "Leste Play Family - R$ 74,90/mês",
+            ]),
+            p("Os planos avulsos do Leste Play não possuem fidelidade."),
+            note("Conteúdos, canais e funcionalidades variam conforme o plano contratado e estão sujeitos a alterações, inclusão, exclusão ou indisponibilidade na plataforma Watch, sem aviso prévio. Valores, disponibilidade e condições comerciais podem ser alterados conforme atualização da Leste. Antes da contratação, consulte os planos disponíveis e os conteúdos incluídos em cada opção."),
+        ],
+    ],
+    [
         "como-acessar-o-leste-play-pela-primeira-vez",
         "Como acessar o Leste Play pela primeira vez?",
         [

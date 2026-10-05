@@ -24,7 +24,7 @@ O ambiente de desenvolvimento roda com Turbopack via `next dev --turbopack`.
 
 O widget de atendimento tem duas opções independentes no `.env`: `NEXT_PUBLIC_SHOW_WHATSAPP_BUTTON=false` esconde o WhatsApp e `NEXT_PUBLIC_SHOW_CHATBOT_BUTTON=false` esconde o chatbot. Com apenas uma opção ativa, o botão flutuante abre essa opção diretamente; com ambas desativadas, o widget desaparece. O padrão, quando uma variável não está definida, é mostrar sua opção. Como arquivos `.env` não são versionados, configure as mesmas variáveis no ambiente de deploy quando necessário.
 
-Para testar outro fluxo do bot, altere `CHAT_PUBLIC_ID` (por exemplo, `vendas-web`) e reinicie o Next. Confira também `.env.local`, que tem precedência sobre `.env`. A identificação antecipada e as mensagens automáticas de entrada são usadas apenas pelo `clone2-capta`; os demais fluxos iniciam diretamente, com histórico local separado por ID de fluxo.
+Para testar outro fluxo do bot, altere `CHAT_PUBLIC_ID` (por exemplo, `vendas-web`) e reinicie o Next. Confira também `.env.local`, que tem precedência sobre `.env`. `clone2-capta` e `vendas-web` usam a identificação por CPF e código antes do bot; só `clone2-capta` recebe as mensagens automáticas de entrada. O histórico local é separado por fluxo e modo de identificação.
 
 ## Deploy com PM2
 

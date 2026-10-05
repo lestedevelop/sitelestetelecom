@@ -50,6 +50,7 @@
       { title: "Como funciona o aplicativo Leste Suporte?", href: "/faq/como-funciona-o-aplicativo-leste-suporte" },
       { title: "Como acompanhar minha conexão?", href: "/faq/como-acompanhar-minha-conexao" },
       { title: "Como funciona o atendimento pelo WhatsApp da Leste", href: "/faq/como-funciona-o-atendimento-pelo-whatsapp-da-leste" },
+      { title: "Como solicitar a exclusão dos meus dados?", href: "/faq/como-solicitar-a-exclusao-dos-meus-dados" },
     ],
   },
   {
@@ -234,6 +235,7 @@
     items: [
       { title: "O que é o Leste Play?", href: "/faq/o-que-e-o-leste-play" },
       { title: "Como contratar o Leste Play?", href: "/faq/como-contratar-o-leste-play" },
+      { title: "Quem pode contratar o Leste Play Avulso?", href: "/faq/quem-pode-contratar-o-leste-play-avulso" },
       { title: "Como acessar o Leste Play pela primeira vez?", href: "/faq/como-acessar-o-leste-play-pela-primeira-vez" },
       { title: "Como recuperar a senha do Leste Play?", href: "/faq/como-recuperar-a-senha-do-leste-play" },
       { title: "Onde posso assistir o Leste Play?", href: "/faq/onde-posso-assistir-o-leste-play" },

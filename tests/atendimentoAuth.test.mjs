@@ -6,6 +6,7 @@ const source = await readFile(new URL("../src/lib/atendimentoAuth.js", import.me
 const moduleUrl = `data:text/javascript;base64,${Buffer.from(source).toString("base64")}`;
 const {
   contactConfirmationMatches,
+  formatCellphoneInput,
   maskCellphone,
   maskCpf,
   maskEmail,
@@ -24,6 +25,13 @@ test("mascara os contatos sem expor os valores completos", () => {
   assert.equal(maskCpf("12345678901"), "123.456.789-01");
   assert.equal(maskCellphone("21987654321"), "(21) 98765-****");
   assert.equal(maskEmail("cliente@exemplo.com"), "c******@exemplo.com");
+});
+
+test("formata o celular do não cliente sem alterar os dígitos enviados", () => {
+  assert.equal(formatCellphoneInput("21987654321"), "(21) 98765-4321");
+  assert.equal(formatCellphoneInput("219876"), "(21) 9876");
+  assert.equal(formatCellphoneInput("(21) 98765-4321abc"), "(21) 98765-4321");
+  assert.equal(normalizeCellphone(formatCellphoneInput("21987654321")), "21987654321");
 });
 
 test("confirma o canal usando a regra da BETA-2128", () => {

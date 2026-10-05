@@ -7,6 +7,7 @@ const moduleUrl = `data:text/javascript;base64,${Buffer.from(source).toString("b
 const {
   CHAT_STORAGE_KEY,
   createChatStartPayload,
+  createWebFormSubmission,
   getChatSocketAuth,
   getChatStorageKey,
   getChatBootstrapMessages,
@@ -16,6 +17,7 @@ const {
   normalizeTurn,
   prepareOutboxEvent,
   requiresChatIdentification,
+  webFormValidationError,
 } = await import(moduleUrl);
 
 test("inicia o fluxo com o CPF no documento e escolhe a entrada conforme o público", () => {
@@ -28,9 +30,9 @@ test("inicia o fluxo com o CPF no documento e escolhe a entrada conforme o públ
   assert.deepEqual(createChatStartPayload(), { message: "Olá", variables: { documento: "" } });
   assert.deepEqual(getChatBootstrapMessages(undefined, "vendas-web"), []);
   assert.equal(requiresChatIdentification("clone2-capta"), true);
-  assert.equal(requiresChatIdentification("vendas-web"), false);
+  assert.equal(requiresChatIdentification("vendas-web"), true);
   assert.equal(getChatStorageKey("clone2-capta"), CHAT_STORAGE_KEY);
-  assert.equal(getChatStorageKey("vendas-web"), `${CHAT_STORAGE_KEY}:vendas-web`);
+  assert.equal(getChatStorageKey("vendas-web"), `${CHAT_STORAGE_KEY}:vendas-web:identified`);
 });
 
 test("normaliza texto e botões interativos e usa o título para ids inválidos", () => {
@@ -134,12 +136,75 @@ test("carrega o cursor persistido junto da sessão", () => {
   assert.equal(loadStoredChat(storage, 100).cursor, "outbox-42");
 });
 
-test("não reutiliza a sessão do fluxo de identificação no fluxo de vendas", () => {
-  const values = new Map([[CHAT_STORAGE_KEY, JSON.stringify({ sessionId: "cliente", expiresAt: 200 })]]);
+test("preserva formulário Web e envia interaction com node_id e campos recebidos", () => {
+  const message = normalizeMessage({
+    id: "form-1",
+    role: "bot",
+    type: "web_form",
+    text: "Informe a localização",
+    web_form: {
+      node_id: "web_form_localizacao",
+      title: "Localização do endereço",
+      submit_label: "Continuar",
+      fields: [{ name: "localizacao_web", label: "Referência", type: "textarea", format: "geolocation", required: false }],
+    },
+  });
+  assert.equal(message.kind, "web_form");
+  assert.equal(message.webForm.fields[0].format, "geolocation");
+  assert.equal(normalizeTurn({ sessionId: "session-1", messages: [{ id: "form-1", type: "web_form", web_form: { node_id: "web_form_localizacao", fields: [{ name: "localizacao_web" }] } }] }).messages[0].webForm.nodeId, "web_form_localizacao");
+  assert.deepEqual(createWebFormSubmission(message.webForm, { localizacao_web: "-22.9000,-43.2000", extra: "ignorado" }), {
+    message: "Formulário enviado",
+    interaction: { type: "web_form_response", node_id: "web_form_localizacao", values: { localizacao_web: "-22.9000,-43.2000" } },
+  });
+  assert.deepEqual(createWebFormSubmission(message.webForm, { localizacao_web: "referência" }, "socket"), {
+    text: "Formulário enviado",
+    interaction: { type: "web_form_response", node_id: "web_form_localizacao", values: { localizacao_web: "referência" } },
+  });
+});
+
+test("converte data do formulário e identifica falha de validação", () => {
+  const form = { nodeId: "web_form_responsavel", fields: [{ name: "nascimentoresponsavel", type: "date" }] };
+  assert.equal(createWebFormSubmission(form, { nascimentoresponsavel: "1990-05-20" }).interaction.values.nascimentoresponsavel, "20/05/1990");
+  assert.equal(webFormValidationError({ ok: false, code: "web_form_validation_failed", message: "Preencha e envie o formulário exibido acima." }), "Preencha e envie o formulário exibido acima.");
+});
+
+test("ordena carrossel e preserva o ID da quick reply, não o título", () => {
+  const message = normalizeMessage({
+    type: "whatsapp_raw",
+    raw: { interactive: { type: "carousel", body: { text: "Escolha um plano" }, action: { cards: [
+      { card_index: 1, body: { text: "Plano B" }, action: { buttons: [{ type: "quick_reply", quick_reply: { id: "PLANO_B", title: "Eu quero esse" } }] } },
+      { card_index: 0, header: { image: { link: "https://cdn.example.com/plano.png" } }, body: { text: "Plano A" }, action: { buttons: [{ type: "quick_reply", quick_reply: { id: "PLANO_A", title: "Eu quero esse" } }] } },
+    ] } } },
+  });
+  assert.equal(message.kind, "carousel");
+  assert.equal(message.text, "Escolha um plano");
+  assert.deepEqual(message.carousel.cards.map((card) => card.button.value), ["PLANO_A", "PLANO_B"]);
+  assert.equal(message.carousel.cards[0].imageUrl, "https://cdn.example.com/plano.png");
+  assert.equal(message.carousel.cards[0].button.label, "Eu quero esse");
+});
+
+test("fornece fallback para Flow do WhatsApp e tipo desconhecido", () => {
+  const flow = normalizeMessage({ type: "whatsapp_raw", raw: { interactive: { type: "flow" } } });
+  const unknown = normalizeMessage({ type: "new_builder_type" });
+  const locationRequest = normalizeMessage({ type: "whatsapp_raw", raw: { interactive: { type: "location_request_message" } } });
+  assert.equal(flow.kind, "unsupported_flow");
+  assert.match(flow.text, /canal compatível/);
+  assert.equal(unknown.kind, "unsupported");
+  assert.match(unknown.text, /indisponível/);
+  assert.equal(locationRequest.kind, "unsupported");
+  assert.equal(locationRequest.unsupportedType, "location_request_message");
+});
+
+test("não reutiliza sessões anteriores sem identificação no fluxo de vendas", () => {
+  const values = new Map([
+    [CHAT_STORAGE_KEY, JSON.stringify({ sessionId: "cliente", expiresAt: 200 })],
+    [`${CHAT_STORAGE_KEY}:vendas-web`, JSON.stringify({ sessionId: "venda-antiga", expiresAt: 200 })],
+  ]);
   const storage = {
     getItem: (key) => values.get(key),
     removeItem: (key) => values.delete(key),
   };
   assert.equal(loadStoredChat(storage, 100, getChatStorageKey("vendas-web")), null);
   assert.equal(loadStoredChat(storage, 100)?.sessionId, "cliente");
+  assert.equal(loadStoredChat(storage, 100, `${CHAT_STORAGE_KEY}:vendas-web`)?.sessionId, "venda-antiga");
 });

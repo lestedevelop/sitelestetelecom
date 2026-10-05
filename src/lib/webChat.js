@@ -5,12 +5,12 @@ export const CHAT_SESSION_DURATION_MS = 24 * 60 * 60 * 1000;
 
 export function getChatStorageKey(flowId) {
   return flowId && flowId !== "clone2-capta"
-    ? `${CHAT_STORAGE_KEY}:${encodeURIComponent(flowId)}`
+    ? `${CHAT_STORAGE_KEY}:${encodeURIComponent(flowId)}${requiresChatIdentification(flowId) ? ":identified" : ""}`
     : CHAT_STORAGE_KEY;
 }
 
 export function requiresChatIdentification(flowId) {
-  return !flowId || flowId === "clone2-capta";
+  return !flowId || flowId === "clone2-capta" || flowId === "vendas-web";
 }
 
 export function createChatStartPayload(documento) {
@@ -18,7 +18,7 @@ export function createChatStartPayload(documento) {
 }
 
 export function getChatBootstrapMessages(audience, flowId = "clone2-capta") {
-  if (!requiresChatIdentification(flowId)) return [];
+  if (flowId !== "clone2-capta") return [];
   return audience === "customer"
     ? ["Já sou cliente"]
     : ["Não sou cliente", "Assinar por aqui"];
@@ -50,6 +50,86 @@ function safeUrl(value) {
   } catch {
     return "";
   }
+}
+
+function normalizeWebForm(form) {
+  if (!form || typeof form !== "object") return null;
+  const nodeId = firstString(form.node_id, form.nodeId);
+  if (!nodeId) return null;
+
+  const fields = asArray(form.fields).map((field) => {
+    if (!field || typeof field !== "object") return null;
+    const name = firstString(field.name, field.variable);
+    if (!name) return null;
+    return {
+      name,
+      label: firstString(field.label, name),
+      type: firstString(field.type, "text").toLowerCase(),
+      format: firstString(field.format).toLowerCase(),
+      required: field.required === true,
+      placeholder: firstString(field.placeholder),
+      pattern: firstString(field.pattern),
+      options: asArray(field.options).map((option) => {
+        if (typeof option === "string") return { label: option, value: option };
+        if (!option || typeof option !== "object") return null;
+        const label = firstString(option.label, option.title, option.text, option.value);
+        const value = firstString(option.value, option.id, label);
+        return label && value ? { label, value } : null;
+      }).filter(Boolean),
+    };
+  }).filter(Boolean);
+
+  return {
+    nodeId,
+    title: firstString(form.title),
+    submitLabel: firstString(form.submit_label, form.submitLabel, "Enviar"),
+    fields,
+  };
+}
+
+function normalizeCarousel(interactive) {
+  if (String(interactive?.type || "").toLowerCase() !== "carousel") return null;
+  const cards = asArray(interactive?.action?.cards).map((card, position) => {
+    if (!card || typeof card !== "object") return null;
+    const quickReply = asArray(card.action?.buttons)
+      .find((button) => button?.type === "quick_reply" && button?.quick_reply?.id)?.quick_reply;
+    const index = Number(card.card_index);
+    return {
+      index: Number.isFinite(index) ? index : position,
+      imageUrl: safeUrl(card.header?.image?.link),
+      text: firstString(card.body?.text, card.text),
+      button: quickReply ? {
+        label: firstString(quickReply.title, "Selecionar"),
+        value: firstString(quickReply.id),
+      } : null,
+    };
+  }).filter(Boolean).sort((a, b) => a.index - b.index);
+  return { cards };
+}
+
+export function createWebFormSubmission(form, values, transport = "rest") {
+  if (!form?.nodeId) throw new Error("Formulário sem identificador.");
+  const submittedValues = Object.fromEntries(asArray(form.fields).map((field) => {
+    const value = String(values?.[field.name] ?? "").trim();
+    const date = field.type === "date" && /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    return [field.name, date ? `${date[3]}/${date[2]}/${date[1]}` : value];
+  }));
+  if (new TextEncoder().encode(JSON.stringify(submittedValues)).length > 16 * 1024) {
+    throw new Error("O formulário excede o tamanho permitido. Reduza o texto e tente novamente.");
+  }
+  return {
+    [transport === "socket" ? "text" : "message"]: "Formulário enviado",
+    interaction: { type: "web_form_response", node_id: form.nodeId, values: submittedValues },
+  };
+}
+
+export function webFormValidationError(payload) {
+  const body = payload?.data && typeof payload.data === "object" ? payload.data : payload;
+  if (!body || typeof body !== "object") return "";
+  const detail = body.detail && typeof body.detail === "object" ? body.detail : body.error;
+  const code = firstString(body.code, body.error_code, detail?.code, typeof body.error === "string" ? body.error : "");
+  if (code !== "web_form_validation_failed" && body.ok !== false) return "";
+  return firstString(body.message, detail?.message, typeof body.detail === "string" ? body.detail : "", "Confira os campos e tente novamente.");
 }
 
 function optionFrom(value) {
@@ -116,11 +196,18 @@ function pixFrom(message) {
 
 export function normalizeMessage(message, fallbackId = "message") {
   if (typeof message === "string") {
-    return { id: fallbackId, role: "assistant", text: message, options: [], media: null, pix: null };
+    return { id: fallbackId, role: "assistant", kind: "text", text: message, options: [], media: null, pix: null };
   }
   if (!message || typeof message !== "object") return null;
 
   const raw = message.raw || {};
+  const type = firstString(message.type).toLowerCase();
+  const interactive = raw.interactive || message.interactive;
+  const interactiveType = firstString(interactive?.type).toLowerCase();
+  const webForm = normalizeWebForm(message.web_form);
+  const carousel = normalizeCarousel(interactive);
+  const unsupportedInteractive = interactiveType && !["button", "list"].includes(interactiveType);
+  const kind = webForm ? "web_form" : carousel ? "carousel" : interactiveType === "flow" ? "unsupported_flow" : unsupportedInteractive || type && !["text", "whatsapp_raw"].includes(type) ? "unsupported" : "text";
   const text = firstString(
     message.text,
     raw?.text?.body,
@@ -134,15 +221,22 @@ export function normalizeMessage(message, fallbackId = "message") {
   const media = mediaFrom(message);
   const pix = pixFrom(message);
   const options = collectOptions(message);
-  if (!text && !media && !pix && options.length === 0) return null;
+  if (!text && !media && !pix && options.length === 0 && !webForm && !carousel && kind === "text") return null;
+  const displayText = kind === "unsupported_flow"
+    ? [text, "Este formulário precisa ser aberto em um canal compatível."].filter(Boolean).join("\n")
+    : text || (kind === "unsupported" ? "Conteúdo indisponível neste canal." : "");
 
   return {
     id: firstString(messageId(message), fallbackId),
     role: ["user", "visitor", "client"].includes(message.role || message.sender) ? "user" : "assistant",
-    text,
+    kind,
+    text: displayText,
     options,
     media,
     pix,
+    ...(webForm ? { webForm } : {}),
+    ...(carousel ? { carousel } : {}),
+    ...(kind === "unsupported" || kind === "unsupported_flow" ? { unsupportedType: interactiveType || type } : {}),
   };
 }
 

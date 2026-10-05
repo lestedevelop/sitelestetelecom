@@ -5,6 +5,7 @@ import { ArrowLeft, KeyRound, Mail, MessageSquare, ShieldCheck, UserPlus, UserRo
 import {
   AUTH_CODE_DURATION_MS,
   contactConfirmationMatches,
+  formatCellphoneInput,
   maskCellphone,
   maskCpf,
   maskEmail,
@@ -241,7 +242,7 @@ export default function LesteChatAuth({ onAuthenticated }) {
           {audience === "customer" ? <Field label="CPF" name="cpf" type="text" inputMode="numeric" autoComplete="off" placeholder="000.000.000-00" maxLength={14} value={maskCpf(cpf)} onChange={(event) => { setCpf(onlyDigits(event.target.value).slice(0, 11)); resetFeedback(); }} disabled={busy} required /> : <>
             <Field label="CPF" name="cpf" type="text" inputMode="numeric" autoComplete="off" placeholder="000.000.000-00" maxLength={14} value={maskCpf(cpf)} onChange={(event) => { setCpf(onlyDigits(event.target.value).slice(0, 11)); resetFeedback(); }} disabled={busy} required />
             <Field label="Nome completo" name="name" type="text" autoComplete="name" value={visitor.nome} onChange={(event) => setVisitor((current) => ({ ...current, nome: event.target.value }))} disabled={busy} required />
-            <Field label="Celular" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(00) 00000-0000" value={visitor.celular} onChange={(event) => setVisitor((current) => ({ ...current, celular: event.target.value }))} disabled={busy} required />
+            <Field label="Celular" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(00) 00000-0000" maxLength={15} value={formatCellphoneInput(visitor.celular)} onChange={(event) => { setVisitor((current) => ({ ...current, celular: onlyDigits(event.target.value).slice(0, 11) })); resetFeedback(); }} disabled={busy} required />
             <Field label="E-mail" name="email" type="email" inputMode="email" autoComplete="email" placeholder="nome@exemplo.com" value={visitor.email} onChange={(event) => setVisitor((current) => ({ ...current, email: event.target.value }))} disabled={busy} required />
           </>}
           <SubmitButton disabled={busy}>{busy ? "Consultando…" : "Continuar"}</SubmitButton>
