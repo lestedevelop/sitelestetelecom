@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ae2b48e-2fe2-430b-9d2f-853472a9addb" name="Changes" comment="++">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/LesteChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LesteChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/LesteChatAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LesteChatAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/WhatsAppFloating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/WhatsAppFloating.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/atendimentoAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/atendimentoAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lestePlayFaqs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lestePlayFaqs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/webChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/webChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/faqActivePages.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqActivePages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/faqHelpCenterSections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/atendimentoAuth.test.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/atendimentoAuth.test.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/webChat.test.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/webChat.test.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="1362" />
+    <option name="cachedIndexableFilesCount" value="1173" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -117,6 +109,11 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
@@ -231,6 +228,7 @@
       <workItem from="1790176544381" duration="1299000" />
       <workItem from="1790718230901" duration="8751000" />
       <workItem from="1790950320294" duration="1195000" />
+      <workItem from="1791491506586" duration="1866000" />
     </task>
     <task id="LOCAL-00001" summary="++">
       <option name="closed" value="true" />

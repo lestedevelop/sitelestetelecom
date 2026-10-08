@@ -3,14 +3,21 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="f0770eb1-06fe-4381-a755-293d9828c211" name="vendas-beta">
-        <fileTransfer rootFolder="/home" accessType="SFTP" host="186.211.32.108" port="22" sshConfigId="a07d4dd3-bcae-4194-960c-cd3f8e05ef31" sshConfig="vendas">
+        <fileTransfer rootFolder="/home" accessType="SFTP" sshConfigId="a07d4dd3-bcae-4194-960c-cd3f8e05ef31" sshConfig="vendas">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
       <webServer id="4e1aeea5-bde1-4a80-8f24-ee2c4b3e2131" name="institucional">
-        <fileTransfer accessType="SFTP" host="186.211.32.107" port="22" sshConfigId="9f30375b-9a72-49b2-808e-d432bd82828c" sshConfig="institucional">
+        <fileTransfer accessType="SFTP" sshConfigId="9f30375b-9a72-49b2-808e-d432bd82828c" sshConfig="institucional">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="e184901b-ee3d-411e-8437-dd8ac14b5045" name="186.211.32.107">
+        <fileTransfer rootFolder="/home/alessandro_mello/sitelestetelecom" accessType="SFTP" host="186.211.32.107" port="22" sshConfigId="f512248c-cf72-4af6-bf2a-8680b95a390d" sshConfig="adriano_francisco@186.211.32.107:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

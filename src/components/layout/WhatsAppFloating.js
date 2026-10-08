@@ -82,12 +82,12 @@ export default function WhatsAppFloating({ showWhatsApp = true, showChatbot = tr
           </div>
 
           <div className="space-y-2">
-              <button type="button" onClick={() => { setChatOpen(true); setChatMinimized(false); setOpen(false); }} className="flex min-h-16 w-full items-center gap-3 rounded-xl border border-graylighter bg-light px-4 py-3 text-left text-sm font-semibold text-darkgreen transition-colors hover:border-primary hover:text-primary">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
-                  <Image src={atendimentoIcon} alt="" className="h-6 w-6 object-contain" />
-                </span>
-                <span>Assine por aqui</span>
-              </button>
+              {/*<button type="button" onClick={() => { setChatOpen(true); setChatMinimized(false); setOpen(false); }} className="flex min-h-16 w-full items-center gap-3 rounded-xl border border-graylighter bg-light px-4 py-3 text-left text-sm font-semibold text-darkgreen transition-colors hover:border-primary hover:text-primary">*/}
+              {/*  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">*/}
+              {/*    <Image src={atendimentoIcon} alt="" className="h-6 w-6 object-contain" />*/}
+              {/*  </span>*/}
+              {/*  <span>Assine por aqui</span>*/}
+              {/*</button>*/}
               <a href={whatsappLink("Olá! Preciso de atendimento da Leste.")} target="_blank" rel="noopener noreferrer" className="flex min-h-16 items-center gap-3 rounded-xl border border-graylighter bg-light px-4 py-3 text-left text-sm font-semibold text-darkgreen transition-colors hover:border-primary hover:text-primary">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
                   <Image src={whatsappIcon} alt="" className="h-6 w-6 object-contain" />
