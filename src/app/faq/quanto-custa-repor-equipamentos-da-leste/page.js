@@ -23,6 +23,7 @@ const replacementValues = [
   ["Cordão óptico", "R$ 65,00"],
   ["Fonte de alimentação (por unidade)", "R$ 80,00"],
   ["Nobreak", "R$ 370,00"],
+  ["ONU Leste Ultra", "R$ 1.200,00"]
 ];
 
 export default function QuantoCustaReporEquipamentosDaLeste() {
