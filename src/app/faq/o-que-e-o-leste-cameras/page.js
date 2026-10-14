@@ -15,23 +15,18 @@ export default function Page() {
         <article className="mt-10 max-w-4xl rounded-xl border border-graylighter bg-white px-6 py-8 md:px-8">
           <div className="space-y-5 text-base leading-7 text-dark md:text-lg md:leading-8">
             <p>
-              O Leste Câmeras é uma solução de automonitoramento exclusiva para
-              clientes Leste, com câmeras Wi-Fi inteligentes e gravação em nuvem.
+              O Leste Câmeras é uma solução de automonitoramento com câmeras Wi-Fi inteligentes e gravação em nuvem.
             </p>
             <p>
-              O serviço permite acompanhar imagens em tempo real pelo aplicativo,
-              trazendo mais praticidade e segurança para o dia a dia.
+              O serviço permite acompanhar imagens em tempo real pelo aplicativo, trazendo mais praticidade e segurança para o dia a dia.
             </p>
             <p>
-              O acesso às imagens é individual e protegido por criptografia,
-              sendo possível visualizar apenas pelo aplicativo vinculado à sua
-              conta.
+              O acesso às imagens é individual e protegido por criptografia, sendo possível visualizar apenas pelo aplicativo vinculado à sua conta.
             </p>
           </div>
           <FaqNote>
             <p>
-              O acesso às imagens depende de serviço ativo e regular na conta do
-              cliente.
+              O serviço consiste em automonitoramento e não inclui vigilância ativa, monitoramento patrimonial presencial ou acionamento de autoridades policiais. O acesso às imagens depende de serviço ativo e regular na conta do cliente.
             </p>
           </FaqNote>
         </article>
