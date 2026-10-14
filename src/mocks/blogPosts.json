@@ -1,5 +1,68 @@
 [
   {
+    "id": "12",
+    "slug": "ipv4-publico-da-leste",
+    "title": "IPv4 Público da Leste: o que é e para que serve?",
+    "excerpt": "O serviço oferece um endereço IP fixo e exclusivo por R$ 100/mês, sem fidelidade para o adicional, para pessoas físicas e empresas com Fibra Leste ativa.",
+    "category": "Informacional",
+    "author": "Leste Telecom",
+    "date": "2026-10-14",
+    "readingTime": "3 min de leitura",
+    "imageKey": "blogIpv4",
+    "cta": "Saiba mais >",
+    "showOnHome": true,
+    "showOnClientArea": true,
+    "content": [
+      "Algumas configurações de rede precisam de um endereço próprio para receber conexões externas ou autorizar acessos sempre pelo mesmo IP. Isso pode acontecer ao acessar equipamentos remotamente, utilizar servidores particulares ou configurar determinados sistemas conectados à internet. Para essas necessidades, a Leste disponibiliza o IPv4 Público como um serviço adicional à conexão de Fibra.",
+      "O IP funciona como um endereço que identifica uma conexão na internet. Em conexões que utilizam CGNAT, vários clientes compartilham o mesmo IPv4 público. Com o serviço da Leste, o endereço é fixo e exclusivo, sem esse compartilhamento simultâneo.",
+      {
+        "type": "heading",
+        "text": "Quando usar"
+      },
+      "O IPv4 Público pode ser útil para quem precisa acessar uma rede de casa ou da empresa sempre pelo mesmo endereço. Entre as possibilidades estão câmeras e sistemas de segurança, acesso remoto a computadores e NAS, VPN residencial ou corporativa, automação residencial e Home Assistant, servidores de jogos, aplicações e projetos de homelab.",
+      "O serviço pode atender pessoas físicas, profissionais de TI, pequenas empresas, escritórios e quem administra a própria rede. A necessidade de contratação depende dos requisitos de cada sistema ou equipamento. Utilizar IPv4 ou não ter compatibilidade com IPv6, por si só, não significa que seja necessário contratar um IPv4 Público.",
+      {
+        "type": "heading",
+        "text": "Antes de contratar"
+      },
+      "O IPv4 Público é um recurso voltado a configurações específicas de rede. Por isso, sua contratação não aumenta a velocidade da internet, não melhora o Wi-Fi e não garante o funcionamento de aplicações ou equipamentos específicos.",
+      "Na Leste, as portas abaixo de 1024 permanecem bloqueadas por segurança. Conforme a compatibilidade dos equipamentos, é possível configurar o redirecionamento utilizando portas acima de 1024. A configuração de portas nos equipamentos da operadora pode ser solicitada à Leste, enquanto a instalação, configuração e manutenção de equipamentos, aplicações ou sistemas particulares ficam sob responsabilidade do cliente ou de um profissional contratado.",
+      "Para manter a rede protegida, é importante utilizar senhas fortes, manter os equipamentos atualizados e o firewall ativo. A Leste não se responsabiliza por falhas de segurança causadas por configurações inadequadas em dispositivos particulares.",
+      "Embora seja fixo, o endereço IP poderá ser alterado por necessidade técnica ou operacional, com aviso prévio. O serviço é destinado ao uso próprio, sem permissão para revenda ou compartilhamento da conexão com terceiros.",
+      {
+        "type": "heading",
+        "text": "Como contratar"
+      },
+      {
+        "type": "richParagraph",
+        "parts": [
+          "O adicional está disponível por ",
+          {
+            "text": "R$ 100/mês, sem fidelidade para o serviço",
+            "bold": true
+          },
+          ", para pessoas físicas e empresas que possuem Fibra Leste ativa. A contratação está sujeita à viabilidade técnica e à elegibilidade comercial, e as condições do plano de internet contratado continuam válidas."
+        ]
+      },
+      {
+        "type": "richParagraph",
+        "parts": [
+          "Para solicitar, ",
+          {
+            "text": "fale com a Leste pelo WhatsApp",
+            "href": "https://wa.me/552120201300?text=Ol%C3%A1!%20Preciso%20de%20atendimento%20da%20Leste."
+          },
+          " e informe seu interesse no IPv4 Público. Você também pode consultar o ",
+          {
+            "text": "FAQ da Leste",
+            "href": "/faq?categoria=IPv4+P%C3%BAblico"
+          },
+          " para conhecer todas as condições do serviço."
+        ]
+      }
+    ]
+  },
+  {
     "id": "11",
     "slug": "4-expo-lug-rio-2026",
     "title": "4ª Expo LUG Rio 2026: criatividade e diversão em Niterói!",

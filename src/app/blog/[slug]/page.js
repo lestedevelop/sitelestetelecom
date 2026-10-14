@@ -117,6 +117,44 @@ export default async function BlogPostPage({params}) {
               );
             }
 
+            if (typeof block === "object" && block.type === "richParagraph") {
+              return (
+                <p key={`${block.type}-${index}`} className="mb-6">
+                  {block.parts.map((part, partIndex) => {
+                    if (typeof part === "string") return part;
+
+                    if (!part.href) {
+                      return part.bold ? (
+                        <strong key={partIndex} className="font-bold text-darkgreen">
+                          {part.text}
+                        </strong>
+                      ) : (
+                        part.text
+                      );
+                    }
+
+                    const linkClassName = "font-semibold text-primary underline underline-offset-4";
+
+                    return part.href.startsWith("/") ? (
+                      <Link key={partIndex} href={part.href} className={linkClassName}>
+                        {part.text}
+                      </Link>
+                    ) : (
+                      <a
+                        key={partIndex}
+                        href={part.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClassName}
+                      >
+                        {part.text}
+                      </a>
+                    );
+                  })}
+                </p>
+              );
+            }
+
             if (typeof block === "object" && block.type === "lines") {
               return (
                 <div key={`${block.type}-${index}`} className="mb-7 space-y-1">
