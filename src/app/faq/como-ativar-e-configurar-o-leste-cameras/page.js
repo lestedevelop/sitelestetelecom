@@ -18,19 +18,16 @@ export default function Page() {
             <ol className="list-decimal space-y-2 pl-5">
               <li>Baixe o aplicativo Leste Câmeras na loja do seu dispositivo</li>
               <li>Crie sua conta e faça login seguindo as orientações do app</li>
-              <li>Ligue a câmera e aguarde o LED azul piscando rapidamente</li>
+              <li>Ligue a câmera na tomada e aguarde o LED indicador piscar</li>
               <li>Escaneie o QR Code do manual ou da parte inferior da câmera</li>
-              <li>Selecione a rede Wi-Fi da Leste</li>
-              <li>Configure o fuso horário conforme sua região</li>
-              <li>Altere a senha de criptografia da gravação em nuvem</li>
+              <li>Selecione a sua rede Wi-Fi</li>
+              <li>Configure o fuso horário e altere a senha de criptografia da gravação em nuvem</li>
             </ol>
             <p>Após esses passos, a câmera estará pronta para uso.</p>
           </div>
           <FaqNote>
             <p>
-              Também é possível realizar a ativação com visita técnica paga. O
-              técnico auxilia na ativação, mas não faz instalação física,
-              acabamento, cabeamento ou fixação.
+              Também é possível realizar a ativação com visita técnica assistida mediante taxa. O técnico auxilia na configuração lógica e pareamento, não realizando obras estruturais, alvenaria, cabeamento ou fixação pesada. 
             </p>
           </FaqNote>
         </article>

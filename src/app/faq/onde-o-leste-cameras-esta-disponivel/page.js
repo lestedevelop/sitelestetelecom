@@ -18,13 +18,18 @@ export default function Page() {
             <ul className="list-disc space-y-2 pl-5">
               <li>Niterói</li>
               <li>Maricá</li>
+              <li>Itaboraí</li>
+              <li>São Gonçalo</li>
+              <li>Rio Bonito</li>
+              <li>Tanguá</li>
+              <li>Magé</li>
+              <li>Guapimirim</li>
             </ul>
             <p>O serviço pode ser contratado por clientes residenciais e PME.</p>
           </div>
           <FaqNote>
             <p>
-              A disponibilidade pode variar conforme a rede e a viabilidade
-              técnica do endereço.
+              A disponibilidade pode variar conforme a rede e a viabilidade técnica do endereço (incluindo alcance do sinal Wi-Fi no local onde a câmera será fixada). 
             </p>
           </FaqNote>
         </article>

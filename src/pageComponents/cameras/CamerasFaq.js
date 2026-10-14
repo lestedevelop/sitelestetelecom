@@ -5,12 +5,12 @@ const FAQ_ITEMS = [
   {
     question: "Em quais cidades está disponível?",
     answer:
-      "Por enquanto, o serviço está disponível apenas nas cidades de Niterói e Maricá.\n"
+      "Em Niterói, Maricá, Itaboraí, São Gonçalo, Rio Bonito, Tanguá, Magé e Guapimirim, para clientes residenciais e PME, sujeito à viabilidade técnica do endereço e ao alcance do Wi-Fi.\n"
   },
   {
     question: "Como funciona o processo de ativação?",
     answer:
-      "A instalação pode ser realizada de duas formas: autônoma, seguindo o passo a passo fornecido na retiráda do produto, ou mediante visita técnica (serviço pago, sujeito a cobranças adicionais).",
+      "A ativação pode ser feita de forma autônoma, seguindo o passo a passo, ou por visita técnica (serviço pago, sujeito a cobranças adicionais). O técnico auxilia na configuração e pareamento, sem realizar obras estruturais, alvenaria, cabeamento ou fixação pesada.",
   },
   {
     question: "A Leste consegue acessar meus vídeos?",
@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   {
     question: "Posso usar a câmera com outra internet?",
     answer:
-      "Não. O serviço está disponível apenas enquanto a câmera estiver conectada à rede da Leste.",
+      "Sim, na modalidade avulsa. A Leste não garante a estabilidade da internet de outras operadoras. Nessa modalidade, o suporte presencial para troca ou testes de equipamentos ocorre nas lojas físicas.",
   },
 ];
 
