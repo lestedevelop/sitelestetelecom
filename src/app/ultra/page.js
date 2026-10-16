@@ -13,6 +13,7 @@ import whatsapp from "@/assets/icons/footer/whatsapp.svg";
 import linkedin from "@/assets/icons/footer/linkedin.svg";
 import UltraLeadForm from "@/pageComponents/ultra/UltraLeadForm";
 import BannerHome from "@/pageComponents/home/BannerHome";
+import AppBarNew from "@/components/layout/AppBarNew";
 
 const plans = [
   {speed: "2.5", price: "500"},
@@ -141,6 +142,8 @@ function LogoUltra() {
 
 export default function Ultra() {
   return (
+    <>
+    <AppBarNew/>
     <main className="min-h-screen overflow-hidden bg-[#000806] text-white">
       <BannerHome
         sectionKey="bannerUltra"
@@ -345,5 +348,6 @@ export default function Ultra() {
         </div>
       </section>
     </main>
+    </>
   );
 }
