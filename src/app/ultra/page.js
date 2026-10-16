@@ -145,7 +145,6 @@ export default function Ultra() {
       <BannerHome
         sectionKey="bannerUltra"
         alt="Banner Leste Ultra"
-        className="min-h-[600px] md:min-h-[730px]"
         desktopImageClassName="2xl:object-cover"
         mobileImageClassName="object-cover"
         fallback={<section className="relative min-h-[600px] bg-black md:min-h-[730px]">
