@@ -31,8 +31,6 @@ export default function BannerMovel() {
             fallback={<StaticBannerMovel/>}
             alt="Banner Leste Móvel"
             className="mt-[88px] md:mt-[123px]"
-            desktopImageClassName="2xl:object-cover"
-            mobileImageClassName="object-cover"
         />
     );
 }

@@ -2,7 +2,8 @@
 
 import {Autoplay, Pagination} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
-import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
+import Image from "next/image";
+import TrackedLink from "@/components/links/TrackedLink";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
 
@@ -18,17 +19,32 @@ function getHref(value) {
 
 function BannerSlide({advert, priority, alt, bannerProps}) {
     const image = resolveImageSrc(advert, null);
+    const href = getHref(advert.cta?.href);
+    const label = advert.title || advert.description || alt;
+
+    const content = (
+        <div className={`w-full ${bannerProps.className || ""}`}>
+            <Image
+                src={image}
+                alt={label}
+                width={0}
+                height={0}
+                priority={priority}
+                unoptimized
+                className="block h-auto w-full"
+                sizes="100vw"
+            />
+        </div>
+    );
+
+    if (!href) {
+        return content;
+    }
 
     return (
-        <HomeHeroBanner
-            {...bannerProps}
-            href={getHref(advert.cta?.href)}
-            alt={advert.title || advert.description || alt}
-            priority={priority}
-            desktopImage={image}
-            tabletImage={image}
-            mobileImage={image}
-        />
+        <TrackedLink href={href} className="block w-full" aria-label={label}>
+            {content}
+        </TrackedLink>
     );
 }
 

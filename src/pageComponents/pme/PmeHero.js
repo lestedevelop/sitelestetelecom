@@ -46,9 +46,6 @@ export default function PmeHero() {
       sectionKey="bannerPme"
       fallback={<StaticPmeHero/>}
       alt="Banner PME"
-      className="min-h-[430px] md:min-h-[520px]"
-      desktopImageClassName="2xl:object-cover"
-      mobileImageClassName="object-cover"
     />
   );
 }
