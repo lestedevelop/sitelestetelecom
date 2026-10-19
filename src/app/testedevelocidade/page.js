@@ -5,7 +5,6 @@ import bannerTesteVelocidadeMobile from "@/assets/banner-teste-mobile.png";
 import HomeHeroBanner from "@/pageComponents/home/HomeHeroBanner";
 import {useHomeSections} from "@/hooks/useHomeSections";
 import {resolveImageSrc} from "@/utils/imageSrc";
-import BannerHome from "@/pageComponents/home/BannerHome";
 
 const PREPARATION_STEPS = [
   {
@@ -59,14 +58,6 @@ export default function TesteDeVelocidade() {
 
   return (
     <div className="min-h-full bg-light">
-      <BannerHome
-        sectionKey="testeVelocidadeBanner"
-        alt="Banner da página de teste de velocidade"
-        className="!aspect-[390/608] !h-auto !max-h-none !w-full md:!aspect-auto md:!h-[350px] md:!max-h-none"
-        desktopImageClassName="!object-cover"
-        tabletImageClassName="!object-cover"
-        mobileImageClassName="!object-contain"
-        fallback={
       <section className="w-full">
         <HomeHeroBanner
           alt="Banner da página de teste de velocidade"
@@ -97,8 +88,6 @@ export default function TesteDeVelocidade() {
           </div>
         </HomeHeroBanner>
       </section>
-        }
-      />
 
       <section className="w-full bg-light">
         <div className="container px-8 py-12 md:px-16 md:py-16">
