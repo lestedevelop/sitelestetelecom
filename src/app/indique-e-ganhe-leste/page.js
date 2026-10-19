@@ -55,9 +55,6 @@ export default function IndiqueEGanheLestePage() {
       <BannerHome
         sectionKey="indiqueGanheBanner"
         alt="Banner da página Indique e Ganhe"
-        className="aspect-[390/608] md:aspect-[1024/512] lg:aspect-[1440/400]"
-        desktopImageClassName="2xl:object-cover"
-        mobileImageClassName="object-cover"
         fallback={
           <section className="w-full">
             <IndiqueHeroBanner

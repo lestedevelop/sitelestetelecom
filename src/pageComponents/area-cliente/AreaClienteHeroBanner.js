@@ -17,8 +17,6 @@ export default function AreaClienteHeroBanner() {
         />
       }
       alt="Banner da Área do Cliente"
-      desktopImageClassName="2xl:object-cover"
-      mobileImageClassName="object-cover"
     />
   );
 }
