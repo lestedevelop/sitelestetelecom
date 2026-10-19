@@ -32,9 +32,7 @@ export default function BannerCorporate() {
             sectionKey="bannerCorporate"
             fallback={<StaticBannerCorporate/>}
             alt="Banner Leste Corporate"
-            className="mt-[120px] md:mt-[155px] min-h-[430px] md:min-h-[580px]"
-            desktopImageClassName="2xl:object-cover"
-            mobileImageClassName="object-cover"
+            className="mt-[120px] md:mt-[155px]"
         />
     );
 }

@@ -57,9 +57,6 @@ export default function CamerasHero() {
       sectionKey="bannerCameras"
       fallback={fallback}
       alt="Banner de câmeras"
-      className="aspect-[640/974] max-h-none md:aspect-auto md:min-h-[640px]"
-      mobileImageClassName="object-cover object-center"
-      desktopImageClassName="2xl:object-cover"
     />
   );
 }

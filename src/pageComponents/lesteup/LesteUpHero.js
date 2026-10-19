@@ -106,9 +106,6 @@ export default function LesteUpHero() {
       sectionKey="bannerLesteUp"
       fallback={fallback}
       alt="Banner do Leste Up"
-      className="aspect-[640/835] max-h-none md:aspect-auto md:min-h-[640px]"
-      mobileImageClassName="object-cover object-center"
-      desktopImageClassName="2xl:object-cover"
     />
   );
 }
