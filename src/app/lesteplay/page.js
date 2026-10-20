@@ -2,6 +2,7 @@ import LestePlayHero from "@/pageComponents/lesteplay/LestePlayHero";
 import LestePlayActivation from "@/pageComponents/lesteplay/LestePlayActivation";
 import LestePlayContents from "@/pageComponents/lesteplay/LestePlayContents";
 import LestePlayDevices from "@/pageComponents/lesteplay/LestePlayDevices";
+import LestePlayFaq from "@/pageComponents/lesteplay/LestePlayFaq";
 import LestePlayFinalCta from "@/pageComponents/lesteplay/LestePlayFinalCta";
 import LestePlayHboMax from "@/pageComponents/lesteplay/LestePlayHboMax";
 import LestePlayPlans from "@/pageComponents/lesteplay/LestePlayPlans";
@@ -20,6 +21,7 @@ export default function LestePlayPage() {
       <LestePlayHboMax />
       <LestePlayDevices />
       <LestePlayActivation />
+      <LestePlayFaq />
       <LestePlayFinalCta />
     </div>
   );
