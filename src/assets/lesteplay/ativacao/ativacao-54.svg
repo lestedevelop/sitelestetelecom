@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="113" height="113" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 2699">
+<circle id="Ellipse 7" cx="56.5" cy="56.5" r="56.5" fill="url(#paint0_linear_0_7)"/>
+<g id="Mask group">
+<mask id="mask0_0_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="113" height="113">
+<circle id="Ellipse 6" cx="56.5" cy="56.5" r="56.5" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_7)">
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_7" x1="3.11963" y1="32.8881" x2="124.843" y2="53.5153" gradientUnits="userSpaceOnUse">
+<stop stop-color="#28FFDF"/>
+<stop offset="0.543815" stop-color="#00FFA6"/>
+<stop offset="1" stop-color="#28FFDF"/>
+</linearGradient>
+</defs>
+</svg>
