@@ -2,9 +2,7 @@ import Image from "next/image";
 import TrackedLink from "@/components/links/TrackedLink";
 import planLogo from "@/assets/lesteplay/plano-logo.svg";
 import planDivider from "@/assets/lesteplay/plano-divisor.svg";
-import watchPart1 from "@/assets/lesteplay/watch-parte-1.svg";
-import watchPart2 from "@/assets/lesteplay/watch-parte-2.svg";
-import watchPart3 from "@/assets/lesteplay/watch-parte-3.svg";
+import LestePlayWatchLogo from "@/pageComponents/lesteplay/LestePlayWatchLogo";
 import {LESTE_PLAY_SALES_URL} from "@/pageComponents/lesteplay/lestePlayData";
 
 const NEON_GRADIENT = "linear-gradient(127.65deg, #28ffdf 6.58%, #00ffa6 58.11%, #28ffdf 101.33%)";
@@ -43,16 +41,6 @@ function ChannelCountTile({count}) {
   );
 }
 
-function WatchLogo() {
-  return (
-    <div role="img" aria-label="Streaming by Watch" className="relative h-[0.651em] w-[9.732em]">
-      <Image src={watchPart1} alt="" className="absolute inset-[4.14%_40.27%_0_0] h-[95.86%] w-[59.73%]"/>
-      <Image src={watchPart2} alt="" className="absolute inset-[0_4.12%_0.58%_62.04%] h-[99.42%] w-[33.84%]"/>
-      <Image src={watchPart3} alt="" className="absolute inset-[0.42%_0_78.45%_96.95%] h-[21.13%] w-[3.05%]"/>
-    </div>
-  );
-}
-
 export default function LestePlayPlanCard({plan}) {
   return (
     <article className="flex w-[18.936em] flex-col items-center gap-[1.265em] rounded-[1.845em] bg-[#037258] px-[1.897em] py-[2.529em] text-white">
@@ -74,7 +62,7 @@ export default function LestePlayPlanCard({plan}) {
         ))}
         <ChannelCountTile count={plan.channelCount}/>
       </div>
-      <WatchLogo/>
+      <LestePlayWatchLogo className="h-[0.651em] w-[9.732em]"/>
       <Divider/>
       <div className="flex items-center whitespace-nowrap rounded-[1.437em] bg-[#025b46] px-[1.247em] py-[2.339em] font-semibold leading-none">
         <div className="flex flex-col">

@@ -2,19 +2,20 @@ import Image from "next/image";
 import TrackedLink from "@/components/links/TrackedLink";
 import bannerPhoto from "@/assets/lesteplay/banner-mulher-sofa.webp";
 import logoLestePlay from "@/assets/lesteplay/logo-leste-play.svg";
+import LestePlayShapes from "@/pageComponents/lesteplay/LestePlayShapes";
 import {LESTE_PLAY_SALES_URL} from "@/pageComponents/lesteplay/lestePlayData";
 
 const DESKTOP_SHAPES = [
   {
-    wrapper: "left-[-750px] top-[-128px] h-[849.11px] w-[1548.813px]",
+    wrapper: "left-[calc(var(--lp-x)-750px)] top-[-128px] h-[849.11px] w-[1548.813px]",
     shape: "h-[868.08px] w-[1368.329px] rounded-[167.791px] border-[#008e6e] bg-[rgba(0,75,59,0.2)] shadow-[19.056px_0px_20.397px_0px_rgba(0,52,41,0.2)]",
   },
   {
-    wrapper: "left-[-691.35px] top-[-79.72px] h-[753.165px] w-[1430.331px]",
+    wrapper: "left-[calc(var(--lp-x)-691.35px)] top-[-79.72px] h-[753.165px] w-[1430.331px]",
     shape: "h-[769.991px] w-[1270.241px] rounded-[142.622px] border-[#008e6e] bg-[rgba(0,141,110,0.5)] shadow-[17.645px_0px_17.362px_0px_rgba(0,62,49,0.2)]",
   },
   {
-    wrapper: "left-[-619.81px] top-[-46.91px] h-[657.221px] w-[1311.849px]",
+    wrapper: "left-[calc(var(--lp-x)-619.81px)] top-[-46.91px] h-[657.221px] w-[1311.849px]",
     shape: "h-[671.903px] w-[1172.153px] rounded-[109.064px] border-[#24826f] bg-primary shadow-[19.762px_0px_14.751px_0px_rgba(0,62,49,0.2)]",
   },
 ];
@@ -34,31 +35,21 @@ const MOBILE_SHAPES = [
   },
 ];
 
-function Shapes({shapes, className}) {
-  return shapes.map(({wrapper, shape}) => (
-    <div key={wrapper} aria-hidden="true" className={`pointer-events-none absolute items-center justify-center ${wrapper} ${className}`}>
-      <div className="flex-none -skew-x-12 scale-y-98">
-        <div className={`border border-solid ${shape}`}/>
-      </div>
-    </div>
-  ));
-}
-
 export default function LestePlayHero() {
   return (
-    <section className="relative h-[561px] w-full overflow-hidden bg-primary">
+    <section className="relative h-[561px] w-full overflow-hidden bg-primary [--lp-x:max(0px,calc(50%-720px))]">
       <Image
         src={bannerPhoto}
         alt=""
         priority
         sizes="(min-width: 1024px) 1670px, 240vw"
-        className="absolute left-[-74.4%] top-[154px] h-auto w-[237.8%] max-w-none lg:left-auto lg:right-[-334px] lg:top-[-109px] lg:h-[778px] lg:w-[1670px] lg:object-cover"
+        className="absolute left-[-74.4%] top-[154px] h-auto w-[237.8%] max-w-none lg:left-[calc(50%-616px)] lg:top-[-109px] lg:h-[778px] lg:w-[1670px] lg:object-cover"
       />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[142px] bg-gradient-to-b from-[rgba(0,32,25,0)] to-[#002910] lg:hidden"/>
-      <Shapes shapes={MOBILE_SHAPES} className="flex lg:hidden"/>
-      <Shapes shapes={DESKTOP_SHAPES} className="hidden lg:flex"/>
+      <LestePlayShapes shapes={MOBILE_SHAPES} className="flex lg:hidden"/>
+      <LestePlayShapes shapes={DESKTOP_SHAPES} className="hidden lg:flex"/>
 
-      <div className="relative flex h-full flex-col items-center px-4 pt-[60px] text-center text-white lg:items-start lg:px-[100px] lg:pt-[82px] lg:text-left">
+      <div className="relative flex h-full flex-col items-center px-4 pt-[60px] text-center text-white lg:items-start lg:pl-[calc(var(--lp-x)+100px)] lg:pr-[100px] lg:pt-[82px] lg:text-left">
         <Image
           src={logoLestePlay}
           alt="Leste Play"

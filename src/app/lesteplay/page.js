@@ -1,4 +1,7 @@
 import LestePlayHero from "@/pageComponents/lesteplay/LestePlayHero";
+import LestePlayDevices from "@/pageComponents/lesteplay/LestePlayDevices";
+import LestePlayFinalCta from "@/pageComponents/lesteplay/LestePlayFinalCta";
+import LestePlayHboMax from "@/pageComponents/lesteplay/LestePlayHboMax";
 import LestePlayPlans from "@/pageComponents/lesteplay/LestePlayPlans";
 
 export const metadata = {
@@ -11,6 +14,9 @@ export default function LestePlayPage() {
     <div className="min-h-full bg-white">
       <LestePlayHero />
       <LestePlayPlans />
+      <LestePlayHboMax />
+      <LestePlayDevices />
+      <LestePlayFinalCta />
     </div>
   );
 }
