@@ -46,14 +46,14 @@ export default function LestePlayHboMax() {
         <div aria-hidden="true" className="absolute inset-0" style={{backgroundImage: POSTER_SHADE}}/>
       </div>
 
-      <ul className="relative flex w-full flex-col gap-4 lg:w-auto lg:flex-row lg:gap-6">
+      <ul className="relative flex w-full flex-col gap-4 md:w-auto md:flex-row md:gap-6">
         {HIGHLIGHTS.map(({title, text}) => (
           <li
             key={title}
-            className="flex flex-col gap-4 rounded-2xl bg-[linear-gradient(152.44deg,rgba(2,254,169,0.35)_0.1%,rgba(0,0,0,0.35)_99.9%)] p-8 backdrop-blur-[8.057px] lg:min-h-[209px] lg:w-[200px] lg:gap-6 lg:bg-[linear-gradient(125.33deg,rgba(2,254,169,0.35)_0.1%,rgba(0,0,0,0.35)_99.9%)]"
+            className="flex flex-col gap-4 rounded-2xl bg-[linear-gradient(152.44deg,rgba(2,254,169,0.35)_0.1%,rgba(0,0,0,0.35)_99.9%)] p-8 backdrop-blur-[8.057px] md:min-h-[209px] md:w-[200px] md:gap-6 md:bg-[linear-gradient(125.33deg,rgba(2,254,169,0.35)_0.1%,rgba(0,0,0,0.35)_99.9%)]"
           >
-            <h3 className="text-2xl font-bold leading-[1.05] tracking-[-0.72px] lg:text-[32px] lg:tracking-[-0.96px]">{title}</h3>
-            <p className="text-base leading-[1.1] lg:w-[136px]">{text}</p>
+            <h3 className="text-2xl font-bold leading-[1.05] tracking-[-0.72px] md:text-[32px] md:tracking-[-0.96px]">{title}</h3>
+            <p className="text-base leading-[1.1] md:w-[136px]">{text}</p>
           </li>
         ))}
       </ul>

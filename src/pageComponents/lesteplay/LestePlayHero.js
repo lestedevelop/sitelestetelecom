@@ -43,7 +43,7 @@ export default function LestePlayHero() {
         alt=""
         priority
         sizes="(min-width: 1024px) 1670px, 240vw"
-        className="absolute left-[-74.4%] top-[154px] h-auto w-[237.8%] max-w-none lg:left-[calc(50%-616px)] lg:top-[-109px] lg:h-[778px] lg:w-[1670px] lg:object-cover"
+        className="absolute left-[-74.4%] top-[154px] h-auto w-[237.8%] max-w-none md:left-1/2 md:w-[1023px] md:-translate-x-[53.65%] lg:left-[calc(50%-616px)] lg:translate-x-0 lg:top-[-109px] lg:h-[778px] lg:w-[1670px] lg:object-cover"
       />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[142px] bg-gradient-to-b from-[rgba(0,32,25,0)] to-[#002910] lg:hidden"/>
       <LestePlayShapes shapes={MOBILE_SHAPES} className="flex lg:hidden"/>

@@ -39,33 +39,33 @@ const MOBILE_SHAPES = [
 
 export default function LestePlayFinalCta() {
   return (
-    <section className="relative w-full overflow-hidden rounded-t-[40px] bg-[#037258] px-8 py-[60px] text-white lg:rounded-t-[80px] lg:pl-[calc(var(--lp-x)+100px)] lg:pr-[100px] lg:py-20 [--lp-x:max(0px,calc(50%-720px))]">
+    <section className="relative w-full overflow-hidden rounded-t-[40px] bg-[#037258] px-8 py-[60px] text-white xl:rounded-t-[80px] xl:pl-[calc(var(--lp-x)+100px)] xl:pr-[100px] xl:py-20 [--lp-x:max(0px,calc(50%-720px))]">
       <Image
         src={familyPhoto}
         alt=""
         sizes="(min-width: 1024px) 1126px, 604px"
-        className="absolute left-1/2 top-[211px] h-[337px] w-[604px] max-w-none -translate-x-1/2 object-cover lg:left-[min(calc(100%-965px),calc(var(--lp-x)+475px))] lg:top-[-38.24px] lg:h-auto lg:w-[max(1125.346px,calc(100%-var(--lp-x)-315px))] lg:translate-x-0"
+        className="absolute left-1/2 top-[211px] h-[337px] w-[604px] max-w-none -translate-x-1/2 object-cover md:left-0 md:w-full md:translate-x-0 md:object-top xl:left-[min(calc(100%-965px),calc(var(--lp-x)+475px))] xl:top-[-38.24px] xl:h-auto xl:w-[max(1125.346px,calc(100%-var(--lp-x)-315px))] xl:translate-x-0"
       />
-      <div aria-hidden="true" className="absolute inset-x-0 top-[206px] h-[104px] bg-gradient-to-b from-[#037258] to-[rgba(3,114,88,0)] lg:hidden"/>
-      <div aria-hidden="true" className="absolute inset-x-0 top-[206px] h-[104px] bg-gradient-to-b from-[#037258] to-[rgba(3,114,88,0)] lg:hidden"/>
-      <div aria-hidden="true" className="absolute inset-x-0 top-[427px] h-[121px] bg-gradient-to-t from-[#037258] to-[rgba(3,114,88,0)] lg:hidden"/>
-      <LestePlayShapes shapes={MOBILE_SHAPES} className="flex lg:hidden"/>
-      <LestePlayShapes shapes={DESKTOP_SHAPES} className="hidden lg:flex"/>
+      <div aria-hidden="true" className="absolute inset-x-0 top-[206px] h-[104px] bg-gradient-to-b from-[#037258] to-[rgba(3,114,88,0)] xl:hidden"/>
+      <div aria-hidden="true" className="absolute inset-x-0 top-[206px] h-[104px] bg-gradient-to-b from-[#037258] to-[rgba(3,114,88,0)] xl:hidden"/>
+      <div aria-hidden="true" className="absolute inset-x-0 top-[427px] h-[121px] bg-gradient-to-t from-[#037258] to-[rgba(3,114,88,0)] xl:hidden"/>
+      <LestePlayShapes shapes={MOBILE_SHAPES} className="flex xl:hidden"/>
+      <LestePlayShapes shapes={DESKTOP_SHAPES} className="hidden xl:flex"/>
 
-      <div className="relative mx-auto flex max-w-[326px] flex-col gap-[377px] lg:mx-0 lg:max-w-none lg:gap-[60px]">
-        <div className="flex flex-col items-start gap-8 lg:gap-[60px]">
-          <h2 className="text-[32px] leading-[1.05] lg:w-[561px] lg:text-[64px]">
+      <div className="relative mx-auto flex max-w-[326px] flex-col gap-[377px] xl:mx-0 xl:max-w-none xl:gap-[60px]">
+        <div className="flex flex-col items-start gap-8 xl:gap-[60px]">
+          <h2 className="text-[32px] leading-[1.05] xl:w-[561px] xl:text-[64px]">
             Seu próximo play <strong className="font-bold">começa com a Leste.</strong>
           </h2>
           <TrackedLink
             href={LESTE_PLAY_SALES_URL}
-            className="whitespace-nowrap rounded-full px-6 py-3 text-xl font-bold leading-[1.1] text-[#037258] transition hover:brightness-95 lg:px-8 lg:py-[19px] lg:text-2xl"
+            className="whitespace-nowrap rounded-full px-6 py-3 text-xl font-bold leading-[1.1] text-[#037258] transition hover:brightness-95 xl:px-8 xl:py-[19px] xl:text-2xl"
             style={{backgroundImage: NEON_BUTTON_GRADIENT}}
           >
             Assine agora!
           </TrackedLink>
         </div>
-        <p className="text-center text-sm leading-[1.1] lg:w-[476px] lg:text-left lg:text-base">
+        <p className="text-center text-sm leading-[1.1] xl:w-[476px] xl:text-left xl:text-base">
           Disponibilidade e condições de contratação variam conforme a oferta e a localidade. Conteúdos, canais e funcionalidades variam por plano e podem sofrer alterações ou indisponibilidade sem aviso prévio. Consulte condições em{" "}
           <Link href="/faq?categoria=Leste+Play" className="underline">lestetelecom.com.br/faq</Link>
         </p>
