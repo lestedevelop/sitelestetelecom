@@ -1,4 +1,5 @@
 import LestePlayHero from "@/pageComponents/lesteplay/LestePlayHero";
+import LestePlayContents from "@/pageComponents/lesteplay/LestePlayContents";
 import LestePlayDevices from "@/pageComponents/lesteplay/LestePlayDevices";
 import LestePlayFinalCta from "@/pageComponents/lesteplay/LestePlayFinalCta";
 import LestePlayHboMax from "@/pageComponents/lesteplay/LestePlayHboMax";
@@ -14,6 +15,7 @@ export default function LestePlayPage() {
     <div className="min-h-full bg-white">
       <LestePlayHero />
       <LestePlayPlans />
+      <LestePlayContents />
       <LestePlayHboMax />
       <LestePlayDevices />
       <LestePlayFinalCta />
