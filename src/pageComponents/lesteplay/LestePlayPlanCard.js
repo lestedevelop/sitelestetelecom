@@ -8,22 +8,50 @@ import {LESTE_PLAY_SALES_URL} from "@/pageComponents/lesteplay/lestePlayData";
 const NEON_GRADIENT = "linear-gradient(127.65deg, #28ffdf 6.58%, #00ffa6 58.11%, #28ffdf 101.33%)";
 const TILE_GRADIENT = "linear-gradient(113.42deg, rgba(1,255,167,0.2) 20.4%, rgba(4,172,132,0) 100.08%)";
 const COUNT_GRADIENT = "linear-gradient(126.05deg, rgba(1,255,167,0.2) 19.14%, rgba(4,172,132,0) 80.75%)";
+const COUNT_INNER_GRADIENT = "linear-gradient(126.72deg, rgba(1,255,167,0.2) 19.14%, rgba(4,172,132,0) 80.75%)";
+const TILE_STROKE = "linear-gradient(140.77deg, #03ffa9 21.68%, rgba(24,153,134,0) 96.88%)";
+const LOGO_STROKE = "linear-gradient(141.76deg, #28ffdf 22.09%, rgba(24,153,134,0) 98.12%)";
+const COUNT_STROKE = "linear-gradient(139.81deg, #03ffa9 21.67%, rgba(24,153,134,0) 75.07%)";
+const COUNT_INNER_STROKE = "linear-gradient(140.5deg, #03ffa9 21.74%, rgba(24,153,134,0) 75.01%)";
 
 function Divider() {
   return <Image src={planDivider} alt="" className="h-px w-[15.142em]"/>;
 }
 
+function GradientStroke({width, radius, gradient}) {
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute"
+      style={{
+        inset: `-${width}`,
+        padding: width,
+        borderRadius: `calc(${radius} + ${width})`,
+        backgroundImage: gradient,
+        mask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+        maskComposite: "exclude",
+        WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+        WebkitMaskComposite: "xor",
+      }}
+    />
+  );
+}
+
 function ChannelTile({channel}) {
   return (
-    <div className="relative h-[5.315em] w-[6.725em] rounded-[1.08em] border border-[#03ffa9] backdrop-blur-[7.6px]" style={{backgroundImage: TILE_GRADIENT}}>
-      <div className={`absolute inset-[6.06%_5.18%_6.08%_4.78%] overflow-hidden rounded-[1.206em] border-[1.6px] border-[#28ffdf] ${channel.tile}`}>
-        <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${channel.crop ? "overflow-hidden" : ""} ${channel.logo}`}>
-          <Image
-            src={channel.src}
-            alt={channel.alt}
-            sizes="160px"
-            className={channel.crop ? `absolute max-w-none ${channel.crop}` : "h-full w-full object-cover"}
-          />
+    <div className="relative h-[5.315em] w-[6.725em] rounded-[1.08em] backdrop-blur-[7.6px]" style={{backgroundImage: TILE_GRADIENT}}>
+      <GradientStroke width="0.071em" radius="1.08em" gradient={TILE_STROKE}/>
+      <div className="absolute inset-[6.06%_5.18%_6.08%_4.78%]">
+        <GradientStroke width="0.102em" radius="0.895em" gradient={LOGO_STROKE}/>
+        <div className={`absolute inset-0 overflow-hidden rounded-[0.895em] ${channel.tile}`}>
+          <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${channel.crop ? "overflow-hidden" : ""} ${channel.logo}`}>
+            <Image
+              src={channel.src}
+              alt={channel.alt}
+              sizes="160px"
+              className={channel.crop ? `absolute max-w-none ${channel.crop}` : "h-full w-full object-cover"}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -32,8 +60,10 @@ function ChannelTile({channel}) {
 
 function ChannelCountTile({count}) {
   return (
-    <div className="relative h-[5.315em] w-[6.724em] rounded-[0.569em] border border-[#03ffa9] backdrop-blur-[7.6px]" style={{backgroundImage: COUNT_GRADIENT}}>
-      <div className="absolute inset-[0.61em] flex flex-col items-center justify-center rounded-[0.471em] border border-[#03ffa9]" style={{backgroundImage: COUNT_GRADIENT}}>
+    <div className="relative h-[5.315em] w-[6.724em] rounded-[1.08em] backdrop-blur-[7.6px]" style={{backgroundImage: COUNT_GRADIENT}}>
+      <GradientStroke width="0.071em" radius="1.08em" gradient={COUNT_STROKE}/>
+      <div className="absolute inset-[0.322em_0.348em_0.324em_0.322em] flex flex-col items-center justify-center rounded-[0.895em]" style={{backgroundImage: COUNT_INNER_GRADIENT}}>
+        <GradientStroke width="0.07em" radius="0.895em" gradient={COUNT_INNER_STROKE}/>
         <span className="whitespace-nowrap text-[1.779em] font-bold leading-none tracking-[-0.07em] text-[#28ffdf]">{count}</span>
         <span className="text-[1.055em] font-semibold leading-none tracking-[-0.07em] text-white">canais</span>
       </div>
