@@ -32,6 +32,7 @@ const SERVICES_MENU = [
     {href: "/cameras", label: "Câmeras"},
     {href: "/lesteup", label: "Leste Up"},
     {href: "/ultra", label: "Leste Ultra"},
+    {href: "/lesteplay", label: "Leste Play"},
     {label: "Empresas", children: BUSINESS_MENU},
 ];
 
