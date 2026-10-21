@@ -23,7 +23,7 @@ export default function LestePlayPlans() {
           spaceBetween={15}
           breakpoints={{768: {centeredSlides: false, slidesOffsetBefore: 32, slidesOffsetAfter: 32}}}
           pagination={{clickable: true}}
-          className="w-full [&_.swiper-pagination]:static [&_.swiper-pagination]:mt-8 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1 [&_.swiper-pagination-bullet]:!m-0 [&_.swiper-pagination-bullet]:size-[6.724px] [&_.swiper-pagination-bullet]:bg-[#c2c2c2] [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
+          className="w-full [&_.swiper-pagination]:!static [&_.swiper-pagination]:!mt-8 [&_.swiper-pagination]:flex [&_.swiper-pagination]:justify-center [&_.swiper-pagination]:gap-1 [&_.swiper-pagination-bullet]:!m-0 [&_.swiper-pagination-bullet]:!size-[6.724px] [&_.swiper-pagination-bullet]:!bg-[#c2c2c2] [&_.swiper-pagination-bullet]:!opacity-100 [&_.swiper-pagination-bullet-active]:!bg-primary"
         >
           {LESTE_PLAY_PLANS.map((plan) => (
             <SwiperSlide key={plan.id} className="!w-auto">
