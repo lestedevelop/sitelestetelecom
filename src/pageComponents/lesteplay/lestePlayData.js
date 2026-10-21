@@ -10,7 +10,7 @@ import canalUniversal from "@/assets/lesteplay/canal-universal.svg";
 import canalPremiere from "@/assets/lesteplay/canal-premiere.webp";
 import canalGloob from "@/assets/lesteplay/canal-gloob.webp";
 
-export const LESTE_PLAY_SALES_URL = "https://vendas.lestetelecom.com.br/vendas";
+export const LESTE_PLAY_SALES_URL = "https://bit.ly/48btqna";
 
 const CHANNELS = {
   tvGlobo: {src: canalTvGlobo, alt: "TV Globo", tile: "bg-[#0c28af]", logo: "h-[3.519em] w-[4.956em]"},

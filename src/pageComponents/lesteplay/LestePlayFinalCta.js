@@ -59,6 +59,8 @@ export default function LestePlayFinalCta() {
           </h2>
           <TrackedLink
             href={LESTE_PLAY_SALES_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="whitespace-nowrap rounded-full px-6 py-3 text-xl font-bold leading-[1.1] text-[#037258] transition hover:brightness-95 xl:px-8 xl:py-[19px] xl:text-2xl"
             style={{backgroundImage: NEON_BUTTON_GRADIENT}}
           >

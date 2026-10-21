@@ -63,6 +63,8 @@ export default function LestePlayHero() {
         </p>
         <TrackedLink
           href={LESTE_PLAY_SALES_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="absolute bottom-[60px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-6 py-3 text-2xl font-bold leading-[1.101] text-[#005542] transition hover:bg-light lg:static lg:mt-[56px] lg:translate-x-0 lg:px-8 lg:py-[19px]"
         >
           Assine agora!

@@ -77,6 +77,8 @@ export default function LestePlayPlanCard({plan}) {
       </div>
       <TrackedLink
         href={LESTE_PLAY_SALES_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="rounded-full px-[1.15em] py-[0.6em] text-[1.628em] font-bold leading-[1.1] text-[#007060] transition hover:brightness-95"
         style={{backgroundImage: NEON_GRADIENT}}
       >

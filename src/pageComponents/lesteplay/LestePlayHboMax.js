@@ -62,6 +62,8 @@ export default function LestePlayHboMax() {
 
       <TrackedLink
         href={LESTE_PLAY_SALES_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="relative whitespace-nowrap rounded-full px-6 py-3 text-xl font-bold leading-[1.1] text-black transition hover:brightness-95 lg:px-8 lg:py-[19px] lg:text-2xl"
         style={{backgroundImage: NEON_BUTTON_GRADIENT}}
       >
