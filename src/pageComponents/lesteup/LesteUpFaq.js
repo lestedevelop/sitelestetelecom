@@ -24,9 +24,9 @@ const FAQ_ITEMS = [
       "Não, cada repetidor Mesh precisa de um Leste UP próprio para manter a cobertura.",
   },
   {
-    question: "Em quais cidades será ofertado?",
+    question: "Onde o Leste UP está disponível?",
     answer:
-      "O Leste UP está disponível atualmente para clientes residenciais das cidades de Niterói, Maricá e Rio Bonito.",
+      "O Leste UP está disponível em Niterói, Maricá, Itaboraí, São Gonçalo, Rio Bonito, Tanguá, Magé e Guapimirim, para clientes residenciais com Leste Fibra ativo, mediante consulta de disponibilidade e sujeito a restrições de cobertura.",
   },
   {
     question: "Quais são os valores e a forma de pagamento?",

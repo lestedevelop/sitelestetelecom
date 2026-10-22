@@ -13,6 +13,7 @@ const nextConfig = {
     async redirects() {
         return [
             {source: "/vendas-cadastro-inicial", destination: "/vendas", permanent: false},
+            {source: "/faq-cameras", destination: "/faq?categoria=Leste+Cameras", permanent: false},
         ];
     },
     async rewrites() {

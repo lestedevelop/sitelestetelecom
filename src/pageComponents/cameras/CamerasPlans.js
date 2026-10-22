@@ -158,8 +158,8 @@ export default function CamerasPlans() {
             qualidade e o acesso as imagens dependem da estabilidade do plano de
             internet contratado. O serviço não substitui sistemas profissionais de
             segurança e não garante prevenção contra furtos, roubos ou danos ao
-            imovel. Contrato de fidelidade de 12 meses. Disponivel para clientes
-            das cidades de Niterói/RJ e Marica/RJ. Oferta válida até 30/09/2026.
+            imóvel. Contrato de fidelidade de 12 meses. Sujeito a viabilidade
+            técnica. Oferta válida até 30/09/2026.
             Para consultar o regulamento, termos e condições de uso acesse o FAQ em
             nosso site:{" "}
             <a

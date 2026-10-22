@@ -73,8 +73,7 @@ export default function LesteUpHero() {
               </a>
 
               <p className="max-w-[300px] text-left text-[9px] leading-relaxed text-white/70 md:max-w-[520px] md:text-xs">
-                *O Leste Up é exclusivo para clientes Leste nas cidades de Niterói,
-                Maricá e Rio Bonito. Oferta válida até 30/06/2026. O serviço é
+                *Sujeito a viabilidade técnica. Oferta válida até 31/01/2027. O serviço é
                 autônomo, sem vínculo com a internet fibra. Possui fidelidade de 12 meses.
               </p>
             </div>
@@ -91,8 +90,7 @@ export default function LesteUpHero() {
             </a>
 
             <p className="text-center text-[9px] leading-relaxed text-white/70 md:max-w-[520px] md:text-xs">
-              *O Leste Up é exclusivo para clientes Leste nas cidades de Niterói,
-              Maricá e Rio Bonito. Oferta válida até 30/06/2026. O serviço é
+              *Sujeito a viabilidade técnica. Oferta válida até 31/01/2027. O serviço é
               autônomo, sem vínculo com a internet fibra. Possui fidelidade de 12 meses.
             </p>
           </div>
