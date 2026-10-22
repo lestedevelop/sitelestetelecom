@@ -107,19 +107,6 @@ export default function ComoFuncionaATecnologiaLesteUltraXGSPON() {
                 <li>PTO: R$ 50,00</li>
               </ul>
             </div>
-
-            <p>
-              Mais detalhes:
-              {" "}
-              <a
-                className="text-primary underline underline-offset-2"
-                href="https://www.lestetelecom.com.br/faq-suporte/xgs-pon-leste"
-                target="_blank"
-                rel="noreferrer"
-              >
-                https://www.lestetelecom.com.br/faq-suporte/xgs-pon-leste
-              </a>
-            </p>
           </div>
 
           <FaqNote>

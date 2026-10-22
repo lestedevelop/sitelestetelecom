@@ -298,7 +298,7 @@
     icon: "speed",
     items: [
       { title: "Para quem o Leste Ultra é indicado?", href: "/faq/para-quem-o-leste-ultra-e-indicado" },
-      { title: "Onde o Leste Ultra está disponível?", href: "/faq/onde-o-leste-ultra-esta-disponível" },
+      { title: "Onde o Leste Ultra está disponível?", href: "/faq/onde-o-leste-ultra-esta-disponivel" },
       { title: "O Leste Ultra inclui roteador Wi-Fi?", href: "/faq/o-leste-ultra-inclui-roteador-wi-fi" },
       { title: "Qual o valor da instalação do Leste Ultra?", href: "/faq/qual-o-valor-da-instalacao-do-leste-ultra" },
       { title: "Posso dividir ou revender o plano Leste Ultra?", href: "/faq/posso-dividir-ou-revender-o-plano-leste-ultra" },
