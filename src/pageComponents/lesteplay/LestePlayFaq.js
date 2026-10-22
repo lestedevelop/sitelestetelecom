@@ -48,7 +48,7 @@ export default function LestePlayFaq() {
           const isOpen = openIndex === index;
           const answerId = `duvida-leste-play-${index + 1}`;
           return (
-            <li key={question} className="flex w-full flex-col items-start gap-4 lg:w-fit">
+            <li key={question} className="flex w-full flex-col items-start gap-4">
               <button
                 type="button"
                 aria-expanded={isOpen}
@@ -63,7 +63,7 @@ export default function LestePlayFaq() {
                   className={`h-[7.71px] w-[4.25px] shrink-0 transition-transform lg:h-4 lg:w-[8.83px] ${isOpen ? "-rotate-90" : "rotate-90"}`}
                 />
               </button>
-              <p id={answerId} hidden={!isOpen} className="text-sm leading-[1.2] text-[#005542] lg:w-0 lg:min-w-full lg:text-base">
+              <p id={answerId} hidden={!isOpen} className="text-sm leading-[1.2] text-[#005542] lg:text-base">
                 {answer}
               </p>
             </li>
