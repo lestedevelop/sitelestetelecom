@@ -8,6 +8,9 @@ const nextConfig = {
             {
                 pathname: "/404-leste.jpg",
             },
+            {
+                pathname: "/api/blog/image/**",
+            },
         ],
     },
     async redirects() {

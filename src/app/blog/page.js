@@ -1,19 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import {BLOG_POSTS} from "@/mocks/blogPosts";
+import {formatBlogDate, getBlogPosts} from "@/lib/blog";
 
-function formatDate(date) {
-  const [year, month, day] = date.split("-").map(Number);
+export const dynamic = "force-dynamic";
 
-  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-}
+export default async function BlogPage() {
+  const {posts} = await getBlogPosts();
 
-export default function BlogPage() {
   return (
     <main className="bg-light">
       <div className="container py-12">
@@ -28,15 +22,15 @@ export default function BlogPage() {
         />
 
         <div className="mt-10 space-y-6">
-          {BLOG_POSTS.map((post) => (
+          {posts.map((post) => (
             <article key={post.slug} className="overflow-hidden rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)] md:grid md:grid-cols-[320px_1fr]">
               <Link href={`/blog/${post.slug}`} className="relative block min-h-[220px]">
-                <Image src={post.image} alt={post.title} fill className="object-cover" />
+                <Image src={post.image} alt={post.imageAlt} fill className="object-cover" />
               </Link>
 
               <div className="p-6 md:p-8">
                 <div className="text-sm text-graylight">
-                  {post.category} &gt; {formatDate(post.date)} &gt; {post.readingTime}
+                  {post.category} &gt; {formatBlogDate(post.publishedAt, "short")} &gt; {post.readingTime}
                 </div>
 
                 <Link href={`/blog/${post.slug}`}>

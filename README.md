@@ -51,6 +51,10 @@ Nunca envie os arquivos de ambiente pelo Git nem inclua seus valores reais neste
 | `LESTEPLAY_CHANNELS_SYNC_INTERVAL` | Não | Intervalo da sincronização dos canais da Leste Play, em milissegundos. O padrão é `300000` (5 minutos). |
 | `LESTEPLAY_CHANNELS_IMAGE_DIRECTORY` | Não | Diretório onde as imagens dos canais são armazenadas. O padrão é `public/images/lesteplay/channels` dentro do projeto. |
 | `LESTEPLAY_CHANNELS_SNAPSHOT_PATH` | Não | Caminho do snapshot JSON dos canais. O padrão é `cache/lesteplay-channels.json` dentro do projeto. |
+| `ERP_API_URL` | Não | URL base da API do ERP (SOSZETA) de onde vem o blog, por exemplo `https://sos-homolog.lestetelecom.com.br/api`, sem barra no final. A cada minuto o site consulta `/public/blog/version` e só baixa `/public/blog/snapshot` e as capas quando o conteúdo muda ou um post agendado entra no ar. Sem ela, ou se o ERP nunca respondeu, o blog usa os posts de `src/mocks/blogPosts.json`. Com o ERP fora do ar, continua o último conteúdo baixado. |
+| `BLOG_SYNC_INTERVAL` | Não | Intervalo da sincronização do blog, em milissegundos. O padrão é `60000` (1 minuto). |
+| `BLOG_IMAGE_DIRECTORY` | Não | Diretório onde as capas dos posts são armazenadas. O padrão é `cache/blog/images` dentro do projeto. |
+| `BLOG_SNAPSHOT_PATH` | Não | Caminho do snapshot JSON do blog. O padrão é `cache/blog.json` dentro do projeto. |
 
 `NODE_ENV`, `PORT` e `NEXT_RUNTIME` são variáveis de infraestrutura gerenciadas pelo Next.js/PM2 e não precisam ser adicionadas manualmente ao `.env`. O `ecosystem.config.cjs` já inicia a aplicação em produção na porta `3000`.
 

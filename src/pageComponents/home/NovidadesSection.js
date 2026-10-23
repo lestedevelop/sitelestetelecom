@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { getClientAreaBlogPosts } from "@/mocks/blogPosts";
+import { useBlogNews } from "@/hooks/useBlogNews";
 import { resolveImageSrc } from "@/utils/imageSrc";
 
 function NewsCard({ item }) {
@@ -47,7 +48,9 @@ function NewsCard({ item }) {
 
 export default function NovidadesSection() {
   const swiperRef = useRef(null);
-  const newsCards = getClientAreaBlogPosts();
+  const news = useBlogNews();
+  const isLoading = !news;
+  const newsCards = news?.source === "erp" ? news.posts : isLoading ? [] : getClientAreaBlogPosts();
 
   return (
     <section className="w-full bg-light pb-8 sm:pb-12 lg:pb-24 xl:pb-36">
@@ -91,7 +94,7 @@ export default function NovidadesSection() {
               </div>
             </div>
 
-            <div className="relative min-w-0">
+            <div className={`relative min-w-0 ${isLoading ? "min-h-[598px] lg:min-h-[550px]" : ""}`}>
               <Swiper
                 modules={[Pagination]}
                 onSwiper={(swiper) => {

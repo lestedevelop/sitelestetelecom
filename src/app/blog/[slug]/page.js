@@ -3,25 +3,14 @@ import Link from "next/link";
 import {notFound} from "next/navigation";
 import SupportFooter from "@/pageComponents/faq/SupportFooter";
 import TitleFaq from "@/pageComponents/faq/TitleFaq";
-import {BLOG_POSTS, getBlogPostBySlug, getRecentBlogPosts} from "@/mocks/blogPosts";
+import BlogPostContent from "@/pageComponents/blog/BlogPostContent";
+import {formatBlogDate, getBlogPost} from "@/lib/blog";
 
-function formatDate(date) {
-  const [year, month, day] = date.split("-").map(Number);
-
-  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-}
-
-export function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({slug: post.slug}));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
-  const post = getBlogPostBySlug(slug);
+  const {post} = await getBlogPost(slug);
 
   if (!post) {
     return {
@@ -37,15 +26,9 @@ export async function generateMetadata({params}) {
 
 export default async function BlogPostPage({params}) {
   const {slug} = await params;
-  const post = getBlogPostBySlug(slug);
+  const {post, recentPosts} = await getBlogPost(slug);
 
   if (!post) return notFound();
-
-  const recentPosts = getRecentBlogPosts(post.slug);
-  const isMovelPost = post.slug === "por-que-escolher-o-leste-movel";
-  const isCamerasPost = post.slug === "cameras-inteligentes-em-casa";
-  const isNiteróiPost = post.slug === "internet-mais-rapida-de-niteroi";
-  const lastParagraphIndex = post.content.length - 1;
 
   return (
     <main className="bg-light">
@@ -64,7 +47,7 @@ export default async function BlogPostPage({params}) {
         <div className="mt-6 flex flex-wrap gap-2 text-sm text-graylight">
           <span className="font-semibold text-darkgreen">{post.author}</span>
           <span>&gt;</span>
-          <span>{formatDate(post.date)}</span>
+          <span>{formatBlogDate(post.publishedAt)}</span>
           <span>&gt;</span>
           <span>{post.readingTime}</span>
         </div>
@@ -77,135 +60,14 @@ export default async function BlogPostPage({params}) {
 
         <div className="mt-8 overflow-hidden rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
           <div className="relative aspect-[16/9] w-full">
-            <Image src={post.image} alt={post.title} fill priority className="object-cover" />
+            <Image src={post.image} alt={post.imageAlt} fill priority className="object-cover" />
           </div>
         </div>
 
-        <div className="mt-10 max-w-6xl text-base leading-8 text-dark md:text-lg md:leading-9">
-          {post.content.map((block, index) => {
-            if (typeof block === "object" && block.type === "heading") {
-              return (
-                <h2 key={`${block.type}-${block.text}`} className="mb-5 mt-10 text-2xl font-bold text-primary md:text-3xl">
-                  {block.text}
-                </h2>
-              );
-            }
-
-            if (typeof block === "object" && block.type === "list") {
-              return (
-                <ul key={`${block.type}-${index}`} className="mb-7 list-disc space-y-2 pl-6">
-                  {block.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              );
-            }
-
-            if (typeof block === "object" && block.type === "linkedParagraph") {
-              return (
-                <p key={`${block.type}-${index}`} className="mb-6">
-                  {block.text}{" "}
-                  <a
-                    href={block.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-primary underline underline-offset-4"
-                  >
-                    {block.linkText}
-                  </a>
-                </p>
-              );
-            }
-
-            if (typeof block === "object" && block.type === "richParagraph") {
-              return (
-                <p key={`${block.type}-${index}`} className="mb-6">
-                  {block.parts.map((part, partIndex) => {
-                    if (typeof part === "string") return part;
-
-                    if (!part.href) {
-                      return part.bold ? (
-                        <strong key={partIndex} className="font-bold text-darkgreen">
-                          {part.text}
-                        </strong>
-                      ) : (
-                        part.text
-                      );
-                    }
-
-                    const linkClassName = "font-semibold text-primary underline underline-offset-4";
-
-                    return part.href.startsWith("/") ? (
-                      <Link key={partIndex} href={part.href} className={linkClassName}>
-                        {part.text}
-                      </Link>
-                    ) : (
-                      <a
-                        key={partIndex}
-                        href={part.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClassName}
-                      >
-                        {part.text}
-                      </a>
-                    );
-                  })}
-                </p>
-              );
-            }
-
-            if (typeof block === "object" && block.type === "lines") {
-              return (
-                <div key={`${block.type}-${index}`} className="mb-7 space-y-1">
-                  {block.items.map((item) => (
-                    <p key={item}>{item}</p>
-                  ))}
-                </div>
-              );
-            }
-
-            const paragraph = String(block);
-
-            return (
-              <p key={`${index}-${paragraph}`} className="mb-6">
-                {isMovelPost && index === lastParagraphIndex ? (
-                <a
-                  href="https://www.lestemovel.com.br"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-primary underline underline-offset-4"
-                >
-                  {paragraph}
-                </a>
-              ) : isCamerasPost && index === lastParagraphIndex ? (
-                <Link
-                  href="https://www.lestetelecom.com.br/cameras"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-primary underline underline-offset-4"
-                >
-                  {paragraph}
-                </Link>
-              ) : isNiteróiPost && index === lastParagraphIndex ? (
-                <Link
-                  href="https://www.lestetelecom.com.br/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-primary underline underline-offset-4"
-                >
-                  {paragraph}
-                </Link>
-                ) : (
-                  paragraph
-                )}
-              </p>
-            );
-          })}
-        </div>
+        <BlogPostContent post={post} />
 
         <p className="mt-12 text-sm text-graylight">
-          Última revisão em: {formatDate(post.date)}
+          Última revisão em: {formatBlogDate(post.revisedAt)}
         </p>
       </article>
 
@@ -220,7 +82,7 @@ export default async function BlogPostPage({params}) {
               {recentPosts.map((item) => (
                 <Link key={item.slug} href={`/blog/${item.slug}`} className="group block overflow-hidden rounded-xl border border-graylighter bg-light">
                   <div className="relative aspect-[16/10]">
-                    <Image src={item.image} alt={item.title} fill className="object-cover" />
+                    <Image src={item.image} alt={item.imageAlt} fill className="object-cover" />
                   </div>
                   <div className="p-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/70">

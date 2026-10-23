@@ -3,4 +3,7 @@ export async function register() {
 
     const {startLestePlayChannelsSync} = await import("@/lib/lestePlayChannelsSync.mjs");
     startLestePlayChannelsSync();
+
+    const {startBlogSync} = await import("@/lib/blogSync.mjs");
+    startBlogSync();
 }

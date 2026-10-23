@@ -282,7 +282,15 @@
       "E se a dúvida for trocar de operadora, você pode manter seu número. A portabilidade pode ser feita pelo aplicativo e, em poucos dias, seu número continua o mesmo, sem precisar avisar todo mundo da mudança.",
       "Com o Leste Móvel, você não precisa depender de Wi-Fi para usar o celular fora de casa.",
       "Se faz sentido para você, vale a pena entender qual opção combina melhor com o seu uso.",
-      "Veja os planos e escolha o que faz mais sentido para a sua rotina."
+      {
+        "type": "richParagraph",
+        "parts": [
+          {
+            "text": "Veja os planos e escolha o que faz mais sentido para a sua rotina.",
+            "href": "https://www.lestemovel.com.br"
+          }
+        ]
+      }
     ]
   },
   {
@@ -309,7 +317,15 @@
       "Você pode ver o que aconteceu ao longo do dia ou consultar gravações sempre que precisar.",
       "A ativação também é simples. Pelo aplicativo, você segue um passo a passo e começa a usar sem precisar de configurações complexas.",
       "Se precisar de ajuda, você pode contar com atendimento 24 horas.",
-      "Veja como funciona e comece a usar o Leste Câmeras."
+      {
+        "type": "richParagraph",
+        "parts": [
+          {
+            "text": "Veja como funciona e comece a usar o Leste Câmeras.",
+            "href": "https://www.lestetelecom.com.br/cameras"
+          }
+        ]
+      }
     ]
   },
   {
@@ -338,7 +354,15 @@
       "No fim, escolher uma internet não é apenas comparar promessas.",
       "É entender qual provedor entrega uma conexão consistente, com reconhecimento baseado em dados reais e na experiência de quem já utiliza o serviço na sua região.",
       "Se você está em Niterói e busca uma internet com bom desempenho e avaliações positivas, vale a pena conhecer os planos da Leste e entender qual opção faz mais sentido para o seu uso.",
-      "Consulte a disponibilidade no seu endereço e veja os planos disponíveis."
+      {
+        "type": "richParagraph",
+        "parts": [
+          {
+            "text": "Consulte a disponibilidade no seu endereço e veja os planos disponíveis.",
+            "href": "https://www.lestetelecom.com.br/"
+          }
+        ]
+      }
     ]
   }
 ]

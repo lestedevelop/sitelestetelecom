@@ -20,6 +20,8 @@
 # production
 /build
 /cache/lesteplay-channels.json
+/cache/blog.json
+/cache/blog/
 /public/images/lesteplay/channels/
 
 # misc
